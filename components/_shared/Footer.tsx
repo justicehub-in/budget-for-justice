@@ -1,63 +1,68 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
+const links = [
+  {
+    name: 'About',
+    link: 'https://justicehub.in/about',
+  },
+  {
+    name: 'Contribute Data',
+    link: 'https://justicehub.in/upload',
+  },
+  {
+    name: 'Explore Data',
+    link: 'https://justicehub.in/dataset',
+  },
+  {
+    name: 'Resources',
+    link: 'https://docs.justicehub.in/',
+  },
+  {
+    name: 'Contact',
+    link: 'https://justicehub.in/contact',
+  },
+  {
+    name: 'Subscribe',
+    link: 'https://justicehub.in/feeds/dataset.atom',
+  },
+  {
+    name: 'Terms of Service',
+    link: 'https://docs.google.com/document/d/1EvAQ8PQuNrapM8GK1z5g3YKfwe8-zywWDliE4fRvnPs/preview',
+  },
+  {
+    name: 'Code of Conduct',
+    link: 'https://docs.google.com/document/d/11q5eXXm0qJE6ljtTC39t_5X5XYwoQKh95fsYxExoGlw/preview',
+  },
+  {
+    name: 'Privacy Policy',
+    link: 'https://docs.google.com/document/d/1YtCveTE6f2s429INuj4e8MyViCOex-eoxp5c3TRlEZc/preview',
+  },
+  {
+    name: 'Notice and Feedback Policy',
+    link: 'https://docs.google.com/document/d/1L5ODlOWFbJkZ0cr0rt2DePQD_V3a4pKxNsUdJeOhjhM/preview',
+  },
+  {
+    name: 'CKAN API',
+    link: 'http://docs.ckan.org/en/2.8/api/',
+  },
+];
+
 const Footer = () => {
   return (
     <>
       <footer className="footer">
         <div className="container">
-          <div className="footer__logo">
-            <Image
-              src="/assets/images/cdl.png"
-              width={165}
-              height={165}
-              alt="civicdatalab logo"
-            />
-            <Image
-              src="/assets/images/ocp.png"
-              width={193}
-              height={66}
-              alt="open contracting logo"
-            />
-          </div>
-          <section className="footer__pages">
-            <h2>Other pages</h2>
-            <ul>
-              <li>
-                <Link href="/datasets">
-                  <a>Contracts Data</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/analysis">
-                  <a>Data Analysis</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/stories">
-                  <a>Data Stories</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/datasets">
-                  <a>Forum</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/datasets">
-                  <a>About Us</a>
-                </Link>
-              </li>
-            </ul>
-          </section>
           <section className="footer__contact">
-            <h2>Write to us</h2>
-            <a className="footer__mail" href="mailto:info@civicdatalab.in">
-              info@civicdatalab.in
-            </a>
-
-            <div className="footer__connect">
-              <h2>Connect with us</h2>
+            <h2 className="sr-only">Contact</h2>
+            <div className="footer__contact-logo">
+              <Image
+                src="/assets/images/jh_logo_white.png"
+                width={222}
+                height={40}
+                alt="civicdatalab logo"
+              />
+              <span className="header__divider" />
               <div>
                 <a href="/">
                   <svg
@@ -129,11 +134,48 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-
             <p>
-              Be a part of community discussion by clicking{' '}
-              <a href="/">here</a>
+              Get informed of the latest legal and justice data that make it to
+              our platform.
             </p>
+
+            <a
+              rel="noreferrer noopener"
+              href="https://dataforjustice.substack.com/"
+              className="btn-primary footer__substack"
+            >
+              Join us on Substack
+            </a>
+          </section>
+
+          <section className="footer__pages">
+            <h2>LINKS</h2>
+            <ul>
+              {links.map((link, index) => (
+                <li key={`footerLink-${index}`}>
+                  <Link href={link.link}>
+                    <a>{link.name}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+          <section className="footer__logo">
+            <h2>CREATED BY</h2>
+            <div>
+              <Image
+                src="/assets/images/cdl.png"
+                width={165}
+                height={165}
+                alt="civicdatalab logo"
+              />
+              <Image
+                src="/assets/images/agami.svg"
+                width={193}
+                height={66}
+                alt="open contracting logo"
+              />
+            </div>
           </section>
         </div>
       </footer>
