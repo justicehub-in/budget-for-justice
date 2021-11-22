@@ -2,13 +2,11 @@
 @use '../tools/mixins/media' as media;
 
 @mixin button {
-  padding: 9px 24px;
-  font-size: 14px;
+  padding: 6px 12px;
+  line-height: 1.4;
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
-  line-height: 150%;
-  font-weight: 500;
   transition: background-color 200ms ease;
   display: block;
   width: max-content;
@@ -29,7 +27,7 @@
   border: 1px solid $btn-primary-bg;
 
   &:hover {
-    background-color: lighten($btn-primary-bg, 5);
+    background-color: darken($btn-primary-bg, 10) !important;
   }
 }
 
@@ -38,10 +36,11 @@
 
   border: 1px solid $btn-primary-bg;
   color: $btn-primary-bg;
-  background-color: $btn-primary-text;
+  background-color: none;
 
   &:hover {
-    background-color: darken($btn-primary-text, 10);
+    color: darken($btn-primary-bg, 10);
+    border: 1px solid darken($btn-primary-bg, 10);
   }
 }
 
