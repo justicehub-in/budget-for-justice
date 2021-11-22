@@ -5,14 +5,17 @@ $bg-header: $bg-dark;
 $text-header: $text-dark-high;
 
 // navbar
+$nav-bg: $bg-lightest;
+$nav-bg-2: $bg-darkest; 
+$nav-text: $text-light-high;
 $bg-submenu: $color-teal;
 
 // footer
-$bg-footer: $bg-dark;
+$bg-footer: $color-black;
 $text-footer: $text-dark-high;
 
 // button
-$btn-primary-bg: $bg-darkest;
+$btn-primary-bg: $color-primary;
 $btn-primary-text: $text-dark-high;
 
 $btn-secondary-bg: $color-sapphire;
