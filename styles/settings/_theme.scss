@@ -23,5 +23,5 @@ $btn-secondary-bg: $color-sapphire;
 $btn-secondary-text: $bg-lightest;
 
 // selection
-$selection-bg: lighten($bg-darkest, 60);
-$selection-text: $bg-darkest;
+$selection-bg: lighten($color-primary, 60);
+$selection-text: $color-primary;
