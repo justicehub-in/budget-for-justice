@@ -1,7 +1,3 @@
-What does this implement/fix? Explain your changes.
+What does this implement/fix? If solves any issue, mark it here.
 ---------------------------------------------------
-…
-
-Does this close any currently open issues?
-------------------------------------------
 …

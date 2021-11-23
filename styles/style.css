@@ -85,13 +85,13 @@ button {
 }
 
 ::-moz-selection {
-  color: #045305;
-  background-color: #8ffa91;
+  color: #f65940;
+  background-color: white;
 }
 
 ::selection {
-  color: #045305;
-  background-color: #8ffa91;
+  color: #f65940;
+  background-color: white;
 }
 
 :root {
@@ -1236,8 +1236,8 @@ button {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 .footer .container > * {
   width: 33%;
