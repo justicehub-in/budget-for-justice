@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Modal from 'react-modal';
+// import Hamburger from 'public/assets/icons/hamburger.svg';
 Modal.setAppElement('#__next');
 
 const navName = 'Justice Hub';
@@ -173,7 +174,9 @@ const Nav: React.FC = () => {
             aria-label="Expand navigation"
             onClick={mobileNavHandler}
           >
-            <svg
+            <span className="sr-only">Menu</span>
+            {/* <Hamburger /> */}
+            {/* <svg
               className="fill-current"
               width="20"
               height="20"
@@ -181,9 +184,8 @@ const Nav: React.FC = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="#f65940"
             >
-              <title>Menu</title>
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-            </svg>
+            </svg> */}
           </button>
 
           <div className="header__brand">
