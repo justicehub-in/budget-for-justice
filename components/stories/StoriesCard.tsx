@@ -9,20 +9,21 @@ function getDate(time: string) {
   const getOrdinal = function (d: number) {
     let type: string;
     if (d > 3 && d < 21) type = 'th';
-    switch (d % 10) {
-      case 1:
-        type = 'st';
-        break;
-      case 2:
-        type = 'nd';
-        break;
-      case 3:
-        type = 'rd';
-        break;
-      default:
-        type = 'th';
-        break;
-    }
+    else
+      switch (d % 10) {
+        case 1:
+          type = 'st';
+          break;
+        case 2:
+          type = 'nd';
+          break;
+        case 3:
+          type = 'rd';
+          break;
+        default:
+          type = 'th';
+          break;
+      }
     return `${d}${type}`;
   };
 
