@@ -2345,6 +2345,11 @@ button {
 .home__discussion {
   margin-top: 3rem;
 }
+.home__discussion footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
 .home__forum {
   margin-top: 2rem;
 }
@@ -2394,6 +2399,46 @@ button {
   font-size: 14px;
   font-weight: normal;
   vertical-align: middle;
+}
+.home__featured-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+@media screen and (max-width: 719px) {
+  .home__featured-item {
+    justify-content: center;
+  }
+}
+.home__featured-item section {
+  width: 32%;
+  border: 1px solid #545454;
+  padding: 1rem;
+  background-color: white;
+}
+@media screen and (max-width: 719px) {
+  .home__featured-item section {
+    width: 100%;
+  }
+  .home__featured-item section:first-of-type {
+    margin-bottom: 2rem;
+  }
+}
+.home__featured-item h2 {
+  font-weight: bold;
+  border-bottom: 1px solid #d0d0d3;
+  padding-bottom: 1rem;
+}
+.home__featured-item p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 156%;
+  margin-top: 0.6rem;
+}
+.home__featured-item footer {
+  margin-top: 1rem;
+  display: block;
 }
 
 .datasets__wrapper {

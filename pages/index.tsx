@@ -198,7 +198,7 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = ({
 
           <div className="home__forum">
             {forumData.length > 0 &&
-              forumData.map((post, index) => (
+              forumData.map((post: any, index: number) => (
                 <article key={`forumPost-${index}`}>
                   <div>
                     <h3>
@@ -226,6 +226,61 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = ({
                   </aside>
                 </article>
               ))}
+          </div>
+          <footer>
+            <a
+              rel="nofollow noreferrer"
+              className="btn-primary"
+              href="https://forum.justicehub.in"
+            >
+              Open Forum
+            </a>
+          </footer>
+        </section>
+
+        <section className="home__featured container">
+          <h2 className="home__heading">Featured News &amp; Stories</h2>
+          <p className="home__sub-head">
+            Everything you need to analyse the data more efficiently
+          </p>
+
+          <div className="home__featured-item">
+            <section>
+              <h2 className="">
+                Title for the published news and placeholder for all others
+              </h2>
+
+              <p>
+                Data analysis feature helps you view, analyze and use the
+                procurement data of Assam. See stories and post done using this
+                dataset. You can also contribute your own story
+              </p>
+              <footer className="">Times of India</footer>
+            </section>
+            <section>
+              <h2 className="">
+                Title for the published news and placeholder for all others
+              </h2>
+
+              <p>
+                Data analysis feature helps you view, analyze and use the
+                procurement data of Assam. See stories and post done using this
+                dataset. You can also contribute your own story
+              </p>
+              <footer className="">The Hindi</footer>
+            </section>
+            <section>
+              <h2 className="">
+                Title for the published news and placeholder for all others
+              </h2>
+
+              <p>
+                Data analysis feature helps you view, analyze and use the
+                procurement data of Assam. See stories and post done using this
+                dataset. You can also contribute your own story
+              </p>
+              <footer className="">Live Law</footer>
+            </section>
           </div>
         </section>
       </main>
