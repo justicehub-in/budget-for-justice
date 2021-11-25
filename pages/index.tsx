@@ -11,8 +11,6 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = ({
   forumData,
 }) => {
   const { t } = useTranslation();
-  console.log(forumData);
-
   // return post time in required format
   function getDate(time: string) {
     // ordinal suffix for date
@@ -50,30 +48,6 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="home">
-        {/* <div className="home__header">
-          <div className="container">
-            <figure>
-              <img src="/assets/icons/home-india.svg" alt="" />
-            </figure>
-            <section>
-              <h2>{t(`common:title`)}</h2>
-              <p>
-                It is a tool where citizens can not only explore the State’s
-                Public Procurements data but also analyse and see how such
-                datasets can be used for the betterment of government
-                processes.
-                <br />
-                <br />
-                The data that we have here is contributed by the finance
-                department, the government of Assam.
-              </p>
-              <a href="/" className="btn-primary-invert">
-                Call to action
-              </a>
-            </section>
-          </div>
-        </div> */}
-
         <Carousel />
 
         <section className="home__datasets">
@@ -190,7 +164,7 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = ({
 
         <section className="home__discussion container">
           <h2 className="home__heading">
-            Popular communit discussion threads
+            Popular community discussion threads
           </h2>
           <p className="home__sub-head">
             Everything you need to analyse the data more efficiently
@@ -202,25 +176,25 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = ({
                 <article key={`forumPost-${index}`}>
                   <div>
                     <h3>
-                      <a href="">{post.title}</a>
+                      <a href={`https://forum.justicehub.in/t/${post.slug}`}>
+                        {post.title}
+                      </a>
                     </h3>
                     <div>
                       updated by {post.last_poster_username} -{' '}
-                      <time dateTime="true">
-                        {getDate(post.last_posted_at)}
-                      </time>
+                      <time dateTime="true">{getDate(post.bumped_at)}</time>
                     </div>
                   </div>
                   <aside>
                     <ul>
                       <li>
-                        <b>7</b> views
+                        <b>{post.views}</b> views
                       </li>
                       <li>
-                        <b>4</b> comments
+                        <b>{post.posts_count - 1}</b> comments
                       </li>
                       <li>
-                        <b>4</b> likes
+                        <b>{post.like_count}</b> likes
                       </li>
                     </ul>
                   </aside>
