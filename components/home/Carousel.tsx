@@ -72,7 +72,7 @@ const Carousel = () => {
   }
 
   return (
-    <section className="carousel">
+    <div className="carousel">
       <div className="container">
         <button
           className="carousel__prev"
@@ -152,7 +152,7 @@ const Carousel = () => {
           })}
         </ul>
       </div>
-    </section>
+    </div>
   );
 };
 

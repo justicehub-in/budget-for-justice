@@ -2353,12 +2353,11 @@ button {
 .home__impact {
   margin-top: 3rem;
   background-color: #f17777;
-  height: 50vh;
-  padding-top: 12rem;
+  height: 100;
+  padding-bottom: 10rem;
 }
 .home__impact .carousel {
   background-color: transparent;
-  margin-top: -5rem;
 }
 .home__collab {
   margin-top: -5rem;

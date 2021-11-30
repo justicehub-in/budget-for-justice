@@ -230,9 +230,9 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
           </div>
         </section>
 
-        <div className="home__impact">
+        <section className="home__impact">
           <Carousel />
-        </div>
+        </section>
 
         <section className="home__collab container">
           <div className="wrapper">
