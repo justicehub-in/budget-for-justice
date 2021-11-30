@@ -2248,28 +2248,6 @@ button {
   font-weight: 500;
   margin-top: 0.7rem;
 }
-.home__datasets {
-  padding: 5rem 0;
-  background-color: #ebf0ff;
-}
-.home__datasets ul {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 4rem;
-}
-.home__datasets li {
-  text-align: center;
-}
-.home__datasets li p {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-.home__datasets li p:last-child {
-  font-size: 1.1rem;
-  font-weight: normal;
-  margin-top: 1rem;
-}
 .home__goals {
   margin-top: 3rem;
 }
@@ -2289,31 +2267,87 @@ button {
 }
 .home__impact {
   background-color: #f17777;
-  margin-top: -10rem;
   height: 50vh;
   padding-top: 12rem;
 }
+.home .carousel {
+  background-color: transparent;
+  margin-top: -5rem;
+}
+.home__scheme {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+}
+.home__scheme #schemeSelector {
+  flex-grow: 1;
+  border-right: 1px solid #adadad;
+  padding-right: 2rem;
+}
+.home__scheme #schemeSelector a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  line-height: 1.5;
+  color: #adadad;
+}
+.home__scheme #schemeSelector a[aria-selected=true] {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 500;
+  font-size: 2rem;
+}
+.home__scheme-content {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: 80%;
+}
+.home__scheme section {
+  display: flex;
+  gap: 1.5rem;
+}
+.home__scheme section > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.home__scheme h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.home__scheme p {
+  line-height: 1.5;
+}
+.home__scheme-insights {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.home__scheme-insights li {
+  border-left: 1px solid #adadad;
+  padding-left: 1rem;
+  line-height: 1.5;
+}
+@media screen and (max-width: 979px) {
+  .home__scheme img {
+    display: none;
+  }
+}
 .home__collab {
-  margin-top: -10rem;
+  margin-top: -5rem;
 }
 .home__collab .wrapper {
   background-color: white;
   border: 1px solid #000;
   padding: 2rem;
 }
-.home__collab ul {
-  margin-top: 2rem;
+.home__collab-links {
   display: flex;
-  flex-wrap: wrap;
+  margin-top: 1rem;
   gap: 1rem;
-  width: 80%;
-}
-.home__collab p {
-  margin-top: 2rem;
 }
 .home__collab a {
   text-decoration: none;
-  color: #f65940;
 }
 .home__explore {
   margin-top: 3rem;
@@ -2421,17 +2455,17 @@ button {
   font-weight: normal;
   vertical-align: middle;
 }
-.home__featured {
+.home__news {
   margin-top: 3rem;
   display: flex;
   flex-direction: column;
 }
-.home__featured footer {
+.home__news footer {
   margin-top: 1rem;
   display: block;
   align-self: flex-end;
 }
-.home__featured-item {
+.home__news-item {
   display: grid;
   gap: 1rem;
   flex-wrap: wrap;
@@ -2439,32 +2473,43 @@ button {
   margin-top: 1.5rem;
 }
 @supports (width: min(250px, 100%)) {
-  .home__featured-item {
+  .home__news-item {
     grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   }
 }
 @media screen and (max-width: 719px) {
-  .home__featured-item {
+  .home__news-item {
     justify-content: center;
   }
 }
-.home__featured-item section {
+.home__news-item section {
   border: 1px solid #545454;
   padding: 1rem;
   background-color: white;
 }
-.home__featured-item h2 {
+.home__news-item img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.home__news-item small {
+  margin-top: 0.5rem;
+  display: block;
+}
+.home__news-item h2 {
   font-weight: bold;
   border-bottom: 1px solid #d0d0d3;
   padding-bottom: 1rem;
+  line-height: 1.5;
+  margin-top: 0.3rem;
 }
-.home__featured-item p {
+.home__news-item p {
   font-weight: 500;
   font-size: 16px;
   line-height: 156%;
   margin-top: 0.6rem;
 }
-.home__featured-item footer {
+.home__news-item footer {
   margin-top: 1rem;
   display: block;
 }
