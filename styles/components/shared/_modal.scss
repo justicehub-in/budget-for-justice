@@ -138,7 +138,7 @@
     }
   }
 
-  @include media.narrowerThan('sprout') {
+  @include media.narrowerThan('plant') {
     top: initial;
     left: initial;
     bottom: 0;

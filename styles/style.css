@@ -353,7 +353,7 @@ template {
 
 body {
   --site-border: 0.5em;
-  font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   transition: background-color var(--base-animation-duration) var(--base-easing);
   background-color: #f2f2f2;
   color: rgba(0, 0, 0, 0.87);
@@ -398,13 +398,11 @@ button {
 }
 
 .btn-primary {
-  padding: 9px 24px;
-  font-size: 14px;
+  padding: 6px 12px;
+  line-height: 1.4;
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
-  line-height: 150%;
-  font-weight: 500;
   transition: background-color 200ms ease;
   display: block;
   width: -webkit-max-content;
@@ -423,17 +421,15 @@ button {
   margin-right: 1rem;
 }
 .btn-primary:hover {
-  background-color: #f76e58;
+  background-color: #f42f0f !important;
 }
 
 .btn-primary-invert {
-  padding: 9px 24px;
-  font-size: 14px;
+  padding: 6px 12px;
+  line-height: 1.4;
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
-  line-height: 150%;
-  font-weight: 500;
   transition: background-color 200ms ease;
   display: block;
   width: -webkit-max-content;
@@ -441,7 +437,7 @@ button {
   width: max-content;
   border: 1px solid #f65940;
   color: #f65940;
-  background-color: #fdfcfc;
+  background-color: none;
 }
 @media screen and (max-width: 979px) {
   .btn-primary-invert {
@@ -452,17 +448,16 @@ button {
   margin-right: 1rem;
 }
 .btn-primary-invert:hover {
-  background-color: #ecdada;
+  color: #f42f0f;
+  border: 1px solid #f42f0f;
 }
 
 .btn-secondary {
-  padding: 9px 24px;
-  font-size: 14px;
+  padding: 6px 12px;
+  line-height: 1.4;
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
-  line-height: 150%;
-  font-weight: 500;
   transition: background-color 200ms ease;
   display: block;
   width: -webkit-max-content;
@@ -485,13 +480,11 @@ button {
 }
 
 .btn-secondary-invert {
-  padding: 9px 24px;
-  font-size: 14px;
+  padding: 6px 12px;
+  line-height: 1.4;
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
-  line-height: 150%;
-  font-weight: 500;
   transition: background-color 200ms ease;
   display: block;
   width: -webkit-max-content;
@@ -628,7 +621,6 @@ button {
 }
 
 .carousel {
-  margin-top: 5rem;
   padding: 75px 0 60px;
   background-color: #fdfcfc;
 }
@@ -1477,7 +1469,7 @@ button {
   font-size: 14px;
   padding: 6px;
 }
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 1199px) {
   .dialog {
     top: initial;
     left: initial;
@@ -1501,28 +1493,28 @@ button {
     padding-bottom: 0;
   }
 }
-@media screen and (max-width: 979px) and (max-width: 479px) {
+@media screen and (max-width: 1199px) and (max-width: 479px) {
   .dialog--menu {
     width: 248px;
   }
 }
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 1199px) {
   .dialog--menu.ReactModal__Content {
     transform: translateX(-100%) translateY(0);
     transition: transform 200ms cubic-bezier(0.6, 0.05, 0.28, 0.91);
   }
 }
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 1199px) {
   .dialog--menu.ReactModal__Content--after-open {
     transform: translateX(0);
   }
 }
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 1199px) {
   .dialog--menu.ReactModal__Content--before-close {
     transform: translateX(-100%) translateY(0);
   }
 }
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 1199px) {
   .dialog--download .dialog__header {
     padding: 1.5rem 2rem;
   }
@@ -1530,7 +1522,7 @@ button {
     padding: 0 2rem 2rem;
   }
 }
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 1199px) {
   .dialog__header {
     padding: 1.5rem 1rem;
   }
@@ -1538,7 +1530,7 @@ button {
     padding: 1rem;
   }
 }
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 1199px) {
   .dialog__body {
     padding: 0 1rem 2rem;
     border-bottom: 2px solid #f1eef1;
