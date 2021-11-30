@@ -303,15 +303,6 @@ export const getServerSideProps: GetServerSideProps = async ({
   locale,
   locales,
 }) => {
-  const apolloClient = initializeApollo();
-
-  await apolloClient.query({
-    query: SEARCH_QUERY,
-    variables: {
-      sort: 'metadata_created desc',
-      rows: 3,
-    },
-  });
 
   const forumDataFetch = await fetch(
     'https://forum.justicehub.in/latest.json'
@@ -321,7 +312,6 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   return {
     props: {
-      initialApolloState: apolloClient.cache.extract(),
       _ns: await loadNamespaces(['common'], locale),
       locale,
       locales,
