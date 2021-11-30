@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { initializeApollo } from '../lib/apolloClient';
@@ -6,40 +7,135 @@ import Carousel from 'components/home/Carousel';
 import { SEARCH_QUERY } from '../graphql/queries';
 import { loadNamespaces } from './_app';
 import useTranslation from 'next-translate/useTranslation';
+// import { fromPairs } from 'lodash';
+import { tabbedInterface } from 'utils/index';
 
-const Home: React.FC<{ locale: any; locales: any; forumData: any }> = ({
-  forumData,
-}) => {
+const schemeList = [
+  {
+    selector: '01',
+    header: 'Scheme 1',
+    desc: 'Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crows nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.',
+    insights: [
+      {
+        item: 'Women Beneficiaries',
+        value: '5,00,000+',
+      },
+      {
+        item: 'District Covered',
+        value: '250+',
+      },
+      {
+        item: 'Women Beneficiaries',
+        value: '5,00,000+',
+      },
+    ],
+    link: '/',
+  },
+  {
+    selector: '02',
+    header: 'Scheme 2',
+    desc: 'Pinnace holystone mizzenmast quarter crows nest nipperkin Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.',
+    insights: [
+      {
+        item: 'Women Beneficiaries',
+        value: '4,00,000+',
+      },
+      {
+        item: 'District Covered',
+        value: '210+',
+      },
+      {
+        item: 'Women Beneficiaries',
+        value: '2,00,000+',
+      },
+    ],
+    link: '/',
+  },
+  {
+    selector: '03',
+    header: 'Scheme 3',
+    desc: 'nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters. Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crows.',
+    insights: [
+      {
+        item: 'Women Beneficiaries',
+        value: '3,00,000+',
+      },
+      {
+        item: 'District Covered',
+        value: '220+',
+      },
+      {
+        item: 'Women Beneficiaries',
+        value: '1,00,000+',
+      },
+    ],
+    link: '/',
+  },
+];
+
+const allNews = [
+  {
+    heading: 'Title for the published news and placeholder for all others',
+    para: 'Data analysis feature helps you view, analyze and use the procurement \
+    data of Assam. See stories and post done using this dataset. You can also \
+    contribute your own story',
+    publisher: 'Times of India',
+    tag: 'Data for Justice',
+    image: '',
+    link: '',
+  },
+  {
+    heading: 'Title for the published news and placeholder for all others',
+    para: 'Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story',
+    publisher: 'The Hindu',
+    tag: 'Data for Justice',
+    image: '',
+    link: '',
+  },
+  {
+    heading: 'Title for the published news and placeholder for all others',
+    para: 'Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story',
+    publisher: 'Live Law',
+    tag: 'Data for Justice',
+    image: '',
+    link: '',
+  },
+  {
+    heading: 'Title for the published news and placeholder for all others',
+    para: 'Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story',
+    publisher: 'The Hindu',
+    tag: 'Data for Justice',
+    image: '',
+    link: '',
+  },
+  {
+    heading: 'Title for the published news and placeholder for all others',
+    para: 'Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story',
+    publisher: 'Live Law',
+    tag: 'Data for Justice',
+    image: '',
+    link: '',
+  },
+  {
+    heading: 'Title for the published news and placeholder for all others',
+    para: 'Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story',
+    publisher: 'Times of India',
+    tag: 'Data for Justice',
+    image: '',
+    link: '',
+  },
+];
+
+const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
+  useEffect(() => {
+    // create tabbed interface
+    const tablist = document.getElementById('schemeSelector');
+    const panels = document.querySelectorAll(
+      '.home__scheme [role="tabpanel"]'
+    );
+    if (tablist) tabbedInterface(tablist, panels);
+  }, []);
   const { t } = useTranslation();
-  // return post time in required format
-  function getDate(time: string) {
-    // ordinal suffix for date
-    const getOrdinal = function (d: number) {
-      let type: string;
-      if (d > 3 && d < 21) type = 'th';
-      else
-        switch (d % 10) {
-          case 1:
-            type = 'st';
-            break;
-          case 2:
-            type = 'nd';
-            break;
-          case 3:
-            type = 'rd';
-            break;
-          default:
-            type = 'th';
-            break;
-        }
-      return `${d}${type}`;
-    };
-
-    const dt = new Date(time);
-    const date = getOrdinal(dt.getDate());
-    const month = dt.toLocaleString('default', { month: 'short' });
-    return `${date} ${month}`;
-  }
 
   return (
     <>
@@ -48,250 +144,145 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="home">
-        <Carousel />
-
-        <section className="home__datasets">
-          <div className="container">
-            <h2 className="sr-only">Datasets Info</h2>
+        <section className="home__know container">
+          <div className="wrapper">
+            <h2>Did you know?</h2>
             <ul>
+              <li>Some interesting insight drawn from the available data.</li>
               <li>
-                <p>25+</p>
-                <p>Schemes</p>
+                This book is a treatise on the theory of ethics, a very popular
+                but during the Renaissance.
               </li>
               <li>
-                <p>255+</p>
-                <p>Indicators</p>
-              </li>
-              <li>
-                <p>12%</p>
-                <p>Budget Covered</p>
-              </li>
-              <li>
-                <p>500+</p>
-                <p>Contributors</p>
-              </li>
-              <li>
-                <p>2,00,000</p>
-                <p>Active Users</p>
+                Contrary to popular belief, Lorem Ipsum is not simply random
+                text.
               </li>
             </ul>
           </div>
         </section>
-
-        {/* <HomeSearch /> */}
-        {/* <Carousel /> */}
-
-        <section className="home__goals">
-          <div className="container">
-            <h2 className="home__heading">Our end goals</h2>
-            <p className="home__sub-head">
-              Everything you need to analyse the data more efficiently
-            </p>
-            <ul>
-              <li>Demystifying the Budget Data for L&#38;J Sector</li>
-              <li>Demystifying the Budget Data for L&#38;J Sector</li>
-              <li>Demystifying the Budget Data for L&#38;J Sector</li>
-            </ul>
+        <section className="home__video container">
+          <div className="home__video-item">
+            <img
+              src={`https://placekitten.com/640/350`}
+              alt=""
+              width="640"
+              height="350"
+            />
+          </div>
+          <div className="home__video-desc">
+            <h2 className="home__heading">Hello Citizens!</h2>
+            <p>{schemeList[0].desc}</p>
+          </div>
+        </section>
+        <section className="home__scheme container">
+          <h2 className="sr-only">Schemes Insight</h2>
+          <ul id="schemeSelector" role="tablist">
+            {schemeList.map((scheme: any, index: number) => (
+              <li role="presentation" key={`schemeSelector-${index}`}>
+                <a
+                  role="tab"
+                  tabIndex={-1}
+                  href={`#scheme-${scheme.selector}`}
+                  data-id={`scheme-${scheme.selector}`}
+                  id={`schemeNews${index}`}
+                >
+                  {scheme.selector}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="home__scheme-content">
+            {schemeList.map((scheme: any, index: number) => (
+              <section
+                key={`scheme-news-${index}`}
+                id={`scheme-${scheme.selector}`}
+                role="tabpanel"
+                tabIndex={-1}
+                aria-labelledby={`schemeNews${index}`}
+              >
+                <div>
+                  <h3>{scheme.header}</h3>
+                  <p>{scheme.desc}</p>
+                  <ul className="home__scheme-insights">
+                    {scheme.insights.map((insight: any, index2: number) => (
+                      <li key={`indicator-${index}+${index2}`}>
+                        <strong>{insight.value}</strong>
+                        <p>{insight.item}</p>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    rel="nofollow noreferrer"
+                    className="btn-primary-invert"
+                    href={scheme.link}
+                  >
+                    Explore Scheme
+                  </a>
+                </div>
+                <img
+                  src={`https://placekitten.com/240/30${index}`}
+                  alt=""
+                  width="240"
+                  height="300"
+                />
+              </section>
+            ))}
           </div>
         </section>
 
-        <section className="home__impact">
-          <div className="container">
-            <h2 className="home__heading">We can help you make an impact</h2>
-            <p className="home__sub-head">
-              Everything you need to analyse the data more efficiently
-            </p>
-          </div>
-        </section>
+        <div className="home__impact">
+          <Carousel />
+        </div>
 
         <section className="home__collab container">
           <div className="wrapper">
             <h2 className="home__heading">
-              Lets come together &#38; create something that leaves an impact!
-            </h2>
-            <ul>
-              <li>Collaboratively create the recommendation</li>
-              <li>Collaboratively create the recommendation</li>
-              <li>Collaboratively create the recommendation</li>
-              <li>Collaboratively create the recommendation</li>
-            </ul>
-            <p>
-              For more information connect us at{' '}
-              <a href="mailto:collaborate@civicdatalab.in">
-                collaborate@civicdatalab.in
-              </a>
-            </p>
-          </div>
-        </section>
-
-        <section className="home__explore">
-          <div className="container">
-            <h2 className="home__heading">
-              Explore the Budget Data for Law &#38; Justice
+              Explore the budget &#38; and tell your own story
             </h2>
             <p className="home__sub-head">
               Everything you need to analyse the data more efficiently
             </p>
-
-            <div className="home__explore-posts">
-              <section>
-                <img src="/assets/icons/analysis.jpg" alt="" />
-                <h2 className="">Data Analysis</h2>
-
-                <p>
-                  Data analysis feature helps you view, analyze and use the
-                  procurement data of Assam
-                </p>
-                <a className="" href="/analysis">
-                  View Data Analysis
-                </a>
-              </section>
-              <section>
-                <img src="/assets/icons/stories.jpg" alt="" />
-                <h2 className="">Data Stories</h2>
-
-                <p>
-                  See stories and post done using this dataset. You can also
-                  contribute your own story
-                </p>
-                <a className="" href="/stories">
-                  View Data Stories
-                </a>
-              </section>
+            <div className="home__collab-links">
+              <a
+                rel="nofollow noreferrer"
+                className="btn-primary"
+                href="https://forum.justicehub.in"
+              >
+                Explore Now
+              </a>
+              <a
+                rel="nofollow noreferrer"
+                className="btn-primary-invert"
+                href="https://forum.justicehub.in"
+              >
+                Raw Datasets
+              </a>
             </div>
           </div>
         </section>
 
-        {/* forum integerated section */}
-        {/* <section className="home__discussion container">
-          <h2 className="home__heading">
-            Popular community discussion threads
-          </h2>
-          <p className="home__sub-head">
-            Everything you need to analyse the data more efficiently
-          </p>
-
-          <div className="home__forum">
-            {forumData.length > 0 &&
-              forumData.map((post: any, index: number) => (
-                <article key={`forumPost-${index}`}>
-                  <div>
-                    <h3>
-                      <a href={`https://forum.justicehub.in/t/${post.slug}`}>
-                        {post.title}
-                      </a>
-                    </h3>
-                    <div>
-                      updated by {post.last_poster_username} -{' '}
-                      <time dateTime="true">{getDate(post.bumped_at)}</time>
-                    </div>
-                  </div>
-                  <aside>
-                    <ul>
-                      <li>
-                        <b>{post.views}</b> views
-                      </li>
-                      <li>
-                        <b>{post.posts_count - 1}</b> comments
-                      </li>
-                      <li>
-                        <b>{post.like_count}</b> likes
-                      </li>
-                    </ul>
-                  </aside>
-                </article>
-              ))}
-          </div>
-          <footer>
-            <a
-              rel="nofollow noreferrer"
-              className="btn-primary"
-              href="https://forum.justicehub.in"
-            >
-              Open Forum
-            </a>
-          </footer>
-        </section> */}
-
-        <section className="home__featured container">
+        <section className="home__news container">
           <h2 className="home__heading">Featured News &amp; Stories</h2>
           <p className="home__sub-head">
             Everything you need to analyse the data more efficiently
           </p>
 
-          <div className="home__featured-item">
-            <section>
-              <h2 className="">
-                Title for the published news and placeholder for all others
-              </h2>
+          <div className="home__news-item">
+            {allNews.map((item, index) => (
+              <section key={`newsItem-${index}`}>
+                <img
+                  src={`https://placekitten.com/270/16${index}`}
+                  alt=""
+                  width="270"
+                  height="160"
+                />
+                <small>{item.tag}</small>
+                <h2>{item.heading}</h2>
 
-              <p>
-                Data analysis feature helps you view, analyze and use the
-                procurement data of Assam. See stories and post done using this
-                dataset. You can also contribute your own story
-              </p>
-              <footer className="">Times of India</footer>
-            </section>
-            <section>
-              <h2 className="">
-                Title for the published news and placeholder for all others
-              </h2>
-
-              <p>
-                Data analysis feature helps you view, analyze and use the
-                procurement data of Assam. See stories and post done using this
-                dataset. You can also contribute your own story
-              </p>
-              <footer className="">The Hindi</footer>
-            </section>
-            <section>
-              <h2 className="">
-                Title for the published news and placeholder for all others
-              </h2>
-
-              <p>
-                Data analysis feature helps you view, analyze and use the
-                procurement data of Assam. See stories and post done using this
-                dataset. You can also contribute your own story
-              </p>
-              <footer className="">Live Law</footer>
-            </section>
-            <section>
-              <h2 className="">
-                Title for the published news and placeholder for all others
-              </h2>
-
-              <p>
-                Data analysis feature helps you view, analyze and use the
-                procurement data of Assam. See stories and post done using this
-                dataset. You can also contribute your own story
-              </p>
-              <footer className="">Live Law</footer>
-            </section>
-            <section>
-              <h2 className="">
-                Title for the published news and placeholder for all others
-              </h2>
-
-              <p>
-                Data analysis feature helps you view, analyze and use the
-                procurement data of Assam. See stories and post done using this
-                dataset. You can also contribute your own story
-              </p>
-              <footer className="">Live Law</footer>
-            </section>
-            <section>
-              <h2 className="">
-                Title for the published news and placeholder for all others
-              </h2>
-
-              <p>
-                Data analysis feature helps you view, analyze and use the
-                procurement data of Assam. See stories and post done using this
-                dataset. You can also contribute your own story
-              </p>
-              <footer className="">Live Law</footer>
-            </section>
+                <p>{item.para}</p>
+                <footer>{item.publisher}</footer>
+              </section>
+            ))}
           </div>
           <footer>
             <a
