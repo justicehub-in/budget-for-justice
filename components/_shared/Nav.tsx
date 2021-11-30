@@ -10,34 +10,34 @@ const navName = 'Justice Hub';
 
 const navList = [
   {
-    link: '/datasets',
+    link: 'https://justicehub.in/dataset',
     name: 'Explore Data',
   },
   {
-    link: '/kpi',
+    link: 'https://justicehub.in/upload',
     name: 'Contribute Data',
   },
   {
-    link: '#forum',
+    // link: '#forum',
     name: 'About',
     hasSubMenu: true,
     subMenu: [
       {
-        link: '/',
+        link: 'https://justicehub.in/about',
         name: 'About',
       },
       {
-        link: '/',
+        link: 'https://justicehub.in/contact',
         name: 'Contact',
       },
     ],
   },
   {
-    link: '/about',
+    link: 'https://justicehub.in/events',
     name: 'Events',
   },
   {
-    link: '/about',
+    link: 'https://forum.justicehub.in/',
     name: 'Forum',
   },
   {
@@ -95,7 +95,7 @@ const Nav: React.FC = () => {
       <header className="header" role="banner">
         <div className="container">
           <div className="header__brand">
-            <Link href="/">
+            <Link href="https://justicehub.in">
               <a>
                 <img src="/assets/images/jh_logo_min.png" alt="" />
                 <h1>{navName}</h1>
