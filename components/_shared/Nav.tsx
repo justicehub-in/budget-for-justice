@@ -189,7 +189,7 @@ const Nav: React.FC = () => {
           </button>
 
           <div className="header__brand">
-            <Link href="/">
+            <Link href="https://justicehub.in">
               <a>
                 <img src="/assets/images/jh_logo_min.png" alt="" />
                 <h1>{navName}</h1>
