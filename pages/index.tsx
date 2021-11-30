@@ -76,7 +76,9 @@ const schemeList = [
 const allNews = [
   {
     heading: 'Title for the published news and placeholder for all others',
-    para: 'Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story',
+    para: 'Data analysis feature helps you view, analyze and use the procurement \
+    data of Assam. See stories and post done using this dataset. You can also \
+    contribute your own story',
     publisher: 'Times of India',
     tag: 'Data for Justice',
     image: '',
@@ -142,7 +144,38 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="home">
+        <section className="home__know container">
+          <div className="wrapper">
+            <h2>Did you know?</h2>
+            <ul>
+              <li>Some interesting insight drawn from the available data.</li>
+              <li>
+                This book is a treatise on the theory of ethics, a very popular
+                but during the Renaissance.
+              </li>
+              <li>
+                Contrary to popular belief, Lorem Ipsum is not simply random
+                text.
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section className="home__video container">
+          <div className="home__video-item">
+            <img
+              src={`https://placekitten.com/640/350`}
+              alt=""
+              width="640"
+              height="350"
+            />
+          </div>
+          <div className="home__video-desc">
+            <h2 className="home__heading">Hello Citizens!</h2>
+            <p>{schemeList[0].desc}</p>
+          </div>
+        </section>
         <section className="home__scheme container">
+          <h2 className="sr-only">Schemes Insight</h2>
           <ul id="schemeSelector" role="tablist">
             {schemeList.map((scheme: any, index: number) => (
               <li role="presentation" key={`schemeSelector-${index}`}>
@@ -197,9 +230,9 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
           </div>
         </section>
 
-        <section className="home__impact">
+        <div className="home__impact">
           <Carousel />
-        </section>
+        </div>
 
         <section className="home__collab container">
           <div className="wrapper">

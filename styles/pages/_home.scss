@@ -60,35 +60,55 @@
     margin-top: 0.7rem;
   }
 
-  &__goals {
-    margin-top: 3rem;
+  &__know {
+    .wrapper {
+      padding: 4rem 5vw;
+    }
 
-    ul {
-      margin-top: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
+    h2 {
+      color: $grey-2;
+      font-weight: 500;
+      line-height: 1.5;
+    }
 
-      li {
-        width: 30%;
-        height: 300px;
-        padding: 2rem;
-        background-color: $bg-lightest;
-        border: 1px solid #000;
-      }
+    li {
+      margin-top: .5rem;
+      line-height: 1.5;
+      font-size: 1.3rem;
+      font-weight: 500;
+      border-left: 2px solid $grey-3;
+      padding-left: 1rem;
     }
   }
 
-  &__impact {
-    background-color: $color-carrot;
-    height: 50vh;
-    padding-top: 12rem;
-  }
+  &__video {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    gap: 2rem;
+    background-color: #8a9eaf;
+    margin-top: 3rem;
 
-  .carousel {
-    background-color: transparent;
-    margin-top: -5rem;
+    &-item {
+      flex-basis: 0;
+      flex-grow: 999;
+      min-width: 50%;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-desc {
+      flex-grow: 1;
+      flex-basis: 40ch;
+    }
+
+    p {
+      line-height: 1.5;
+      margin-top: 2rem;
+    }
   }
 
   &__scheme {
@@ -96,6 +116,7 @@
     flex-wrap: wrap;
     gap: 2rem;
     padding: 1rem;
+    margin-top: 3rem;
 
     #schemeSelector {
       flex-grow: 1;
@@ -159,6 +180,18 @@
       img {
         display: none;
       }
+    }
+  }
+
+  &__impact {
+    margin-top: 3rem;
+    background-color: $color-carrot;
+    height: 50vh;
+    padding-top: 12rem;
+
+    .carousel {
+      background-color: transparent;
+      margin-top: -5rem;
     }
   }
 
@@ -351,7 +384,7 @@
       border-bottom: 1px solid #d0d0d3;
       padding-bottom: 1rem;
       line-height: 1.5;
-      margin-top: .3rem;
+      margin-top: 0.3rem;
     }
 
     p {
