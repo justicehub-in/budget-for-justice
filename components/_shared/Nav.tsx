@@ -3,39 +3,47 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Modal from 'react-modal';
+// import Hamburger from 'public/assets/icons/hamburger.svg';
 Modal.setAppElement('#__next');
+
+const navName = 'Justice Hub';
 
 const navList = [
   {
     link: '/datasets',
-    name: 'Contracts Data',
+    name: 'Explore Data',
   },
   {
     link: '/kpi',
-    name: 'Data Analysis',
+    name: 'Contribute Data',
   },
   {
-    link: '/stories',
-    name: 'Data Stories',
+    link: '#forum',
+    name: 'About',
+    hasSubMenu: true,
+    subMenu: [
+      {
+        link: '/',
+        name: 'About',
+      },
+      {
+        link: '/',
+        name: 'Contact',
+      },
+    ],
   },
-  // {
-  //   link: '#forum',
-  //   name: 'Forum',
-  //   hasSubMenu: true,
-  //   subMenu: [
-  //     {
-  //       link: '/',
-  //       name: 'Forum A',
-  //     },
-  //     {
-  //       link: '/',
-  //       name: 'Forum B',
-  //     },
-  //   ],
-  // },
   {
     link: '/about',
-    name: 'About Us',
+    name: 'Events',
+  },
+  {
+    link: '/about',
+    name: 'Forum',
+  },
+  {
+    link: '/about',
+    name: 'Join/Login',
+    isButton: true,
   },
 ];
 
@@ -83,35 +91,22 @@ const Nav: React.FC = () => {
   }
 
   return (
-    <div>
+    <>
       <header className="header" role="banner">
         <div className="container">
           <div className="header__brand">
             <Link href="/">
               <a>
-                <svg
-                  width="42"
-                  height="44"
-                  viewBox="0 0 42 44"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.76143 12.5333C6.48566 7.2265 7.34778 4.57311 9.0391 2.88175C10.5268 1.394 12.4473 0.41542 14.5254 0.0862801C16.8878 -0.287902 19.5412 0.574238 24.8478 2.29852L29.467 3.79942C34.7737 5.5237 37.427 6.38584 39.1183 8.0772C40.606 9.56496 41.5846 11.4855 41.9137 13.5636C42.2879 15.9261 41.4258 18.5795 39.7015 23.8863L37.2386 31.4667C35.5143 36.7735 34.6522 39.4269 32.9609 41.1182C31.4732 42.606 29.5527 43.5846 27.4746 43.9137C25.1122 44.2879 22.4588 43.4258 17.1522 41.7015L12.533 40.2006C7.22633 38.4763 4.573 37.6142 2.88168 35.9228C1.39396 34.435 0.41541 32.5145 0.086278 30.4364C-0.287895 28.0739 0.574224 25.4205 2.29846 20.1137L4.76143 12.5333Z"
-                    fill="#0899A0"
-                  />
-                </svg>
-                <h1>Public Procurement</h1>
+                <img src="/assets/images/jh_logo_min.png" alt="" />
+                <h1>{navName}</h1>
               </a>
             </Link>
-            <span className="header__divider" />
-            <h2>Assam</h2>
           </div>
 
           <nav className="navbar">
             <h2 className="sr-only">Navigation menu</h2>
             <ul className="navbar__container">
-              {navList.map((navItem: any, index: number) => (
+              {navList.map((navItem, index) => (
                 <li key={`navItemMobile-${index}`} className="navbar__links">
                   {navItem.hasSubMenu ? (
                     <>
@@ -128,19 +123,27 @@ const Nav: React.FC = () => {
                         {navItem.name}
                       </button>
                       <ul className="navbar__nested" hidden>
-                        {navItem.subMenu.map(
-                          (subMenuItem: any, index: number) => (
-                            <li key={`submenuItem-${index}`}>
-                              <Link href={subMenuItem.link}>
-                                <a>
-                                  {subMenuItem.name} <span>&#x279D;</span>
-                                </a>
-                              </Link>
-                            </li>
-                          )
-                        )}
+                        {navItem.subMenu.map((subMenuItem, index) => (
+                          <li key={`submenuItem-${index}`}>
+                            <Link href={subMenuItem.link}>
+                              <a>
+                                {subMenuItem.name} <span>&#x279D;</span>
+                              </a>
+                            </Link>
+                          </li>
+                        ))}
                       </ul>
                     </>
+                  ) : navItem.isButton ? (
+                    <button
+                      className={`navbar__item btn-primary ${
+                        router.pathname.includes(navItem.link)
+                          ? 'navbar__item--active'
+                          : ''
+                      }`}
+                    >
+                      {navItem.name}
+                    </button>
                   ) : (
                     <Link href={navItem.link}>
                       <a
@@ -171,15 +174,16 @@ const Nav: React.FC = () => {
             aria-label="Expand navigation"
             onClick={mobileNavHandler}
           >
+            <span className="sr-only">Menu</span>
+            {/* <Hamburger /> */}
             <svg
               className="fill-current"
               width="20"
               height="20"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
-              fill="white"
+              fill="#f65940"
             >
-              <title>Menu</title>
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
             </svg>
           </button>
@@ -187,25 +191,10 @@ const Nav: React.FC = () => {
           <div className="header__brand">
             <Link href="/">
               <a>
-                <h1>OCI - Assam</h1>
+                <img src="/assets/images/jh_logo_min.png" alt="" />
+                <h1>{navName}</h1>
               </a>
             </Link>
-            <span className="header__divider" />
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M7.77159 5.33331C6.42507 5.33331 5.3335 6.42489 5.3335 7.77141V20.7746C5.3335 22.1211 6.42507 23.2127 7.77159 23.2127H24.2287C25.5753 23.2127 26.6668 22.1211 26.6668 20.7746V7.77141C26.6668 6.42489 25.5753 5.33331 24.2287 5.33331H7.77159ZM17.1379 11.2959C17.1379 11.1973 17.0645 11.1063 16.9456 11.0577C16.8267 11.0092 16.6808 11.0105 16.5637 11.0612L12.8611 12.6631H11.4491C10.8214 12.6631 10.3113 13.0298 10.3113 13.4838V15.6717C10.3113 16.1257 10.8214 16.4924 11.4491 16.4924H12.8611L16.5637 18.0944C16.6808 18.1451 16.8267 18.1464 16.9456 18.0978C17.0645 18.0492 17.1379 17.9582 17.1379 17.8596V11.2959ZM20.9305 11.5695V17.5903H21.6891V11.5695H20.9305ZM19.4135 16.4956V12.6642H20.172V16.4956H19.4135ZM17.8965 13.7589V15.4009H18.655V13.7589H17.8965ZM21.6891 26.6666H10.3113V25.2444H21.6891V26.6666Z"
-                fill="white"
-                fillOpacity="0.7"
-              />
-            </svg>
           </div>
         </div>
       </header>
@@ -235,7 +224,7 @@ const Nav: React.FC = () => {
           </div>
 
           <ul className="m-navbar__container">
-            {navList.map((navItem: any, index: number) => (
+            {navList.map((navItem, index) => (
               <li key={`navItemMobile-${index}`} className="navbar__links">
                 {navItem.hasSubMenu ? (
                   <>
@@ -252,20 +241,18 @@ const Nav: React.FC = () => {
                       {navItem.name}
                     </button>
                     <ul className="m-navbar__nested" hidden>
-                      {navItem.subMenu.map(
-                        (subMenuItem: any, index: number) => (
-                          <li key={`submenuItem-${index}`}>
-                            <Link href={subMenuItem.link}>
-                              <a
-                                href={subMenuItem.link}
-                                onClick={mobileNavHandler}
-                              >
-                                {subMenuItem.name} <span>&#x279D;</span>
-                              </a>
-                            </Link>
-                          </li>
-                        )
-                      )}
+                      {navItem.subMenu.map((subMenuItem, index) => (
+                        <li key={`submenuItem-${index}`}>
+                          <Link href={subMenuItem.link}>
+                            <a
+                              href={subMenuItem.link}
+                              onClick={mobileNavHandler}
+                            >
+                              {subMenuItem.name} <span>&#x279D;</span>
+                            </a>
+                          </Link>
+                        </li>
+                      ))}
                     </ul>
                   </>
                 ) : (
@@ -288,7 +275,7 @@ const Nav: React.FC = () => {
           </ul>
         </nav>
       </Modal>
-    </div>
+    </>
   );
 };
 
