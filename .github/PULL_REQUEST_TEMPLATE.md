@@ -1,3 +1,3 @@
-What does this implement/fix? If solves any issue, mark it here.
+What does this implement/fix? If it solves any issue, mark it here.
 ---------------------------------------------------
 …

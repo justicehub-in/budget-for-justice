@@ -1,13 +1,9 @@
 import React, { useEffect } from 'react';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import { initializeApollo } from '../lib/apolloClient';
-// import HomeSearch from 'components/home/HomeSearch';
 import Carousel from 'components/home/Carousel';
-import { SEARCH_QUERY } from '../graphql/queries';
 import { loadNamespaces } from './_app';
 import useTranslation from 'next-translate/useTranslation';
-// import { fromPairs } from 'lodash';
 import { tabbedInterface } from 'utils/index';
 
 const schemeList = [
@@ -126,6 +122,25 @@ const allNews = [
   },
 ];
 
+const latest = [
+  {
+    name: 'Recognition of Transgender Persons in Indian',
+    link: 'https://agami.in/insights/data-for-justice/11031/',
+  },
+  {
+    name: 'Bangalore International Centre Streams: The Next Generation of Justice makers',
+    link: 'https://agami.in/insights/data-for-justice/11031/',
+  },
+  {
+    name: 'Right To Information Applications: How burdened is the Government and oragnizations? ',
+    link: 'https://agami.in/insights/data-for-justice/11031/',
+  },
+  {
+    name: 'Charcha 2021: Everyone Making Justice',
+    link: 'https://agami.in/insights/data-for-justice/11031/',
+  },
+];
+
 const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
   useEffect(() => {
     // create tabbed interface
@@ -173,6 +188,23 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
             <h2 className="home__heading">Hello Citizens!</h2>
             <p>{schemeList[0].desc}</p>
           </div>
+        </section>
+        <section className="home__latest container">
+          <div>
+            <h2 className="home__heading">Read the Latest</h2>
+            <p className="home__sub-head">
+              Everything you need to analyse the data more efficiently
+            </p>
+          </div>
+          <ul>
+            {latest.map((news, index) => (
+              <li key={`latest-${index}`}>
+                <a href={news.link}>
+                  <span>{`0${index}`}</span> <p>{news.name}</p> 
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
         <section className="home__scheme container">
           <h2 className="sr-only">Schemes Insight</h2>
@@ -303,7 +335,6 @@ export const getServerSideProps: GetServerSideProps = async ({
   locale,
   locales,
 }) => {
-
   const forumDataFetch = await fetch(
     'https://forum.justicehub.in/latest.json'
   ).then((res) => res.json());
