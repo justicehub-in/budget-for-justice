@@ -111,6 +111,53 @@
     }
   }
 
+  &__latest {
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    >div {
+      flex-grow: 1;
+      flex-basis: 15rem;
+
+      p {
+        line-height: 1.5;
+      }
+    }
+
+    ul {
+      flex-basis: 0;
+      flex-grow: 999;
+      min-width: 60%;
+    }
+
+    a {
+      text-decoration: none;
+      padding: 1rem;
+      display: block;
+      background-color: $bg-lightest;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        border-color: #637381;
+        font-weight: 500;
+      }
+    }
+
+    span {
+      background-color: $bg-light;
+      padding: 1rem;
+      margin-right: 1rem;
+      font-weight: 500;
+      color: #637381;
+      height: 100%;
+    }
+  }
+
   &__scheme {
     display: flex;
     flex-wrap: wrap;
