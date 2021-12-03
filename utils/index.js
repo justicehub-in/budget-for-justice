@@ -38,7 +38,8 @@ export function getDate(time) {
   } else return time;
 }
 
-// fetch list of datasets. Required: type - type of dataset; variables - from url parameters.
+// fetch list of datasets.
+// Required: type -> type of dataset; variables -> from url parameters.
 export async function fetchDatasets(type, variables) {
   function changeKeyName(key) {
     if (key == 'size') return 'rows';
@@ -86,72 +87,6 @@ export async function getFilters(list, variable, page) {
   } catch (error) {
     throw new Error(error);
   }
-}
-
-/*
-Takes single field descriptor from datastore data dictionary and coverts into
-tableschema field descriptor.
-*/
-export function dataStoreDataDictionaryToTableSchema(dataDictionary) {
-  const internalDataStoreFields = ['_id', '_full_text', '_count'];
-  if (internalDataStoreFields.includes(dataDictionary.id)) {
-    return null;
-  }
-  const dataDictionaryType2TableSchemaType = {
-    text: 'string',
-    int: 'integer',
-    float: 'number',
-    date: 'date',
-    time: 'time',
-    timestamp: 'datetime',
-    bool: 'boolean',
-    json: 'object',
-  };
-  const field = {
-    name: dataDictionary.id,
-    type: dataDictionaryType2TableSchemaType[dataDictionary.type] || 'any',
-  };
-  if (dataDictionary.info) {
-    const constraintsAttributes = [
-      'required',
-      'unique',
-      'minLength',
-      'maxLength',
-      'minimum',
-      'maximum',
-      'pattern',
-      'enum',
-    ];
-    field.constraints = {};
-    Object.keys(dataDictionary.info).forEach((key) => {
-      if (constraintsAttributes.includes(key)) {
-        field.constraints[key] = dataDictionary.info[key];
-      } else {
-        field[key] = dataDictionary.info[key];
-      }
-    });
-  }
-  return field;
-}
-
-export function convertToStandardCollection(descriptor) {
-  const standard = {
-    name: '',
-    title: '',
-    summary: '',
-    image: '',
-    count: null,
-  };
-
-  standard.name = descriptor.name;
-  standard.title = descriptor.title || descriptor.display_name;
-  standard.summary = descriptor.description || '';
-  standard.image = descriptor.image_display_url || descriptor.image_url;
-  standard.count = descriptor.package_count || 0;
-  standard.extras = descriptor.extras || [];
-  standard.groups = descriptor.groups || [];
-
-  return standard;
 }
 
 export function convertToCkanSearchQuery(query) {
@@ -423,6 +358,72 @@ export function tabbedInterface(tablist, panels) {
   tabs[0].setAttribute('aria-selected', 'true');
   panels[0].hidden = false;
 }
+
+/*
+Takes single field descriptor from datastore data dictionary and coverts into
+tableschema field descriptor.
+*/
+// export function dataStoreDataDictionaryToTableSchema(dataDictionary) {
+//   const internalDataStoreFields = ['_id', '_full_text', '_count'];
+//   if (internalDataStoreFields.includes(dataDictionary.id)) {
+//     return null;
+//   }
+//   const dataDictionaryType2TableSchemaType = {
+//     text: 'string',
+//     int: 'integer',
+//     float: 'number',
+//     date: 'date',
+//     time: 'time',
+//     timestamp: 'datetime',
+//     bool: 'boolean',
+//     json: 'object',
+//   };
+//   const field = {
+//     name: dataDictionary.id,
+//     type: dataDictionaryType2TableSchemaType[dataDictionary.type] || 'any',
+//   };
+//   if (dataDictionary.info) {
+//     const constraintsAttributes = [
+//       'required',
+//       'unique',
+//       'minLength',
+//       'maxLength',
+//       'minimum',
+//       'maximum',
+//       'pattern',
+//       'enum',
+//     ];
+//     field.constraints = {};
+//     Object.keys(dataDictionary.info).forEach((key) => {
+//       if (constraintsAttributes.includes(key)) {
+//         field.constraints[key] = dataDictionary.info[key];
+//       } else {
+//         field[key] = dataDictionary.info[key];
+//       }
+//     });
+//   }
+//   return field;
+// }
+
+// export function convertToStandardCollection(descriptor) {
+//   const standard = {
+//     name: '',
+//     title: '',
+//     summary: '',
+//     image: '',
+//     count: null,
+//   };
+
+//   standard.name = descriptor.name;
+//   standard.title = descriptor.title || descriptor.display_name;
+//   standard.summary = descriptor.description || '';
+//   standard.image = descriptor.image_display_url || descriptor.image_url;
+//   standard.count = descriptor.package_count || 0;
+//   standard.extras = descriptor.extras || [];
+//   standard.groups = descriptor.groups || [];
+
+//   return standard;
+// }
 
 /*
   At the moment, we're considering only following examples of CKAN view:
