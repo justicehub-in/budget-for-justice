@@ -91,11 +91,14 @@ const Datasets: React.FC<Props> = ({ data, facets }) => {
           {data && (
             <div className="datasets__right">
               <h2 className="heading-w-line">Browse Contracts</h2>
-              <Search newSearch={handleRouteChange} />
+              <div className="datasets__form">
+                <Search newSearch={handleRouteChange} />
+                <Sort newSort={handleRouteChange} />
+              </div>
+
               <div className="datasets__total">
                 <Total text="contracts" total={count} />
                 <div className="datasets__sort">
-                  <Sort newSort={handleRouteChange} />
                   <button
                     id="modalTrigger"
                     className="btn-primary"
