@@ -20,7 +20,9 @@
     "format": "prettier --single-quote --write .",
     "pre-commit": "yarn lint:fix && prettier --single-quote --write",
     "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
@@ -64,7 +66,8 @@
     "husky": ">=4",
     "jest": "^26.1.0",
     "lint-staged": ">=10",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "vuepress": "^2.0.0-beta.27"
   },
   "husky": {
     "hooks": {
