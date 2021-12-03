@@ -72,7 +72,7 @@ const Datasets: React.FC<Props> = ({ data, facets }) => {
   }
 
   const headerData = {
-    title: 'Contracts Data',
+    title: 'All Datasets',
     content:
       'This page shows the public procurement data of the last 5 financial years for the contracts over INR 50 lakh value. One could download the total compiled data or explore specific tender groups using various filters like financial year, tendering organization, tender status, tender types, etc.',
   };
@@ -80,7 +80,7 @@ const Datasets: React.FC<Props> = ({ data, facets }) => {
   return (
     <>
       <Head>
-        <title>HAQ-GEST | Datasets</title>
+        <title>Budget 4 Justice | Datasets</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="datasets">
@@ -90,14 +90,13 @@ const Datasets: React.FC<Props> = ({ data, facets }) => {
           <Filter data={facets} newFilters={handleRouteChange} fq={filters} />
           {data && (
             <div className="datasets__right">
-              <h2 className="heading-w-line">Browse Contracts</h2>
               <div className="datasets__form">
                 <Search newSearch={handleRouteChange} />
                 <Sort newSort={handleRouteChange} />
               </div>
 
               <div className="datasets__total">
-                <Total text="contracts" total={count} />
+                <Total text="datasets" total={count} />
                 <div className="datasets__sort">
                   <button
                     id="modalTrigger"

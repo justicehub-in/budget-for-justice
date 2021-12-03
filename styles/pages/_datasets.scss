@@ -27,14 +27,12 @@
     box-shadow: $box-shadow-1;
     border-radius: 12px;
     border: 1px solid #f2eff2;
-    margin-top: 2.5rem;
-
   }
 
   &__total {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     margin-top: 2rem;
   }
 

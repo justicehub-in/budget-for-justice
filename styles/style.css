@@ -766,6 +766,16 @@ button {
   padding-bottom: 1.5rem;
   border-bottom: 2px solid rgba(208, 205, 208, 0.5);
   padding-left: 0;
+  display: grid;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+@supports (width: min(250px, 100%)) {
+  .list {
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  }
 }
 .list__item {
   margin-top: 1rem;
@@ -778,9 +788,9 @@ button {
 }
 
 .total-datasets {
-  font-size: 14px;
+  font-weight: 500;
   line-height: 140%;
-  color: #545454;
+  color: #0a0a0a;
 }
 
 .card__link {
@@ -2658,12 +2668,11 @@ button {
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.14);
   border-radius: 12px;
   border: 1px solid #f2eff2;
-  margin-top: 2.5rem;
 }
 .datasets__total {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   margin-top: 2rem;
 }
 .datasets__sort {

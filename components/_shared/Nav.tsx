@@ -10,7 +10,7 @@ const navName = 'Justice Hub';
 
 const navList = [
   {
-    link: 'https://justicehub.in/dataset',
+    link: '/datasets',
     name: 'Explore Data',
   },
   {
