@@ -18,15 +18,13 @@
   - [Backend](#backend)
   - [Pages](#pages)
   - [Data fetching](#data-fetching)
-    - [i18n configuration](#i18n-configuration)
-    - [Pre-fetch data in the server-side](#pre-fetch-data-in-the-server-side)
-    - [Access data from a component](#access-data-from-a-component)
+    - [Fetch all datasets for listing pages](#fetch-all-datasets-for-listing-pages)
+    - [Fetch particluar dataset](#fetch-particluar-dataset)
 - [Developers](#developers)
   - [Boot the local instance](#boot-the-local-instance)
   - [Tests](#tests)
   - [Architecture](#architecture)
 - [Contributing](#contributing)
-- [Credits](#credits)
 
 ## Features
 
@@ -76,162 +74,51 @@ $ export CMS=http://myblog.wordpress.com
 
 ### Data fetching
 
-We use Apollo client which allows us to query data with GraphQL. We have setup CKAN API for the demo (it uses demo.ckan.org as DMS):
+We use REST API to fetch data from CKAN. Some of the data comes as metadata and other is in CSV files, for which we use different transformers. You can find more about it in `/transoformers` directory.
+#### Fetch all datasets for listing pages
 
-Note that we don't have Apollo Server but we connect CKAN API using [`apollo-link-rest`](https://www.apollographql.com/docs/link/links/rest/) module. You can see how it works in [lib/apolloClient.ts](https://github.com/civicdatalab/opubfront-haq/blob/main/lib/apolloClient.ts) and then have a look at [pages/_app.tsx](https://github.com/civicdatalab/opubfront-haq/blob/main/pages/_app.tsx).
-
-For development/debugging purposes, we suggest installing the Chrome extension - https://chrome.google.com/webstore/detail/apollo-client-developer-t/jdkknkkbebbapilgoeccciglkfbmbnfm.
-
-#### i18n configuration
-
-This is configured by default to support both `English` and `French` subpath for language translation. But for subsequent users, this following steps can be used to configure i18n for other languages;
-
-1.  Update `next.config.js`, to add more languages to the i18n locales
-
-```js
-i18n: {
-  locales: ['en', 'fr', 'nl-NL'], // add more language to the list
-  defaultLocale: 'en',  // set the default language to use
-},
-```
-
-2. Create a folder for the language in `locales` --> `locales/en-Us`
-
-3. In the language folder, different namespace files (json) can be created for each translation. For the `index.js` use-case, I named it `common.json`
-
-```json
-// locales/en/common.json
-{
-   "title" : "Portal js in English",
-}
-
-// locales/fr/common.json
-{
-   "title" : "Portal js in French",
-}
-```
-
-4. To use on pages using Server-side Props.
-
-```js
-import { loadNamespaces } from './_app';
-import useTranslation from 'next-translate/useTranslation';
-
-const Home: React.FC = ()=> {
-  const { t } = useTranslation();
-  return (
-    <div>{t(`common:title`)}</div> // we use common and title base on the common.json data
-  );
-};
-
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-      ........  ........
-  return {
-    props : {
-      _ns:  await loadNamespaces(['common'], locale),
-    }
-  };
-};
-
-```
-
-5. Go to the browser and view the changes using language subpath like this `http://localhost:3000` and `http://localhost:3000/fr`. **Note** The subpath also activate chrome language Translator
-
-#### Pre-fetch data in the server-side
-
-When visiting a dataset page, you may want to fetch the dataset metadata in the server-side. To do so, you can use `getServerSideProps` function from NextJS:
+When visiting a dataset lisitng page, you may want to fetch the particular type of datasets. To do so, you can use `getServerSideProps` function from NextJS:
 
 ```javascript
 import { GetServerSideProps } from 'next';
-import { initializeApollo } from '../lib/apolloClient';
-import gql from 'graphql-tag';
-
-const QUERY = gql`
-  query dataset($id: String) {
-    dataset(id: $id) @rest(type: "Response", path: "package_show?{args}") {
-      result
-    }
-  }
-`;
-
-...
+import { convertToCkanSearchQuery, fetchDatasets } from 'utils/index';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const apolloClient = initializeApollo();
-
-  await apolloClient.query({
-    query: QUERY,
-    variables: {
-      id: 'my-dataset'
-    },
-  });
+  const variables = convertToCkanSearchQuery(context.query || {});
+  const data = await fetchDatasets('type_of_dataset', variables);
 
   return {
     props: {
-      initialApolloState: apolloClient.cache.extract(),
+      data,
     },
   };
 };
 ```
+- `convertToCkanSearchQuery` (from [PortalJS](https://github.com/datopian/portal.js)) helps to convert the search query parameters into a object which we can use.
+- `fetchDatasets` helps to fetch a list of datasets of particular type. 
 
-This would fetch the data from DMS and save it in the Apollo cache so that we can query it again from the components.
+Learn more about them [here](utils/README.md).
 
-#### Access data from a component
+#### Fetch particluar dataset
 
-Consider situation when rendering a component for org info on the dataset page. We already have pre-fetched dataset metadata that includes `organization` property with attributes such as `name`, `title` etc. We can now query only organization part for our `Org` component:
+Depending on dataset, they may return metadata in the form of `JSON` or a combination of `JSON` and `CSV` file. We can use `fetchAPI` in this case:
 
 ```javascript
-import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
+import { GetServerSideProps } from 'next';
+import { fetchAPI } from 'utils/index';
+import { resourceGetter } from 'utils/resourceParser';
 
-export const GET_ORG_QUERY = gql`
-  query dataset($id: String) {
-    dataset(id: $id) @rest(type: "Response", path: "package_show?{args}") {
-      result {
-        organization {
-          name
-          title
-          image_url
-        }
-      }
-    }
-  }
-`;
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const data = await fetchAPI(context.query.tender);
+  const csv = await resourceGetter(data.result.resources, 'CSV');
 
-export default function Org({ variables }) {
-  const { loading, error, data } = useQuery(
-    GET_ORG_QUERY,
-    {
-      variables: { id: 'my-dataset' }
-    }
-  );
-
-  ...
-
-  const { organization } = data.dataset.result;
-
-  return (
-    <>
-      {organization ? (
-        <>
-          <img
-            src={
-              organization.image_url
-            }
-            className="h-5 w-5 mr-2 inline-block"
-          />
-          <Link href={`/@${organization.name}`}>
-            <a className="font-semibold text-primary underline">
-              {organization.title || organization.name}
-            </a>
-          </Link>
-        </>
-      ) : (
-        ''
-      )}
-    </>
-  );
-}
+  return {
+    props: {
+      data,
+      csv
+    },
+  };
+};
 ```
 
 ## Developers
@@ -265,18 +152,11 @@ npm run test
 npm run test --watch
 ```
 
-We use Cypress tests as well
-
-```
-npm run e2e
-```
-
 ### Architecture
 
 - Language: Javascript
 - Framework: [Next.js](https://nextjs.com/)
 - Styling: [SASS](https://sass-lang.com/) with [BEM](http://getbem.com/) and ITCSS
-- Data layer API: GraphQL using Apollo.
 
 ## Contributing
 
@@ -286,6 +166,3 @@ See [CONTRIBUTING.md](https://github.com/CivicDataLab/oci-assam-frontend/blob/ma
 
 Please adhere to [Code of Conduct](https://github.com/CivicDataLab/oci-assam-frontend/blob/main/CODE_OF_CONDUCT.md).
 
-## Credits
-
-This is based on a [PortalJS](https://github.com/datopian/portal.js).
