@@ -200,7 +200,7 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
             {latest.map((news, index) => (
               <li key={`latest-${index}`}>
                 <a href={news.link}>
-                  <span>{`0${index}`}</span> <p>{news.name}</p> 
+                  <span>{`0${index}`}</span> <p>{news.name}</p>
                 </a>
               </li>
             ))}

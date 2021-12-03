@@ -2,15 +2,13 @@
 @use '../../tools/mixins/media' as media;
 
 .search {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 12px;
-  position: relative;
   flex-grow: 1;
+  margin-right: 1rem;
+  position: relative;
 
-  &__clear {
+  &__buttons {
     position: absolute;
+    height: 100%;
     right: 0;
     top: 0;
     display: none;
@@ -21,29 +19,29 @@
   }
 
   &__submit {
-    padding: 9px 60px;
-    transform: translateX(-5px);
-    line-height: 135%;
-
-    @include media.narrowerThan('seedling') {
-      padding: 9px 24px;
-    }
+    color: $bg-lightest;
+    border-radius: 2px;
   }
 
   &__clear {
-    padding: 13.1px;
-    color: $grey-4;
+    color: $color-primary;
+    width: 44px;
+    border-radius: 2px;
+
+    button {
+      cursor: pointer;
+    }
   }
 
   &__input {
-    border: 1px solid $bg-dark;
+    border: 1px solid $color-light-grey;
     border-radius: 4px;
     box-shadow: $box-shadow-inset;
-    padding: 0.5rem 0 0.5rem 2.5rem;
+    padding: 0.6rem 0 0.6rem 2.5rem;
     background-color: $bg-lightest;
     transition: background-color 150ms ease;
     width: 100%;
-    line-height: 130%;
+    line-height: 1.4;
 
     background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.5 14.5L10.5 10.5M6.5 12.5C3.18629 12.5 0.5 9.81371 0.5 6.5C0.5 3.18629 3.18629 0.5 6.5 0.5C9.81371 0.5 12.5 3.18629 12.5 6.5C12.5 9.81371 9.81371 12.5 6.5 12.5Z' stroke='%23075E54'/%3E%3C/svg%3E%0A");
     background-position: left 1rem top 50%, 0 0;
@@ -52,9 +50,16 @@
     &:not([value='']) {
       background-color: $bg-lightest;
 
-      + .form__buttons {
-        display: block;
+      + .search__buttons {
+        display: flex;
       }
+    }
+  }
+  &__select {
+    background-position: right 10% top 55%, 0 0;
+
+    @include media.narrowerThan('sprout') {
+      display: none;
     }
   }
 }

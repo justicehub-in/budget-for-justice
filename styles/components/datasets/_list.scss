@@ -6,6 +6,16 @@
   border-bottom: 2px solid hsla(300, 4%, 81%, 0.5);
   padding-left: 0;
 
+  display: grid;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+
+  @supports (width: min(250px, 100%)) {
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  }
+
   &__item {
     margin-top: 1rem;
     box-shadow: $box-shadow-1;

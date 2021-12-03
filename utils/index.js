@@ -1,3 +1,39 @@
+// filter obj to String
+export function filterObjToString(filterObj) {
+  const final = [];
+  let filter;
+  Object.keys(filterObj).forEach((val) => {
+    if (filterObj[val].length > 0) {
+      filterObj[val].forEach((item) => final.push(`${val}:"${item}"`));
+
+      filter = final.join(' AND ');
+    }
+  });
+  return filter;
+}
+
+// Filter string to Filter Object
+export function filterStringToObject(fq, data) {
+  const obj = {};
+  Object.keys(data).forEach((val) => {
+    obj[val] = [];
+  });
+  if (fq) {
+    const removeEscape = fq.replaceAll(/"/g, '');
+    const splitFilters = removeEscape.split(' AND ');
+
+    splitFilters.forEach((query) => {
+      const id = query.split(':')[0];
+      const value = query.split(':')[1];
+      obj[id].push(value);
+      if (document.getElementById(value))
+        document.getElementById(value).setAttribute('aria-pressed', 'true');
+    });
+  }
+
+  return obj;
+}
+
 // fetch medium post banner URL
 export function getMediumBanner(postContent) {
   const srcIndex = postContent.indexOf('src=');
@@ -358,352 +394,3 @@ export function tabbedInterface(tablist, panels) {
   tabs[0].setAttribute('aria-selected', 'true');
   panels[0].hidden = false;
 }
-
-/*
-Takes single field descriptor from datastore data dictionary and coverts into
-tableschema field descriptor.
-*/
-// export function dataStoreDataDictionaryToTableSchema(dataDictionary) {
-//   const internalDataStoreFields = ['_id', '_full_text', '_count'];
-//   if (internalDataStoreFields.includes(dataDictionary.id)) {
-//     return null;
-//   }
-//   const dataDictionaryType2TableSchemaType = {
-//     text: 'string',
-//     int: 'integer',
-//     float: 'number',
-//     date: 'date',
-//     time: 'time',
-//     timestamp: 'datetime',
-//     bool: 'boolean',
-//     json: 'object',
-//   };
-//   const field = {
-//     name: dataDictionary.id,
-//     type: dataDictionaryType2TableSchemaType[dataDictionary.type] || 'any',
-//   };
-//   if (dataDictionary.info) {
-//     const constraintsAttributes = [
-//       'required',
-//       'unique',
-//       'minLength',
-//       'maxLength',
-//       'minimum',
-//       'maximum',
-//       'pattern',
-//       'enum',
-//     ];
-//     field.constraints = {};
-//     Object.keys(dataDictionary.info).forEach((key) => {
-//       if (constraintsAttributes.includes(key)) {
-//         field.constraints[key] = dataDictionary.info[key];
-//       } else {
-//         field[key] = dataDictionary.info[key];
-//       }
-//     });
-//   }
-//   return field;
-// }
-
-// export function convertToStandardCollection(descriptor) {
-//   const standard = {
-//     name: '',
-//     title: '',
-//     summary: '',
-//     image: '',
-//     count: null,
-//   };
-
-//   standard.name = descriptor.name;
-//   standard.title = descriptor.title || descriptor.display_name;
-//   standard.summary = descriptor.description || '';
-//   standard.image = descriptor.image_display_url || descriptor.image_url;
-//   standard.count = descriptor.package_count || 0;
-//   standard.extras = descriptor.extras || [];
-//   standard.groups = descriptor.groups || [];
-
-//   return standard;
-// }
-
-/*
-  At the moment, we're considering only following examples of CKAN view:
-  1. recline_view => Data Explorer with Table view, Chart Builder, Map Builder
-    and Query Builder.
-  2. geojson_view => Leaflet map
-  3. pdf_view => our PDF viewer
-  4. recline_grid_view => our Table viewer
-  5. recline_graph_view => our Simple graph
-  6. recline_map_view => our Leaflet map
-  7. image_view => not supported at the moment
-  8. text_view => not supported at the moment
-  9. webpage_view => not supported at the moment
-*/
-// module.exports.ckanViewToDataPackageView = (ckanView) => {
-//   const viewTypeToSpecType = {
-//     recline_view: 'dataExplorer', // from datastore data
-//     recline_grid_view: 'table',
-//     recline_graph_view: 'simple',
-//     recline_map_view: 'tabularmap',
-//     geojson_view: 'map',
-//     pdf_view: 'document',
-//     image_view: 'web',
-//     webpage_view: 'web',
-//   };
-//   const dataPackageView = JSON.parse(JSON.stringify(ckanView));
-//   dataPackageView.specType =
-//     viewTypeToSpecType[ckanView.view_type] ||
-//     dataPackageView.specType ||
-//     'unsupported';
-
-//   if (dataPackageView.specType === 'dataExplorer') {
-//     dataPackageView.spec = {
-//       widgets: [
-//         { specType: 'table' },
-//         { specType: 'simple' },
-//         { specType: 'tabularmap' },
-//       ],
-//     };
-//   } else if (dataPackageView.specType === 'simple') {
-//     const graphTypeConvert = {
-//       lines: 'line',
-//       'lines-and-points': 'lines-and-points',
-//       points: 'points',
-//       bars: 'horizontal-bar',
-//       columns: 'bar',
-//     };
-//     dataPackageView.spec = {
-//       group: ckanView.group,
-//       series: Array.isArray(ckanView.series)
-//         ? ckanView.series
-//         : [ckanView.series],
-//       type: graphTypeConvert[ckanView.graph_type] || 'line',
-//     };
-//   } else if (dataPackageView.specType === 'tabularmap') {
-//     if (ckanView.map_field_type === 'geojson') {
-//       dataPackageView.spec = {
-//         geomField: ckanView.geojson_field,
-//       };
-//     } else {
-//       dataPackageView.spec = {
-//         lonField: ckanView.longitude_field,
-//         latField: ckanView.latitude_field,
-//       };
-//     }
-//   }
-
-//   return dataPackageView;
-// };
-
-// module.exports.pagination = (c, m) => {
-//   let current = c,
-//     delta = 2,
-//     left = current - delta,
-//     right = current + delta + 1,
-//     range = [],
-//     rangeWithDots = [],
-//     l;
-
-//   range.push(1);
-//   for (let i = c - delta; i <= c + delta; i++) {
-//     if (i >= left && i < right && i < m && i > 1) {
-//       range.push(i);
-//     }
-//   }
-//   range.push(m);
-
-//   for (let i of range) {
-//     if (l) {
-//       if (i - l === 2) {
-//         rangeWithDots.push(l + 1);
-//       } else if (i - l !== 1) {
-//         rangeWithDots.push('...');
-//       }
-//     }
-//     rangeWithDots.push(i);
-//     l = i;
-//   }
-//   return rangeWithDots;
-// };
-
-// module.exports.processMarkdown = require('markdown-it')({
-//   html: true,
-//   linkify: true,
-//   typographer: true,
-// });
-
-// /**
-//  * Process data package attributes prior to display to users.
-//  * Process markdown
-//  * Convert bytes to human readable format
-//  * etc.
-//  **/
-// module.exports.processDataPackage = function (datapackage) {
-//   const newDatapackage = JSON.parse(JSON.stringify(datapackage));
-//   if (newDatapackage.description) {
-//     newDatapackage.descriptionHtml = module.exports.processMarkdown.render(
-//       newDatapackage.description
-//     );
-//   }
-
-//   if (newDatapackage.readme) {
-//     newDatapackage.readmeHtml = module.exports.processMarkdown.render(
-//       newDatapackage.readme
-//     );
-//   }
-
-//   newDatapackage.formats = newDatapackage.formats || [];
-//   // Per each resource:
-//   newDatapackage.resources.forEach((resource) => {
-//     if (resource.description) {
-//       resource.descriptionHtml = module.exports.processMarkdown.render(
-//         resource.description
-//       );
-//     }
-//     // Normalize format (lowercase)
-//     if (resource.format) {
-//       resource.format = resource.format.toLowerCase();
-//       newDatapackage.formats.push(resource.format);
-//     }
-
-//     // Convert bytes into human-readable format:
-//     if (resource.size) {
-//       resource.sizeFormatted = bytes(resource.size, { decimalPlaces: 0 });
-//     }
-//   });
-
-//   return newDatapackage;
-// };
-
-/**
- * Create 'displayResources' property which has:
- * resource: Object containing resource descriptor
- * api: API URL for the resource if available, e.g., Datastore
- * proxy: path via proxy for the resource if available
- * cc_proxy: path via CKAN Classic proxy if available
- * slug: slugified name of a resource
- **/
-// module.exports.prepareResourcesForDisplay = function (datapackage) {
-//   const newDatapackage = JSON.parse(JSON.stringify(datapackage));
-//   newDatapackage.displayResources = [];
-//   newDatapackage.resources.forEach((resource, index) => {
-//     const api = resource.datastore_active
-//       ? config.get('API_URL') +
-//         'datastore_search?resource_id=' +
-//         resource.id +
-//         '&sort=_id asc'
-//       : null;
-//     // Use proxy path if datastore/filestore proxies are given:
-//     let proxy, cc_proxy;
-//     try {
-//       const resourceUrl = new URL(resource.path);
-//       if (
-//         resourceUrl.host === config.get('PROXY_DATASTORE') &&
-//         resource.format !== 'pdf'
-//       ) {
-//         proxy = '/proxy/datastore' + resourceUrl.pathname + resourceUrl.search;
-//       }
-//       if (
-//         resourceUrl.host === config.get('PROXY_FILESTORE') &&
-//         resource.format !== 'pdf'
-//       ) {
-//         proxy = '/proxy/filestore' + resourceUrl.pathname + resourceUrl.search;
-//       }
-//       // Store a CKAN Classic proxy path
-//       // https://github.com/ckan/ckan/blob/master/ckanext/resourceproxy/plugin.py#L59
-//       const apiUrlObject = new URL(config.get('API_URL'));
-//       cc_proxy =
-//         apiUrlObject.origin +
-//         `/dataset/${datapackage.id}/resource/${resource.id}/proxy`;
-//     } catch (e) {
-//       console.warn(e);
-//     }
-//     const displayResource = {
-//       resource,
-//       api, // URI for getting the resource via API, e.g., Datastore. Useful when you want to fetch only 100 rows or similar.
-//       proxy, // alternative for path in case there is CORS issue
-//       cc_proxy,
-//       slug: slugify(resource.name) + '-' + index, // Used for anchor links
-//     };
-//     newDatapackage.displayResources.push(displayResource);
-//   });
-//   return newDatapackage;
-// };
-
-/**
- * Prepare 'views' property which is used by 'datapackage-views-js' library to
- * render visualizations such as tables, graphs and maps.
- **/
-// module.exports.prepareViews = function (datapackage) {
-//   const newDatapackage = JSON.parse(JSON.stringify(datapackage));
-//   newDatapackage.views = newDatapackage.views || [];
-//   newDatapackage.resources.forEach((resource) => {
-//     const resourceViews =
-//       resource.views &&
-//       resource.views.map((view) => {
-//         view.resources = [resource.name];
-//         return view;
-//       });
-
-//     newDatapackage.views = newDatapackage.views.concat(resourceViews);
-//   });
-
-//   return newDatapackage;
-// };
-
-/**
- * Create 'dataExplorers' property which is used by 'data-explorer' library to
- * render data explorer widgets.
- **/
-// module.exports.prepareDataExplorers = function (datapackage) {
-//   const newDatapackage = JSON.parse(JSON.stringify(datapackage));
-//   newDatapackage.displayResources.forEach((displayResource, idx) => {
-//     newDatapackage.displayResources[idx].dataExplorers = [];
-//     displayResource.resource.views &&
-//       displayResource.resource.views.forEach((view) => {
-//         const widgets = [];
-//         if (view.specType === 'dataExplorer') {
-//           view.spec.widgets.forEach((widget, index) => {
-//             const widgetNames = {
-//               table: 'Table',
-//               simple: 'Chart',
-//               tabularmap: 'Map',
-//             };
-//             widget = {
-//               name: widgetNames[widget.specType] || 'Widget-' + index,
-//               active: index === 0 ? true : false,
-//               datapackage: {
-//                 views: [
-//                   {
-//                     id: view.id,
-//                     specType: widget.specType,
-//                   },
-//                 ],
-//               },
-//             };
-//             widgets.push(widget);
-//           });
-//         } else {
-//           const widget = {
-//             name: view.title || '',
-//             active: true,
-//             datapackage: {
-//               views: [view],
-//             },
-//           };
-//           widgets.push(widget);
-//         }
-
-//         displayResource.resource.api =
-//           displayResource.resource.api || displayResource.api;
-//         const dataExplorer = JSON.stringify({
-//           widgets,
-//           datapackage: {
-//             resources: [displayResource.resource],
-//           },
-//         }).replace(/'/g, '&#x27;');
-//         newDatapackage.displayResources[idx].dataExplorers.push(dataExplorer);
-//       });
-//   });
-
-//   return newDatapackage;
-// };

@@ -34,7 +34,7 @@ const Search: React.FC<{ text?: string; newSearch: any }> = ({
         name="q"
         value={q}
         onChange={handleChange}
-        placeholder={text ? text : 'Try COVID, Hospital, Construction'}
+        placeholder={text ? text : 'Search here'}
         aria-label="Search"
         className="search__input"
       />
@@ -54,7 +54,7 @@ const Search: React.FC<{ text?: string; newSearch: any }> = ({
           type="submit"
           title="Submit search"
         >
-          Submit
+          &#x279C;
           <span className="sr-only">search</span>
         </button>
       </div>

@@ -23,7 +23,7 @@ const Sort: React.FC<{ newSort: any }> = ({ newSort }) => {
   };
   return (
     <div className="sort">
-      <label htmlFor="field-order-by" className="sort__label">
+      <label htmlFor="field-order-by" className="sr-only">
         Sort by&nbsp;&nbsp;
       </label>
       <select
