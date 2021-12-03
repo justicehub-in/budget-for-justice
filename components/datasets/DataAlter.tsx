@@ -199,22 +199,9 @@ const DataAlter: React.FC<{
     }
     // else create string and query URL
     else {
-      // create the filter string for CKAN API
-      const final = [];
-      let filter: string;
-      Object.keys(objMobile).forEach((val) => {
-        if (objMobile[val].length > 0) {
-          objMobile[val].forEach((item: string) =>
-            final.push(`${val}:"${item}"`)
-          );
-
-          filter = final.join(' AND ');
-        }
-      });
-
       newData({
         query: 'fq',
-        value: filter,
+        value: objMobile,
       });
     }
 

@@ -33,7 +33,9 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    border-top: 2px solid hsla(300, 4%, 81%, 0.5);
+    padding-top: 1rem;
   }
 
   &__sort {

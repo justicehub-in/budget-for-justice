@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
-const obj = {};
+import React, { useEffect, useState } from 'react';
+import { filterStringToObject } from 'utils/index';
 
 const Filter = ({ data, newFilters, fq }) => {
+  const [filterObj, setFilterObj] = useState({});
   function headingCollapsable() {
     const headings = document.querySelectorAll('.filters__heading');
 
@@ -21,24 +22,10 @@ const Filter = ({ data, newFilters, fq }) => {
   useEffect(() => {
     headingCollapsable();
 
-    Object.keys(data).forEach((val) => {
-      obj[val] = [];
-    });
-
     // if filter query available on page load, add class to relevant buttons
-    if (fq) {
-      const removeEscape = fq.replaceAll(/"/g, '');
-      const splitFilters = removeEscape.split(' AND ');
-
-      splitFilters.forEach((query: any) => {
-        const id = query.split(':')[0];
-        const value = query.split(':')[1];
-        obj[id].push(value);
-        if (document.getElementById(value))
-          document.getElementById(value).setAttribute('aria-pressed', 'true');
-      });
-    }
-  }, []);
+    const obj = filterStringToObject(fq, data);
+    setFilterObj(obj);
+  }, [fq]);
 
   function formatFilterName(name: string) {
     if (name == 'fiscal_year') {
@@ -63,26 +50,16 @@ const Filter = ({ data, newFilters, fq }) => {
       pressed == 'false' ? 'true' : 'false'
     );
 
-    const index = obj[type].indexOf(value);
+    const index = filterObj[type].indexOf(value);
     if (index > -1) {
-      obj[type].splice(index, 1);
+      filterObj[type].splice(index, 1);
     } else {
-      obj[type].push(value);
+      filterObj[type].push(value);
     }
-
-    const final = [];
-    let filter: string;
-    Object.keys(obj).forEach((val) => {
-      if (obj[val].length > 0) {
-        obj[val].forEach((item: string) => final.push(`${val}:"${item}"`));
-
-        filter = final.join(' AND ');
-      }
-    });
 
     newFilters({
       query: 'fq',
-      value: filter,
+      value: filterObj,
     });
   }
 

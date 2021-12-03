@@ -2122,6 +2122,18 @@ button {
   text-decoration: underline;
 }
 
+.selected-filters {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.selected-filters li {
+  background-color: #f65940;
+  color: #fdfcfc;
+  padding: 0.5rem 1rem;
+  border-radius: 18px;
+}
+
 .stories-card {
   background-color: white;
   border-radius: 6px;
@@ -2673,7 +2685,9 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  border-top: 2px solid rgba(208, 205, 208, 0.5);
+  padding-top: 1rem;
 }
 .datasets__sort {
   display: inline-flex;
