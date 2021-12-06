@@ -141,14 +141,104 @@ const latest = [
   },
 ];
 
+const interaction = [
+  {
+    name: 'explorer',
+    icon: '',
+    content: (
+      <>
+        <h2 className="home__heading">
+          Explore the budget &#38; and tell your own story 1
+        </h2>
+        <p className="home__sub-head">
+          Everything you need to analyse the data more efficiently
+        </p>
+        <div className="home__interact-links">
+          <a
+            rel="nofollow noreferrer"
+            className="btn-primary"
+            href="https://forum.justicehub.in"
+          >
+            Explore Now
+          </a>
+          <a
+            rel="nofollow noreferrer"
+            className="btn-primary-invert"
+            href="https://forum.justicehub.in"
+          >
+            Raw Datasets
+          </a>
+        </div>
+      </>
+    ),
+  },
+  {
+    name: 'join-us',
+    icon: '',
+    content: (
+      <>
+        <h2 className="home__heading">
+          Become a valuable part of our exclusive community
+        </h2>
+        <p className="home__sub-head">
+          Get regular newslettesr &amp; events update
+        </p>
+        <form className="home__interact-subscribe">
+          <div>
+            <label htmlFor="join-email">Email</label>
+            <input id="join-email" type="email" required />
+          </div>
+          <button className="btn-primary">Subscribe</button>
+        </form>
+      </>
+    ),
+  },
+  {
+    name: 'write-us',
+    icon: '',
+    content: (
+      <>
+        <form className="home__interact-share">
+          <div className="share__name">
+            <label htmlFor="share-name">Name</label>
+            <input id="share-name" type="text" />
+          </div>
+          <div className="share__email">
+            <label htmlFor="share-name">Email</label>
+            <input id="share-name" type="text" />
+          </div>
+          <div className="share__message">
+            <label htmlFor="share-content">Message</label>
+            <textarea
+              name="share-content"
+              id="share-content"
+              cols={25}
+              rows={5}
+            ></textarea>
+          </div>
+          <button className="btn-primary">Share</button>
+        </form>
+      </>
+    ),
+  },
+];
+
 const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
   useEffect(() => {
-    // create tabbed interface
+    // create tabbed interface for schemes
     const tablist = document.getElementById('schemeSelector');
     const panels = document.querySelectorAll(
       '.home__scheme [role="tabpanel"]'
     );
     if (tablist) tabbedInterface(tablist, panels);
+
+    // create tabbed interface for interactions
+    const tablistInteraction = document.getElementById('indicatorSelector');
+    const panelsInteraction = document.querySelectorAll(
+      '.home__interact [role="tabpanel"]'
+    );
+    if (tablistInteraction)
+      tabbedInterface(tablistInteraction, panelsInteraction);
   }, []);
   const { t } = useTranslation();
 
@@ -178,15 +268,11 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
         <section className="home__video container">
           <div className="home__video-item">
             <img
-              src={`https://placekitten.com/640/350`}
+              src={`https://placekitten.com/720/356`}
               alt=""
-              width="640"
-              height="350"
+              width="720"
+              height="356"
             />
-          </div>
-          <div className="home__video-desc">
-            <h2 className="home__heading">Hello Citizens!</h2>
-            <p>{schemeList[0].desc}</p>
           </div>
         </section>
         <section className="home__latest container">
@@ -266,33 +352,6 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
           <Carousel />
         </section>
 
-        <section className="home__collab container">
-          <div className="wrapper">
-            <h2 className="home__heading">
-              Explore the budget &#38; and tell your own story
-            </h2>
-            <p className="home__sub-head">
-              Everything you need to analyse the data more efficiently
-            </p>
-            <div className="home__collab-links">
-              <a
-                rel="nofollow noreferrer"
-                className="btn-primary"
-                href="https://forum.justicehub.in"
-              >
-                Explore Now
-              </a>
-              <a
-                rel="nofollow noreferrer"
-                className="btn-primary-invert"
-                href="https://forum.justicehub.in"
-              >
-                Raw Datasets
-              </a>
-            </div>
-          </div>
-        </section>
-
         <section className="home__news container">
           <h2 className="home__heading">Featured News &amp; Stories</h2>
           <p className="home__sub-head">
@@ -325,6 +384,38 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
               See all stories
             </a>
           </footer>
+        </section>
+        <section className="home__interact ">
+          <div className="container">
+            <ul id="indicatorSelector" role="tablist">
+              {interaction.map((item: any, index: number) => (
+                <li role="presentation" key={`indicatorSelector-${index}`}>
+                  <a
+                    role="tab"
+                    tabIndex={-1}
+                    href={`#interaction-${item.name}`}
+                    data-id={`interaction-${item.name}`}
+                    id={`interaction-${index}`}
+                  >
+                    {item.name.replace(/[^A-Z0-9]/gi, ' ')}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="home__interact-content">
+              {interaction.map((item: any, index: number) => (
+                <div
+                  key={`indicator-content-${index}`}
+                  id={`interaction-${item.name}`}
+                  role="tabpanel"
+                  tabIndex={-1}
+                  aria-labelledby={`interaction-${index}`}
+                >
+                  {item.content}
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
       </main>
     </>
