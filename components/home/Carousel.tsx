@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 
 const data = [
   {
-    text: 'The Assam Public Procurement Rules, which were approved by the cabinet in September 2020 have now been brought into force with effect from 1st September 2021.',
+    text: '1 - We’re making justice data accessible so that citizens can demand a more resilient justice system.',
     link: '/',
     image: '/assets/icons/assam.png',
   },
   {
-    text: 'The Assam Public Procurement Rules 2, which were approved by the cabinet in September 2020 have now been brought into force with effect from 1st September 2021.',
+    text: '2 - We’re making justice data accessible so that citizens can demand a more resilient justice system.',
     link: '/',
     image: '/assets/icons/assam.png',
   },
   {
-    text: 'The Assam Public Procurement Rules 3, which were approved by the cabinet in September 2020 have now been brought into force with effect from 1st September 2021.',
+    text: '3 - We’re making justice data accessible so that citizens can demand a more resilient justice system.',
     link: '/',
     image: '/assets/icons/assam.png',
   },
@@ -103,14 +103,15 @@ const Carousel = () => {
                 id={`carousel-${index}`}
                 className="carousel__item"
               >
-                <article>
-                  <h2>Did you Know?</h2>
-                  <p>{item.text}</p>
-                  <a href={item.link}>Click to know more</a>
-                </article>
                 <figure>
                   <img src={item.image} alt="" />
                 </figure>
+                <div>
+                  <p>{item.text}</p>
+                  <a className="btn-primary" href={item.link}>
+                    Check our Processes
+                  </a>
+                </div>
               </li>
             );
           })}
@@ -145,7 +146,7 @@ const Carousel = () => {
                   onClick={handleCarouselNav}
                   data-number={index}
                 >
-                  <span className="sr-only">News:</span> {index + 1}
+                  <span className="sr-only">Slide:</span> {index + 1}
                 </button>
               </li>
             );
