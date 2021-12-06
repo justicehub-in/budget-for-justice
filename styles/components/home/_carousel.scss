@@ -2,7 +2,7 @@
 @use '../../tools/mixins/media' as media;
 
 .carousel {
-  padding: 75px 0 60px;
+  padding: 75px 0 10rem;
   background-color: $grey-5;
 
   .container {
@@ -13,13 +13,11 @@
 
   &__content {
     display: flex;
+    width: 100%;
+    text-align: center;
 
     figure {
       padding: 16px 53px;
-
-      img {
-        width: 100%;
-      }
 
       @include media.narrowerThan('seedling') {
         display: none;
@@ -46,24 +44,9 @@
   }
 
   p {
-    margin-top: 50px;
     font-weight: 500;
-    line-height: 156%;
-  }
-
-  a {
-    margin-top: 10px;
-    display: block;
-    width: max-content;
-    font-weight: 500;
-    color: $bg-darkest;
-    text-decoration: none;
-    line-height: 156%;
-
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
+    line-height: 1.5;
+    font-size: 1.5rem;
   }
 
   &__prev,
@@ -85,6 +68,13 @@
 
   &__item {
     display: none;
+    align-items: center;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
     &--current {
       display: flex;
@@ -93,7 +83,7 @@
 
   &__nav {
     position: absolute;
-    bottom: -3.5rem;
+    bottom: -7.5rem;
     left: 50%;
     transform: translate(-50%, -50%);
     display: block;
@@ -101,6 +91,7 @@
     margin: 0;
     list-style: none;
     text-align: center;
+    display: flex;
 
     li {
       position: relative;
@@ -110,6 +101,7 @@
       margin: 0 5px;
       padding: 0;
       cursor: pointer;
+      width: 100%;
     }
 
     button {
@@ -159,6 +151,11 @@
     figure {
       display: none;
     }
+
+    p {
+      font-size: 1rem;
+    }
+
     &__prev {
       margin-right: 2rem;
     }

@@ -229,18 +229,29 @@
 
   &__impact {
     margin-top: 3rem;
-    background-color: $color-carrot;
+    background-color: $bg-lightest;
     height: 100;
 
     .carousel {
       background-color: transparent;
+
+      li {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      a {
+        margin-top: 1rem;
+      }
     }
   }
 
   &__interact {
     margin-top: 3rem;
     background-color: $bg-lightest;
-    padding: 3rem 0;
+    padding: 3rem 0 5rem;
+    margin-bottom: -5rem;
+    min-height: 350px;
 
     .container {
       display: flex;
@@ -329,18 +340,11 @@
       gap: 2rem;
       justify-content: flex-start;
 
+      @supports (width: min(250px, 100%)) {
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      }
       > div {
         width: max-content;
-      }
-
-      .share {
-        &__name {
-          grid-column: 1/2;
-        }
-
-        &__email {
-          grid-column: 2/3;
-        }
       }
 
       label {
@@ -509,6 +513,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 1.5rem;
+    border-bottom: 1px solid $grey-3;
+    padding-bottom: 1rem;
 
     @supports (width: min(250px, 100%)) {
       grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
