@@ -1158,6 +1158,16 @@ button {
     grid-row: 1/2;
   }
 }
+.mega-header__meta {
+  grid-column: 1/3;
+  display: flex;
+  margin-top: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.mega-header__meta strong {
+  color: #f65940;
+}
 .mega-header h2 {
   margin-top: 2rem;
   font-size: 2.5rem;
@@ -1167,21 +1177,23 @@ button {
   grid-row: 1/2;
   word-break: break-all;
 }
-.mega-header p {
+.mega-header__para {
   font-size: 1rem;
   line-height: 1.5;
   grid-column: 2/3;
   grid-row: 2/3;
+}
+.mega-header__para:not(.mega-header__para--explorer) {
   border-bottom: 2px solid rgba(208, 205, 208, 0.5);
 }
-.mega-header p:first-of-type {
+.mega-header__para:first-of-type {
   padding-top: 1rem;
 }
-.mega-header p:last-child {
+.mega-header__para:last-child {
   padding-bottom: 2.5rem;
 }
 @media screen and (max-width: 479px) {
-  .mega-header p {
+  .mega-header__para {
     grid-column: 1/3;
   }
 }
@@ -3025,17 +3037,25 @@ button {
 }
 
 .analysis__heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  background-color: #fbe192;
+  padding: 1rem;
 }
-@media screen and (max-width: 479px) {
-  .analysis__heading {
-    grid-template-columns: 1fr;
-  }
-  .analysis__heading .btn-primary {
-    margin-top: 1rem;
-  }
+.analysis__heading h3 {
+  font-size: 1.5rem;
+}
+.analysis__heading > ul {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.analysis__heading > ul strong {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.analysis__heading > ul p {
+  color: #f65940;
 }
 .analysis__content {
   display: grid;
@@ -3135,6 +3155,55 @@ button {
   line-height: 156%;
   color: #545454;
   margin-top: 1rem;
+}
+.analysis__meta {
+  padding: 1rem;
+  background-color: white;
+  margin-top: 3rem;
+}
+.analysis__meta > div {
+  margin-top: 2rem;
+}
+.analysis__meta > div:first-child {
+  margin-top: 0;
+}
+.analysis__description p {
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+.analysis__keywords ul {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.analysis__keywords li {
+  background-color: #9ac0e0;
+  border-radius: 1rem;
+  padding: 0.4rem 0.8rem;
+}
+.analysis__resources ul {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.analysis__resources li {
+  background-color: #9ac0e0;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+.analysis__resources p {
+  grid-column: 1/3;
+}
+.analysis__resources a {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  margin-left: 2rem;
+}
+.analysis__info dl {
+  margin-top: 1.5rem;
 }
 
 .stories .container {
