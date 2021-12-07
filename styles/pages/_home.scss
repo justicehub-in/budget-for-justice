@@ -246,134 +246,6 @@
     }
   }
 
-  &__interact {
-    margin-top: 3rem;
-    background-color: $bg-lightest;
-    padding: 3rem 0 5rem;
-    margin-bottom: -5rem;
-    min-height: 350px;
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    #indicatorSelector {
-      flex-grow: 1;
-      flex-basis: 10rem;
-      border-right: 1px solid $grey-3;
-      padding-right: 2rem;
-
-      a {
-        font-size: 1.5rem;
-        text-decoration: none;
-        line-height: 1.5;
-        color: $grey-3;
-        text-transform: capitalize;
-
-        &[aria-selected='true'] {
-          color: $text-light-high;
-          font-weight: 500;
-          font-size: 2rem;
-        }
-      }
-    }
-
-    &-content {
-      flex-basis: 0;
-      flex-grow: 999;
-      min-width: 80%;
-
-      h2 {
-        line-height: 1.5;
-      }
-
-      > div {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-      }
-    }
-
-    &-links {
-      display: flex;
-      margin-top: 1.5rem;
-      gap: 1rem;
-    }
-
-    &-subscribe {
-      display: flex;
-      align-items: flex-end;
-      margin-top: 1rem;
-      margin-bottom: 8px;
-
-      > div {
-        margin-top: 1.5rem;
-      }
-
-      label {
-        color: $text-light-medium;
-        font-weight: 500;
-        display: block;
-      }
-
-      input {
-        background: transparent none repeat scroll 0% 0%;
-        border: none;
-        border-bottom: 1px solid black;
-        padding: 8px;
-        margin-top: 0.5rem;
-        color: rgb(0, 0, 0);
-        outline: currentcolor none medium;
-        width: 100%;
-      }
-
-      button {
-        margin-left: 1rem;
-      }
-    }
-
-    &-share {
-      display: grid;
-      gap: 2rem;
-      justify-content: flex-start;
-
-      @supports (width: min(250px, 100%)) {
-        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-      }
-      > div {
-        width: max-content;
-      }
-
-      label {
-        color: $text-light-medium;
-        font-weight: 500;
-        display: block;
-      }
-
-      input,
-      textarea {
-        background: transparent none repeat scroll 0% 0%;
-        border: none;
-        border-bottom: 1px solid black;
-        padding: 8px;
-        color: rgb(0, 0, 0);
-        outline: currentcolor none medium;
-      }
-
-      button {
-        height: max-content;
-        align-self: flex-end;
-      }
-    }
-
-    a {
-      text-decoration: none;
-    }
-  }
-
   &__explore {
     margin-top: 3rem;
   }
@@ -558,6 +430,188 @@
     footer {
       margin-top: 1rem;
       display: block;
+    }
+  }
+
+  &__interact {
+    margin-top: 3rem;
+    margin-bottom: -7rem;
+    isolation: isolate;
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      border: 1px solid $grey-2;
+      padding: 2rem;
+      background-color: $bg-lightest;
+    }
+
+    #indicatorSelector {
+      flex-grow: 1;
+      flex-basis: 10rem;
+      border-right: 1px solid $grey-3;
+      padding-right: 2rem;
+
+      a {
+        font-size: 1.5rem;
+        text-decoration: none;
+        line-height: 1.5;
+        color: $grey-3;
+        text-transform: capitalize;
+
+        &[aria-selected='true'] {
+          color: $text-light-high;
+          font-weight: 500;
+          font-size: 2rem;
+        }
+      }
+    }
+
+    &-content {
+      flex-basis: 0;
+      flex-grow: 999;
+      min-width: 80%;
+
+      h2 {
+        line-height: 1.5;
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+    }
+
+    &-links {
+      display: flex;
+      margin-top: 1.5rem;
+      gap: 1rem;
+    }
+
+    &-subscribe {
+      display: flex;
+      align-items: flex-end;
+      margin-top: 1rem;
+      margin-bottom: 8px;
+
+      > div {
+        margin-top: 1.5rem;
+      }
+
+      label {
+        color: $text-light-medium;
+        font-weight: 500;
+        display: block;
+      }
+
+      input {
+        background: transparent none repeat scroll 0% 0%;
+        border: none;
+        border-bottom: 1px solid black;
+        padding: 8px;
+        margin-top: 0.5rem;
+        color: rgb(0, 0, 0);
+        outline: currentcolor none medium;
+        width: 100%;
+      }
+
+      button {
+        margin-left: 1rem;
+      }
+    }
+
+    &-share {
+      display: grid;
+      gap: 2rem;
+      justify-content: flex-start;
+
+      @supports (width: min(250px, 100%)) {
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      }
+      > div {
+        width: max-content;
+      }
+
+      label {
+        color: $text-light-medium;
+        font-weight: 500;
+        display: block;
+      }
+
+      input,
+      textarea {
+        background: transparent none repeat scroll 0% 0%;
+        border: none;
+        border-bottom: 1px solid black;
+        padding: 8px;
+        color: rgb(0, 0, 0);
+        outline: currentcolor none medium;
+      }
+
+      button {
+        height: max-content;
+        align-self: flex-end;
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &__contributors {
+    background-color: #dfe6ed;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    margin-bottom: -5rem;
+
+    h2 {
+      text-align: center;
+    }
+
+    ul {
+      margin-top: 1.5rem;
+      display: flex;
+      overflow-x: auto;
+      scrollbar-color: $grey-3 transparent;
+      scrollbar-width: thin;
+
+      > * {
+        margin: 1rem;
+        margin-right: 0;
+      }
+
+      &::after {
+        content: '';
+        flex-basis: 1rem;
+        flex-shrink: 0;
+      }
+
+      > * + * {
+        margin-left: 1rem;
+      }
+
+      &::-webkit-scrollbar {
+        height: 1rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: $grey-2;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $grey-2;
+        background-image: linear-gradient(
+          $grey-2 0,
+          $grey-2 0.25rem,
+          $bg-light 0.25rem,
+          $bg-light 0.75rem,
+          $grey-2 0.75rem
+        );
+      }
     }
   }
 }

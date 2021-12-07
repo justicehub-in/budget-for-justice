@@ -141,6 +141,8 @@ const latest = [
   },
 ];
 
+const contributors = ['/', '/', '/', '/', '/', '/', '/', '/', '/'];
+
 const interaction = [
   {
     name: 'explorer',
@@ -415,6 +417,24 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="home__contributors">
+          <div className="container">
+            <h2 className="home__heading">Contributors</h2>
+            <ul>
+              {contributors.map((item, index) => (
+                <li key={`contri-${index}`}>
+                  <img
+                    src={`https://placekitten.com/200/10${index}`}
+                    alt=""
+                    width="200"
+                    height="100"
+                  />
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       </main>
