@@ -2485,120 +2485,6 @@ button {
 .home__impact .carousel a {
   margin-top: 1rem;
 }
-.home__interact {
-  margin-top: 3rem;
-  background-color: white;
-  padding: 3rem 0 5rem;
-  margin-bottom: -5rem;
-  min-height: 350px;
-}
-.home__interact .container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-.home__interact #indicatorSelector {
-  flex-grow: 1;
-  flex-basis: 10rem;
-  border-right: 1px solid #adadad;
-  padding-right: 2rem;
-}
-.home__interact #indicatorSelector a {
-  font-size: 1.5rem;
-  text-decoration: none;
-  line-height: 1.5;
-  color: #adadad;
-  text-transform: capitalize;
-}
-.home__interact #indicatorSelector a[aria-selected=true] {
-  color: rgba(0, 0, 0, 0.87);
-  font-weight: 500;
-  font-size: 2rem;
-}
-.home__interact-content {
-  flex-basis: 0;
-  flex-grow: 999;
-  min-width: 80%;
-}
-.home__interact-content h2 {
-  line-height: 1.5;
-}
-.home__interact-content > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-.home__interact-links {
-  display: flex;
-  margin-top: 1.5rem;
-  gap: 1rem;
-}
-.home__interact-subscribe {
-  display: flex;
-  align-items: flex-end;
-  margin-top: 1rem;
-  margin-bottom: 8px;
-}
-.home__interact-subscribe > div {
-  margin-top: 1.5rem;
-}
-.home__interact-subscribe label {
-  color: rgba(0, 0, 0, 0.6);
-  font-weight: 500;
-  display: block;
-}
-.home__interact-subscribe input {
-  background: transparent none repeat scroll 0% 0%;
-  border: none;
-  border-bottom: 1px solid black;
-  padding: 8px;
-  margin-top: 0.5rem;
-  color: black;
-  outline: currentcolor none medium;
-  width: 100%;
-}
-.home__interact-subscribe button {
-  margin-left: 1rem;
-}
-.home__interact-share {
-  display: grid;
-  gap: 2rem;
-  justify-content: flex-start;
-}
-@supports (width: min(250px, 100%)) {
-  .home__interact-share {
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  }
-}
-.home__interact-share > div {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-}
-.home__interact-share label {
-  color: rgba(0, 0, 0, 0.6);
-  font-weight: 500;
-  display: block;
-}
-.home__interact-share input,
-.home__interact-share textarea {
-  background: transparent none repeat scroll 0% 0%;
-  border: none;
-  border-bottom: 1px solid black;
-  padding: 8px;
-  color: black;
-  outline: currentcolor none medium;
-}
-.home__interact-share button {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  align-self: flex-end;
-}
-.home__interact a {
-  text-decoration: none;
-}
 .home__explore {
   margin-top: 3rem;
 }
@@ -2764,6 +2650,159 @@ button {
 .home__news-item footer {
   margin-top: 1rem;
   display: block;
+}
+.home__interact {
+  margin-top: 3rem;
+  margin-bottom: -7rem;
+  isolation: isolate;
+}
+.home__interact .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  border: 1px solid #545454;
+  padding: 2rem;
+  background-color: white;
+}
+.home__interact #indicatorSelector {
+  flex-grow: 1;
+  flex-basis: 10rem;
+  border-right: 1px solid #adadad;
+  padding-right: 2rem;
+}
+.home__interact #indicatorSelector a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  line-height: 1.5;
+  color: #adadad;
+  text-transform: capitalize;
+}
+.home__interact #indicatorSelector a[aria-selected=true] {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 500;
+  font-size: 2rem;
+}
+.home__interact-content {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: 80%;
+}
+.home__interact-content h2 {
+  line-height: 1.5;
+}
+.home__interact-content > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.home__interact-links {
+  display: flex;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+.home__interact-subscribe {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 1rem;
+  margin-bottom: 8px;
+}
+.home__interact-subscribe > div {
+  margin-top: 1.5rem;
+}
+.home__interact-subscribe label {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+  display: block;
+}
+.home__interact-subscribe input {
+  background: transparent none repeat scroll 0% 0%;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 8px;
+  margin-top: 0.5rem;
+  color: black;
+  outline: currentcolor none medium;
+  width: 100%;
+}
+.home__interact-subscribe button {
+  margin-left: 1rem;
+}
+.home__interact-share {
+  display: grid;
+  gap: 2rem;
+  justify-content: flex-start;
+}
+@supports (width: min(250px, 100%)) {
+  .home__interact-share {
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  }
+}
+.home__interact-share > div {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.home__interact-share label {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+  display: block;
+}
+.home__interact-share input,
+.home__interact-share textarea {
+  background: transparent none repeat scroll 0% 0%;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 8px;
+  color: black;
+  outline: currentcolor none medium;
+}
+.home__interact-share button {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  align-self: flex-end;
+}
+.home__interact a {
+  text-decoration: none;
+}
+.home__contributors {
+  background-color: #dfe6ed;
+  padding-top: 10rem;
+  padding-bottom: 5rem;
+  margin-bottom: -5rem;
+}
+.home__contributors h2 {
+  text-align: center;
+}
+.home__contributors ul {
+  margin-top: 1.5rem;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-color: #adadad transparent;
+  scrollbar-width: thin;
+}
+.home__contributors ul > * {
+  margin: 1rem;
+  margin-right: 0;
+}
+.home__contributors ul::after {
+  content: "";
+  flex-basis: 1rem;
+  flex-shrink: 0;
+}
+.home__contributors ul > * + * {
+  margin-left: 1rem;
+}
+.home__contributors ul::-webkit-scrollbar {
+  height: 1rem;
+}
+.home__contributors ul::-webkit-scrollbar-track {
+  background-color: #545454;
+}
+.home__contributors ul::-webkit-scrollbar-thumb {
+  background-color: #545454;
+  background-image: linear-gradient(#545454 0, #545454 0.25rem, #f2f2f2 0.25rem, #f2f2f2 0.75rem, #545454 0.75rem);
 }
 
 .datasets__wrapper {
