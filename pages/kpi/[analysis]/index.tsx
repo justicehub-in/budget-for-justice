@@ -10,6 +10,30 @@ import BarChartViz from 'components/viz/BarChart';
 import { kpiTransformer } from 'transformers/kpiTransformer';
 import DataAlter from 'components/datasets/DataAlter';
 import { cloneDeep } from 'lodash';
+import DList from 'components/_shared/DList';
+
+const basicContent = [
+  {
+    title: 'Topic 1',
+    desc: 'Description',
+  },
+  {
+    title: 'Topic 2',
+    desc: 'Description',
+  },
+  {
+    title: 'Topic 3',
+    desc: 'Description',
+  },
+  {
+    title: 'Topic 4',
+    desc: 'Description',
+  },
+  {
+    title: 'Topic 5',
+    desc: 'Description',
+  },
+];
 
 Modal.setAppElement('#__next');
 
@@ -19,23 +43,52 @@ type Props = {
   csv: any;
 };
 
-const news = [
+const allNews = [
   {
-    title: 'In Assam State',
-    desc: 'New public procurement rules incated on 2nd Sept. Most of the tenders over the last five years were Open Tenders (98%).This indicates that most of the tenders published allowed/encouraged competition. For the National Health Mission it was about 93% with the 7% of Open Limited Tendersl.... Know more',
+    heading: 'Title for the published news and placeholder for all others',
+    para: 'Data analysis feature helps you view, analyze and use the procurement \
+    data of Assam. See stories and post done using this dataset. You can also \
+    contribute your own story',
+    publisher: 'Times of India',
+    tag: 'Data for Justice',
+    image: '',
+    link: '',
   },
   {
-    title: 'In Assam State',
-    desc: 'New public procurement rules incated on 2nd Sept. Most of the tenders over the last five years were Open Tenders (98%).This indicates that most of the tenders published allowed/encouraged competition. For the National Health Mission it was about 93% with the 7% of Open Limited Tendersl.... Know more',
+    heading: 'Title for the published news and placeholder for all others',
+    para: 'Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story',
+    publisher: 'The Hindu',
+    tag: 'Data for Justice',
+    image: '',
+    link: '',
   },
   {
-    title: 'In Assam State',
-    desc: 'New public procurement rules incated on 2nd Sept. Most of the tenders over the last five years were Open Tenders (98%).This indicates that most of the tenders published allowed/encouraged competition. For the National Health Mission it was about 93% with the 7% of Open Limited Tendersl.... Know more',
+    heading: 'Title for the published news and placeholder for all others',
+    para: 'Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story',
+    publisher: 'Live Law',
+    tag: 'Data for Justice',
+    image: '',
+    link: '',
   },
-  {
-    title: 'In Assam State',
-    desc: 'New public procurement rules incated on 2nd Sept. Most of the tenders over the last five years were Open Tenders (98%).This indicates that most of the tenders published allowed/encouraged competition. For the National Health Mission it was about 93% with the 7% of Open Limited Tendersl.... Know more',
-  },
+];
+
+const keywords = [
+  'Education',
+  'Girl Education',
+  'Budget',
+  'Expenditure',
+  'Yearly Trends',
+  'Education',
+  'Girl Education',
+  'Budget',
+  'Expenditure',
+  'Budget',
+  'Yearly Trends',
+  'Education',
+  'Girl Education',
+  'Budget',
+  'Expenditure',
+  'Yearly Trends',
 ];
 
 const vizFilters = {};
@@ -140,10 +193,13 @@ const Analysis: React.FC<Props> = ({ data, csv }) => {
 
   const headerData = {
     title: dataPackage.title || dataPackage.name,
-    content: dataPackage.organization.title,
-    date: new Date(dataPackage.metadata_created).toLocaleDateString('en-US'),
+    content:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+    // date: new Date(dataPackage.metadata_created).toLocaleDateString('en-US'),
     previousPage: 'Data Analysis',
     previousLink: '/kpi',
+    frequency: 'Yearly',
+    type: 'Centrally Sponsered Scheme',
   };
 
   return (
@@ -156,7 +212,63 @@ const Analysis: React.FC<Props> = ({ data, csv }) => {
         <MegaHeader data={headerData} />
         <div className="page-wrap container">
           <section className="analysis__heading">
-            <h3 className="heading-w-line">KPI Analysis</h3>
+            <h3>Summary</h3>
+            <ul>
+              <li>
+                <strong>₹ 103761.63 Cr.</strong>
+                <p>Total Scheme Budget</p>
+              </li>
+              <li>
+                <strong>₹ 103761.63 Cr.</strong>
+                <p>Total Scheme Expenditure</p>
+              </li>
+              <li>
+                <strong>5.56%</strong>
+                <p>of Total Budget</p>
+              </li>
+              <li>
+                <strong>20.63%</strong>
+                <p>of Dev. Budget</p>
+              </li>
+            </ul>
+          </section>
+
+          <DataAlter
+            data={indicatorsList}
+            newData={handleNewVizData}
+            sortShow={false}
+            newIndicator={handleNewVizData}
+            indicators={indicators}
+          />
+
+          <section className="analysis__content">
+            <Indicator data={indicatorsList} newIndicator={handleNewVizData} />
+            <div className="viz">
+              <div className="viz__header">
+                {/* viz selector toggle */}
+                <ul className="viz__tabs">
+                  {vizToggle.map((item, index) => (
+                    <li key={`toggleItem-${index}`}>
+                      <a href={item.id}>
+                        {item.icon}
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* viz graphs */}
+              {vizItems.map((item, index) => (
+                <figure
+                  key={`vizIyem-${index}`}
+                  className="viz__bar"
+                  id={item.id}
+                >
+                  {filteredData.length > 0 && item.graph}
+                </figure>
+              ))}
+            </div>
             <button className="btn-primary" onClick={handleButtonClick}>
               <svg
                 width="10"
@@ -282,55 +394,79 @@ const Analysis: React.FC<Props> = ({ data, csv }) => {
             </Modal>
           </section>
 
-          <DataAlter
-            data={indicatorsList}
-            newData={handleNewVizData}
-            sortShow={false}
-            newIndicator={handleNewVizData}
-            indicators={indicators}
-          />
+          <section className="home__news container">
+            <h3 className="home__heading">Featured News &amp; Stories</h3>
+            <p className="home__sub-head">
+              Everything you need to analyse the data more efficiently
+            </p>
 
-          <section className="analysis__content">
-            <Indicator data={indicatorsList} newIndicator={handleNewVizData} />
-            <div className="viz">
-              <div className="viz__header">
-                {/* viz selector toggle */}
-                <ul className="viz__tabs">
-                  {vizToggle.map((item, index) => (
-                    <li key={`toggleItem-${index}`}>
-                      <a href={item.id}>
-                        {item.icon}
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="home__news-item">
+              {allNews.map((item, index) => (
+                <section key={`newsItem-${index}`}>
+                  <img
+                    src={`https://placekitten.com/270/16${index}`}
+                    alt=""
+                    width="270"
+                    height="160"
+                  />
+                  <small>{item.tag}</small>
+                  <h2>{item.heading}</h2>
 
-              {/* viz graphs */}
-              {vizItems.map((item, index) => (
-                <figure
-                  key={`vizIyem-${index}`}
-                  className="viz__bar"
-                  id={item.id}
-                >
-                  {filteredData.length > 0 && item.graph}
-                </figure>
+                  <p>{item.para}</p>
+                  <footer>{item.publisher}</footer>
+                </section>
               ))}
             </div>
+            <footer>
+              <a
+                rel="nofollow noreferrer"
+                className="btn-primary-invert"
+                href="https://forum.justicehub.in"
+              >
+                See all stories
+              </a>
+            </footer>
           </section>
 
-          <section className="analysis__news">
-            <h3 className="heading-w-line">Did you know?</h3>
-            <div>
-              {news.map((article, index) => {
-                return (
-                  <article key={`article-${index}`}>
-                    <h4>{article.title}</h4>
-                    <p>{article.desc}</p>
-                  </article>
-                );
-              })}
+          <section className="analysis__meta container">
+            <div className="analysis__description">
+              <h3 className="home__heading">Data Description</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+                repellat, inventore voluptatum facilis a harum pariatur
+                veritatis amet possimus soluta nemo tempore nostrum quae nulla
+                quia nam quibusdam quidem expedita?
+              </p>
+            </div>
+
+            <div className="analysis__keywords">
+              <h3 className="home__heading">Keywords</h3>
+              <ul>
+                {keywords.map((item, index) => (
+                  <li key={`keywords-${index}`}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="analysis__resources">
+              <h3 className="home__heading">Data &amp; Resources</h3>
+              <ul>
+                <li>
+                  <strong>File Name</strong>
+                  <p>Small Description</p>
+                  <a href="#">Download</a>
+                </li>
+                <li>
+                  <strong>File Name</strong>
+                  <p>Small Description</p>
+                  <a href="#">Download</a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="analysis__info">
+              <h3 className="home__heading">Additional Info.</h3>
+              <DList content={basicContent} />
             </div>
           </section>
         </div>
