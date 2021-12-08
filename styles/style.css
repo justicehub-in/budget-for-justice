@@ -2772,19 +2772,26 @@ button {
   padding-bottom: 5rem;
   margin-bottom: -5rem;
 }
+.home__contributors .container > div {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+}
 .home__contributors h2 {
   text-align: center;
 }
 .home__contributors ul {
-  margin-top: 1.5rem;
   display: flex;
   overflow-x: auto;
   scrollbar-color: #adadad transparent;
   scrollbar-width: thin;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
 }
 .home__contributors ul > * {
   margin: 1rem;
   margin-right: 0;
+  scroll-snap-align: start;
 }
 .home__contributors ul::after {
   content: "";
