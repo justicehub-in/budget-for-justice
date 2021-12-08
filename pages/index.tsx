@@ -242,6 +242,13 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
     if (tablistInteraction)
       tabbedInterface(tablistInteraction, panelsInteraction);
   }, []);
+
+  function updateContributors(n: number) {
+    const scrollPos = document.getElementById('contributors').scrollLeft;
+    document
+      .getElementById('contributors')
+      .scrollTo({ left: scrollPos + n * 216, behavior: 'smooth' });
+  }
   const { t } = useTranslation();
 
   return (
@@ -423,18 +430,62 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
         <section className="home__contributors">
           <div className="container">
             <h2 className="home__heading">Contributors</h2>
-            <ul>
-              {contributors.map((item, index) => (
-                <li key={`contri-${index}`}>
-                  <img
-                    src={`https://placekitten.com/200/10${index}`}
-                    alt=""
-                    width="200"
-                    height="100"
+            <div>
+              <button
+                className="carousel__prev"
+                onClick={() => updateContributors(-1)}
+                type="button"
+              >
+                <span className="sr-only">Previous Slide</span>
+                <svg
+                  width="14"
+                  height="24"
+                  viewBox="0 0 14 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M13.7158 2.8L11.121 0L0.000213623 12L11.121 24L13.7158 21.2L5.1899 12L13.7158 2.8Z"
+                    fill="#075E54"
                   />
-                </li>
-              ))}
-            </ul>
+                </svg>
+              </button>
+              <ul id="contributors">
+                {contributors.map((item, index) => (
+                  <li key={`contri-${index}`}>
+                    <img
+                      src={`https://placekitten.com/200/10${index}`}
+                      alt=""
+                      width="200"
+                      height="100"
+                    />
+                  </li>
+                ))}
+              </ul>
+              <button
+                className="carousel__next"
+                onClick={() => updateContributors(1)}
+                type="button"
+              >
+                <span className="sr-only">Previous Slide</span>
+                <svg
+                  width="14"
+                  height="24"
+                  viewBox="0 0 14 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M13.7158 2.8L11.121 0L0.000213623 12L11.121 24L13.7158 21.2L5.1899 12L13.7158 2.8Z"
+                    fill="#075E54"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </section>
       </main>
