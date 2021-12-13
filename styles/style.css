@@ -2929,6 +2929,73 @@ button {
 .tender__basic dt {
   max-width: 12rem;
 }
+.tender__relevant {
+  margin-top: 3rem;
+}
+.tender__relevant-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid #adadad;
+  padding-bottom: 1rem;
+}
+@media screen and (max-width: 719px) {
+  .tender__relevant-item {
+    justify-content: center;
+  }
+}
+.tender__relevant-item section {
+  border: 1px solid #545454;
+  padding: 1rem;
+  background-color: white;
+  flex-grow: 1;
+  flex-basis: 28%;
+}
+@media screen and (max-width: 479px) {
+  .tender__relevant-item section {
+    flex-basis: 100%;
+  }
+}
+.tender__relevant-item section.tender__relevant-item--image {
+  display: grid;
+  gap: 1rem;
+  flex-grow: 1;
+  flex-basis: 70%;
+}
+@supports (width: min(250px, 100%)) {
+  .tender__relevant-item section.tender__relevant-item--image {
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  }
+}
+.tender__relevant-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.tender__relevant-item small {
+  margin-top: 0.5rem;
+  display: block;
+}
+.tender__relevant-item h2 {
+  font-weight: bold;
+  border-bottom: 1px solid #d0d0d3;
+  padding-bottom: 1rem;
+  line-height: 1.5;
+  margin-top: 0.3rem;
+}
+.tender__relevant-item p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 156%;
+  margin-top: 0.6rem;
+}
+.tender__relevant-item footer {
+  margin-top: 1rem;
+  display: block;
+}
 .tender__map {
   display: grid;
   grid-template-rows: -webkit-max-content 1fr;
@@ -2949,6 +3016,43 @@ button {
 .tender .heading-3 svg {
   margin-bottom: -3px;
   margin-right: 10px;
+}
+.tender__pagination {
+  margin-top: 2rem;
+  font-size: 1.5em;
+}
+.tender__pagination ul {
+  overflow: hidden;
+}
+.tender__pagination li {
+  background-color: #e9fbf0;
+  border: 2px solid #d0d0d3;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+.tender__pagination li.prev {
+  float: left;
+}
+.tender__pagination li.next {
+  float: right;
+  text-align: right;
+  text-align: -moz-right;
+}
+.tender__pagination span {
+  font-weight: 500;
+}
+.tender__pagination a {
+  display: block;
+  margin-top: 1rem;
+  text-decoration: none;
+  border: 2px solid #d0d0d3;
+  border-radius: 4px;
+  padding: 0.5rem 2rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 1rem;
+  background-color: white;
 }
 
 .kpi .carousel {
@@ -3246,7 +3350,7 @@ button {
 .analysis__resources a {
   grid-column: 2/3;
   grid-row: 1/2;
-  margin-left: 2rem;
+  margin-left: 6rem;
 }
 .analysis__info dl {
   margin-top: 1.5rem;
