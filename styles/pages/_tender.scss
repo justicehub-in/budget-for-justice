@@ -7,6 +7,43 @@
     flex-direction: column;
   }
 
+  &__jump {
+    background-color: #dfe6ed;
+
+    h4 button {
+      color: #000;
+      border-color: #000;
+      border: none;
+    }
+    > div {
+      padding: 13px 12px;
+
+      > span {
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      > div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: center;
+
+        div {
+          display: flex;
+          align-items: center;
+        }
+
+        input {
+          padding: 6px 0;
+          transform: scale(1.5);
+          margin-right: 1rem;
+          accent-color: #4864b1;
+        }
+      }
+    }
+  }
+
   .mega-header {
     p {
       font-size: 12px;

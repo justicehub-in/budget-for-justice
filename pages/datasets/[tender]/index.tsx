@@ -81,24 +81,24 @@ const allNews = [
   },
 ];
 
-const keywords = [
-  'Education',
-  'Girl Education',
-  'Budget',
-  'Expenditure',
-  'Yearly Trends',
-  'Education',
-  'Girl Education',
-  'Budget',
-  'Expenditure',
-  'Budget',
-  'Yearly Trends',
-  'Education',
-  'Girl Education',
-  'Budget',
-  'Expenditure',
-  'Yearly Trends',
-];
+// const keywords = [
+//   'Education',
+//   'Girl Education',
+//   'Budget',
+//   'Expenditure',
+//   'Yearly Trends',
+//   'Education',
+//   'Girl Education',
+//   'Budget',
+//   'Expenditure',
+//   'Budget',
+//   'Yearly Trends',
+//   'Education',
+//   'Girl Education',
+//   'Budget',
+//   'Expenditure',
+//   'Yearly Trends',
+// ];
 
 const vizFilters = {};
 
@@ -217,7 +217,53 @@ const Analysis: React.FC<Props> = () => {
         <title>B4J | Explorer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className=" analysis">
+      <main className="container analysis">
+        <section className="tender__jump">
+          <h4 className="filters__heading">
+            <button aria-expanded="false">
+              Jump to another Scheme or Summary
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 144 72">
+                <path d="M72 72C72 71.98 0 0 0 0h144L72 72" />
+              </svg>
+            </button>
+          </h4>
+          <div hidden>
+            <span>Select a desired bucket:</span>
+            <div>
+              <div>
+                <input
+                  type="radio"
+                  id="depts"
+                  name="bucket"
+                  value="depts"
+                  defaultChecked
+                />
+                <label htmlFor="depts">Ministries/Departments</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  id="categories"
+                  name="bucket"
+                  value="categories"
+                />
+                <label htmlFor="categories">Categories</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  id="schemes"
+                  name="bucket"
+                  value="schemes"
+                />
+                <label htmlFor="schemes">Schemes</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <MegaHeader data={headerData} />
         <div className="page-wrap container">
           <section className="analysis__heading">

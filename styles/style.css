@@ -2860,6 +2860,37 @@ button {
   display: flex;
   flex-direction: column;
 }
+.tender__jump {
+  background-color: #dfe6ed;
+}
+.tender__jump h4 button {
+  color: #000;
+  border-color: #000;
+  border: none;
+}
+.tender__jump > div {
+  padding: 13px 12px;
+}
+.tender__jump > div > span {
+  margin-bottom: 1rem;
+  display: block;
+}
+.tender__jump > div > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+.tender__jump > div > div div {
+  display: flex;
+  align-items: center;
+}
+.tender__jump > div > div input {
+  padding: 6px 0;
+  transform: scale(1.5);
+  margin-right: 1rem;
+  accent-color: #4864b1;
+}
 .tender .mega-header p {
   font-size: 12px;
 }
@@ -3308,7 +3339,6 @@ button {
 }
 .analysis__meta {
   padding: 1rem;
-  background-color: white;
   margin-top: 3rem;
 }
 .analysis__meta > div {
