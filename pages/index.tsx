@@ -258,16 +258,21 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="home">
-        <section className="home__know container">
-          <div className="wrapper">
+        <section className="home__know">
+          <div className="container wrapper">
             <h2>Did you know?</h2>
             <ul>
-              <li>Some interesting insight drawn from the available data.</li>
               <li>
+                <span></span> Some interesting insight drawn from the available
+                data.
+              </li>
+              <li>
+                <span></span>
                 This book is a treatise on the theory of ethics, a very popular
                 but during the Renaissance.
               </li>
               <li>
+                <span></span>
                 Contrary to popular belief, Lorem Ipsum is not simply random
                 text.
               </li>
@@ -277,11 +282,18 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
         <section className="home__video container">
           <div className="home__video-item">
             <img
-              src={`https://placekitten.com/720/356`}
+              src={`https://placekitten.com/700/356`}
               alt=""
-              width="720"
+              width="700"
               height="356"
             />
+          </div>
+          <div className="home__video-desc">
+            <h2 className="home__heading">Here’s what we do!</h2>
+            <p>
+              Watch a quick introduction on what you can do using Budget for
+              Justice.
+            </p>
           </div>
         </section>
         <section className="home__latest container">
@@ -295,12 +307,17 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
             {latest.map((news, index) => (
               <li key={`latest-${index}`}>
                 <a href={news.link}>
-                  <span>{`0${index}`}</span> <p>{news.name}</p>
+                  <span>{`0${index + 1}`}</span> <p>{news.name}</p>
                 </a>
               </li>
             ))}
           </ul>
         </section>
+
+        <section className="home__impact">
+          <Carousel />
+        </section>
+
         <section className="home__scheme container">
           <h2 className="sr-only">Schemes Insight</h2>
           <ul id="schemeSelector" role="tablist">
@@ -355,10 +372,6 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
               </section>
             ))}
           </div>
-        </section>
-
-        <section className="home__impact">
-          <Carousel />
         </section>
 
         <section className="home__news container">

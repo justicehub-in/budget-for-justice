@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react';
 
 const data = [
   {
-    text: '1 - We’re making justice data accessible so that citizens can demand a more resilient justice system.',
+    text: 'We’re making justice data accessible so that citizens can demand a more resilient justice system.',
     link: '/',
-    image: '/assets/icons/assam.png',
+    image: '/assets/icons/home_carousel.svg',
   },
   {
-    text: '2 - We’re making justice data accessible so that citizens can demand a more resilient justice system.',
+    text: 'Data accessible so that citizens can demand a more resilient justice system.',
     link: '/',
-    image: '/assets/icons/assam.png',
+    image: '/assets/icons/home_carousel.svg',
   },
   {
-    text: '3 - We’re making justice data accessible so that citizens can demand a more resilient justice system.',
+    text: 'Justice data accessible so that citizens can demand a more resilient justice system Lorem Ipsum.',
     link: '/',
-    image: '/assets/icons/assam.png',
+    image: '/assets/icons/home_carousel.svg',
   },
 ];
 
@@ -104,7 +104,7 @@ const Carousel = () => {
                 className="carousel__item"
               >
                 <figure>
-                  <img src={item.image} alt="" />
+                  <img src={item.image} alt="" width={176} height={176} />
                 </figure>
                 <div>
                   <p>{item.text}</p>
