@@ -17,7 +17,6 @@
     text-align: center;
 
     figure {
-
       @include media.narrowerThan('seedling') {
         display: none;
       }
@@ -54,17 +53,19 @@
   &__next {
     min-width: 44px;
     height: 44px;
+    margin-bottom: -6rem;
   }
 
   &__prev {
     margin-right: 3rem;
+
+    svg {
+      transform: rotate(180deg);
+    }
   }
 
   &__next {
     margin-left: 3rem;
-    svg {
-      transform: rotate(180deg);
-    }
   }
 
   &__item {

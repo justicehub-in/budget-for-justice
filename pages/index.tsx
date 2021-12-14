@@ -149,9 +149,7 @@ const interaction = [
     icon: '',
     content: (
       <>
-        <h2 className="home__heading">
-          Explore the budget &#38; and tell your own story 1
-        </h2>
+        <h2 className="home__heading">Placeholder Text for Heading</h2>
         <p className="home__sub-head">
           Everything you need to analyse the data more efficiently
         </p>
@@ -318,59 +316,61 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
           <Carousel />
         </section>
 
-        <section className="home__scheme container">
-          <h2 className="sr-only">Schemes Insight</h2>
-          <ul id="schemeSelector" role="tablist">
-            {schemeList.map((scheme: any, index: number) => (
-              <li role="presentation" key={`schemeSelector-${index}`}>
-                <a
-                  role="tab"
-                  tabIndex={-1}
-                  href={`#scheme-${scheme.selector}`}
-                  data-id={`scheme-${scheme.selector}`}
-                  id={`schemeNews${index}`}
-                >
-                  {scheme.selector}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <div className="home__scheme-content">
-            {schemeList.map((scheme: any, index: number) => (
-              <section
-                key={`scheme-news-${index}`}
-                id={`scheme-${scheme.selector}`}
-                role="tabpanel"
-                tabIndex={-1}
-                aria-labelledby={`schemeNews${index}`}
-              >
-                <div>
-                  <h3>{scheme.header}</h3>
-                  <p>{scheme.desc}</p>
-                  <ul className="home__scheme-insights">
-                    {scheme.insights.map((insight: any, index2: number) => (
-                      <li key={`indicator-${index}+${index2}`}>
-                        <strong>{insight.value}</strong>
-                        <p>{insight.item}</p>
-                      </li>
-                    ))}
-                  </ul>
+        <section className="home__scheme">
+          <div className="container">
+            <h2 className="sr-only">Schemes Insight</h2>
+            <ul id="schemeSelector" role="tablist">
+              {schemeList.map((scheme: any, index: number) => (
+                <li role="presentation" key={`schemeSelector-${index}`}>
                   <a
-                    rel="nofollow noreferrer"
-                    className="btn-primary-invert"
-                    href={scheme.link}
+                    role="tab"
+                    tabIndex={-1}
+                    href={`#scheme-${scheme.selector}`}
+                    data-id={`scheme-${scheme.selector}`}
+                    id={`schemeNews${index}`}
                   >
-                    Explore Scheme
+                    {scheme.selector}
                   </a>
-                </div>
-                <img
-                  src={`https://placekitten.com/240/30${index}`}
-                  alt=""
-                  width="240"
-                  height="300"
-                />
-              </section>
-            ))}
+                </li>
+              ))}
+            </ul>
+            <div className="home__scheme-content">
+              {schemeList.map((scheme: any, index: number) => (
+                <section
+                  key={`scheme-news-${index}`}
+                  id={`scheme-${scheme.selector}`}
+                  role="tabpanel"
+                  tabIndex={-1}
+                  aria-labelledby={`schemeNews${index}`}
+                >
+                  <div>
+                    <h3>{scheme.header}</h3>
+                    <p>{scheme.desc}</p>
+                    <ul className="home__scheme-insights">
+                      {scheme.insights.map((insight: any, index2: number) => (
+                        <li key={`indicator-${index}+${index2}`}>
+                          <strong>{insight.value}</strong>
+                          <p>{insight.item}</p>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      rel="nofollow noreferrer"
+                      className="btn-primary-invert"
+                      href={scheme.link}
+                    >
+                      Explore Scheme
+                    </a>
+                  </div>
+                  <img
+                    src={`https://placekitten.com/240/30${index}`}
+                    alt=""
+                    width="240"
+                    height="300"
+                  />
+                </section>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -392,51 +392,28 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
                 <small>{item.tag}</small>
                 <h2>{item.heading}</h2>
 
-                <p>{item.para}</p>
+                {/* <p>{item.para}</p> */}
                 <footer>{item.publisher}</footer>
               </section>
             ))}
           </div>
-          <footer>
-            <a
-              rel="nofollow noreferrer"
-              className="btn-primary-invert"
-              href="https://forum.justicehub.in"
-            >
-              See all stories
-            </a>
-          </footer>
         </section>
+
         <section className="home__interact ">
           <div className="container">
-            <ul id="indicatorSelector" role="tablist">
-              {interaction.map((item: any, index: number) => (
-                <li role="presentation" key={`indicatorSelector-${index}`}>
-                  <a
-                    role="tab"
-                    tabIndex={-1}
-                    href={`#interaction-${item.name}`}
-                    data-id={`interaction-${item.name}`}
-                    id={`interaction-${index}`}
-                  >
-                    {item.name.replace(/[^A-Z0-9]/gi, ' ')}
-                  </a>
-                </li>
-              ))}
-            </ul>
             <div className="home__interact-content">
-              {interaction.map((item: any, index: number) => (
-                <div
-                  key={`indicator-content-${index}`}
-                  id={`interaction-${item.name}`}
-                  role="tabpanel"
-                  tabIndex={-1}
-                  aria-labelledby={`interaction-${index}`}
-                >
-                  {item.content}
-                </div>
-              ))}
+              <h2 className="home__heading">Placeholder Text for Heading</h2>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum has been the industrys
+                standard dummy text ever since the 1500s.
+              </p>
+              <p>
+                For more information connect us at{' '}
+                <a href="#">collaborate@civicdatalab.in</a>
+              </p>
             </div>
+            <img src="/assets/icons/send-email-fly.svg" alt="" />
           </div>
         </section>
 
@@ -445,23 +422,25 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
             <h2 className="home__heading">Contributors</h2>
             <div>
               <button
-                className="carousel__prev"
+                className="slider__prev"
                 onClick={() => updateContributors(-1)}
                 type="button"
               >
                 <span className="sr-only">Previous Slide</span>
                 <svg
-                  width="14"
-                  height="24"
-                  viewBox="0 0 14 24"
-                  fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  width="56"
+                  height="56"
+                  fill="none"
+                  viewBox="0 0 56 56"
                 >
                   <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M13.7158 2.8L11.121 0L0.000213623 12L11.121 24L13.7158 21.2L5.1899 12L13.7158 2.8Z"
-                    fill="#075E54"
+                    fill="#f7d3cd"
+                    d="M56 28c0 15.464-12.536 28-28 28S0 43.464 0 28 12.536 0 28 0s28 12.536 28 28Z"
+                  />
+                  <path
+                    fill="#EFF2F2"
+                    d="M21 29h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L32.17 27H21c-.55 0-1 .45-1 1s.45 1 1 1Z"
                   />
                 </svg>
               </button>
@@ -478,23 +457,26 @@ const Home: React.FC<{ locale: any; locales: any; forumData: any }> = () => {
                 ))}
               </ul>
               <button
-                className="carousel__next"
+                className="slider__next"
                 onClick={() => updateContributors(1)}
                 type="button"
               >
                 <span className="sr-only">Previous Slide</span>
                 <svg
-                  width="14"
-                  height="24"
-                  viewBox="0 0 14 24"
-                  fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  width="56"
+                  height="56"
+                  fill="none"
+                  viewBox="0 0 56 56"
                 >
                   <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M13.7158 2.8L11.121 0L0.000213623 12L11.121 24L13.7158 21.2L5.1899 12L13.7158 2.8Z"
-                    fill="#075E54"
+                    fill="#F65940"
+                    d="M56 28c0 15.464-12.536 28-28 28S0 43.464 0 28 12.536 0 28 0s28 12.536 28 28Z"
+                    opacity=".63"
+                  />
+                  <path
+                    fill="#EFF2F2"
+                    d="M21 29h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L32.17 27H21c-.55 0-1 .45-1 1s.45 1 1 1Z"
                   />
                 </svg>
               </button>

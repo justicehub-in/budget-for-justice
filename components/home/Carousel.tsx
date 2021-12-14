@@ -7,7 +7,7 @@ const data = [
     image: '/assets/icons/home_carousel.svg',
   },
   {
-    text: 'Data accessible so that citizens can demand a more resilient justice system.',
+    text: 'Data a more resilient justice system, accessible so that citizens can demand a more resilient justice system.',
     link: '/',
     image: '/assets/icons/home_carousel.svg',
   },
@@ -81,17 +81,20 @@ const Carousel = () => {
         >
           <span className="sr-only">Previous Slide</span>
           <svg
-            width="14"
-            height="24"
-            viewBox="0 0 14 24"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            width="56"
+            height="56"
+            fill="none"
+            viewBox="0 0 56 56"
           >
             <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M13.7158 2.8L11.121 0L0.000213623 12L11.121 24L13.7158 21.2L5.1899 12L13.7158 2.8Z"
-              fill="#075E54"
+              fill="#F65940"
+              d="M56 28c0 15.464-12.536 28-28 28S0 43.464 0 28 12.536 0 28 0s28 12.536 28 28Z"
+              opacity=".63"
+            />
+            <path
+              fill="#EFF2F2"
+              d="M21 29h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L32.17 27H21c-.55 0-1 .45-1 1s.45 1 1 1Z"
             />
           </svg>
         </button>
@@ -123,17 +126,20 @@ const Carousel = () => {
         >
           <span className="sr-only">Previous Slide</span>
           <svg
-            width="14"
-            height="24"
-            viewBox="0 0 14 24"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            width="56"
+            height="56"
+            fill="none"
+            viewBox="0 0 56 56"
           >
             <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M13.7158 2.8L11.121 0L0.000213623 12L11.121 24L13.7158 21.2L5.1899 12L13.7158 2.8Z"
-              fill="#075E54"
+              fill="#F65940"
+              d="M56 28c0 15.464-12.536 28-28 28S0 43.464 0 28 12.536 0 28 0s28 12.536 28 28Z"
+              opacity=".63"
+            />
+            <path
+              fill="#EFF2F2"
+              d="M21 29h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L32.17 27H21c-.55 0-1 .45-1 1s.45 1 1 1Z"
             />
           </svg>
         </button>
