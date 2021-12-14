@@ -144,7 +144,7 @@
 
   &__meta {
     padding: 1rem;
-    background-color: $bg-lightest;
+    // background-color: $bg-lightest;
     margin-top: 3rem;
 
     > div {
@@ -200,7 +200,7 @@
     a {
       grid-column: 2/3;
       grid-row: 1/2;
-      margin-left: 2rem;
+      margin-left: 6rem;
     }
   }
 
