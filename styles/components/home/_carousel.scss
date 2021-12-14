@@ -17,8 +17,6 @@
     text-align: center;
 
     figure {
-      padding: 16px 53px;
-
       @include media.narrowerThan('seedling') {
         display: none;
       }
@@ -38,32 +36,36 @@
   }
 
   h2 {
-    font-weight: 500;
+    font-weight: 700;
     font-size: 24px;
-    line-height: 150%;
+    line-height: 1.5;
   }
 
   p {
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 24px;
     line-height: 1.5;
-    font-size: 1.5rem;
+    color: $color-green;
+    margin-top: 2.5rem;
   }
 
   &__prev,
   &__next {
     min-width: 44px;
     height: 44px;
+    margin-bottom: -6rem;
   }
 
   &__prev {
     margin-right: 3rem;
+
+    svg {
+      transform: rotate(180deg);
+    }
   }
 
   &__next {
     margin-left: 3rem;
-    svg {
-      transform: rotate(180deg);
-    }
   }
 
   &__item {
