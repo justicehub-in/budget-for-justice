@@ -41,8 +41,8 @@ const navList = [
     name: 'Forum',
   },
   {
-    link: '/about',
-    name: 'Join/Login',
+    link: '/explore',
+    name: 'Explore Budget',
     isButton: true,
   },
 ];
@@ -135,7 +135,8 @@ const Nav: React.FC = () => {
                       </ul>
                     </>
                   ) : navItem.isButton ? (
-                    <button
+                    <a
+                      href={navItem.link}
                       className={`navbar__item btn-primary ${
                         router.pathname.includes(navItem.link)
                           ? 'navbar__item--active'
@@ -143,7 +144,7 @@ const Nav: React.FC = () => {
                       }`}
                     >
                       {navItem.name}
-                    </button>
+                    </a>
                   ) : (
                     <Link href={navItem.link}>
                       <a
