@@ -212,7 +212,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: end;
+      align-items: flex-end;
       margin-bottom: 2rem;
 
       li {
@@ -548,6 +548,7 @@
       background-color: $color-primary;
       color: $text-dark-high;
       border-radius: 40px;
+      position: relative;
     }
 
     // #indicatorSelector {
@@ -575,6 +576,7 @@
       flex-basis: 0;
       flex-grow: 999;
       min-width: 80%;
+      z-index: 10;
 
       h2 {
         line-height: 1.5;
@@ -659,6 +661,12 @@
     //     align-self: flex-end;
     //   }
     // }
+
+    img {
+      position: absolute;
+      right: 6rem;
+      z-index: 1;
+    }
 
     p {
       line-height: 1.5;
