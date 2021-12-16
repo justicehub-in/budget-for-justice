@@ -2376,7 +2376,7 @@ button {
   margin-top: -10rem;
 }
 .home__video-item {
-  max-width: 700px;
+  flex-basis: 40rem;
 }
 .home__video-item img {
   width: 100%;
