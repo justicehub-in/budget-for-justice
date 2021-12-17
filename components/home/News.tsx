@@ -3,7 +3,7 @@ import { allNews } from 'data/placeholder';
 const Insights = () => {
   return (
     <section className="home-news container">
-      <h2 className="home__heading">Featured News &amp; Stories</h2>
+      <h2 className="heading">Featured News &amp; Stories</h2>
       <p className="home__sub-head">
         Everything you need to analyse the data more efficiently
       </p>

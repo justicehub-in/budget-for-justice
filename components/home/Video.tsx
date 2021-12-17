@@ -10,7 +10,7 @@ const Video = () => {
         />
       </div>
       <div className="home-video__desc">
-        <h2 className="home__heading">Here’s what we do!</h2>
+        <h2 className="heading">Here’s what we do!</h2>
         <p>
           Watch a quick introduction on what you can do using Budget for
           Justice.

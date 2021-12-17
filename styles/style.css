@@ -399,7 +399,7 @@ button {
 }
 
 .btn-primary {
-  padding: 6px 12px;
+  padding: 12px 24px;
   line-height: 1.4;
   border-radius: 4px;
   text-decoration: none;
@@ -426,7 +426,7 @@ button {
 }
 
 .btn-primary-invert {
-  padding: 6px 12px;
+  padding: 12px 24px;
   line-height: 1.4;
   border-radius: 4px;
   text-decoration: none;
@@ -454,7 +454,7 @@ button {
 }
 
 .btn-secondary {
-  padding: 6px 12px;
+  padding: 12px 24px;
   line-height: 1.4;
   border-radius: 4px;
   text-decoration: none;
@@ -481,7 +481,7 @@ button {
 }
 
 .btn-secondary-invert {
-  padding: 6px 12px;
+  padding: 12px 24px;
   line-height: 1.4;
   border-radius: 4px;
   text-decoration: none;
@@ -524,41 +524,16 @@ button {
   color: #045305;
 }
 
-.heading-w-line {
-  font-size: 1.5rem;
-  font-weight: 500;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  max-width: -webkit-max-content;
-  max-width: -moz-max-content;
-  max-width: max-content;
-  line-height: 140%;
-  border-bottom: 1px solid #adadad;
-  width: 120%;
-}
-@media screen and (max-width: 479px) {
-  .heading-w-line {
-    width: 100%;
-  }
+.heading {
+  font-weight: 900;
+  font-size: 2.5rem;
 }
 
 .heading3-w-line {
-  font-size: 1.5rem;
-  font-weight: 500;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  max-width: -webkit-max-content;
-  max-width: -moz-max-content;
-  max-width: max-content;
+  font-weight: 900;
+  font-size: 2.5rem;
   line-height: 130%;
   border-bottom: 1px solid #cdd1d1;
-}
-@media screen and (max-width: 479px) {
-  .heading3-w-line {
-    width: 100%;
-  }
 }
 
 .heading-3 {
@@ -2436,7 +2411,6 @@ button {
 
 .banner {
   margin-top: 7rem;
-  margin-bottom: -8rem;
   isolation: isolate;
   padding: 4rem 3rem;
   color: #fdfcfc;
@@ -2458,8 +2432,9 @@ button {
 }
 .banner img {
   position: absolute;
-  right: 96px;
-  top: 60px;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
   max-width: 184px;
   max-height: 184px;
   z-index: -1;
@@ -2704,6 +2679,9 @@ button {
 .home .carousel p {
   max-width: 800px;
   margin-top: 3rem;
+}
+.home .banner {
+  margin-bottom: -8rem;
 }
 .home__contributors {
   background-color: white;
@@ -3498,7 +3476,7 @@ button {
   }
 }
 
-.explore__heading {
+.explore__header {
   margin-top: 5rem;
   border-bottom: 1px solid #d0d0d3;
   padding-bottom: 2rem;
@@ -3556,18 +3534,8 @@ button {
   line-height: 1.5;
   margin-top: 0.5rem;
 }
-.explore .home__interact {
-  margin-bottom: 0;
-}
-.explore .home__interact .container {
-  background-color: #00abb7;
-}
-.explore .home__interact p {
-  font-weight: 500;
-  margin: 1rem 0;
-}
-.explore .home__interact a {
-  padding: 8px 16px;
+.explore .banner a {
+  margin-top: 1rem;
 }
 
 .listing__header {

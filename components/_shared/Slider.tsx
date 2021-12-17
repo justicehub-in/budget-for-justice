@@ -1,5 +1,3 @@
-import { contributors } from 'data/placeholder';
-
 const Slider = ({ data }) => {
   function updateSlider(n: number) {
     const scrollPos = document.getElementById('contributors').scrollLeft;
@@ -10,7 +8,7 @@ const Slider = ({ data }) => {
   return (
     <section className="slider">
       <div className="container">
-        <h2 className="home__heading">Contributors</h2>
+        <h2 className="heading">Contributors</h2>
         <div>
           <button
             className="slider__prev"
@@ -36,7 +34,7 @@ const Slider = ({ data }) => {
             </svg>
           </button>
           <ul id="contributors">
-            {contributors.map((item, index) => (
+            {data.map((item, index) => (
               <li key={`contri-${index}`}>
                 <img
                   src={`https://placekitten.com/200/10${index}`}

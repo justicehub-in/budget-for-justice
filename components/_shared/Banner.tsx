@@ -5,7 +5,7 @@ const Banner = ({ details }) => {
       style={{ backgroundColor: details.color }}
     >
       <div className="banner__content">
-        <h2 className="home__heading">{details.heading}</h2>
+        <h2 className="heading">{details.heading}</h2>
         {details.content}
       </div>
       <img src={details.image} alt="" />

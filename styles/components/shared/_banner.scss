@@ -2,7 +2,6 @@
 
 .banner {
   margin-top: 7rem;
-  margin-bottom: -8rem;
   isolation: isolate;
   padding: 4rem 3rem;
   color: $text-dark-high;
@@ -27,8 +26,9 @@
 
   img {
     position: absolute;
-    right: 96px;
-    top: 60px;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
     max-width: 184px;
     max-height: 184px;
     z-index: -1;
