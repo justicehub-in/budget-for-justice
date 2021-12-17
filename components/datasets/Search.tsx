@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-const Search: React.FC<{ text?: string; newSearch: any }> = ({
+const Search: React.FC<{ text?: string; newSearch?: any }> = ({
   text,
   newSearch,
 }) => {

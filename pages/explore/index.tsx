@@ -172,7 +172,7 @@ const Explore = () => {
             <div className="home__interact-content">
               <h2 className="home__heading">Looking for someting else?</h2>
               <p>Check all datas sets in one go.</p>
-              <a href="/" className="btn-primary">
+              <a href="/listing" className="btn-primary">
                 Browse All
               </a>
             </div>

@@ -1,0 +1,118 @@
+@use '../settings/variables' as *;
+@use '../tools/mixins/media' as media;
+
+.listing {
+  &__header {
+    background-color: $color-teal-1;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+
+    p {
+      line-height: 1.5;
+      margin: 2rem 0;
+    }
+
+    filter: $drop-shadow;
+  }
+
+  &__indicators {
+    margin-top: 2rem;
+
+    > div {
+      background-color: $bg-lightest;
+      padding: 14px 16px;
+      border: $border-1;
+      border-radius: 4px;
+      border-left: 4px solid $color-teal;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    h3 {
+      // font-weight: 500;
+      font-size: 12px;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+
+      li {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 1.5;
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin-right: 0.5rem;
+          width: 19px;
+          height: 19px;
+        }
+      }
+    }
+  }
+
+  &__items {
+    margin-top: 2rem;
+
+    h3 {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    ul {
+      column-count: 2;
+      column-gap: 1rem;
+      margin-top: 12px;
+
+      @include media.narrowerThan('sprout') {
+        column-count: 1;
+      }
+    }
+
+    li {
+      background-color: $bg-lightest;
+      border: $border-1;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+
+      a {
+        display: flex;
+        align-items: center;
+        padding: 14px;
+        line-height: 1.5;
+        height: 100%;
+        text-decoration-color: transparent;
+        transition: text-decoration-color 0.3s ease-out;
+      }
+
+      span {
+        border-left: 1px solid $grey-4;
+        padding-left: 0.5rem;
+        margin-left: 0.5rem;
+      }
+
+      svg {
+        width: 19px;
+        height: 19px;
+      }
+
+      &:hover, &:focus-within {
+        box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.16);
+        border-color: $grey-5;
+
+        a {
+          font-weight: 500;
+          text-decoration-color: inherit;
+        }
+      }
+    }
+  }
+}
