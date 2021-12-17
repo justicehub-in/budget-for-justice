@@ -1,7 +1,7 @@
 @use '../settings/variables' as *;
 
 .explore {
-  &__heading {
+  &__header {
     margin-top: 5rem;
     border-bottom: 1px solid #d0d0d3;
     padding-bottom: 2rem;
@@ -71,20 +71,9 @@
     }
   }
 
-  .home__interact {
-    margin-bottom: 0;
-
-    .container {
-      background-color: $color-teal;
-    }
-
-    p {
-      font-weight: 500;
-      margin: 1rem 0;
-    }
-
+  .banner {
     a {
-      padding: 8px 16px;
+      margin-top: 1rem;
     }
   }
 }

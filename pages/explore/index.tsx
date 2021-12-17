@@ -1,4 +1,19 @@
 import Head from 'next/head';
+import Banner from 'components/_shared/Banner';
+
+const bannerDetails = {
+  heading: 'Looking for someting else?',
+  content: (
+    <>
+      <p>Check all datas sets in one go.</p>
+      <a href="/listing" className="btn-primary">
+        Browse All
+      </a>
+    </>
+  ),
+  image: '/assets/icons/arrows-btn.svg',
+  color: '#00ABB7',
+};
 
 const Explore = () => {
   return (
@@ -8,9 +23,11 @@ const Explore = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="explore container">
-        <p className="explore__heading home__heading">
-          Start your exploration with these featured schemes
-        </p>
+        <div className="explore__header">
+          <p className="heading">
+            Start your exploration with these featured schemes
+          </p>
+        </div>
         <div className="explore__schemes">
           {/* 1st row - split */}
           <div className="explore__schemes--split">
@@ -167,18 +184,7 @@ const Explore = () => {
           </div>
         </div>
 
-        <section className="home__interact">
-          <div className="container">
-            <div className="home__interact-content">
-              <h2 className="home__heading">Looking for someting else?</h2>
-              <p>Check all datas sets in one go.</p>
-              <a href="/listing" className="btn-primary">
-                Browse All
-              </a>
-            </div>
-            <img src="/assets/icons/arrows-btn.svg" alt="" />
-          </div>
-        </section>
+        <Banner details={bannerDetails} />
       </main>
     </>
   );

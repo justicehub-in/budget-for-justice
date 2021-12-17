@@ -454,7 +454,7 @@ const Analysis: React.FC<Props> = () => {
           </section> */}
 
           <section className="tender__relevant container">
-            <h3 className="home__heading">Explore some relevant datasets</h3>
+            <h3 className="heading">Explore some relevant datasets</h3>
             <p className="home__sub-head">
               Everything you need to analyse the data more efficiently
             </p>
@@ -496,7 +496,7 @@ const Analysis: React.FC<Props> = () => {
 
           <section className="analysis__meta container">
             {/* <div className="analysis__description">
-              <h3 className="home__heading">Data Description</h3>
+              <h3 className="heading">Data Description</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
                 repellat, inventore voluptatum facilis a harum pariatur
@@ -506,7 +506,7 @@ const Analysis: React.FC<Props> = () => {
             </div>
 
             <div className="analysis__keywords">
-              <h3 className="home__heading">Keywords</h3>
+              <h3 className="heading">Keywords</h3>
               <ul>
                 {keywords.map((item, index) => (
                   <li key={`keywords-${index}`}>{item}</li>
@@ -515,7 +515,7 @@ const Analysis: React.FC<Props> = () => {
             </div> */}
 
             <div className="analysis__resources">
-              <h3 className="home__heading">Data &amp; Resources</h3>
+              <h3 className="heading">Data &amp; Resources</h3>
               <p className="home__sub-head">
                 Everything you need to analyse the data more efficiently
               </p>
@@ -539,7 +539,7 @@ const Analysis: React.FC<Props> = () => {
             </div>
             {/* 
             <div className="analysis__info">
-              <h3 className="home__heading">Additional Info.</h3>
+              <h3 className="heading">Additional Info.</h3>
               <DList content={basicContent} />
             </div> */}
           </section>

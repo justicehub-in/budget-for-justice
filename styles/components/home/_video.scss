@@ -1,0 +1,42 @@
+@use '../../settings/variables' as *;
+
+.home-video {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 2rem;
+  background-color: $color-teal;
+  border-radius: 40px;
+  margin-top: 7rem;
+
+  &__item {
+    flex-basis: 40rem;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 16px 8px 8px 16px;
+    }
+  }
+
+  &__desc {
+    flex-grow: 1;
+    flex-basis: 40ch;
+    color: $text-dark-high;
+    line-height: 1.5;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  h2 {
+    line-height: 1.1;
+    font-weight: 600;
+    font-size: 2.5rem;
+  }
+
+  p {
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+}

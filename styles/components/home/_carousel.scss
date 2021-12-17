@@ -54,6 +54,7 @@
     min-width: 44px;
     height: 44px;
     margin-bottom: -6rem;
+    filter: $drop-shadow;
   }
 
   &__prev {
@@ -85,7 +86,7 @@
 
   &__nav {
     position: absolute;
-    bottom: -7.5rem;
+    bottom: -8rem;
     left: 50%;
     transform: translate(-50%, -50%);
     display: block;
@@ -124,18 +125,19 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 0.5rem;
-        height: 0.5rem;
+        width: 1rem;
+        height: 1rem;
         content: ' ';
         text-align: center;
-        color: $bg-light;
-        border: 1px solid $bg-darkest;
+        color: #00abb7;
+        border: 1px solid #00abb7;
         border-radius: 50%;
       }
 
       &[aria-pressed='true'] {
         &::before {
-          background-color: $bg-darkest;
+          background-color: #06464a;
+          border-color: #06464a;
         }
       }
 

@@ -1,0 +1,82 @@
+@use '../../settings/variables' as *;
+
+.slider {
+  background-color: $bg-lightest;
+  padding-top: 15rem;
+  padding-bottom: 5rem;
+  margin-bottom: -5rem;
+
+  .container > div {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  h2 {
+    text-align: center;
+    color: $text-light-light;
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+
+  ul {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-color: $grey-3 transparent;
+    scrollbar-width: thin;
+    scroll-snap-type: x mandatory;
+
+    > * {
+      margin: 1rem;
+      margin-right: 0;
+      scroll-snap-align: start;
+    }
+
+    &::after {
+      content: '';
+      flex-basis: 1rem;
+      flex-shrink: 0;
+    }
+
+    > * + * {
+      margin-left: 1rem;
+    }
+
+    &::-webkit-scrollbar {
+      height: 1rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $grey-2;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $grey-2;
+      background-image: linear-gradient(
+        $grey-2 0,
+        $grey-2 0.25rem,
+        $bg-light 0.25rem,
+        $bg-light 0.75rem,
+        $grey-2 0.75rem
+      );
+    }
+  }
+
+  &__prev,
+  &__next {
+    min-width: 44px;
+    height: 44px;
+  }
+
+  &__prev {
+    margin-right: 3rem;
+
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__next {
+    margin-left: 3rem;
+  }
+}

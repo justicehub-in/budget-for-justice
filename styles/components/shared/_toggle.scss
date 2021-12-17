@@ -1,0 +1,57 @@
+@use '../../settings/variables' as *;
+@use '../../tools/mixins/media' as media;
+
+.toggle {
+  position: relative;
+
+  button {
+    &[aria-pressed='true'] {
+      + [role='status'] {
+        opacity: 100;
+        width: 212px;
+      }
+    }
+
+    svg {
+      pointer-events: none;
+    }
+  }
+
+  [role='status'] {
+    position: absolute;
+    max-width: 60vw;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 7px 12px;
+    background-color: $bg-lighter;
+    border: $border-1;
+    border-radius: 4px;
+    bottom: 150%;
+    left: -20%;
+    z-index: 10;
+    opacity: 0;
+    width: 0;
+
+    &::before {
+      border-left: 0.8em solid transparent;
+      border-right: 0.8em solid transparent;
+      border-top: 0.8em solid $grey-4;
+      bottom: -0.8em;
+      content: ' ';
+      height: 0;
+      left: 2%;
+      width: 0;
+      position: absolute;
+      z-index: 9;
+    }
+
+    @include media.narrowerThan('seed') {
+      left: -100px;
+
+      &::before {
+        left: 50%;
+      }
+    }
+  }
+}

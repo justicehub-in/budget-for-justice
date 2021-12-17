@@ -1,0 +1,64 @@
+@use '../../settings/variables' as *;
+
+.home-news {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+
+  footer {
+    margin-top: 1rem;
+    display: block;
+    align-self: flex-end;
+  }
+
+  &__item {
+    display: grid;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-bottom: 1rem;
+
+    @supports (width: min(250px, 100%)) {
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid $grey-3;
+    }
+
+    small {
+      margin-top: 0.5rem;
+      display: block;
+      font-weight: bold;
+      color: $text-light-light;
+    }
+
+    h2 {
+      font-weight: 800;
+      border-bottom: 1px solid $text-light-light;
+      padding-bottom: 1rem;
+      line-height: 1.5;
+      margin-top: 0.3rem;
+      font-size: 1.25rem;
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 156%;
+      margin-top: 0.6rem;
+    }
+
+    footer {
+      margin-top: 1rem;
+      display: block;
+      font-weight: 600;
+      color: $text-light-medium;
+      font-size: 12px;
+    }
+  }
+}
