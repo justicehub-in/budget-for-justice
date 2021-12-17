@@ -2332,52 +2332,6 @@ button {
   display: inline-block;
   vertical-align: middle;
 }
-.dlist__toggletip {
-  position: relative;
-}
-.dlist__toggletip button[aria-pressed=true] + [role=status] {
-  opacity: 100;
-  width: 212px;
-}
-.dlist__toggletip button svg {
-  pointer-events: none;
-}
-.dlist__toggletip [role=status] {
-  position: absolute;
-  max-width: 60vw;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  padding: 7px 12px;
-  background-color: #f7fdf9;
-  border: 1px solid #cdd1d1;
-  border-radius: 4px;
-  bottom: 150%;
-  left: -20%;
-  z-index: 10;
-  opacity: 0;
-  width: 0;
-}
-.dlist__toggletip [role=status]::before {
-  border-left: 0.8em solid transparent;
-  border-right: 0.8em solid transparent;
-  border-top: 0.8em solid #cdd1d1;
-  bottom: -0.8em;
-  content: " ";
-  height: 0;
-  left: 2%;
-  width: 0;
-  position: absolute;
-  z-index: 9;
-}
-@media screen and (max-width: 479px) {
-  .dlist__toggletip [role=status] {
-    left: -100px;
-  }
-  .dlist__toggletip [role=status]::before {
-    left: 50%;
-  }
-}
 .dlist__desc {
   text-align: left;
   width: 100%;
@@ -2508,6 +2462,53 @@ button {
 }
 .slider__next {
   margin-left: 3rem;
+}
+
+.toggle {
+  position: relative;
+}
+.toggle button[aria-pressed=true] + [role=status] {
+  opacity: 100;
+  width: 212px;
+}
+.toggle button svg {
+  pointer-events: none;
+}
+.toggle [role=status] {
+  position: absolute;
+  max-width: 60vw;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 7px 12px;
+  background-color: #f7fdf9;
+  border: 1px solid #cdd1d1;
+  border-radius: 4px;
+  bottom: 150%;
+  left: -20%;
+  z-index: 10;
+  opacity: 0;
+  width: 0;
+}
+.toggle [role=status]::before {
+  border-left: 0.8em solid transparent;
+  border-right: 0.8em solid transparent;
+  border-top: 0.8em solid #cdd1d1;
+  bottom: -0.8em;
+  content: " ";
+  height: 0;
+  left: 2%;
+  width: 0;
+  position: absolute;
+  z-index: 9;
+}
+@media screen and (max-width: 479px) {
+  .toggle [role=status] {
+    left: -100px;
+  }
+  .toggle [role=status]::before {
+    left: 50%;
+  }
 }
 
 .stories-card {

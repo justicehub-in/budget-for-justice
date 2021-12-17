@@ -148,3 +148,54 @@ export const latest = [
 ];
 
 export const contributors = ['/', '/', '/', '/', '/', '/', '/', '/', '/'];
+
+export const lists = [
+  {
+    content:
+      'Sapien elementum ultrices adipiscing orci sed pellentesque dignissim integer nisi',
+    category: 'police',
+  },
+  {
+    content: 'Risus ornare sit eget ultrices tellus donec sed proin in',
+    category: 'wcd',
+  },
+  {
+    content: 'Vitae id in viverra semper tellus enim vulputate id elit',
+    category: 'lj',
+  },
+  {
+    content:
+      'Facilisi nunc, massa accumsan sed egestas porttitor est diam blandit',
+    category: 'police',
+  },
+  {
+    content: 'Sit ullamcorper fusce lacus in fames id cras arcu orci',
+    category: 'ha',
+  },
+  {
+    content:
+      'Fringilla vitae neque tristique tincidunt vel ultrices turpis aliquet consequat',
+    category: 'police',
+  },
+  {
+    content:
+      'Sapien elementum ultrices adipiscing orci sed pellentesque dignissim integer nisi',
+    category: 'wcd',
+  },
+  {
+    content:
+      'Imperdiet elit, adipiscing sed laoreet facilisis mauris gravida sit mi',
+    category: 'ha',
+  },
+  {
+    content: 'Eu facilisis leo libero auctor dictum sapien, magnis nibh',
+    category: 'lj',
+  },
+  {
+    content: 'Feugiat sed eu interdum risus, diam tortor fringilla velt',
+    category: 'lj',
+  },
+];
+
+export const ToggleData =
+  'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum.';

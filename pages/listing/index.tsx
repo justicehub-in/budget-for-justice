@@ -6,102 +6,14 @@ import {
   Police,
   HomeAffairs,
 } from 'components/icons/ListingIcons';
-
-const lists = [
-  {
-    content:
-      'Sapien elementum ultrices adipiscing orci sed pellentesque dignissim integer nisi',
-    category: 'police',
-  },
-  {
-    content: 'Risus ornare sit eget ultrices tellus donec sed proin in',
-    category: 'wcd',
-  },
-  {
-    content: 'Vitae id in viverra semper tellus enim vulputate id elit',
-    category: 'lj',
-  },
-  {
-    content:
-      'Facilisi nunc, massa accumsan sed egestas porttitor est diam blandit',
-    category: 'police',
-  },
-  {
-    content: 'Sit ullamcorper fusce lacus in fames id cras arcu orci',
-    category: 'ha',
-  },
-  {
-    content:
-      'Fringilla vitae neque tristique tincidunt vel ultrices turpis aliquet consequat',
-    category: 'police',
-  },
-  {
-    content:
-      'Sapien elementum ultrices adipiscing orci sed pellentesque dignissim integer nisi',
-    category: 'wcd',
-  },
-  {
-    content:
-      'Imperdiet elit, adipiscing sed laoreet facilisis mauris gravida sit mi',
-    category: 'ha',
-  },
-  {
-    content: 'Eu facilisis leo libero auctor dictum sapien, magnis nibh',
-    category: 'lj',
-  },
-  {
-    content: 'Feugiat sed eu interdum risus, diam tortor fringilla velt',
-    category: 'lj',
-  },
-];
+import { lists, ToggleData } from 'data/placeholder';
+import Toggle from 'components/_shared/Toggle';
 
 function categoryIcon(cat: string) {
   if (cat == 'lj') return <LawJustice />;
   else if (cat == 'wcd') return <WomenChild />;
   else if (cat == 'police') return <Police />;
   else return <HomeAffairs />;
-}
-
-function hideToggle(liveRegion: any, toggletip: any) {
-  liveRegion.innerHTML = '';
-  toggletip.setAttribute('aria-pressed', 'false');
-}
-
-function handleToggleClick(e: any) {
-  const toggletip = e.target;
-  toggletip.setAttribute('aria-pressed', 'true');
-  const message = toggletip.getAttribute('data-toggletip-content');
-  const liveRegion = toggletip.nextElementSibling;
-
-  liveRegion.innerHTML = '';
-  window.setTimeout(function () {
-    liveRegion.innerHTML = `
-    <span class="toggletip-bubble">${message}</span>
-    `;
-  }, 100);
-
-  // close on outside click
-  document.addEventListener('click', function handler(e: any) {
-    toggletip.setAttribute('aria-pressed', 'true');
-    if (toggletip != e.target) {
-      hideToggle(liveRegion, toggletip);
-      this.removeEventListener('click', handler);
-    }
-  });
-
-  // close on blur
-  toggletip.addEventListener('blur', function handler() {
-    hideToggle(liveRegion, toggletip);
-    this.removeEventListener('click', handler);
-  });
-
-  // close on ESC click
-  toggletip.addEventListener('keydown', function handler(e: any) {
-    if ((e.keyCode || e.which) === 27) {
-      hideToggle(liveRegion, toggletip);
-      this.removeEventListener('click', handler);
-    }
-  });
 }
 
 const Lisitng = () => {
@@ -155,31 +67,7 @@ const Lisitng = () => {
 
         <section className="listing__items container">
           <h3>
-            Ministries{' '}
-            <span className="dlist__toggletip">
-              <button
-                type="button"
-                data-toggletip-content="Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum."
-                onClick={handleToggleClick}
-                aria-pressed="false"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="none"
-                  viewBox="0 0 12 12"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill="#ABB0B0"
-                    d="M6 0a6 6 0 1 0 0 12A6 6 0 0 0 6 0Zm.6 9H5.4V5.4h1.2V9Zm0-4.8H5.4V3h1.2v1.2Z"
-                  />
-                </svg>
-                <span className="sr-only">More info</span>
-              </button>
-              <span role="status"></span>
-            </span>
+            Ministries <Toggle data={ToggleData} />
           </h3>
 
           <ul>
@@ -212,31 +100,7 @@ const Lisitng = () => {
 
         <section className="listing__items container">
           <h3>
-            Categories{' '}
-            <span className="dlist__toggletip">
-              <button
-                type="button"
-                data-toggletip-content="Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum."
-                onClick={handleToggleClick}
-                aria-pressed="false"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="none"
-                  viewBox="0 0 12 12"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill="#ABB0B0"
-                    d="M6 0a6 6 0 1 0 0 12A6 6 0 0 0 6 0Zm.6 9H5.4V5.4h1.2V9Zm0-4.8H5.4V3h1.2v1.2Z"
-                  />
-                </svg>
-                <span className="sr-only">More info</span>
-              </button>
-              <span role="status"></span>
-            </span>
+            Categories <Toggle data={ToggleData} />
           </h3>
 
           <ul>
@@ -253,31 +117,7 @@ const Lisitng = () => {
 
         <section className="listing__items container">
           <h3>
-            Schemes{' '}
-            <span className="dlist__toggletip">
-              <button
-                type="button"
-                data-toggletip-content="Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum."
-                onClick={handleToggleClick}
-                aria-pressed="false"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="none"
-                  viewBox="0 0 12 12"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill="#ABB0B0"
-                    d="M6 0a6 6 0 1 0 0 12A6 6 0 0 0 6 0Zm.6 9H5.4V5.4h1.2V9Zm0-4.8H5.4V3h1.2v1.2Z"
-                  />
-                </svg>
-                <span className="sr-only">More info</span>
-              </button>
-              <span role="status"></span>
-            </span>
+            Schemes <Toggle data={ToggleData} />
           </h3>
 
           <ul>
