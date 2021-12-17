@@ -1,0 +1,46 @@
+@use '../../settings/variables' as *;
+
+.banner {
+  margin-top: 7rem;
+  margin-bottom: -8rem;
+  isolation: isolate;
+  padding: 4rem 3rem;
+  color: $text-dark-high;
+  border-radius: 40px;
+  position: relative;
+
+  &__content {
+    width: clamp(250px, 100%, 700px);
+    z-index: 10;
+
+    h2 {
+      line-height: 1.5;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+  }
+
+  img {
+    position: absolute;
+    right: 96px;
+    top: 60px;
+    max-width: 184px;
+    max-height: 184px;
+    z-index: -1;
+  }
+
+  p {
+    line-height: 1.5;
+    margin-top: 0.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: 600;
+  }
+}
