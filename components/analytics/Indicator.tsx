@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 const indicatorObj = {};
 
 const Indicator = ({ data, newIndicator }) => {
   function headingCollapsable() {
-    const headings = document.querySelectorAll('.filters__heading');
+    const headings = document.querySelectorAll(".filters__heading");
 
     Array.prototype.forEach.call(headings, (h: any) => {
-      const btn = h.querySelector('button');
+      const btn = h.querySelector("button");
       const target = h.nextElementSibling;
 
       btn.onclick = () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        const expanded = btn.getAttribute("aria-expanded") === "true";
 
-        btn.setAttribute('aria-expanded', !expanded);
+        btn.setAttribute("aria-expanded", !expanded);
         target.hidden = expanded;
       };
     });
@@ -27,11 +27,11 @@ const Indicator = ({ data, newIndicator }) => {
   }, [data]);
 
   function formatFilterName(name: string) {
-    if (name == 'fiscal_year') {
-      return 'fiscal year';
-    } else if (name == 'buyer_name') return 'buyer name';
-    else if (name == 'tender/mainProcurementCategory') return 'category';
-    else if (name == 'tender/stage') return 'tender stage';
+    if (name == "fiscal_year") {
+      return "fiscal year";
+    } else if (name == "buyer_name") return "buyer name";
+    else if (name == "tender/mainProcurementCategory") return "category";
+    else if (name == "tender/stage") return "tender stage";
     else return name;
   }
 
@@ -40,10 +40,10 @@ const Indicator = ({ data, newIndicator }) => {
     const type = selectedFilter.dataset.type;
     const value = selectedFilter.id;
 
-    const pressed = selectedFilter.getAttribute('aria-pressed');
+    const pressed = selectedFilter.getAttribute("aria-pressed");
     selectedFilter.setAttribute(
-      'aria-pressed',
-      pressed == 'false' ? 'true' : 'false'
+      "aria-pressed",
+      pressed == "false" ? "true" : "false"
     );
 
     const index = indicatorObj[type].indexOf(value);

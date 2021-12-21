@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { GetServerSideProps } from 'next';
+import React, { useState, useEffect } from "react";
+import { GetServerSideProps } from "next";
 import {
   getFilters,
   convertToCkanSearchQuery,
   fetchDatasets,
   filterObjToString,
-} from 'utils/index';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import Search from 'components/datasets/Search';
-import Total from 'components/datasets/Total';
-import List from 'components/datasets/List';
-import DataAlter from 'components/datasets/DataAlter';
-import Pagination from 'components/datasets/Pagination';
-import Filter from 'components/datasets/Filter';
-import SelectedFilters from 'components/datasets/SelectedFilters';
-import MegaHeader from 'components/_shared/MegaHeader';
-import Sort from 'components/_shared/Sort';
-import Modal from 'react-modal';
+} from "utils/index";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import Search from "components/datasets/Search";
+import Total from "components/datasets/Total";
+import List from "components/datasets/List";
+import DataAlter from "components/datasets/DataAlter";
+import Pagination from "components/datasets/Pagination";
+import Filter from "components/datasets/Filter";
+import SelectedFilters from "components/datasets/SelectedFilters";
+import MegaHeader from "components/_shared/MegaHeader";
+import Sort from "components/_shared/Sort";
+import Modal from "react-modal";
 
-Modal.setAppElement('#__next');
+Modal.setAppElement("#__next");
 
 type Props = {
   data: any;
@@ -50,19 +50,19 @@ const Datasets: React.FC<Props> = ({ data, facets }) => {
 
   function handleRouteChange(val: any) {
     switch (val.query) {
-      case 'q':
+      case "q":
         setSearch(val.value);
         break;
-      case 'sort':
+      case "sort":
         setSorts(val.value);
         break;
-      case 'size':
+      case "size":
         setItems(val.value);
         break;
-      case 'fq':
+      case "fq":
         setFilters(filterObjToString(val.value));
         break;
-      case 'from':
+      case "from":
         setPages(val.value);
         break;
     }
@@ -74,10 +74,10 @@ const Datasets: React.FC<Props> = ({ data, facets }) => {
   }
 
   const headerData = {
-    title: 'All Datasets',
+    title: "All Datasets",
     content:
-      'This page shows the public procurement data of the last 5 financial years for the contracts over INR 50 lakh value. One could download the total compiled data or explore specific tender groups using various filters like financial year, tendering organization, tender status, tender types, etc.',
-    image: '/',
+      "This page shows the public procurement data of the last 5 financial years for the contracts over INR 50 lakh value. One could download the total compiled data or explore specific tender groups using various filters like financial year, tendering organization, tender status, tender types, etc.",
+    image: "/",
   };
 
   return (
@@ -137,8 +137,8 @@ const Datasets: React.FC<Props> = ({ data, facets }) => {
                   overlayClassName="dialog__backdrop"
                   contentLabel="Download Tenders"
                   aria={{
-                    labelledby: 'dialog-head',
-                    describedby: 'dialog-para',
+                    labelledby: "dialog-head",
+                    describedby: "dialog-para",
                   }}
                   closeTimeoutMS={200}
                   preventScroll={true}
@@ -258,9 +258,9 @@ const Datasets: React.FC<Props> = ({ data, facets }) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const query = context.query || {};
   const variables = convertToCkanSearchQuery(query);
-  const facets = await getFilters(list, variables, 'tender_dataset');
+  const facets = await getFilters(list, variables, "tender_dataset");
 
-  const data = await fetchDatasets('tender_dataset', variables);
+  const data = await fetchDatasets("tender_dataset", variables);
   return {
     props: {
       data,

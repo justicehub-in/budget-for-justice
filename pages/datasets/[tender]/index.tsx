@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { GetServerSideProps } from 'next';
-import Head from 'next/head';
-import { tabbedInterface, fetchAPI } from 'utils/index';
-import MegaHeader from 'components/_shared/MegaHeader';
-import Indicator from 'components/analytics/Indicator';
-import Modal from 'react-modal';
+import React, { useEffect, useState } from "react";
+import { GetServerSideProps } from "next";
+import Head from "next/head";
+import { tabbedInterface, fetchAPI } from "utils/index";
+import { LawJustice } from "components/icons/ListingIcons";
+import Indicator from "components/analytics/Indicator";
+import Modal from "react-modal";
 // import { resourceGetter } from 'utils/resourceParser';
-import BarChartViz from 'components/viz/BarChart';
+import BarChartViz from "components/viz/BarChart";
 // import { kpiTransformer } from 'transformers/kpiTransformer';
-import DataAlter from 'components/datasets/DataAlter';
-import { cloneDeep } from 'lodash';
+import DataAlter from "components/datasets/DataAlter";
+import { cloneDeep } from "lodash";
 // import DList from 'components/_shared/DList';
 // import { Table } from 'components/_shared';
 
@@ -36,7 +36,7 @@ import { cloneDeep } from 'lodash';
 //   },
 // ];
 
-Modal.setAppElement('#__next');
+Modal.setAppElement("#__next");
 
 type Props = {
   data: any;
@@ -46,38 +46,38 @@ type Props = {
 
 const allNews = [
   {
-    heading: 'Title for the published news and placeholder for all others',
-    para: 'Data analysis feature helps you view, analyze and use the procurement \
+    heading: "Title for the published news and placeholder for all others",
+    para: "Data analysis feature helps you view, analyze and use the procurement \
     data of Assam. See stories and post done using this dataset. You can also \
-    contribute your own story',
-    publisher: 'Times of India',
-    tag: 'Data for Justice',
-    image: '/',
-    link: '',
+    contribute your own story",
+    publisher: "Times of India",
+    tag: "Data for Justice",
+    image: "/",
+    link: "",
   },
   {
-    heading: 'Title for the published news and placeholder for all others',
-    para: 'Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story',
-    publisher: 'The Hindu',
-    tag: 'Data for Justice',
+    heading: "Title for the published news and placeholder for all others",
+    para: "Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story",
+    publisher: "The Hindu",
+    tag: "Data for Justice",
     // image: '',
-    link: '',
+    link: "",
   },
   {
-    heading: 'Title for the published news and placeholder for all others',
-    para: 'Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story',
-    publisher: 'Live Law',
-    tag: 'Data for Justice',
+    heading: "Title for the published news and placeholder for all others",
+    para: "Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story",
+    publisher: "Live Law",
+    tag: "Data for Justice",
     // image: '',
-    link: '',
+    link: "",
   },
   {
-    heading: 'Title for the published news and placeholder for all others',
-    para: 'Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story',
-    publisher: 'Live Law',
-    tag: 'Data for Justice',
-    image: '/',
-    link: '',
+    heading: "Title for the published news and placeholder for all others",
+    para: "Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story",
+    publisher: "Live Law",
+    tag: "Data for Justice",
+    image: "/",
+    link: "",
   },
 ];
 
@@ -110,8 +110,8 @@ const Analysis: React.FC<Props> = () => {
 
   const vizToggle = [
     {
-      name: 'Bar',
-      id: '#barGraph',
+      name: "Bar",
+      id: "#barGraph",
       icon: (
         <svg
           width="15"
@@ -131,12 +131,12 @@ const Analysis: React.FC<Props> = () => {
 
   const vizItems = [
     {
-      id: 'barGraph',
+      id: "barGraph",
       graph: (
         <BarChartViz
           yAxisLabel="Sale"
           xAxisLabel="Products"
-          theme={['#4965B2', '#ED8686', '#69BC99']}
+          theme={["#4965B2", "#ED8686", "#69BC99"]}
           dataset={filteredData}
           stack="True"
         />
@@ -150,8 +150,8 @@ const Analysis: React.FC<Props> = () => {
 
   useEffect(() => {
     // ceating tabbed interface for viz selector
-    const tablist = document.querySelector('.viz__tabs');
-    const panels = document.querySelectorAll('.viz figure');
+    const tablist = document.querySelector(".viz__tabs");
+    const panels = document.querySelectorAll(".viz figure");
     tabbedInterface(tablist, panels);
 
     const indicatorList = [];
@@ -197,74 +197,24 @@ const Analysis: React.FC<Props> = () => {
   function handleNewVizData(val: any) {
     SetIndicators(cloneDeep(val));
   }
-
-  // const dataPackage = ckanToDataPackage(data.result);
-
-  const headerData = {
-    title: 'Explorer | B4J',
-    content:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-    // date: new Date(dataPackage.metadata_created).toLocaleDateString('en-US'),
-    previousPage: 'Data Analysis',
-    previousLink: '/kpi',
-    frequency: 'Yearly',
-    type: 'Centrally Sponsered Scheme',
-  };
-
   return (
     <>
       <Head>
         <title>B4J | Explorer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="container analysis">
-        <section className="tender__jump">
-          <h4 className="filters__heading">
-            <button aria-expanded="false">
-              Jump to another Scheme or Summary
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 144 72">
-                <path d="M72 72C72 71.98 0 0 0 0h144L72 72" />
-              </svg>
-            </button>
-          </h4>
-          <div hidden>
-            <span>Select a desired bucket:</span>
-            <div>
-              <div>
-                <input
-                  type="radio"
-                  id="depts"
-                  name="bucket"
-                  value="depts"
-                  defaultChecked
-                />
-                <label htmlFor="depts">Ministries/Departments</label>
-              </div>
-
-              <div>
-                <input
-                  type="radio"
-                  id="categories"
-                  name="bucket"
-                  value="categories"
-                />
-                <label htmlFor="categories">Categories</label>
-              </div>
-
-              <div>
-                <input
-                  type="radio"
-                  id="schemes"
-                  name="bucket"
-                  value="schemes"
-                />
-                <label htmlFor="schemes">Schemes</label>
-              </div>
-            </div>
-          </div>
+      <main className="container explorer">
+        <div>
+          <button className="btn-secondary">Select Another Scheme</button>
+          <button className="btn-secondary-invert">Share</button>
+        </div>
+        <section className="explorer__heading">
+          <h2>
+            Id ut neque viverra fermentum blandit pellentesque risus sit
+            pretium.
+          </h2>
         </section>
-
-        <MegaHeader data={headerData} />
+        {/* <MegaHeader data={headerData} /> */}
         <div className="page-wrap container">
           <section className="analysis__heading">
             <h3>Summary</h3>
@@ -347,8 +297,8 @@ const Analysis: React.FC<Props> = () => {
               overlayClassName="dialog__backdrop"
               contentLabel="Download Tenders"
               aria={{
-                labelledby: 'dialog-head',
-                describedby: 'dialog-para',
+                labelledby: "dialog-head",
+                describedby: "dialog-para",
               }}
               closeTimeoutMS={200}
               preventScroll={true}
@@ -463,7 +413,7 @@ const Analysis: React.FC<Props> = () => {
               {allNews.map((item, index) => (
                 <section
                   key={`newsItem-${index}`}
-                  className={item.image && 'tender__relevant-item--image'}
+                  className={item.image && "tender__relevant-item--image"}
                 >
                   {item.image && (
                     <img

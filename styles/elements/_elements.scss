@@ -1,9 +1,9 @@
-@use '../settings/variables' as *;
+@use "../settings/variables" as *;
 
 body {
   --site-border: 0.5em;
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   transition: background-color var(--base-animation-duration)
     var(--base-easing);
   background-color: $bg-light;
@@ -14,7 +14,7 @@ body {
 a {
   text-decoration: underline;
   text-decoration-skip-ink: all;
-  text-decoration-thickness: .07em;
+  text-decoration-thickness: 0.07em;
   text-underline-offset: 1.5px;
 }
 
@@ -36,7 +36,7 @@ ol {
 em,
 i {
   font-style: italic;
-  font-variation-settings: 'ital' 1;
+  font-variation-settings: "ital" 1;
 }
 
 strong,

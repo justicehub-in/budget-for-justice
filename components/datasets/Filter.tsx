@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { filterStringToObject } from 'utils/index';
+import React, { useEffect, useState } from "react";
+import { filterStringToObject } from "utils/index";
 
 const Filter = ({ data, newFilters, fq }) => {
   const [filterObj, setFilterObj] = useState({});
   function headingCollapsable() {
-    const headings = document.querySelectorAll('.filters__heading');
+    const headings = document.querySelectorAll(".filters__heading");
 
     Array.prototype.forEach.call(headings, (h: any) => {
-      const btn = h.querySelector('button');
+      const btn = h.querySelector("button");
       const target = h.nextElementSibling;
 
       btn.onclick = () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        const expanded = btn.getAttribute("aria-expanded") === "true";
 
-        btn.setAttribute('aria-expanded', !expanded);
+        btn.setAttribute("aria-expanded", !expanded);
         target.hidden = expanded;
       };
     });
@@ -28,14 +28,14 @@ const Filter = ({ data, newFilters, fq }) => {
   }, [fq]);
 
   function formatFilterName(name: string) {
-    if (name == 'fiscal_year') {
-      return 'fiscal year';
-    } else if (name == 'organization' || name == 'buyer_name')
-      return 'buyer name';
-    else if (name == 'tender_mainprocurementcategory') return 'type';
-    else if (name == 'tender/mainProcurementCategory') return 'category';
-    else if (name == 'tender/stage') return 'tender stage';
-    else if (name == 'tender_status') return 'status';
+    if (name == "fiscal_year") {
+      return "fiscal year";
+    } else if (name == "organization" || name == "buyer_name")
+      return "buyer name";
+    else if (name == "tender_mainprocurementcategory") return "type";
+    else if (name == "tender/mainProcurementCategory") return "category";
+    else if (name == "tender/stage") return "tender stage";
+    else if (name == "tender_status") return "status";
     else return name;
   }
 
@@ -44,10 +44,10 @@ const Filter = ({ data, newFilters, fq }) => {
     const type = selectedFilter.dataset.type;
     const value = selectedFilter.id;
 
-    const pressed = selectedFilter.getAttribute('aria-pressed');
+    const pressed = selectedFilter.getAttribute("aria-pressed");
     selectedFilter.setAttribute(
-      'aria-pressed',
-      pressed == 'false' ? 'true' : 'false'
+      "aria-pressed",
+      pressed == "false" ? "true" : "false"
     );
 
     const index = filterObj[type].indexOf(value);
@@ -58,7 +58,7 @@ const Filter = ({ data, newFilters, fq }) => {
     }
 
     newFilters({
-      query: 'fq',
+      query: "fq",
       value: filterObj,
     });
   }

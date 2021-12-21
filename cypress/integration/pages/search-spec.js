@@ -1,10 +1,10 @@
-describe('Test datasets Page', () => {
+describe("Test datasets Page", () => {
   beforeEach(() => {
-    cy.visit('/datasets');
+    cy.visit("/datasets");
   });
 
-  it('has a search form', () => {
-    cy.contains('form');
-    cy.contains('Search');
+  it("has a search form", () => {
+    cy.contains("form");
+    cy.contains("Search");
   });
 });

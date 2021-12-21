@@ -1,44 +1,44 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import Modal from 'react-modal';
-import { tabbedInterface } from 'utils/index';
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import Modal from "react-modal";
+import { tabbedInterface } from "utils/index";
 
-Modal.setAppElement('#__next');
+Modal.setAppElement("#__next");
 
 function formatFilterName(name: string) {
-  if (name == 'fiscal_year') {
-    return 'fiscal year';
-  } else if (name == 'buyer_name') return 'buyer name';
+  if (name == "fiscal_year") {
+    return "fiscal year";
+  } else if (name == "buyer_name") return "buyer name";
   else if (
-    name == 'tender/mainProcurementCategory' ||
-    name == 'tender_mainprocurementcategory'
+    name == "tender/mainProcurementCategory" ||
+    name == "tender_mainprocurementcategory"
   )
-    return 'category';
-  else if (name == 'tender/stage') return 'tender stage';
-  else if (name == 'tender_status') return 'status';
+    return "category";
+  else if (name == "tender/stage") return "tender stage";
+  else if (name == "tender_status") return "status";
   else return name;
 }
 
 const sort = [
   {
-    id: 'metadata_modified:desc',
-    name: 'Last Modified',
+    id: "metadata_modified:desc",
+    name: "Last Modified",
   },
   {
-    id: 'score:desc',
-    name: 'Relevance',
+    id: "score:desc",
+    name: "Relevance",
   },
   {
-    id: 'title_string:asc',
-    name: 'Name Ascending',
+    id: "title_string:asc",
+    name: "Name Ascending",
   },
   {
-    id: 'title_string:desc',
-    name: 'Name Descending',
+    id: "title_string:desc",
+    name: "Name Descending",
   },
   {
-    id: 'views_recent:desc',
-    name: 'Popular',
+    id: "views_recent:desc",
+    name: "Popular",
   },
 ];
 
@@ -57,10 +57,10 @@ const DataAlter: React.FC<{
   const [sortIsOpen, setSortIsOpen] = useState(false);
   const [filterIsOpen, setFilterIsOpen] = useState(false);
   const [currentSort, setCurrentSort] = useState(
-    router.query.sort ? router.query.sort : 'metadata_modified:desc'
+    router.query.sort ? router.query.sort : "metadata_modified:desc"
   );
   const [selectedSort, setSelectedSort] = useState(
-    router.query.sort ? router.query.sort : 'metadata_modified:desc'
+    router.query.sort ? router.query.sort : "metadata_modified:desc"
   );
 
   function checkInput(selected) {
@@ -73,7 +73,7 @@ const DataAlter: React.FC<{
   useEffect(() => {
     setTimeout(() => {
       // create tabbed interface
-      const tablist = document.getElementById('filterSelector');
+      const tablist = document.getElementById("filterSelector");
       const panels = document.querySelectorAll(
         '.dialog__body [role="tabpanel"]'
       );
@@ -87,12 +87,12 @@ const DataAlter: React.FC<{
 
       // check previous selected filters
       if (fq) {
-        const removeEscape = fq.replaceAll(/"/g, '');
-        const splitFilters = removeEscape.split(' AND ');
+        const removeEscape = fq.replaceAll(/"/g, "");
+        const splitFilters = removeEscape.split(" AND ");
 
         splitFilters.forEach((query: any) => {
-          const id = query.split(':')[0];
-          const value = query.split(':')[1];
+          const id = query.split(":")[0];
+          const value = query.split(":")[1];
           objMobile[id].push(value);
           checkInput(value);
         });
@@ -116,10 +116,10 @@ const DataAlter: React.FC<{
   if (sortShow) {
     useEffect(() => {
       setTimeout(() => {
-        if (document.querySelector('#modalSort')) {
+        if (document.querySelector("#modalSort")) {
           document
-            .querySelector('#modalSort')
-            .addEventListener('change', (e: any) => {
+            .querySelector("#modalSort")
+            .addEventListener("change", (e: any) => {
               setSelectedSort(e.target.value);
             });
         }
@@ -130,10 +130,10 @@ const DataAlter: React.FC<{
         if (selectedSort) selectedSort.checked = true;
       }, 50);
       return () => {
-        if (document.querySelector('#modalSort'))
+        if (document.querySelector("#modalSort"))
           document
-            .querySelector('#modalSort')
-            .addEventListener('change', (e: any) => {
+            .querySelector("#modalSort")
+            .addEventListener("change", (e: any) => {
               setSelectedSort(e.target.value);
             });
       };
@@ -143,7 +143,7 @@ const DataAlter: React.FC<{
   if (sortShow) {
     useEffect(() => {
       newData({
-        query: 'sort',
+        query: "sort",
         value: currentSort,
       });
     }, [currentSort]);
@@ -161,7 +161,7 @@ const DataAlter: React.FC<{
       });
 
     const selectedFilters = document.querySelectorAll(
-      '.data-alter__filter input:checked'
+      ".data-alter__filter input:checked"
     );
 
     selectedFilters.forEach((filter: HTMLInputElement) => {
@@ -175,7 +175,7 @@ const DataAlter: React.FC<{
   function applyFilterChange() {
     // select checked inputs
     const selectedFilters = document.querySelectorAll(
-      '.data-alter__filter input:checked'
+      ".data-alter__filter input:checked"
     );
 
     // reset object
@@ -200,7 +200,7 @@ const DataAlter: React.FC<{
     // else create string and query URL
     else {
       newData({
-        query: 'fq',
+        query: "fq",
         value: objMobile,
       });
     }
@@ -282,7 +282,7 @@ const DataAlter: React.FC<{
           overlayClassName="dialog__backdrop"
           closeTimeoutMS={200}
           aria={{
-            labelledby: 'dialog-head',
+            labelledby: "dialog-head",
           }}
           preventScroll={true}
           htmlOpenClassName="ReactModal__Html--open"
@@ -333,7 +333,7 @@ const DataAlter: React.FC<{
         overlayClassName="dialog__backdrop"
         closeTimeoutMS={200}
         aria={{
-          labelledby: 'dialog-head',
+          labelledby: "dialog-head",
         }}
         preventScroll={true}
         htmlOpenClassName="ReactModal__Html--open"

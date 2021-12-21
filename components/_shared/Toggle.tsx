@@ -1,16 +1,16 @@
 const Toggle = ({ data }) => {
   function hideToggle(liveRegion: any, toggletip: any) {
-    liveRegion.innerHTML = '';
-    toggletip.setAttribute('aria-pressed', 'false');
+    liveRegion.innerHTML = "";
+    toggletip.setAttribute("aria-pressed", "false");
   }
 
   function handleToggleClick(e: any) {
     const toggletip = e.target;
-    toggletip.setAttribute('aria-pressed', 'true');
-    const message = toggletip.getAttribute('data-toggletip-content');
+    toggletip.setAttribute("aria-pressed", "true");
+    const message = toggletip.getAttribute("data-toggletip-content");
     const liveRegion = toggletip.nextElementSibling;
 
-    liveRegion.innerHTML = '';
+    liveRegion.innerHTML = "";
     window.setTimeout(function () {
       liveRegion.innerHTML = `
       <span class="toggletip-bubble">${message}</span>
@@ -18,25 +18,25 @@ const Toggle = ({ data }) => {
     }, 100);
 
     // close on outside click
-    document.addEventListener('click', function handler(e: any) {
-      toggletip.setAttribute('aria-pressed', 'true');
+    document.addEventListener("click", function handler(e: any) {
+      toggletip.setAttribute("aria-pressed", "true");
       if (toggletip != e.target) {
         hideToggle(liveRegion, toggletip);
-        this.removeEventListener('click', handler);
+        this.removeEventListener("click", handler);
       }
     });
 
     // close on blur
-    toggletip.addEventListener('blur', function handler() {
+    toggletip.addEventListener("blur", function handler() {
       hideToggle(liveRegion, toggletip);
-      this.removeEventListener('click', handler);
+      this.removeEventListener("click", handler);
     });
 
     // close on ESC click
-    toggletip.addEventListener('keydown', function handler(e: any) {
+    toggletip.addEventListener("keydown", function handler(e: any) {
       if ((e.keyCode || e.which) === 27) {
         hideToggle(liveRegion, toggletip);
-        this.removeEventListener('click', handler);
+        this.removeEventListener("click", handler);
       }
     });
   }

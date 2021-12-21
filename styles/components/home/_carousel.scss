@@ -1,5 +1,5 @@
-@use '../../settings/variables' as *;
-@use '../../tools/mixins/media' as media;
+@use "../../settings/variables" as *;
+@use "../../tools/mixins/media" as media;
 
 .carousel {
   padding: 75px 0 10rem;
@@ -17,12 +17,12 @@
     text-align: center;
 
     figure {
-      @include media.narrowerThan('seedling') {
+      @include media.narrowerThan("seedling") {
         display: none;
       }
     }
 
-    @include media.widerThan('seedling') {
+    @include media.widerThan("seedling") {
       figure {
         display: grid;
         align-items: center;
@@ -127,14 +127,14 @@
         left: 0;
         width: 1rem;
         height: 1rem;
-        content: ' ';
+        content: " ";
         text-align: center;
         color: #00abb7;
         border: 1px solid #00abb7;
         border-radius: 50%;
       }
 
-      &[aria-pressed='true'] {
+      &[aria-pressed="true"] {
         &::before {
           background-color: #06464a;
           border-color: #06464a;
@@ -151,7 +151,7 @@
     }
   }
 
-  @include media.narrowerThan('seedling') {
+  @include media.narrowerThan("seedling") {
     figure {
       display: none;
     }

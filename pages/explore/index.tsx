@@ -1,8 +1,8 @@
-import Head from 'next/head';
-import Banner from 'components/_shared/Banner';
+import Head from "next/head";
+import Banner from "components/_shared/Banner";
 
 const bannerDetails = {
-  heading: 'Looking for someting else?',
+  heading: "Looking for someting else?",
   content: (
     <>
       <p>Check all datas sets in one go.</p>
@@ -11,8 +11,8 @@ const bannerDetails = {
       </a>
     </>
   ),
-  image: '/assets/icons/arrows-btn.svg',
-  color: '#00ABB7',
+  image: "/assets/icons/arrows-btn.svg",
+  color: "#00ABB7",
 };
 
 const Explore = () => {

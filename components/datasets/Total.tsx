@@ -4,8 +4,8 @@ const Total: React.FC<{ total: number; text?: string }> = ({
 }) => {
   return (
     <h3 className="total-datasets">
-      {total.toLocaleString('en', { useGrouping: true })}{' '}
-      {text ? text : 'results'}
+      {total.toLocaleString("en", { useGrouping: true })}{" "}
+      {text ? text : "results"}
     </h3>
   );
 };

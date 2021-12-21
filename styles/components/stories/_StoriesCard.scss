@@ -1,5 +1,5 @@
-@use '../../settings/variables' as *;
-@use '../../tools/mixins/media' as media;
+@use "../../settings/variables" as *;
+@use "../../tools/mixins/media" as media;
 
 .stories-card {
   background-color: $bg-lightest;
@@ -57,7 +57,7 @@
     align-self: flex-end;
   }
 
-  @include media.narrowerThan('sprout') {
+  @include media.narrowerThan("sprout") {
     flex-direction: column;
 
     a {

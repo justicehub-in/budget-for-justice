@@ -1,4 +1,4 @@
-@use '../../settings/variables' as *;
+@use "../../settings/variables" as *;
 
 .slider {
   background-color: $bg-lightest;
@@ -33,7 +33,7 @@
     }
 
     &::after {
-      content: '';
+      content: "";
       flex-basis: 1rem;
       flex-shrink: 0;
     }

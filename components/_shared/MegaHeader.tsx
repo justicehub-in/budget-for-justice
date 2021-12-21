@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 const MegaHeader = ({ data }) => {
   return (
@@ -64,7 +64,7 @@ const MegaHeader = ({ data }) => {
           <h2>{data.title}</h2>
           <p
             className={`mega-header__para ${
-              data.frequency && 'mega-header__para--explorer'
+              data.frequency && "mega-header__para--explorer"
             }`}
           >
             {data.content}

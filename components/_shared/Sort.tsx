@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Sort: React.FC<{ newSort: any }> = ({ newSort }) => {
   const router = useRouter();
-  const [sort, setSort] = useState('');
+  const [sort, setSort] = useState("");
 
   useEffect(() => {
     const currentSort = router.query.sort
       ? router.query.sort
-      : 'metadata_modified:desc';
+      : "metadata_modified:desc";
 
     setSort(currentSort as string);
   }, [router.query.sort]);
@@ -17,7 +17,7 @@ const Sort: React.FC<{ newSort: any }> = ({ newSort }) => {
     setSort(event.target.value);
 
     newSort({
-      query: 'sort',
+      query: "sort",
       value: event.target.value,
     });
   };

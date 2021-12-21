@@ -1,5 +1,5 @@
-@use '../../settings/variables' as *;
-@use '../../tools/mixins/media' as media;
+@use "../../settings/variables" as *;
+@use "../../tools/mixins/media" as media;
 
 .card {
   &__link {
@@ -60,7 +60,7 @@
     width: 100%;
   }
 
-  @include media.narrowerThan('seed') {
+  @include media.narrowerThan("seed") {
     &__value {
       width: 100%;
       margin-top: 1.25rem;
@@ -85,7 +85,7 @@
     -webkit-box-orient: vertical;
     display: -webkit-box;
 
-    @include media.narrowerThan('seed') {
+    @include media.narrowerThan("seed") {
       -webkit-line-clamp: 4;
       line-clamp: 4;
     }

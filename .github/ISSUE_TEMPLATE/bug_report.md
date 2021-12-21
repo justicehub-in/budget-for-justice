@@ -3,14 +3,14 @@ name: Bug report
 about: Create a report to help us improve
 ---
 
-Describe the bug.
----------------------------------------------------
+## Describe the bug.
+
 …
 
-Expected behavior.
----------------------------------------------------
+## Expected behavior.
+
 …
 
-Additional context.
----------------------------------------------------
+## Additional context.
+
 …

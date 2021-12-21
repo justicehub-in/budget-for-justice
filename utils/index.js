@@ -6,7 +6,7 @@ export function filterObjToString(filterObj) {
     if (filterObj[val].length > 0) {
       filterObj[val].forEach((item) => final.push(`${val}:"${item}"`));
 
-      filter = final.join(' AND ');
+      filter = final.join(" AND ");
     }
   });
   return filter;
@@ -19,15 +19,15 @@ export function filterStringToObject(fq, data) {
     obj[val] = [];
   });
   if (fq) {
-    const removeEscape = fq.replaceAll(/"/g, '');
-    const splitFilters = removeEscape.split(' AND ');
+    const removeEscape = fq.replaceAll(/"/g, "");
+    const splitFilters = removeEscape.split(" AND ");
 
     splitFilters.forEach((query) => {
-      const id = query.split(':')[0];
-      const value = query.split(':')[1];
+      const id = query.split(":")[0];
+      const value = query.split(":")[1];
       obj[id].push(value);
       if (document.getElementById(value))
-        document.getElementById(value).setAttribute('aria-pressed', 'true');
+        document.getElementById(value).setAttribute("aria-pressed", "true");
     });
   }
 
@@ -36,7 +36,7 @@ export function filterStringToObject(fq, data) {
 
 // fetch medium post banner URL
 export function getMediumBanner(postContent) {
-  const srcIndex = postContent.indexOf('src=');
+  const srcIndex = postContent.indexOf("src=");
   const srcStart = srcIndex + 5;
   const srcEnd = postContent.substring(srcStart).indexOf('"') + srcStart;
   const src = postContent.substring(srcStart, srcEnd);
@@ -48,19 +48,19 @@ export function getDate(time) {
   // ordinal suffix for date
   const getOrdinal = function (d) {
     let type;
-    if (d > 3 && d < 21) type = 'th';
+    if (d > 3 && d < 21) type = "th";
     switch (d % 10) {
       case 1:
-        type = 'st';
+        type = "st";
         break;
       case 2:
-        type = 'nd';
+        type = "nd";
         break;
       case 3:
-        type = 'rd';
+        type = "rd";
         break;
       default:
-        type = 'th';
+        type = "th";
         break;
     }
     return `${d}${type}`;
@@ -69,7 +69,7 @@ export function getDate(time) {
   const dt = new Date(time);
   if (dt instanceof Date && !isNaN(dt.valueOf())) {
     const date = getOrdinal(dt.getDate());
-    const month = dt.toLocaleString('default', { month: 'short' });
+    const month = dt.toLocaleString("default", { month: "short" });
     return `${date} ${month}, ${dt.getFullYear()}`;
   } else return time;
 }
@@ -78,8 +78,8 @@ export function getDate(time) {
 // Required: type -> type of dataset; variables -> from url parameters.
 export async function fetchDatasets(type, variables) {
   function changeKeyName(key) {
-    if (key == 'size') return 'rows';
-    else if (key == 'from') return 'start';
+    if (key == "size") return "rows";
+    else if (key == "from") return "start";
     else return key;
   }
 
@@ -92,7 +92,7 @@ export async function fetchDatasets(type, variables) {
     return `${changeKeyName(key)}=${variables[key]}`;
   });
   const varString =
-    varArray.length > 0 ? varArray.join('&') : `fq=type:${type}`;
+    varArray.length > 0 ? varArray.join("&") : `fq=type:${type}`;
   const response = await fetch(
     `http://13.126.46.107/api/3/action/package_search?${varString}`
   );
@@ -114,7 +114,7 @@ export async function getFilters(list, variable, page) {
     // if filters and searc found in url, also use those
     const queryVars = `fq=${
       variable.fq ? `${variable.fq} AND type:${page}` : `type:${page}`
-    }&q=${variable.q ? variable.q : ''}`;
+    }&q=${variable.q ? variable.q : ""}`;
 
     const fetchData = await fetch(
       `http://13.126.46.107/api/3/action/package_search?facet.field=[${list}]&facet.limit=6&${queryVars}`
@@ -127,22 +127,22 @@ export async function getFilters(list, variable, page) {
 
 export function convertToCkanSearchQuery(query) {
   const ckanQuery = {
-    q: '',
-    fq: '',
-    rows: '',
-    start: '',
-    sort: '',
-    'facet.field': '',
-    'facet.limit': '',
-    'facet.mincount': 0,
+    q: "",
+    fq: "",
+    rows: "",
+    start: "",
+    sort: "",
+    "facet.field": "",
+    "facet.limit": "",
+    "facet.mincount": 0,
   };
   // Split by space but ignore spaces within double quotes:
   if (query.q) {
     query.q.match(/(?:[^\s"]+|"[^"]*")+/g).forEach((part) => {
-      if (part.includes(':')) {
-        ckanQuery.fq += part + ' ';
+      if (part.includes(":")) {
+        ckanQuery.fq += part + " ";
       } else {
-        ckanQuery.q += part + ' ';
+        ckanQuery.q += part + " ";
       }
     });
     ckanQuery.fq = ckanQuery.fq.trim();
@@ -150,15 +150,15 @@ export function convertToCkanSearchQuery(query) {
   }
 
   if (query.fq) {
-    ckanQuery.fq = ckanQuery.fq ? ckanQuery.fq + ' ' + query.fq : query.fq;
+    ckanQuery.fq = ckanQuery.fq ? ckanQuery.fq + " " + query.fq : query.fq;
   }
 
   // standard 'size' => ckan 'rows'
-  ckanQuery.rows = query.size || '';
+  ckanQuery.rows = query.size || "";
 
   // standard 'from' => ckan 'start'
-  ckanQuery.start = query.from || '';
-  ckanQuery.organization = query.organization || '';
+  ckanQuery.start = query.from || "";
+  ckanQuery.organization = query.organization || "";
 
   // standard 'sort' => ckan 'sort'
   const sortQueries = [];
@@ -166,22 +166,22 @@ export function convertToCkanSearchQuery(query) {
     for (let [key, value] of Object.entries(query.sort)) {
       sortQueries.push(`${key} ${value}`);
     }
-    ckanQuery.sort = sortQueries.join(',');
+    ckanQuery.sort = sortQueries.join(",");
   } else if (query.sort && query.sort.constructor == String) {
-    ckanQuery.sort = query.sort.replace(':', ' ');
+    ckanQuery.sort = query.sort.replace(":", " ");
   } else if (query.sort && query.sort.constructor == Array) {
     query.sort.forEach((sort) => {
-      sortQueries.push(sort.replace(':', ' '));
+      sortQueries.push(sort.replace(":", " "));
     });
-    ckanQuery.sort = sortQueries.join(',');
+    ckanQuery.sort = sortQueries.join(",");
   }
 
   // Facets
-  ckanQuery['facet.field'] = query['facet.field'] || ckanQuery['facet.field'];
-  ckanQuery['facet.limit'] = query['facet.limit'] || ckanQuery['facet.limit'];
-  ckanQuery['facet.mincount'] =
-    query['facet.mincount'] || ckanQuery['facet.mincount'];
-  ckanQuery['facet.field'] = query['facet.field'] || ckanQuery['facet.field'];
+  ckanQuery["facet.field"] = query["facet.field"] || ckanQuery["facet.field"];
+  ckanQuery["facet.limit"] = query["facet.limit"] || ckanQuery["facet.limit"];
+  ckanQuery["facet.mincount"] =
+    query["facet.mincount"] || ckanQuery["facet.mincount"];
+  ckanQuery["facet.field"] = query["facet.field"] || ckanQuery["facet.field"];
 
   // Remove attributes with empty string, null or undefined values
   Object.keys(ckanQuery).forEach(
@@ -287,7 +287,7 @@ export function ckanToDataPackage(descriptor) {
   datapackage.resources = datapackage.resources.map((resource) => {
     if (resource.name) {
       resource.title = resource.title || resource.name;
-      resource.name = resource.name.toLowerCase().replace(/ /g, '_');
+      resource.name = resource.name.toLowerCase().replace(/ /g, "_");
     } else {
       resource.name = resource.id;
     }
@@ -295,11 +295,11 @@ export function ckanToDataPackage(descriptor) {
     if (!resource.schema) {
       // If 'fields' property exists use it as schema fields
       if (resource.fields) {
-        if (typeof resource.fields === 'string') {
+        if (typeof resource.fields === "string") {
           try {
             resource.fields = JSON.parse(resource.fields);
           } catch (e) {
-            console.log('Could not parse resource.fields');
+            console.log("Could not parse resource.fields");
           }
         }
         resource.schema = { fields: resource.fields };
@@ -316,17 +316,17 @@ export function ckanToDataPackage(descriptor) {
 // function to create tabbed interface
 export function tabbedInterface(tablist, panels) {
   // Get relevant elements and collections
-  const tabs = tablist.querySelectorAll('a');
+  const tabs = tablist.querySelectorAll("a");
 
   // The tab switching function
   const switchTab = (oldTab, newTab) => {
     newTab.focus();
     // Make the active tab focusable by the user (Tab key)
-    newTab.removeAttribute('tabindex');
+    newTab.removeAttribute("tabindex");
     // Set the selected state
-    newTab.setAttribute('aria-selected', 'true');
-    oldTab.removeAttribute('aria-selected');
-    oldTab.setAttribute('tabindex', '-1');
+    newTab.setAttribute("aria-selected", "true");
+    oldTab.removeAttribute("aria-selected");
+    oldTab.setAttribute("tabindex", "-1");
     // Get the indices of the new and old tabs to find the correct
     // tab panels to show and hide
     let index = Array.prototype.indexOf.call(tabs, newTab);
@@ -336,26 +336,26 @@ export function tabbedInterface(tablist, panels) {
   };
 
   // Add the tablist role to the first <ul> in the .tabbed container
-  tablist.setAttribute('role', 'tablist');
+  tablist.setAttribute("role", "tablist");
 
   // Add semantics are remove user focusability for each tab
   Array.prototype.forEach.call(tabs, (tab, i) => {
-    tab.setAttribute('role', 'tab');
-    tab.setAttribute('id', 'tab' + (i + 1));
-    tab.setAttribute('tabindex', '-1');
-    tab.parentNode.setAttribute('role', 'presentation');
+    tab.setAttribute("role", "tab");
+    tab.setAttribute("id", "tab" + (i + 1));
+    tab.setAttribute("tabindex", "-1");
+    tab.parentNode.setAttribute("role", "presentation");
 
     // Handle clicking of tabs for mouse users
-    tab.addEventListener('click', (e) => {
+    tab.addEventListener("click", (e) => {
       e.preventDefault();
-      let currentTab = tablist.querySelector('[aria-selected]');
+      let currentTab = tablist.querySelector("[aria-selected]");
       if (e.currentTarget !== currentTab) {
         switchTab(currentTab, e.currentTarget);
       }
     });
 
     // Handle keydown events for keyboard users
-    tab.addEventListener('keydown', (e) => {
+    tab.addEventListener("keydown", (e) => {
       // Get the index of the current tab in the tabs node list
       let index = Array.prototype.indexOf.call(tabs, e.currentTarget);
       // Work out which key the user is pressing and
@@ -366,13 +366,13 @@ export function tabbedInterface(tablist, panels) {
           : e.which === 39
           ? index + 1
           : e.which === 40
-          ? 'down'
+          ? "down"
           : null;
       if (dir !== null) {
         e.preventDefault();
         // If the down key is pressed, move focus to the open panel,
         // otherwise switch to the adjacent tab
-        dir === 'down'
+        dir === "down"
           ? panels[i].focus()
           : tabs[dir]
           ? switchTab(e.currentTarget, tabs[dir])
@@ -383,14 +383,14 @@ export function tabbedInterface(tablist, panels) {
 
   // Add tab panel semantics and hide them all
   Array.prototype.forEach.call(panels, (panel, i) => {
-    panel.setAttribute('role', 'tabpanel');
-    panel.setAttribute('tabindex', '-1');
-    panel.setAttribute('aria-labelledby', tabs[i].id);
+    panel.setAttribute("role", "tabpanel");
+    panel.setAttribute("tabindex", "-1");
+    panel.setAttribute("aria-labelledby", tabs[i].id);
     panel.hidden = true;
   });
 
   // Initially activate the first tab and reveal the first tab panel
-  tabs[0].removeAttribute('tabindex');
-  tabs[0].setAttribute('aria-selected', 'true');
+  tabs[0].removeAttribute("tabindex");
+  tabs[0].setAttribute("aria-selected", "true");
   panels[0].hidden = false;
 }

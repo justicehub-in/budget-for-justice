@@ -1,4 +1,4 @@
-import { latest } from 'data/placeholder';
+import { latest } from "data/placeholder";
 
 const Latest = () => {
   return (

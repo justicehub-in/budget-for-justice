@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { GetServerSideProps } from 'next';
-import Head from 'next/head';
-import MegaHeader from 'components/_shared/MegaHeader';
-import Parser from 'rss-parser';
-import StoriesCard from 'components/stories/StoriesCard';
-import Modal from 'react-modal';
+import React, { useState } from "react";
+import { GetServerSideProps } from "next";
+import Head from "next/head";
+import MegaHeader from "components/_shared/MegaHeader";
+import Parser from "rss-parser";
+import StoriesCard from "components/stories/StoriesCard";
+import Modal from "react-modal";
 
-Modal.setAppElement('#__next');
+Modal.setAppElement("#__next");
 
 const parser = new Parser();
 
@@ -17,9 +17,9 @@ const Stories = ({ data }) => {
     setModalIsOpen(!modalIsOpen);
   }
   const headerData = {
-    title: 'Data Stories',
+    title: "Data Stories",
     content:
-      'This page shows the public procurement data of the last 5 financial years for the contracts over INR 50 lakh value. One could download the total compiled data or explore specific tender groups using various filters like financial year, tendering organization, tender status, tender types, etc.',
+      "This page shows the public procurement data of the last 5 financial years for the contracts over INR 50 lakh value. One could download the total compiled data or explore specific tender groups using various filters like financial year, tendering organization, tender status, tender types, etc.",
   };
   return (
     <>
@@ -51,8 +51,8 @@ const Stories = ({ data }) => {
                     overlayClassName="dialog__backdrop"
                     contentLabel="Download Tenders"
                     aria={{
-                      labelledby: 'dialog-head',
-                      describedby: 'dialog-para',
+                      labelledby: "dialog-head",
+                      describedby: "dialog-para",
                     }}
                     preventScroll={true}
                     htmlOpenClassName="ReactModal__Html--open"
@@ -117,7 +117,7 @@ const Stories = ({ data }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const data = await parser.parseURL('https://medium.com/feed/civicdatalab');
+  const data = await parser.parseURL("https://medium.com/feed/civicdatalab");
 
   return {
     props: {

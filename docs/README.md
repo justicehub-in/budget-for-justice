@@ -46,7 +46,6 @@ Install a recent version of Node. Node 16 is recommended.
 
 We use SASS preprocessor to manage styling. All of it can be found at `/styles` directory where it's managed by using ITCSS architecture to make it scalable. For naming, we use BEM methodology.
 
-
 ### Backend
 
 You can connect CMS and DMS backends easily via environment variables:
@@ -75,17 +74,18 @@ $ export CMS=http://myblog.wordpress.com
 ### Data fetching
 
 We use REST API to fetch data from CKAN. Some of the data comes as metadata and other is in CSV files, for which we use different transformers. You can find more about it in `/transoformers` directory.
+
 #### Fetch all datasets for listing pages
 
 When visiting a dataset lisitng page, you may want to fetch the particular type of datasets. To do so, you can use `getServerSideProps` function from NextJS:
 
 ```javascript
-import { GetServerSideProps } from 'next';
-import { convertToCkanSearchQuery, fetchDatasets } from 'utils/index';
+import { GetServerSideProps } from "next";
+import { convertToCkanSearchQuery, fetchDatasets } from "utils/index";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const variables = convertToCkanSearchQuery(context.query || {});
-  const data = await fetchDatasets('type_of_dataset', variables);
+  const data = await fetchDatasets("type_of_dataset", variables);
 
   return {
     props: {
@@ -94,8 +94,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 ```
+
 - `convertToCkanSearchQuery` (from [PortalJS](https://github.com/datopian/portal.js)) helps to convert the search query parameters into a object which we can use.
-- `fetchDatasets` helps to fetch a list of datasets of particular type. 
+- `fetchDatasets` helps to fetch a list of datasets of particular type.
 
 Learn more about them [here](utils/README.md).
 
@@ -104,18 +105,18 @@ Learn more about them [here](utils/README.md).
 Depending on dataset, they may return metadata in the form of `JSON` or a combination of `JSON` and `CSV` file. We can use `fetchAPI` in this case:
 
 ```javascript
-import { GetServerSideProps } from 'next';
-import { fetchAPI } from 'utils/index';
-import { resourceGetter } from 'utils/resourceParser';
+import { GetServerSideProps } from "next";
+import { fetchAPI } from "utils/index";
+import { resourceGetter } from "utils/resourceParser";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await fetchAPI(context.query.tender);
-  const csv = await resourceGetter(data.result.resources, 'CSV');
+  const csv = await resourceGetter(data.result.resources, "CSV");
 
   return {
     props: {
       data,
-      csv
+      csv,
     },
   };
 };
@@ -165,4 +166,3 @@ For any new feature or bug reports, please request it in [issues](https://github
 See [CONTRIBUTING.md](https://github.com/CivicDataLab/oci-assam-frontend/blob/main/CONTRIBUTING.md) for ways to get started.
 
 Please adhere to [Code of Conduct](https://github.com/CivicDataLab/oci-assam-frontend/blob/main/CODE_OF_CONDUCT.md).
-

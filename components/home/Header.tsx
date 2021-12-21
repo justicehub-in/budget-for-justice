@@ -1,4 +1,4 @@
-import { didYouKnow } from 'data/placeholder';
+import { didYouKnow } from "data/placeholder";
 
 const Header = () => {
   return (

@@ -1,12 +1,12 @@
-@use '../../settings/variables' as *;
-@use '../../tools/mixins/media' as media;
+@use "../../settings/variables" as *;
+@use "../../tools/mixins/media" as media;
 
 .toggle {
   position: relative;
 
   button {
-    &[aria-pressed='true'] {
-      + [role='status'] {
+    &[aria-pressed="true"] {
+      + [role="status"] {
         opacity: 100;
         width: 212px;
       }
@@ -17,7 +17,7 @@
     }
   }
 
-  [role='status'] {
+  [role="status"] {
     position: absolute;
     max-width: 60vw;
     font-weight: normal;
@@ -38,7 +38,7 @@
       border-right: 0.8em solid transparent;
       border-top: 0.8em solid $grey-4;
       bottom: -0.8em;
-      content: ' ';
+      content: " ";
       height: 0;
       left: 2%;
       width: 0;
@@ -46,7 +46,7 @@
       z-index: 9;
     }
 
-    @include media.narrowerThan('seed') {
+    @include media.narrowerThan("seed") {
       left: -100px;
 
       &::before {

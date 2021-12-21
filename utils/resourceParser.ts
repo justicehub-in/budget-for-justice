@@ -1,5 +1,5 @@
-import { Format } from '../types/Resource';
-import Papa from 'papaparse';
+import { Format } from "../types/Resource";
+import Papa from "papaparse";
 
 async function parseResources(resource: any) {
   const obj = {};
@@ -14,7 +14,7 @@ async function parseResources(resource: any) {
 export async function resourceGetter(resource: any, resourceFormat: Format) {
   const file = await parseResources(resource);
   switch (resourceFormat) {
-    case 'CSV':
+    case "CSV":
       return file;
   }
 }

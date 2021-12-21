@@ -1,4 +1,4 @@
-@use '../../settings/variables' as *;
+@use "../../settings/variables" as *;
 
 .selected-filters {
   display: flex;
@@ -8,7 +8,7 @@
   li {
     background-color: $color-primary;
     color: $text-dark-high;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 18px;
   }
 }

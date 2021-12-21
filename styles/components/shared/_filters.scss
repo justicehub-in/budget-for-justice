@@ -1,5 +1,5 @@
-@use '../../settings/variables' as *;
-@use '../../tools/mixins/media' as media;
+@use "../../settings/variables" as *;
+@use "../../tools/mixins/media" as media;
 
 .filters {
   scrollbar-width: thin;
@@ -17,7 +17,7 @@
     width: 5px;
   }
 
-  @include media.narrowerThan('sprout') {
+  @include media.narrowerThan("sprout") {
     display: none;
   }
 
@@ -45,7 +45,7 @@
       transition: transform 150ms ease;
     }
 
-    [aria-expanded='true'] svg {
+    [aria-expanded="true"] svg {
       transform: rotate(-180deg);
     }
 

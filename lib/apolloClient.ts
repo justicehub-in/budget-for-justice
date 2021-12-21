@@ -1,38 +1,38 @@
-import { useMemo } from 'react';
-import getConfig from 'next/config';
-import { ApolloClient } from 'apollo-client';
+import { useMemo } from "react";
+import getConfig from "next/config";
+import { ApolloClient } from "apollo-client";
 import {
   InMemoryCache,
   NormalizedCache,
   NormalizedCacheObject,
-} from 'apollo-cache-inmemory';
-import { RestLink } from 'apollo-link-rest';
+} from "apollo-cache-inmemory";
+import { RestLink } from "apollo-link-rest";
 
 let apolloClient:
   | ApolloClient<NormalizedCache>
   | ApolloClient<NormalizedCacheObject>;
 
 const restLink = new RestLink({
-  uri: getConfig().publicRuntimeConfig.DMS + '/api/3/action/',
+  uri: getConfig().publicRuntimeConfig.DMS + "/api/3/action/",
   endpoints: {
     wordpress: `https://public-api.wordpress.com/rest/v1.1/sites/${
       getConfig().publicRuntimeConfig.CMS
     }/posts/slug:`,
-    'wordpress-posts': `https://public-api.wordpress.com/rest/v1.1/sites/${
+    "wordpress-posts": `https://public-api.wordpress.com/rest/v1.1/sites/${
       getConfig().publicRuntimeConfig.CMS
     }/posts/`,
   },
   typePatcher: {
     Search: (data: any): any => {
       if (data.result != null) {
-        data.result.__typename = 'SearchResponse';
+        data.result.__typename = "SearchResponse";
 
         if (data.result.results != null) {
           data.result.results = data.result.results.map((item) => {
             if (item.organization != null) {
-              item.organization.__typename = 'Organization';
+              item.organization.__typename = "Organization";
             }
-            return { __typename: 'Package', ...item };
+            return { __typename: "Package", ...item };
           });
         }
       }
@@ -40,14 +40,14 @@ const restLink = new RestLink({
     },
     Response: (data: any): any => {
       if (data.result != null) {
-        data.result.__typename = 'Package';
+        data.result.__typename = "Package";
         if (data.result.organization != null) {
-          data.result.organization.__typename = 'Organization';
+          data.result.organization.__typename = "Organization";
         }
 
         if (data.result.resources != null) {
           data.result.resources = data.result.resources.map((item) => {
-            return { __typename: 'Resource', ...item };
+            return { __typename: "Resource", ...item };
           });
         }
       }
@@ -77,7 +77,7 @@ export function initializeApollo(
     _apolloClient.cache.restore(initialState);
   }
   // For SSG and SSR always create a new Apollo Client
-  if (typeof window === 'undefined') return _apolloClient;
+  if (typeof window === "undefined") return _apolloClient;
   // Create the Apollo Client once in the client
   if (!apolloClient) apolloClient = _apolloClient;
 

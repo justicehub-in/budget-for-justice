@@ -1,5 +1,5 @@
-@use '../../settings/variables' as *;
-@use '../../tools/mixins/media' as media;
+@use "../../settings/variables" as *;
+@use "../../tools/mixins/media" as media;
 
 .data-alter {
   padding: 1rem 1.5rem;
@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
 
-  @include media.widerThan('sprout') {
+  @include media.widerThan("sprout") {
     display: none;
   }
 
@@ -20,7 +20,7 @@
     font-size: 1.25rem;
     font-weight: 500;
 
-    @include media.narrowerThan('seedling') {
+    @include media.narrowerThan("seedling") {
       font-size: 1rem;
     }
   }
@@ -42,7 +42,7 @@
         margin-left: 12px;
       }
 
-      @include media.narrowerThan('seed') {
+      @include media.narrowerThan("seed") {
         font-size: 0;
         border: none;
         padding: 8px 8px;
@@ -86,13 +86,13 @@
         background-color: $grey-6;
         line-height: 137%;
 
-        &[aria-selected='true'] {
+        &[aria-selected="true"] {
           background-color: $bg-lightest;
           font-weight: 500;
         }
       }
 
-      @include media.narrowerThan('seed') {
+      @include media.narrowerThan("seed") {
         width: 144px;
       }
     }

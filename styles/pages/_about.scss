@@ -1,5 +1,5 @@
-@use '../settings/variables' as *;
-@use '../tools/mixins/media' as media;
+@use "../settings/variables" as *;
+@use "../tools/mixins/media" as media;
 .about {
   .partners {
     display: flex;
@@ -11,7 +11,7 @@
       width: 48%;
       height: 100%;
 
-      @include media.narrowerThan('sprout') {
+      @include media.narrowerThan("sprout") {
         width: 100%;
 
         &:first-child {
@@ -36,7 +36,7 @@
         width: 3rem;
         display: inline-block;
         height: 3px;
-        margin-right: .5rem;
+        margin-right: 0.5rem;
       }
     }
 
@@ -63,19 +63,19 @@
       justify-content: center;
     }
 
-    @include media.narrowerThan('plant') {
+    @include media.narrowerThan("plant") {
       ul {
         padding: 0 3rem 5rem;
       }
     }
 
-    @include media.narrowerThan('sprout') {
+    @include media.narrowerThan("sprout") {
       li {
         width: 50%;
       }
     }
 
-    @include media.narrowerThan('seedling') {
+    @include media.narrowerThan("seedling") {
       ul {
         padding: 0 1rem 5rem;
       }
@@ -86,7 +86,7 @@
       }
     }
 
-    @include media.narrowerThan('seed') {
+    @include media.narrowerThan("seed") {
       li img {
         width: 120px;
         height: 120px;

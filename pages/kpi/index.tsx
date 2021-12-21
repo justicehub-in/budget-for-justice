@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { GetServerSideProps } from 'next';
+import React, { useState, useEffect } from "react";
+import { GetServerSideProps } from "next";
 import {
   convertToCkanSearchQuery,
   getFilters,
   fetchDatasets,
-} from 'utils/index';
-import Head from 'next/head';
-import Search from 'components/datasets/Search';
-import Total from 'components/datasets/Total';
-import DataAlter from 'components/datasets/DataAlter';
-import Pagination from 'components/datasets/Pagination';
-import Filter from 'components/datasets/Filter';
-import MegaHeader from 'components/_shared/MegaHeader';
+} from "utils/index";
+import Head from "next/head";
+import Search from "components/datasets/Search";
+import Total from "components/datasets/Total";
+import DataAlter from "components/datasets/DataAlter";
+import Pagination from "components/datasets/Pagination";
+import Filter from "components/datasets/Filter";
+import MegaHeader from "components/_shared/MegaHeader";
 // import Carousel from 'components/home/Carousel';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 type Props = {
   data: any;
@@ -41,26 +41,26 @@ const Datasets: React.FC<Props> = ({ data, facets }) => {
 
   function handleRouteChange(val: any) {
     switch (val.query) {
-      case 'q':
+      case "q":
         setSearch(val.value);
         break;
-      case 'size':
+      case "size":
         setItems(val.value);
         break;
-      case 'fq':
+      case "fq":
         setFilters(val.value);
         break;
-      case 'from':
+      case "from":
         setPages(val.value);
         break;
     }
   }
 
   const headerData = {
-    title: 'Data Analysis',
+    title: "Data Analysis",
     content:
-      'This page shows the public procurement data of the last 5 financial years for the contracts over INR 50 lakh value. One could download the total compiled data or explore specific tender groups using various filters like financial year, tendering organization, tender status, tender types, etc.',
-    image: '/',
+      "This page shows the public procurement data of the last 5 financial years for the contracts over INR 50 lakh value. One could download the total compiled data or explore specific tender groups using various filters like financial year, tendering organization, tender status, tender types, etc.",
+    image: "/",
   };
 
   return (
@@ -139,9 +139,9 @@ const Datasets: React.FC<Props> = ({ data, facets }) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const query = context.query || {};
   const variables = convertToCkanSearchQuery(query);
-  const facets = await getFilters(list, variables, 'kpi_dataset');
+  const facets = await getFilters(list, variables, "kpi_dataset");
 
-  const data = await fetchDatasets('kpi_dataset', variables);
+  const data = await fetchDatasets("kpi_dataset", variables);
 
   return {
     props: {
