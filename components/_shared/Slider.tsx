@@ -1,9 +1,9 @@
 const Slider = ({ data }) => {
   function updateSlider(n: number) {
-    const scrollPos = document.getElementById('contributors').scrollLeft;
+    const scrollPos = document.getElementById("contributors").scrollLeft;
     document
-      .getElementById('contributors')
-      .scrollTo({ left: scrollPos + n * 216, behavior: 'smooth' });
+      .getElementById("contributors")
+      .scrollTo({ left: scrollPos + n * 216, behavior: "smooth" });
   }
   return (
     <section className="slider">

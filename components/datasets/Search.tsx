@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Search: React.FC<{ text?: string; newSearch?: any }> = ({
   text,
@@ -13,8 +13,8 @@ const Search: React.FC<{ text?: string; newSearch?: any }> = ({
   };
 
   function handleClear() {
-    const input = document.querySelector('.search__input') as HTMLInputElement;
-    input.value = '';
+    const input = document.querySelector(".search__input") as HTMLInputElement;
+    input.value = "";
     input.focus();
   }
 
@@ -22,7 +22,7 @@ const Search: React.FC<{ text?: string; newSearch?: any }> = ({
     event.preventDefault();
 
     newSearch({
-      query: 'q',
+      query: "q",
       value: q,
     });
   };
@@ -34,7 +34,7 @@ const Search: React.FC<{ text?: string; newSearch?: any }> = ({
         name="q"
         value={q}
         onChange={handleChange}
-        placeholder={text ? text : 'Search here'}
+        placeholder={text ? text : "Search here"}
         aria-label="Search"
         className="search__input"
       />

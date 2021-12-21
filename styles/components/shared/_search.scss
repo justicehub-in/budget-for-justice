@@ -1,5 +1,5 @@
-@use '../../settings/variables' as *;
-@use '../../tools/mixins/media' as media;
+@use "../../settings/variables" as *;
+@use "../../tools/mixins/media" as media;
 
 .search {
   flex-grow: 1;
@@ -47,7 +47,7 @@
     background-position: left 1rem top 50%, 0 0;
     background-repeat: no-repeat, repeat;
 
-    &:not([value='']) {
+    &:not([value=""]) {
       background-color: $bg-lightest;
 
       + .search__buttons {
@@ -58,7 +58,7 @@
   &__select {
     background-position: right 10% top 55%, 0 0;
 
-    @include media.narrowerThan('sprout') {
+    @include media.narrowerThan("sprout") {
       display: none;
     }
   }

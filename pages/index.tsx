@@ -1,17 +1,17 @@
-import React from 'react';
-import Head from 'next/head';
-import Carousel from 'components/home/Carousel';
-import Header from 'components/home/Header';
-import Video from 'components/home/Video';
-import Latest from 'components/home/Latest';
-import Insights from 'components/home/Insights';
-import News from 'components/home/News';
-import Banner from 'components/_shared/Banner';
-import Slider from 'components/_shared/Slider';
-import { contributors } from 'data/placeholder';
+import React from "react";
+import Head from "next/head";
+import Carousel from "components/home/Carousel";
+import Header from "components/home/Header";
+import Video from "components/home/Video";
+import Latest from "components/home/Latest";
+import Insights from "components/home/Insights";
+import News from "components/home/News";
+import Banner from "components/_shared/Banner";
+import Slider from "components/_shared/Slider";
+import { contributors } from "data/placeholder";
 
 const bannerDetails = {
-  heading: 'Placeholder Text for Heading',
+  heading: "Placeholder Text for Heading",
   content: (
     <>
       <p>
@@ -20,13 +20,13 @@ const bannerDetails = {
         since the 1500s.
       </p>
       <p>
-        For more information connect us at{' '}
+        For more information connect us at{" "}
         <a href="#">collaborate@civicdatalab.in</a>
       </p>
     </>
   ),
-  image: '/assets/icons/send-email-fly.svg',
-  color: '#F65940',
+  image: "/assets/icons/send-email-fly.svg",
+  color: "#F65940",
 };
 
 const Home: React.FC<{ forumData: any }> = () => {

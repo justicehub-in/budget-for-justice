@@ -1,41 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import { GetServerSideProps } from 'next';
-import Head from 'next/head';
-import { tabbedInterface, ckanToDataPackage, fetchAPI } from 'utils/index';
-import MegaHeader from 'components/_shared/MegaHeader';
-import Indicator from 'components/analytics/Indicator';
-import Modal from 'react-modal';
-import { resourceGetter } from 'utils/resourceParser';
-import BarChartViz from 'components/viz/BarChart';
-import { kpiTransformer } from 'transformers/kpiTransformer';
-import DataAlter from 'components/datasets/DataAlter';
-import { cloneDeep } from 'lodash';
-import DList from 'components/_shared/DList';
+import React, { useEffect, useState } from "react";
+import { GetServerSideProps } from "next";
+import Head from "next/head";
+import { tabbedInterface, ckanToDataPackage, fetchAPI } from "utils/index";
+import MegaHeader from "components/_shared/MegaHeader";
+import Indicator from "components/analytics/Indicator";
+import Modal from "react-modal";
+import { resourceGetter } from "utils/resourceParser";
+import BarChartViz from "components/viz/BarChart";
+import { kpiTransformer } from "transformers/kpiTransformer";
+import DataAlter from "components/datasets/DataAlter";
+import { cloneDeep } from "lodash";
+import DList from "components/_shared/DList";
 
 const basicContent = [
   {
-    title: 'Topic 1',
-    desc: 'Description',
+    title: "Topic 1",
+    desc: "Description",
   },
   {
-    title: 'Topic 2',
-    desc: 'Description',
+    title: "Topic 2",
+    desc: "Description",
   },
   {
-    title: 'Topic 3',
-    desc: 'Description',
+    title: "Topic 3",
+    desc: "Description",
   },
   {
-    title: 'Topic 4',
-    desc: 'Description',
+    title: "Topic 4",
+    desc: "Description",
   },
   {
-    title: 'Topic 5',
-    desc: 'Description',
+    title: "Topic 5",
+    desc: "Description",
   },
 ];
 
-Modal.setAppElement('#__next');
+Modal.setAppElement("#__next");
 
 type Props = {
   data: any;
@@ -45,50 +45,50 @@ type Props = {
 
 const allNews = [
   {
-    heading: 'Title for the published news and placeholder for all others',
-    para: 'Data analysis feature helps you view, analyze and use the procurement \
+    heading: "Title for the published news and placeholder for all others",
+    para: "Data analysis feature helps you view, analyze and use the procurement \
     data of Assam. See stories and post done using this dataset. You can also \
-    contribute your own story',
-    publisher: 'Times of India',
-    tag: 'Data for Justice',
-    image: '',
-    link: '',
+    contribute your own story",
+    publisher: "Times of India",
+    tag: "Data for Justice",
+    image: "",
+    link: "",
   },
   {
-    heading: 'Title for the published news and placeholder for all others',
-    para: 'Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story',
-    publisher: 'The Hindu',
-    tag: 'Data for Justice',
-    image: '',
-    link: '',
+    heading: "Title for the published news and placeholder for all others",
+    para: "Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story",
+    publisher: "The Hindu",
+    tag: "Data for Justice",
+    image: "",
+    link: "",
   },
   {
-    heading: 'Title for the published news and placeholder for all others',
-    para: 'Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story',
-    publisher: 'Live Law',
-    tag: 'Data for Justice',
-    image: '',
-    link: '',
+    heading: "Title for the published news and placeholder for all others",
+    para: "Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story",
+    publisher: "Live Law",
+    tag: "Data for Justice",
+    image: "",
+    link: "",
   },
 ];
 
 const keywords = [
-  'Education',
-  'Girl Education',
-  'Budget',
-  'Expenditure',
-  'Yearly Trends',
-  'Education',
-  'Girl Education',
-  'Budget',
-  'Expenditure',
-  'Budget',
-  'Yearly Trends',
-  'Education',
-  'Girl Education',
-  'Budget',
-  'Expenditure',
-  'Yearly Trends',
+  "Education",
+  "Girl Education",
+  "Budget",
+  "Expenditure",
+  "Yearly Trends",
+  "Education",
+  "Girl Education",
+  "Budget",
+  "Expenditure",
+  "Budget",
+  "Yearly Trends",
+  "Education",
+  "Girl Education",
+  "Budget",
+  "Expenditure",
+  "Yearly Trends",
 ];
 
 const vizFilters = {};
@@ -101,8 +101,8 @@ const Analysis: React.FC<Props> = ({ data, csv }) => {
 
   const vizToggle = [
     {
-      name: 'Bar',
-      id: '#barGraph',
+      name: "Bar",
+      id: "#barGraph",
       icon: (
         <svg
           width="15"
@@ -122,12 +122,12 @@ const Analysis: React.FC<Props> = ({ data, csv }) => {
 
   const vizItems = [
     {
-      id: 'barGraph',
+      id: "barGraph",
       graph: (
         <BarChartViz
           yAxisLabel="Sale"
           xAxisLabel="Products"
-          theme={['#4965B2', '#ED8686', '#69BC99']}
+          theme={["#4965B2", "#ED8686", "#69BC99"]}
           dataset={filteredData}
           stack="True"
         />
@@ -141,14 +141,14 @@ const Analysis: React.FC<Props> = ({ data, csv }) => {
 
   useEffect(() => {
     // ceating tabbed interface for viz selector
-    const tablist = document.querySelector('.viz__tabs');
-    const panels = document.querySelectorAll('.viz figure');
+    const tablist = document.querySelector(".viz__tabs");
+    const panels = document.querySelectorAll(".viz figure");
     tabbedInterface(tablist, panels);
 
     const indicatorList = [];
     // populating required indicators
     Object.keys(csv.analytics[0]).forEach((val) => {
-      if (val == 'tender/procurementMethod' || val == 'tender_count') return;
+      if (val == "tender/procurementMethod" || val == "tender_count") return;
       indicatorList.push({ id: val, list: [] });
       vizFilters[val] = [];
     });
@@ -194,12 +194,12 @@ const Analysis: React.FC<Props> = ({ data, csv }) => {
   const headerData = {
     title: dataPackage.title || dataPackage.name,
     content:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     // date: new Date(dataPackage.metadata_created).toLocaleDateString('en-US'),
-    previousPage: 'Data Analysis',
-    previousLink: '/kpi',
-    frequency: 'Yearly',
-    type: 'Centrally Sponsered Scheme',
+    previousPage: "Data Analysis",
+    previousLink: "/kpi",
+    frequency: "Yearly",
+    type: "Centrally Sponsered Scheme",
   };
 
   return (
@@ -292,8 +292,8 @@ const Analysis: React.FC<Props> = ({ data, csv }) => {
               overlayClassName="dialog__backdrop"
               contentLabel="Download Tenders"
               aria={{
-                labelledby: 'dialog-head',
-                describedby: 'dialog-para',
+                labelledby: "dialog-head",
+                describedby: "dialog-para",
               }}
               closeTimeoutMS={200}
               preventScroll={true}
@@ -478,7 +478,7 @@ const Analysis: React.FC<Props> = ({ data, csv }) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await fetchAPI(context.query.analysis);
 
-  const csv = await resourceGetter(data.result.resources, 'CSV');
+  const csv = await resourceGetter(data.result.resources, "CSV");
 
   return {
     props: {

@@ -1,12 +1,12 @@
-import { useRouter } from 'next/router';
-import Search from 'components/datasets/Search';
+import { useRouter } from "next/router";
+import Search from "components/datasets/Search";
 
 const HomeSearch = () => {
   const router = useRouter();
 
   function handleRouteChange(val: any) {
     router.push({
-      pathname: '/datasets',
+      pathname: "/datasets",
       query: { q: val.value },
     });
   }

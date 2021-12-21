@@ -1,4 +1,4 @@
-export type Format = 'CSV' | 'XML' | 'TXT' | 'TSV' | 'PDF';
+export type Format = "CSV" | "XML" | "TXT" | "TSV" | "PDF";
 
 export interface IResource {
   id: string;

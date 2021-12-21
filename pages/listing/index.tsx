@@ -1,18 +1,18 @@
-import Head from 'next/head';
-import Search from 'components/datasets/Search';
+import Head from "next/head";
+import Search from "components/datasets/Search";
 import {
   LawJustice,
   WomenChild,
   Police,
   HomeAffairs,
-} from 'components/icons/ListingIcons';
-import { lists, ToggleData } from 'data/placeholder';
-import Toggle from 'components/_shared/Toggle';
+} from "components/icons/ListingIcons";
+import { lists, ToggleData } from "data/placeholder";
+import Toggle from "components/_shared/Toggle";
 
 function categoryIcon(cat: string) {
-  if (cat == 'lj') return <LawJustice />;
-  else if (cat == 'wcd') return <WomenChild />;
-  else if (cat == 'police') return <Police />;
+  if (cat == "lj") return <LawJustice />;
+  else if (cat == "wcd") return <WomenChild />;
+  else if (cat == "police") return <Police />;
   else return <HomeAffairs />;
 }
 

@@ -1,4 +1,4 @@
-@use '../tools/mixins/media' as media;
+@use "../tools/mixins/media" as media;
 
 .stories {
   .container {
@@ -9,7 +9,7 @@
     max-width: max-content;
   }
 
-  @include media.narrowerThan('seed') {
+  @include media.narrowerThan("seed") {
     .btn-primary {
       margin-top: 1rem;
     }
@@ -50,11 +50,11 @@
         align-self: flex-start;
       }
 
-      @include media.narrowerThan('sprout') {
+      @include media.narrowerThan("sprout") {
         width: 49%;
       }
 
-      @include media.narrowerThan('seed') {
+      @include media.narrowerThan("seed") {
         width: 100%;
       }
 

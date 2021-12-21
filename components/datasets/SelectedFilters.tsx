@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { filterStringToObject } from 'utils/index';
+import React, { useEffect, useState } from "react";
+import { filterStringToObject } from "utils/index";
 
 const Filter = ({ data, newFilters, fq }) => {
   const [filterObj, setFilterObj] = useState({});
@@ -32,14 +32,14 @@ const Filter = ({ data, newFilters, fq }) => {
     console.log(document.getElementById(value));
 
     if (document.getElementById(value))
-      document.getElementById(value).setAttribute('aria-pressed', 'false');
+      document.getElementById(value).setAttribute("aria-pressed", "false");
 
     const index = filterObj[type].indexOf(value);
     if (index > -1) {
       filterObj[type].splice(index, 1);
     }
     newFilters({
-      query: 'fq',
+      query: "fq",
       value: filterObj,
     });
   }
@@ -55,7 +55,7 @@ const Filter = ({ data, newFilters, fq }) => {
                 data-id={item.value}
                 onClick={removeFilter}
               >
-                {item.value.replace(/[^A-Z0-9]/gi, ' ')} &#x2715;
+                {item.value.replace(/[^A-Z0-9]/gi, " ")} &#x2715;
               </button>
             </li>
           );

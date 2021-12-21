@@ -1,48 +1,48 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import Modal from 'react-modal';
+import React, { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import Modal from "react-modal";
 // import Hamburger from 'public/assets/icons/hamburger.svg';
-Modal.setAppElement('#__next');
+Modal.setAppElement("#__next");
 
-const navName = 'Justice Hub';
+const navName = "Justice Hub";
 
 const navList = [
   {
-    link: '/datasets',
-    name: 'Explore Data',
+    link: "/datasets",
+    name: "Explore Data",
   },
   {
-    link: 'https://justicehub.in/upload',
-    name: 'Contribute Data',
+    link: "https://justicehub.in/upload",
+    name: "Contribute Data",
   },
   {
     // link: '#forum',
-    name: 'About',
+    name: "About",
     hasSubMenu: true,
     subMenu: [
       {
-        link: 'https://justicehub.in/about',
-        name: 'About',
+        link: "https://justicehub.in/about",
+        name: "About",
       },
       {
-        link: 'https://justicehub.in/contact',
-        name: 'Contact',
+        link: "https://justicehub.in/contact",
+        name: "Contact",
       },
     ],
   },
   {
-    link: 'https://justicehub.in/events',
-    name: 'Events',
+    link: "https://justicehub.in/events",
+    name: "Events",
   },
   {
-    link: 'https://forum.justicehub.in/',
-    name: 'Forum',
+    link: "https://forum.justicehub.in/",
+    name: "Forum",
   },
   {
-    link: '/explore',
-    name: 'Explore Budget',
+    link: "/explore",
+    name: "Explore Budget",
     isButton: true,
   },
 ];
@@ -59,13 +59,13 @@ const Nav: React.FC = () => {
   // open / close sub-menu
   function navButtonHandler(e: any) {
     // if clicked on already opened menu
-    if (e.target.getAttribute('aria-expanded') == 'true') {
-      e.target.setAttribute('aria-expanded', 'false');
+    if (e.target.getAttribute("aria-expanded") == "true") {
+      e.target.setAttribute("aria-expanded", "false");
       e.target.setAttribute(
-        'aria-label',
-        e.target.getAttribute('data-text-for-show')
+        "aria-label",
+        e.target.getAttribute("data-text-for-show")
       );
-      e.target.nextElementSibling.setAttribute('hidden', 'true');
+      e.target.nextElementSibling.setAttribute("hidden", "true");
     } else {
       // remove previous opened menu
       if (
@@ -73,20 +73,20 @@ const Nav: React.FC = () => {
         document.querySelector('.navbar__links > [aria-expanded="true"]')
       ) {
         const currentActive = document.querySelector('[aria-expanded="true"]');
-        currentActive.nextElementSibling.setAttribute('hidden', 'true');
+        currentActive.nextElementSibling.setAttribute("hidden", "true");
         currentActive.setAttribute(
-          'aria-label',
-          currentActive.getAttribute('data-text-for-show')
+          "aria-label",
+          currentActive.getAttribute("data-text-for-show")
         );
-        currentActive.setAttribute('aria-expanded', 'false');
+        currentActive.setAttribute("aria-expanded", "false");
       }
       // open current clicked menu
-      e.target.setAttribute('aria-expanded', 'true');
+      e.target.setAttribute("aria-expanded", "true");
       e.target.setAttribute(
-        'aria-label',
-        e.target.getAttribute('data-text-for-hide')
+        "aria-label",
+        e.target.getAttribute("data-text-for-hide")
       );
-      e.target.nextElementSibling.removeAttribute('hidden');
+      e.target.nextElementSibling.removeAttribute("hidden");
     }
   }
 
@@ -139,8 +139,8 @@ const Nav: React.FC = () => {
                       href={navItem.link}
                       className={`navbar__item btn-primary ${
                         router.pathname.includes(navItem.link)
-                          ? 'navbar__item--active'
-                          : ''
+                          ? "navbar__item--active"
+                          : ""
                       }`}
                     >
                       {navItem.name}
@@ -150,8 +150,8 @@ const Nav: React.FC = () => {
                       <a
                         className={`navbar__item ${
                           router.pathname.includes(navItem.link)
-                            ? 'navbar__item--active'
-                            : ''
+                            ? "navbar__item--active"
+                            : ""
                         }`}
                       >
                         {navItem.name}
@@ -207,7 +207,7 @@ const Nav: React.FC = () => {
         overlayClassName="dialog__backdrop"
         closeTimeoutMS={200}
         aria={{
-          labelledby: 'mobileMenu',
+          labelledby: "mobileMenu",
         }}
         preventScroll={true}
         htmlOpenClassName="ReactModal__Html--open"
@@ -263,8 +263,8 @@ const Nav: React.FC = () => {
                       onClick={mobileNavHandler}
                       className={`navbar__item ${
                         router.pathname.includes(navItem.link)
-                          ? 'navbar__item--active'
-                          : ''
+                          ? "navbar__item--active"
+                          : ""
                       }`}
                     >
                       {navItem.name}

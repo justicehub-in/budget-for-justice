@@ -1,4 +1,4 @@
-@use '../../settings/variables' as *;
+@use "../../settings/variables" as *;
 
 .banner {
   margin-top: 7rem;
@@ -14,13 +14,6 @@
 
     h2 {
       line-height: 1.5;
-    }
-
-    > div {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
     }
   }
 

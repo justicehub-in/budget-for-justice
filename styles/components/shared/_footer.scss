@@ -1,5 +1,5 @@
-@use '../../settings/theme' as *;
-@use '../../tools/mixins/narrowerThan' as *;
+@use "../../settings/theme" as *;
+@use "../../tools/mixins/narrowerThan" as *;
 
 .footer {
   margin-top: 5rem;
@@ -17,7 +17,7 @@
       width: 33%;
     }
 
-    @include narrowerThan('sprout') {
+    @include narrowerThan("sprout") {
       > section {
         width: 100%;
         margin-bottom: 3rem;
@@ -33,7 +33,7 @@
     h2 {
       margin-left: 2rem;
 
-      @include narrowerThan('sprout') {
+      @include narrowerThan("sprout") {
         margin-left: 0;
       }
     }
@@ -44,7 +44,7 @@
       padding-right: 3rem;
     }
 
-    @include narrowerThan('sprout') {
+    @include narrowerThan("sprout") {
       padding-right: 0;
       padding-bottom: 2rem;
     }
@@ -81,7 +81,7 @@
       }
     }
 
-    @include narrowerThan('sprout') {
+    @include narrowerThan("sprout") {
       border: none;
       padding-left: 0;
       justify-content: space-between;
@@ -121,11 +121,11 @@
       font-size: 18px;
     }
 
-    @include narrowerThan('sprout') {
+    @include narrowerThan("sprout") {
       padding-left: 0;
     }
 
-    @include narrowerThan('seed') {
+    @include narrowerThan("seed") {
       margin-top: 2.5rem;
     }
 

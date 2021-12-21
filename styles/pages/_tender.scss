@@ -1,5 +1,5 @@
-@use '../settings/variables' as *;
-@use '../tools/mixins/media' as media;
+@use "../settings/variables" as *;
+@use "../tools/mixins/media" as media;
 
 .tender {
   .container {
@@ -62,7 +62,7 @@
     display: grid;
     grid-template-columns: 1fr 121px;
 
-    @include media.narrowerThan('seed') {
+    @include media.narrowerThan("seed") {
       grid-template-columns: 1fr;
     }
   }
@@ -79,7 +79,7 @@
       margin-bottom: -2px;
     }
 
-    @include media.narrowerThan('seed') {
+    @include media.narrowerThan("seed") {
       margin-top: 1rem;
     }
   }
@@ -148,7 +148,7 @@
       //   grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
       // }
 
-      @include media.narrowerThan('seedling') {
+      @include media.narrowerThan("seedling") {
         justify-content: center;
       }
 
@@ -159,7 +159,7 @@
         flex-grow: 1;
         flex-basis: 28%;
 
-        @include media.narrowerThan('seed') {
+        @include media.narrowerThan("seed") {
           flex-basis: 100%;
         }
 
@@ -219,7 +219,7 @@
       margin-left: 1.5rem;
     }
 
-    @include media.narrowerThan('sprout') {
+    @include media.narrowerThan("sprout") {
       margin-top: 1rem;
       justify-self: center;
 
@@ -232,47 +232,5 @@
   .heading-3 svg {
     margin-bottom: -3px;
     margin-right: 10px;
-  }
-
-  &__pagination {
-    margin-top: 2rem;
-    font-size: 1.5em;
-
-    ul {
-      overflow: hidden;
-    }
-
-    li {
-      background-color: #e9fbf0;
-      border: 2px solid #d0d0d3;
-      padding: 2rem;
-      margin-top: 1rem;
-
-      &.prev {
-        float: left;
-      }
-
-      &.next {
-        float: right;
-        text-align: right;
-        text-align: -moz-right;
-      }
-    }
-
-    span {
-      font-weight: 500;
-    }
-
-    a {
-      display: block;
-      margin-top: 1rem;
-      text-decoration: none;
-      border: 2px solid #d0d0d3;
-      border-radius: 4px;
-      padding: 0.5rem 2rem;
-      width: max-content;
-      font-size: 1rem;
-      background-color: $bg-lightest;
-    }
   }
 }

@@ -1,9 +1,9 @@
-import { Vuepress } from '@vuepress/client/lib/components/Vuepress'
+import { Vuepress } from "@vuepress/client/lib/components/Vuepress";
 
 const routeItems = [
-  ["v-8daa1a0e","/","",["/index.html","/README.md"]],
-  ["v-3706649a","/404.html","",["/404"]],
-]
+  ["v-8daa1a0e", "/", "", ["/index.html", "/README.md"]],
+  ["v-3706649a", "/404.html", "", ["/404"]],
+];
 
 export const pagesRoutes = routeItems.reduce(
   (result, [name, path, title, redirects]) => {
@@ -18,14 +18,14 @@ export const pagesRoutes = routeItems.reduce(
         path: item,
         redirect: path,
       }))
-    )
-    return result
+    );
+    return result;
   },
   [
     {
       name: "404",
       path: "/:catchAll(.*)",
       component: Vuepress,
-    }
+    },
   ]
-)
+);

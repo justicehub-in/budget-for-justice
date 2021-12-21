@@ -1,4 +1,4 @@
-import Card from './Card';
+import Card from "./Card";
 
 const List: React.FC<{ data: any }> = ({ data }) => {
   return (

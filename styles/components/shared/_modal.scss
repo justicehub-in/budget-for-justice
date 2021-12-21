@@ -1,5 +1,5 @@
-@use '../../settings/variables' as *;
-@use '../../tools/mixins/media' as media;
+@use "../../settings/variables" as *;
+@use "../../tools/mixins/media" as media;
 
 .ReactModal__Body--open {
   position: static;
@@ -32,7 +32,7 @@
     margin-right: 1rem;
     accent-color: $color-sapphire;
 
-    &[type='radio'] {
+    &[type="radio"] {
       padding: 6px 0;
       transform: scale(1.5);
       margin-right: 1rem;
@@ -71,7 +71,7 @@
       font-weight: 500;
     }
 
-    @include media.narrowerThan('seedling') {
+    @include media.narrowerThan("seedling") {
       height: 40vh;
     }
   }
@@ -138,7 +138,7 @@
     }
   }
 
-  @include media.narrowerThan('plant') {
+  @include media.narrowerThan("plant") {
     top: initial;
     left: initial;
     bottom: 0;
@@ -163,7 +163,7 @@
       width: 320px;
       padding-bottom: 0;
 
-      @include media.narrowerThan('seed') {
+      @include media.narrowerThan("seed") {
         width: 248px;
       }
 
