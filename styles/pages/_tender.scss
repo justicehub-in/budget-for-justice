@@ -233,46 +233,4 @@
     margin-bottom: -3px;
     margin-right: 10px;
   }
-
-  &__pagination {
-    margin-top: 2rem;
-    font-size: 1.5em;
-
-    ul {
-      overflow: hidden;
-    }
-
-    li {
-      background-color: #e9fbf0;
-      border: 2px solid #d0d0d3;
-      padding: 2rem;
-      margin-top: 1rem;
-
-      &.prev {
-        float: left;
-      }
-
-      &.next {
-        float: right;
-        text-align: right;
-        text-align: -moz-right;
-      }
-    }
-
-    span {
-      font-weight: 500;
-    }
-
-    a {
-      display: block;
-      margin-top: 1rem;
-      text-decoration: none;
-      border: 2px solid #d0d0d3;
-      border-radius: 4px;
-      padding: 0.5rem 2rem;
-      width: max-content;
-      font-size: 1rem;
-      background-color: $bg-lightest;
-    }
-  }
 }
