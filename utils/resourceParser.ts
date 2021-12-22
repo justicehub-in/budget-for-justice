@@ -1,20 +1,15 @@
 import { Format } from "../types/Resource";
 import Papa from "papaparse";
 
-async function parseResources(resource: any) {
-  const obj = {};
-  for (const file of resource) {
-    const csvFile = await fetch(file.url).then((res) => res.text());
-    const parsedFile = Papa.parse(csvFile, { header: true });
-    obj[file.res_type] = parsedFile.data;
-  }
+async function parseResources(resource: string, header: Boolean) {
+  const csvFile = await fetch(resource).then((res) => res.text());
+  const parsedFile = Papa.parse(csvFile, { header: header });
+  const obj = parsedFile.data;
+
   return obj;
 }
 
-export async function resourceGetter(resource: any, resourceFormat: Format) {
-  const file = await parseResources(resource);
-  switch (resourceFormat) {
-    case "CSV":
-      return file;
-  }
+export async function resourceGetter(resource: any, header?: Boolean) {
+  const file = await parseResources(resource, header);
+  return file;
 }

@@ -178,6 +178,10 @@
       @include media.narrowerThan("seed") {
         display: block;
       }
+
+      .drowpdown {
+        
+      }
     }
 
     &__tabs {
@@ -268,7 +272,8 @@
   &__schemes {
     background-color: $bg-lightest;
     padding-top: 15rem;
-    padding-bottom: 4rem;
+    padding-bottom: 9rem;
+    margin-bottom: -5rem;
 
     &--split {
       display: flex;

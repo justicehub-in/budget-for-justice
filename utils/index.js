@@ -1,3 +1,82 @@
+import {
+  LawJustice,
+  WomenChild,
+  Police,
+  HomeAffairs,
+} from "components/icons/ListingIcons";
+export function categoryIcon(tags) {
+  if (tags.includes("Ministry of Law and Justice")) return <LawJustice />;
+  else if (tags.includes("Ministry of Law and Justice")) return <WomenChild />;
+  else if (tags.includes("Ministry of Law and Justice")) return <Police />;
+  else return <HomeAffairs />;
+}
+
+export function explorerPopulation(obj) {
+  let newObj = {};
+
+  const resources = {};
+  obj.resources &&
+    obj.resources.forEach((res) => {
+      if (res.name == "Datasheet") resources.dataUrl = res.url;
+      if (res.name == "Metadata") resources.metaUrl = res.url;
+    });
+
+  newObj = {
+    id: obj.name,
+    title: obj.title,
+    notes: obj.notes || "",
+    tags: obj.tags.map((item) => item.display_name),
+    dataUrl: resources.dataUrl || "",
+    metaUrl: resources.metaUrl || "",
+  };
+
+  return newObj;
+}
+
+export function datasetPopulation(obj) {
+  const populated = [];
+
+  obj.forEach((item) => {
+    const resources = {};
+    item.resources &&
+      item.resources.forEach((res) => {
+        if (res.name == "Datasheet") resources.dataUrl = res.url;
+        if (res.name == "Metadata") resources.metaUrl = res.url;
+      });
+
+    populated.push({
+      id: item.name,
+      title: item.title,
+      tags: item.tags.map((item) => item.display_name),
+      dataUrl: resources.dataUrl || "",
+      metaUrl: resources.metaUrl || "",
+    });
+  });
+
+  return populated;
+}
+
+export function filter_data_indicator(mainData, indicatorName) {
+  let data = mainData;
+  if (indicatorName) {
+    if (data.length > 0) {
+      data = data.filter((item) => item["indicators"] == indicatorName);
+    }
+  }
+  return data;
+}
+
+export function filter_data_budgettype(mainData, budgetType) {
+  let data = mainData;
+  if (budgetType) {
+    if (data.length > 0) {
+      data = data.filter((item) => item["budgetType"] == budgetType);
+    }
+  }
+
+  return data;
+}
+
 // filter obj to String
 export function filterObjToString(filterObj) {
   const final = [];
@@ -103,7 +182,7 @@ export async function fetchDatasets(type, variables) {
 // fetch particular dataset
 export async function fetchAPI(path) {
   const response = await fetch(
-    `http://13.126.46.107/api/3/action/package_show?id=${path}`
+    `https://justicehub.in/api/3/action/package_show?id=${path}`
   );
   const data = await response.json();
   return data;
