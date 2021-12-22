@@ -3680,7 +3680,7 @@ button {
   border: 1px solid #cdd1d1;
   border-radius: 4px;
   margin-bottom: 1rem;
-  transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+  transition: box-shadow 0.2s ease-out, border-color 0.2s ease-out;
 }
 .listing__items li a {
   display: flex;
@@ -3693,6 +3693,7 @@ button {
   transition: -webkit-text-decoration-color 0.3s ease-out;
   transition: text-decoration-color 0.3s ease-out;
   transition: text-decoration-color 0.3s ease-out, -webkit-text-decoration-color 0.3s ease-out;
+  overflow-y: auto;
 }
 .listing__items li span {
   border-left: 1px solid #cdd1d1;
@@ -3700,15 +3701,14 @@ button {
   margin-left: 0.5rem;
 }
 .listing__items li svg {
-  width: 19px;
-  height: 19px;
+  flex-basis: 28px;
+  min-width: 28px;
 }
 .listing__items li:hover, .listing__items li:focus-within {
   box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.16);
   border-color: #EFF2F2;
 }
 .listing__items li:hover a, .listing__items li:focus-within a {
-  font-weight: 500;
   -webkit-text-decoration-color: inherit;
           text-decoration-color: inherit;
 }
@@ -3936,7 +3936,8 @@ button {
 .explorer__schemes {
   background-color: white;
   padding-top: 15rem;
-  padding-bottom: 4rem;
+  padding-bottom: 9rem;
+  margin-bottom: -5rem;
 }
 .explorer__schemes--split {
   display: flex;

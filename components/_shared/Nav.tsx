@@ -10,38 +10,22 @@ const navName = "Justice Hub";
 
 const navList = [
   {
-    link: "/datasets",
-    name: "Explore Data",
-  },
-  {
-    link: "https://justicehub.in/upload",
-    name: "Contribute Data",
-  },
-  {
     // link: '#forum',
-    name: "About",
+    name: "All Menu",
     hasSubMenu: true,
     subMenu: [
       {
-        link: "https://justicehub.in/about",
-        name: "About",
+        link: "/explore",
+        name: "Scheme Explore",
       },
       {
-        link: "https://justicehub.in/contact",
-        name: "Contact",
+        link: "/about",
+        name: "About Us",
       },
     ],
   },
   {
-    link: "https://justicehub.in/events",
-    name: "Events",
-  },
-  {
-    link: "https://forum.justicehub.in/",
-    name: "Forum",
-  },
-  {
-    link: "/explore",
+    link: "/datasets",
     name: "Explore Budget",
     isButton: true,
   },
@@ -135,27 +119,16 @@ const Nav: React.FC = () => {
                       </ul>
                     </>
                   ) : navItem.isButton ? (
-                    <a
-                      href={navItem.link}
-                      className={`navbar__item btn-primary ${
-                        router.pathname.includes(navItem.link)
-                          ? "navbar__item--active"
-                          : ""
-                      }`}
-                    >
-                      {navItem.name}
-                    </a>
-                  ) : (
                     <Link href={navItem.link}>
                       <a
-                        className={`navbar__item ${
-                          router.pathname.includes(navItem.link)
-                            ? "navbar__item--active"
-                            : ""
-                        }`}
+                        className={`navbar__item btn-primary`}
                       >
                         {navItem.name}
                       </a>
+                    </Link>
+                  ) : (
+                    <Link href={navItem.link}>
+                      <a className={`navbar__item`}>{navItem.name}</a>
                     </Link>
                   )}
                 </li>
