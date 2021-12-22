@@ -4,7 +4,6 @@ import {
   Police,
   HomeAffairs,
 } from "components/icons/ListingIcons";
-
 export function categoryIcon(tags) {
   if (tags.includes("Ministry of Law and Justice")) return <LawJustice />;
   else if (tags.includes("Ministry of Law and Justice")) return <WomenChild />;
@@ -45,7 +44,7 @@ export function datasetPopulation(obj) {
         if (res.name == "Metadata") resources.metaUrl = res.url;
       });
 
-      populated.push({
+    populated.push({
       id: item.name,
       title: item.title,
       tags: item.tags.map((item) => item.display_name),
@@ -55,6 +54,27 @@ export function datasetPopulation(obj) {
   });
 
   return populated;
+}
+
+export function filter_data_indicator(mainData, indicatorName) {
+  let data = mainData;
+  if (indicatorName) {
+    if (data.length > 0) {
+      data = data.filter((item) => item["indicators"] == indicatorName);
+    }
+  }
+  return data;
+}
+
+export function filter_data_budgettype(mainData, budgetType) {
+  let data = mainData;
+  if (budgetType) {
+    if (data.length > 0) {
+      data = data.filter((item) => item["budgetType"] == budgetType);
+    }
+  }
+
+  return data;
 }
 
 // filter obj to String

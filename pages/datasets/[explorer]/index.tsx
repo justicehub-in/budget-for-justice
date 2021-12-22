@@ -6,6 +6,8 @@ import {
   fetchAPI,
   categoryIcon,
   explorerPopulation,
+  filter_data_indicator,
+  filter_data_budgettype,
 } from "utils";
 import {
   LawJustice,
@@ -16,19 +18,22 @@ import {
 } from "components/icons/ListingIcons";
 import Indicator from "components/analytics/Indicator";
 import Modal from "react-modal";
-import BarChartViz from "components/viz/BarChart";
+import SimpleBarLineChartViz from "components/viz/SimpleBarLineChart";
 import DataAlter from "components/datasets/DataAlter";
 import { cloneDeep } from "lodash";
 import Image from "next/image";
 // import { Table } from 'components/_shared';
 import Banner from "components/_shared/Banner";
+import { resourceGetter } from "utils/resourceParser";
+import Dropdown from "components/_shared/dropdown";
+import { barLineTransformer } from "transformers/BarLineTransformer";
 
 Modal.setAppElement("#__next");
 
 type Props = {
   data: any;
-  facets: any;
-  csv: any;
+  meta: any;
+  fileData: any;
 };
 
 const allNews = [
@@ -50,10 +55,12 @@ const allNews = [
 
 const vizFilters = {};
 
-const Analysis: React.FC<Props> = ({ data }) => {
-  const [indicatorsList, setIndicatorsList] = useState({});
+const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [indicators, SetIndicators] = useState({});
+  const [indicatorFiltered, setIndicatorFiltered] = useState([]);
+  const [finalFiltered, setFinalFiltered] = useState([]);
+  const [budgetTypes, setBudgetTypes] = useState([]);
+  const [selectedBudgetType, setSelectedBudgetType] = useState("");
 
   const bannerDetails = {
     heading: "Data Resources",
@@ -114,22 +121,24 @@ const Analysis: React.FC<Props> = ({ data }) => {
     {
       id: "barGraph",
       graph: (
-        <Image
-          src="/assets/images/bar-graph.jpg"
-          alt=""
-          width={824}
-          height={492}
+        <SimpleBarLineChartViz
+          color={"#00ABB7"}
+          dataset={barLineTransformer(finalFiltered)}
+          type="bar"
+          smooth={true}
+          showSymbol={true}
         />
       ),
     },
     {
       id: "lineChart",
       graph: (
-        <Image
-          src="/assets/images/line-chart.jpg"
-          alt=""
-          width={824}
-          height={492}
+        <SimpleBarLineChartViz
+          color={"#00ABB7"}
+          dataset={barLineTransformer(finalFiltered)}
+          type="line"
+          smooth={true}
+          showSymbol={true}
         />
       ),
     },
@@ -139,55 +148,41 @@ const Analysis: React.FC<Props> = ({ data }) => {
     setModalIsOpen(!modalIsOpen);
   }
 
+  function handleNewVizData(val: any) {
+    const filtered = filter_data_indicator(fileData, val);
+    const budgetType = [...new Set(filtered.map((item) => item.budgetType))];
+
+    setIndicatorFiltered(filtered);
+    setBudgetTypes(budgetType);
+  }
+
+  function handleDropdownChange(val: any) {
+    const finalFiltered = filter_data_budgettype(indicatorFiltered, val);
+    setSelectedBudgetType(val);
+    setFinalFiltered(finalFiltered);
+  }
+
   useEffect(() => {
     // ceating tabbed interface for viz selector
     const tablist = document.querySelector(".viz__tabs");
     const panels = document.querySelectorAll(".viz figure");
     tabbedInterface(tablist, panels);
 
-    const indicatorList = [];
-    // populating required indicators
-    // Object.keys(csv.analytics[0]).forEach((val) => {
-    //   if (val == 'tender/procurementMethod' || val == 'tender_count') return;
-    //   indicatorList.push({ id: val, list: [] });
-    //   vizFilters[val] = [];
-    // });
-
-    // filling indicators
-    // for (const element of csv.analytics) {
-    //   indicatorList.forEach((indicator) => {
-    //     element[indicator.id] &&
-    //       indicator.list.push({
-    //         name: element[indicator.id],
-    //         display_name: element[indicator.id],
-    //       });
-    //   });
-    // }
-
-    // getting unique value and formatting into object similar to 'search_facets' from CKAN
-    indicatorList.forEach((indicator) => {
-      vizFilters[indicator.id] = {
-        items: indicator.list
-          .filter(
-            (elm: { name: any }, index: any, array: any[]) =>
-              array.findIndex((t) => t.name === elm.name) === index
-          )
-          .slice(0, 5),
-        title: indicator.id,
-      };
-    });
-
-    // setting indicators state
-    setIndicatorsList(vizFilters);
+    handleNewVizData("Budget Estimates");
   }, []);
 
-  // useEffect(() => {
-  //   SetFilteredData(kpiTransformer(csv.analytics, indicators));
-  // }, [indicators]);
+  useEffect(() => {
+    const budgetType = [
+      ...new Set(indicatorFiltered.map((item) => item.budgetType)),
+    ];
 
-  function handleNewVizData(val: any) {
-    SetIndicators(cloneDeep(val));
-  }
+    if (budgetType.includes(selectedBudgetType))
+      handleDropdownChange(selectedBudgetType);
+    else if (selectedBudgetType == "") handleDropdownChange("Total");
+    else if (selectedBudgetType == "NA" && budgetType.length > 1)
+      handleDropdownChange("Total");
+    else handleDropdownChange(budgetType[0]);
+  }, [indicatorFiltered]);
 
   return (
     <>
@@ -255,16 +250,16 @@ const Analysis: React.FC<Props> = ({ data }) => {
 
         <div className="container">
           <DataAlter
-            data={indicatorsList}
+            // data={indicatorsList}
             newData={handleNewVizData}
             sortShow={false}
             newIndicator={handleNewVizData}
-            indicators={indicators}
+            // indicators={indicators}
           />
         </div>
 
         <section className="explorer__viz container">
-          <Indicator data={indicatorsList} newIndicator={handleNewVizData} />
+          <Indicator data={data.indicators} newIndicator={handleNewVizData} />
           <div className="viz">
             <div className="viz__header">
               {/* viz selector toggle */}
@@ -278,6 +273,14 @@ const Analysis: React.FC<Props> = ({ data }) => {
                   </li>
                 ))}
               </ul>
+              {budgetTypes.length > 1 && (
+                <Dropdown
+                  default={selectedBudgetType}
+                  options={budgetTypes}
+                  // heading="Rows:&nbsp;"
+                  handleDropdownChange={handleDropdownChange}
+                />
+              )}
             </div>
 
             {/* viz graphs */}
@@ -480,11 +483,19 @@ const Analysis: React.FC<Props> = ({ data }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const data = await fetchAPI(context.query.explorer);
+  const data = await fetchAPI(context.query.explorer).then((res) =>
+    explorerPopulation(res.result)
+  );
+  const meta = await resourceGetter(data.metaUrl);
+  const fileData = await resourceGetter(data.dataUrl, true);
+  const indicators = [...new Set(fileData.map((item) => item.indicators))];
 
+  data.indicators = indicators;
   return {
     props: {
-      data: explorerPopulation(data.result),
+      data,
+      meta,
+      fileData,
     },
   };
 };
