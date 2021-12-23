@@ -3995,6 +3995,19 @@ button {
   overflow-y: auto;
   overflow-x: auto;
 }
+.explorer__source {
+  border-top: 1px solid #cdd1d1;
+  display: flex;
+  padding: 1.5rem;
+  margin: 0 1.5rem;
+}
+.explorer__source strong {
+  margin-right: 0.5rem;
+}
+.explorer__source p {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+}
 .explorer .banner {
   margin-bottom: -10rem;
 }

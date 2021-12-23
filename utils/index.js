@@ -15,8 +15,10 @@ export function explorerPopulation(obj) {
   let newObj = {};
 
   const resources = {};
+  const resUrls = [];
   obj.resources &&
     obj.resources.forEach((res) => {
+      resUrls.push(res.url);
       if (res.name == "Datasheet") resources.dataUrl = res.url;
       if (res.name == "Metadata") resources.metaUrl = res.url;
     });
@@ -28,6 +30,7 @@ export function explorerPopulation(obj) {
     tags: obj.tags.map((item) => item.display_name),
     dataUrl: resources.dataUrl || "",
     metaUrl: resources.metaUrl || "",
+    resUrls
   };
 
   return newObj;
@@ -85,7 +88,7 @@ export async function fetchFromTags(tags, id) {
   ).then((res) => res.json());
   const data = response.result.results;
   let filteredData = data.filter((item) => item.name != id).splice(0, 2);
-  filteredData = filteredData.map(item => explorerPopulation(item))
+  filteredData = filteredData.map((item) => explorerPopulation(item));
 
   return filteredData;
 }

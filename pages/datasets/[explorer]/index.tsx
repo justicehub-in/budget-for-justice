@@ -22,6 +22,8 @@ import { resourceGetter } from "utils/resourceParser";
 import Dropdown from "components/_shared/dropdown";
 import { barLineTransformer } from "transformers/BarLineTransformer";
 import Table from "components/_shared/Table";
+import { downloadPackage } from "utils/downloadPackage";
+
 Modal.setAppElement("#__next");
 
 type Props = {
@@ -31,6 +33,8 @@ type Props = {
 };
 
 const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
+  console.log(meta);
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [indicatorFiltered, setIndicatorFiltered] = useState([]);
   const [finalFiltered, setFinalFiltered] = useState([]);
@@ -50,7 +54,11 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
           >
             Go to JusticeHub
           </a>
-          <button className="btn-primary">
+          <button
+            className="btn-primary"
+            type="button"
+            onClick={() => downloadPackage(data.resUrls, data.title)}
+          >
             Download Data Package <Download />
           </button>
         </div>
@@ -233,7 +241,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
               <strong>Type of Scheme: </strong>Centrally Sponsored Scheme
             </span>
             <span>
-              <strong>Frequency: </strong>Yearly
+              <strong>Frequency: </strong>{meta[4][1]}
             </span>
           </div>
         </section>
@@ -307,10 +315,16 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
                 {item.graph}
               </figure>
             ))}
+
+            <div className="explorer__source">
+              <strong>Data Source: </strong><p>
+                {meta[2][1]}
+              </p>
+            </div>
           </div>
-          <button className="btn-primary" onClick={handleButtonClick}>
+          {/* <button className="btn-secondary" onClick={handleButtonClick}>
             Download Visualization
-          </button>
+          </button> */}
 
           <Modal
             isOpen={modalIsOpen}
