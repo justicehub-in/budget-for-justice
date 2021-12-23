@@ -83,6 +83,10 @@ const SimpleBarLineChartViz: React.FC<SimpleBarLineChartProps> = ({
       option={options}
       notMerge={true}
       lazyUpdate={true}
+      style={{
+        height: '100%',
+      }}
+      
     />
   );
 };

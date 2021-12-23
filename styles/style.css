@@ -2621,6 +2621,83 @@ button {
   }
 }
 
+@media (max-width: 400px) {
+  .table-container {
+    display: none;
+  }
+}
+.table-container table {
+  border-collapse: collapse;
+  background-color: #EFF2F2;
+}
+.table-container th,
+.table-container td {
+  padding: 0.75rem;
+  text-align: left;
+}
+.table-container th {
+  font-weight: bold;
+  white-space: nowrap;
+}
+.table-container th {
+  background-color: #EFF2F2;
+}
+.table-container tr:first-of-type th:not(:last-child) {
+  border-right-color: #fff;
+}
+.table-container tr:first-child th:first-child,
+.table-container tr:not(:first-child):not(:last-child) th {
+  border-bottom-color: #fff !important;
+}
+.table-container caption {
+  margin-bottom: 0.5rem;
+  font-style: italic;
+  text-align: left;
+}
+.table-container .lists-container {
+  display: none;
+}
+@media (max-width: 400px) {
+  .table-container .lists-container {
+    display: block;
+  }
+}
+.table-container dl {
+  display: flex;
+  flex-wrap: wrap;
+}
+.table-container dl > * {
+  flex: 0 0 50%;
+  margin: 0;
+}
+.table-container dt {
+  padding-right: 0.5rem;
+}
+.table-container dt {
+  font-weight: bold;
+}
+.table-container th button {
+  background-color: #cdd1d1;
+  border: 0;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  vertical-align: middle;
+  margin-left: 1rem;
+}
+.table-container h3 {
+  padding: 0.5rem;
+}
+.table-container th svg {
+  stroke: currentColor;
+  stroke-width: 20;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  width: 0.5rem;
+  height: 1.5em;
+}
+
 .stories-card {
   background-color: white;
   border-radius: 6px;
@@ -3839,7 +3916,7 @@ button {
 .explorer__viz {
   display: grid;
   gap: 2rem;
-  grid-template-columns: 312px 1fr;
+  grid-template-columns: 312px minmax(0, 1fr);
   margin-top: 4rem;
 }
 .explorer__viz h3 {
@@ -3876,13 +3953,10 @@ button {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 2.5rem;
 }
 .explorer .viz__tabs li {
   min-width: 0;
-}
-.explorer .viz__tabs li:first-of-type {
-  margin-right: 1.25rem;
 }
 .explorer .viz__tabs a {
   white-space: nowrap;
@@ -3917,6 +3991,9 @@ button {
 }
 .explorer .viz figure {
   margin: 0 2rem 2rem;
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 .explorer .banner {
   margin-bottom: -10rem;

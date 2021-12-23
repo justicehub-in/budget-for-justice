@@ -147,7 +147,7 @@
   &__viz {
     display: grid;
     gap: 2rem;
-    grid-template-columns: 312px 1fr;
+    grid-template-columns: 312px minmax(0, 1fr);
     margin-top: 4rem;
 
     h3 {
@@ -187,14 +187,10 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1rem;
+      gap: 2.5rem;
 
       li {
         min-width: 0;
-
-        &:first-of-type {
-          margin-right: 1.25rem;
-        }
       }
 
       a {
@@ -237,6 +233,9 @@
 
     figure {
       margin: 0 2rem 2rem;
+      height: 500px;
+      overflow-y: auto;
+      overflow-x: auto;
     }
   }
 
