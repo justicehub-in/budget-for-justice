@@ -8,25 +8,21 @@ import {
   explorerPopulation,
   filter_data_indicator,
   filter_data_budgettype,
+  fetchFromTags,
 } from "utils";
-import {
-  LawJustice,
-  Share,
-  Download,
-  ArrowBack,
-  ArrowForward,
-} from "components/icons/ListingIcons";
+import { Share, Download, ArrowForward } from "components/icons/ListingIcons";
 import Indicator from "components/analytics/Indicator";
 import Modal from "react-modal";
 import SimpleBarLineChartViz from "components/viz/SimpleBarLineChart";
 import DataAlter from "components/datasets/DataAlter";
-import { cloneDeep } from "lodash";
-import Image from "next/image";
+import Link from "next/link";
 // import { Table } from 'components/_shared';
 import Banner from "components/_shared/Banner";
 import { resourceGetter } from "utils/resourceParser";
 import Dropdown from "components/_shared/dropdown";
 import { barLineTransformer } from "transformers/BarLineTransformer";
+import Table from "components/_shared/Table";
+import { downloadPackage } from "utils/downloadPackage";
 
 Modal.setAppElement("#__next");
 
@@ -36,31 +32,13 @@ type Props = {
   fileData: any;
 };
 
-const allNews = [
-  {
-    heading: "Euismod massa augue scelerisque semper at  tortor blandit.",
-    para: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-    image: "/",
-    link: "",
-    tags: ["Education", "Girl Education", "Budget", "Expenditure"],
-  },
-  {
-    heading: "Ut tristique eu accumsan viverra nisl eget phasellus proin.",
-    para: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-    image: "/",
-    link: "",
-    tags: ["Education", "Girl Education", "Budget", "Expenditure"],
-  },
-];
-
-const vizFilters = {};
-
 const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [indicatorFiltered, setIndicatorFiltered] = useState([]);
   const [finalFiltered, setFinalFiltered] = useState([]);
   const [budgetTypes, setBudgetTypes] = useState([]);
   const [selectedBudgetType, setSelectedBudgetType] = useState("");
+  const [showTable, setShowTable] = useState(true);
 
   const bannerDetails = {
     heading: "Data Resources",
@@ -74,7 +52,11 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
           >
             Go to JusticeHub
           </a>
-          <button className="btn-primary">
+          <button
+            className="btn-primary"
+            type="button"
+            onClick={() => downloadPackage(data.resUrls, data.title)}
+          >
             Download Data Package <Download />
           </button>
         </div>
@@ -115,6 +97,21 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
         </svg>
       ),
     },
+    {
+      name: "Table View",
+      id: "#tableView",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="none"
+          viewBox="0 0 16 16"
+        >
+          <path d="M0 1.50588C0 .978774 0 .71522.102582.513891.192816.336798.336798.192816.513891.102582.71522 0 .978774 0 1.50588 0H3.2c.52711 0 .79066 0 .99199.102582.17709.090234.32108.234216.41131.411309.10258.201329.10258.464883.10258.991989V3.2c0 .52711 0 .79066-.10258.99199-.09023.17709-.23422.32108-.41131.41131-.20133.10258-.46488.10258-.99199.10258H1.50588c-.527106 0-.79066 0-.991989-.10258-.177093-.09023-.321075-.23422-.411309-.41131C0 3.99066 0 3.72711 0 3.2V1.50588Zm0 5.64706c0-.52711 0-.79066.102582-.99199.090234-.17709.234216-.32108.411309-.41131.201329-.10258.464883-.10258.991989-.10258H3.2c.52711 0 .79066 0 .99199.10258.17709.09023.32108.23422.41131.41131.10258.20133.10258.46488.10258.99199v1.69412c0 .52711 0 .79066-.10258.99199-.09023.17705-.23422.32105-.41131.41135-.20133.1025-.46488.1025-.99199.1025H1.50588c-.527106 0-.79066 0-.991989-.1025-.177093-.0903-.321075-.2343-.411309-.41135C0 9.63772 0 9.37417 0 8.84706V7.15294ZM.102582 11.808C0 12.0093 0 12.2729 0 12.8v1.6941c0 .5271 0 .7907.102582.992.090234.1771.234216.3211.411309.4113C.71522 16 .978774 16 1.50588 16H3.2c.52711 0 .79066 0 .99199-.1026.17709-.0902.32108-.2342.41131-.4113.10258-.2013.10258-.4649.10258-.992V12.8c0-.5271 0-.7907-.10258-.992-.09023-.1771-.23422-.3211-.41131-.4113-.20133-.1026-.46488-.1026-.99199-.1026H1.50588c-.527106 0-.79066 0-.991989.1026-.177093.0902-.321075.2342-.411309.4113ZM5.64706 1.50588c0-.527106 0-.79066.10258-.991989.09023-.177093.23422-.321075.41131-.411309C6.36228 0 6.62583 0 7.15294 0h1.69412c.52711 0 .79066 0 .99199.102582.17705.090234.32105.234216.41135.411309.1025.201329.1025.464883.1025.991989V3.2c0 .52711 0 .79066-.1025.99199-.0903.17709-.2343.32108-.41135.41131-.20133.10258-.46488.10258-.99199.10258H7.15294c-.52711 0-.79066 0-.99199-.10258-.17709-.09023-.32108-.23422-.41131-.41131-.10258-.20133-.10258-.46488-.10258-.99199V1.50588Zm.10258 4.65507c-.10258.20133-.10258.46488-.10258.99199v1.69412c0 .52711 0 .79066.10258.99199.09023.17705.23422.32105.41131.41135.20133.1025.46488.1025.99199.1025h1.69412c.52711 0 .79066 0 .99199-.1025.17705-.0903.32105-.2343.41135-.41135.1025-.20133.1025-.46488.1025-.99199V7.15294c0-.52711 0-.79066-.1025-.99199-.0903-.17709-.2343-.32108-.41135-.41131-.20133-.10258-.46488-.10258-.99199-.10258H7.15294c-.52711 0-.79066 0-.99199.10258-.17709.09023-.32108.23422-.41131.41131ZM5.64706 12.8c0-.5271 0-.7907.10258-.992.09023-.1771.23422-.3211.41131-.4113.20133-.1026.46488-.1026.99199-.1026h1.69412c.52711 0 .79066 0 .99199.1026.17705.0902.32105.2342.41135.4113.1025.2013.1025.4649.1025.992v1.6941c0 .5271 0 .7907-.1025.992-.0903.1771-.2343.3211-.41135.4113C9.63772 16 9.37417 16 8.84706 16H7.15294c-.52711 0-.79066 0-.99199-.1026-.17709-.0902-.32108-.2342-.41131-.4113-.10258-.2013-.10258-.4649-.10258-.992V12.8ZM11.3967.513891c-.1026.201329-.1026.464883-.1026.991989V3.2c0 .52711 0 .79066.1026.99199.0902.17709.2342.32108.4113.41131.2013.10258.4649.10258.992.10258h1.6941c.5271 0 .7907 0 .992-.10258.1771-.09023.3211-.23422.4113-.41131C16 3.99066 16 3.72711 16 3.2V1.50588c0-.527106 0-.79066-.1026-.991989-.0902-.177093-.2342-.321075-.4113-.411309C15.2848 0 15.0212 0 14.4941 0H12.8c-.5271 0-.7907 0-.992.102582-.1771.090234-.3211.234216-.4113.411309Zm-.1026 6.639049c0-.52711 0-.79066.1026-.99199.0902-.17709.2342-.32108.4113-.41131.2013-.10258.4649-.10258.992-.10258h1.6941c.5271 0 .7907 0 .992.10258.1771.09023.3211.23422.4113.41131.1026.20133.1026.46488.1026.99199v1.69412c0 .52711 0 .79066-.1026.99199-.0902.17705-.2342.32105-.4113.41135-.2013.1025-.4649.1025-.992.1025H12.8c-.5271 0-.7907 0-.992-.1025-.1771-.0903-.3211-.2343-.4113-.41135-.1026-.20133-.1026-.46488-.1026-.99199V7.15294Zm.1026 4.65506c-.1026.2013-.1026.4649-.1026.992v1.6941c0 .5271 0 .7907.1026.992.0902.1771.2342.3211.4113.4113.2013.1026.4649.1026.992.1026h1.6941c.5271 0 .7907 0 .992-.1026.1771-.0902.3211-.2342.4113-.4113.1026-.2013.1026-.4649.1026-.992V12.8c0-.5271 0-.7907-.1026-.992-.0902-.1771-.2342-.3211-.4113-.4113-.2013-.1026-.4649-.1026-.992-.1026H12.8c-.5271 0-.7907 0-.992.1026-.1771.0902-.3211.2342-.4113.4113Z" />
+        </svg>
+      ),
+    },
   ];
 
   const vizItems = [
@@ -142,7 +139,27 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
         />
       ),
     },
+    {
+      id: "tableView",
+      graph: (
+        <Table
+          headers={
+            indicatorFiltered[0]
+              ? Object.keys(indicatorFiltered[0])
+              : ["header1"]
+          }
+          rows={indicatorFiltered.map(Object.values)}
+          caption="Grindcore bands"
+          sortable
+        />
+      ),
+    },
   ];
+
+  function showDropdown(e) {
+    if (e.target.getAttribute("href") == "#tableView") setShowTable(false);
+    else setShowTable(true);
+  }
 
   function handleButtonClick() {
     setModalIsOpen(!modalIsOpen);
@@ -169,8 +186,9 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
     tabbedInterface(tablist, panels);
 
     handleNewVizData("Budget Estimates");
-  }, []);
+  }, [fileData]);
 
+  // Run whenever a new indicator is selected
   useEffect(() => {
     const budgetType = [
       ...new Set(indicatorFiltered.map((item) => item.budgetType)),
@@ -221,7 +239,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
               <strong>Type of Scheme: </strong>Centrally Sponsored Scheme
             </span>
             <span>
-              <strong>Frequency: </strong>Yearly
+              <strong>Frequency: </strong>{meta[4][1]}
             </span>
           </div>
         </section>
@@ -266,21 +284,23 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
               <ul className="viz__tabs">
                 {vizToggle.map((item, index) => (
                   <li key={`toggleItem-${index}`}>
-                    <a href={item.id}>
+                    <a href={item.id} onClick={(e) => showDropdown(e)}>
                       {item.icon}
                       {item.name}
                     </a>
                   </li>
                 ))}
               </ul>
-              {budgetTypes.length > 1 && (
-                <Dropdown
-                  default={selectedBudgetType}
-                  options={budgetTypes}
-                  // heading="Rows:&nbsp;"
-                  handleDropdownChange={handleDropdownChange}
-                />
-              )}
+              <div className="dropdown">
+                {budgetTypes.length > 1 && showTable && (
+                  <Dropdown
+                    default={selectedBudgetType}
+                    options={budgetTypes}
+                    // heading="Rows:&nbsp;"
+                    handleDropdownChange={handleDropdownChange}
+                  />
+                )}
+              </div>
             </div>
 
             {/* viz graphs */}
@@ -293,21 +313,15 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
                 {item.graph}
               </figure>
             ))}
+
+            <div className="explorer__source">
+              <strong>Data Source: </strong><p>
+                {meta[2][1]}
+              </p>
+            </div>
           </div>
-          {/* <button className="btn-primary" onClick={handleButtonClick}>
-            <svg
-              width="10"
-              height="12"
-              viewBox="0 0 10 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8.05967 4H6.99967V0.666667C6.99967 0.3 6.69967 0 6.33301 0H3.66634C3.29967 0 2.99967 0.3 2.99967 0.666667V4H1.93967C1.34634 4 1.04634 4.72 1.46634 5.14L4.52634 8.2C4.78634 8.46 5.20634 8.46 5.46634 8.2L8.52634 5.14C8.94634 4.72 8.65301 4 8.05967 4ZM0.333008 10.6667C0.333008 11.0333 0.633008 11.3333 0.999674 11.3333H8.99967C9.36634 11.3333 9.66634 11.0333 9.66634 10.6667C9.66634 10.3 9.36634 10 8.99967 10H0.999674C0.633008 10 0.333008 10.3 0.333008 10.6667Z"
-                fill="white"
-              />
-            </svg>
-            Download
+          {/* <button className="btn-secondary" onClick={handleButtonClick}>
+            Download Visualization
           </button> */}
 
           <Modal
@@ -430,25 +444,31 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
             </p>
 
             <div className="explorer__schemes--split">
-              {allNews.map((item, index) => (
-                <article key={`relavant-${index}`}>
-                  <img
-                    src={`https://placekitten.com/580/23${index}`}
-                    alt=""
-                    width="580"
-                    height="236"
-                  />
-                  <ul>
-                    {item.tags.map((tag, list) => (
-                      <li key={`relevantTags-${index}-${list}`}>{tag}</li>
-                    ))}
-                  </ul>
-                  <header>
-                    <h3>{item.heading}</h3>
-                  </header>
-                  <p>{item.para}</p>
-                </article>
-              ))}
+              {data.relatedSchemes &&
+                data.relatedSchemes.map((item, index) => {
+                  return (
+                    <Link
+                      key={`relavant-${index}`}
+                      href={`/datasets/${item.id}`}
+                    >
+                      <a>
+                        <article>
+                          <header>
+                            <h3>{item.title}</h3>
+                            <ul>
+                              {item.tags.slice(0, 3).map((tag, list) => (
+                                <li key={`relevantTags-${index}-${list}`}>
+                                  {tag}
+                                </li>
+                              ))}
+                            </ul>
+                          </header>
+                          <p>{item.notes}</p>
+                        </article>
+                      </a>
+                    </Link>
+                  );
+                })}
             </div>
           </div>
         </section>
@@ -488,9 +508,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   );
   const meta = await resourceGetter(data.metaUrl);
   const fileData = await resourceGetter(data.dataUrl, true);
+  const relatedSchemes = await fetchFromTags(data.tags, data.id);
   const indicators = [...new Set(fileData.map((item) => item.indicators))];
 
   data.indicators = indicators;
+  data.relatedSchemes = relatedSchemes;
   return {
     props: {
       data,
