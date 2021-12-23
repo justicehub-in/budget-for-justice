@@ -6,8 +6,6 @@ const Filter = ({ data, newFilters, fq }) => {
   const [filterArray, setFilterArray] = useState([]);
 
   useEffect(() => {
-    console.log(data);
-
     const filters = [];
     Object.keys(filterObj).forEach((type) => {
       if (filterObj[type].length > 0)
@@ -29,7 +27,6 @@ const Filter = ({ data, newFilters, fq }) => {
     const selectedFilter = e.target as HTMLInputElement;
     const type = selectedFilter.dataset.type;
     const value = selectedFilter.dataset.id;
-    console.log(document.getElementById(value));
 
     if (document.getElementById(value))
       document.getElementById(value).setAttribute("aria-pressed", "false");

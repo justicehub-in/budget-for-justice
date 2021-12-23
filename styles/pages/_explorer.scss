@@ -171,17 +171,16 @@
 
     &__header {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       padding: 1.5rem;
+      gap: 1.5rem;
+    }
 
-      @include media.narrowerThan("seed") {
-        display: block;
-      }
-
-      .drowpdown {
-        
-      }
+    .dropdown {
+      max-height: 2rem;
+      margin-top: -6px;
     }
 
     &__tabs {
@@ -270,7 +269,6 @@
   }
 
   &__schemes {
-    background-color: $bg-lightest;
     padding-top: 15rem;
     padding-bottom: 9rem;
     margin-bottom: -5rem;
@@ -282,13 +280,30 @@
       justify-content: space-between;
       margin-top: 2.5rem;
 
-      article {
+      a {
         flex-basis: 48%;
         flex-grow: 1;
       }
     }
 
-    article {
+    a {
+      text-decoration: none;
+    }
+
+    a {
+      display: grid;
+      background-color: $bg-lightest;
+      border-radius: 12px;
+      padding: 1.5rem 3rem;
+      border: $border-1;
+      transition: box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+
+      &:hover,
+      &:focus-within {
+        box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.16);
+        border-color: $grey-5;
+      }
+
       img {
         border-radius: 8px;
         width: 100%;
@@ -298,7 +313,7 @@
       ul {
         display: flex;
         flex-wrap: wrap;
-        margin: 1rem 0;
+        margin: 1.5rem 0;
         gap: 1rem;
 
         li {
@@ -316,12 +331,24 @@
         font-weight: 800;
         font-size: 1.25rem;
         line-height: 1.3;
+
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
       }
 
       p {
         font-weight: 500;
-        line-height: 1.5;
+        line-height: 1.7;
         margin-top: 0.5rem;
+
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
       }
     }
   }

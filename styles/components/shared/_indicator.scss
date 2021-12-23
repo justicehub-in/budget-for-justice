@@ -27,12 +27,17 @@
 
     input {
       transform: scale(1.5);
-      accent-color: #666D6E;
+      accent-color: #666d6e;
+
+      &:checked + label {
+        font-weight: bold;
+      }
     }
 
     label {
       font-weight: 500;
       line-height: 175%;
+      margin-bottom: -3px;
     }
   }
 

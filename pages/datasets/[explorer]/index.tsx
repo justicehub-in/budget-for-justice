@@ -8,20 +8,14 @@ import {
   explorerPopulation,
   filter_data_indicator,
   filter_data_budgettype,
+  fetchFromTags,
 } from "utils";
-import {
-  LawJustice,
-  Share,
-  Download,
-  ArrowBack,
-  ArrowForward,
-} from "components/icons/ListingIcons";
+import { Share, Download, ArrowForward } from "components/icons/ListingIcons";
 import Indicator from "components/analytics/Indicator";
 import Modal from "react-modal";
 import SimpleBarLineChartViz from "components/viz/SimpleBarLineChart";
 import DataAlter from "components/datasets/DataAlter";
-import { cloneDeep } from "lodash";
-import Image from "next/image";
+import Link from "next/link";
 // import { Table } from 'components/_shared';
 import Banner from "components/_shared/Banner";
 import { resourceGetter } from "utils/resourceParser";
@@ -35,25 +29,6 @@ type Props = {
   meta: any;
   fileData: any;
 };
-
-const allNews = [
-  {
-    heading: "Euismod massa augue scelerisque semper at  tortor blandit.",
-    para: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-    image: "/",
-    link: "",
-    tags: ["Education", "Girl Education", "Budget", "Expenditure"],
-  },
-  {
-    heading: "Ut tristique eu accumsan viverra nisl eget phasellus proin.",
-    para: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-    image: "/",
-    link: "",
-    tags: ["Education", "Girl Education", "Budget", "Expenditure"],
-  },
-];
-
-const vizFilters = {};
 
 const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -169,8 +144,9 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
     tabbedInterface(tablist, panels);
 
     handleNewVizData("Budget Estimates");
-  }, []);
+  }, [fileData]);
 
+  // Run whenever a new indicator is selected
   useEffect(() => {
     const budgetType = [
       ...new Set(indicatorFiltered.map((item) => item.budgetType)),
@@ -273,14 +249,16 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
                   </li>
                 ))}
               </ul>
-              {budgetTypes.length > 1 && (
-                <Dropdown
-                  default={selectedBudgetType}
-                  options={budgetTypes}
-                  // heading="Rows:&nbsp;"
-                  handleDropdownChange={handleDropdownChange}
-                />
-              )}
+              <div className="dropdown">
+                {budgetTypes.length > 1 && (
+                  <Dropdown
+                    default={selectedBudgetType}
+                    options={budgetTypes}
+                    // heading="Rows:&nbsp;"
+                    handleDropdownChange={handleDropdownChange}
+                  />
+                )}
+              </div>
             </div>
 
             {/* viz graphs */}
@@ -430,25 +408,31 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
             </p>
 
             <div className="explorer__schemes--split">
-              {allNews.map((item, index) => (
-                <article key={`relavant-${index}`}>
-                  <img
-                    src={`https://placekitten.com/580/23${index}`}
-                    alt=""
-                    width="580"
-                    height="236"
-                  />
-                  <ul>
-                    {item.tags.map((tag, list) => (
-                      <li key={`relevantTags-${index}-${list}`}>{tag}</li>
-                    ))}
-                  </ul>
-                  <header>
-                    <h3>{item.heading}</h3>
-                  </header>
-                  <p>{item.para}</p>
-                </article>
-              ))}
+              {data.relatedSchemes &&
+                data.relatedSchemes.map((item, index) => {
+                  return (
+                    <Link
+                      key={`relavant-${index}`}
+                      href={`/datasets/${item.id}`}
+                    >
+                      <a>
+                        <article>
+                          <header>
+                            <h3>{item.title}</h3>
+                            <ul>
+                              {item.tags.slice(0, 3).map((tag, list) => (
+                                <li key={`relevantTags-${index}-${list}`}>
+                                  {tag}
+                                </li>
+                              ))}
+                            </ul>
+                          </header>
+                          <p>{item.notes}</p>
+                        </article>
+                      </a>
+                    </Link>
+                  );
+                })}
             </div>
           </div>
         </section>
@@ -488,9 +472,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   );
   const meta = await resourceGetter(data.metaUrl);
   const fileData = await resourceGetter(data.dataUrl, true);
+  const relatedSchemes = await fetchFromTags(data.tags, data.id);
   const indicators = [...new Set(fileData.map((item) => item.indicators))];
 
   data.indicators = indicators;
+  data.relatedSchemes = relatedSchemes;
   return {
     props: {
       data,

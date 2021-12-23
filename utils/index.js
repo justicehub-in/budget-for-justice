@@ -77,6 +77,19 @@ export function filter_data_budgettype(mainData, budgetType) {
   return data;
 }
 
+// fetch based on tags
+export async function fetchFromTags(tags, id) {
+  const tagsString = tags.map((i) => `"${i}"`).join(" OR ");
+  const response = await fetch(
+    `https://justicehub.in/api/3/action/package_search?fq=tags:(${tagsString}) AND groups:budget-for-justice`
+  ).then((res) => res.json());
+  const data = response.result.results;
+  let filteredData = data.filter((item) => item.name != id).splice(0, 2);
+  filteredData = filteredData.map(item => explorerPopulation(item))
+
+  return filteredData;
+}
+
 // filter obj to String
 export function filterObjToString(filterObj) {
   const final = [];
@@ -173,7 +186,7 @@ export async function fetchDatasets(type, variables) {
   const varString =
     varArray.length > 0 ? varArray.join("&") : `fq=type:${type}`;
   const response = await fetch(
-    `http://13.126.46.107/api/3/action/package_search?${varString}`
+    `https://justicehub.in/api/3/action/package_search?${varString}`
   );
   const data = await response.json();
   return data;

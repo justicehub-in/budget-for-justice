@@ -1,7 +1,7 @@
 import React from "react";
 
 const Dropdown = (props) => (
-  <div className="dropdown">
+  <>
     {props.heading && (
       <label className="label-green" htmlFor="custom_select">
         {props.heading}
@@ -18,7 +18,7 @@ const Dropdown = (props) => (
         <option key={`dropdown-${index}`}>{option}</option>
       ))}
     </select>
-  </div>
+  </>
 );
 
 export default Dropdown;
