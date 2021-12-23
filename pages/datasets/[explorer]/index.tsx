@@ -33,8 +33,6 @@ type Props = {
 };
 
 const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
-  console.log(meta);
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [indicatorFiltered, setIndicatorFiltered] = useState([]);
   const [finalFiltered, setFinalFiltered] = useState([]);
