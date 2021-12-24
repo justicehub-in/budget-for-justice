@@ -1,0 +1,173 @@
+@use "../../settings/variables" as *;
+
+.schemeModal {
+  max-width: 1216px;
+  width: 90vw;
+  height: 80vh;
+  max-height: 716px;
+  top: 31rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    height: max-content;
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: $border-2;
+
+      h2 {
+        font-size: 1.75rem;
+        line-height: 130%;
+        font-weight: 800;
+        color: $text-light-medium;
+      }
+
+      button {
+        color: $color-error;
+        font-weight: 600;
+        line-height: 175%;
+        font-size: 1rem;
+        text-decoration: underline;
+      }
+    }
+
+    .search {
+      margin-top: 12px;
+      margin-right: 0;
+      &__input {
+        background-color: $color-teal-0;
+      }
+    }
+  }
+
+  &__body {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: minmax(0, 256px) 1fr;
+    height: 100%;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .listing__indicators {
+    margin-right: 1rem;
+    border: $border-1;
+    border-radius: 6px;
+    background-color: $bg-light;
+    padding: 8px;
+
+    h3 {
+      font-weight: 500;
+      font-size: 12px;
+      border-bottom: $border-1;
+      line-height: 133%;
+      padding-bottom: 8px;
+    }
+
+    ul {
+      display: block;
+    }
+
+    li {
+      display: block;
+      margin-top: 8px;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    a {
+      color: $text-light-medium;
+      line-height: 175%;
+      font-weight: bold;
+      padding: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      border-radius: 4px 0px 0px 4px;
+
+      svg {
+        fill: $text-light-medium;
+        text-align: end;
+      }
+
+      &[aria-selected="true"] {
+        color: $text-light-high;
+        background-color: $bg-light;
+
+        span {
+          position: relative;
+
+          &::before {
+            content: "\00a0";
+            background-color: $color-teal-3;
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            border-radius: 50%;
+            position: absolute;
+            right: 300%;
+            top: 53%;
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        svg {
+          fill: $text-light-high;
+        }
+      }
+    }
+  }
+
+  &__content {
+    background-color: $bg-light;
+    padding: 20px 24px;
+    border-radius: 4px;
+
+    ul {
+      display: flex;
+    }
+
+    li {
+      width: 49%;
+    }
+
+    a {
+      font-weight: 500;
+      line-height: 175%;
+      text-decoration-color: transparent;
+      transition: text-decoration-color 0.2s ease, color 0.2s ease;
+      display: flex;
+      align-items: center;
+
+      span {
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+      }
+
+      svg {
+        min-width: 28px;
+        margin-right: 8px;
+      }
+
+      &:hover {
+        color: $color-teal-3;
+        text-decoration-color: $color-teal-3;
+      }
+    }
+  }
+}

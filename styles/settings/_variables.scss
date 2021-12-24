@@ -1,7 +1,7 @@
 $bg-dark: hsl(120, 34%, 26%);
 $bg-darkest: hsl(121, 91%, 17%);
 $bg-light: #eff2f2;
-$bg-lighter: hsl(146, 64%, 98%);
+$bg-lighter: #f7fdf9;
 $bg-lightest: hsl(0, 0%, 100%);
 
 $bg-blue-light: hsl(213, 67%, 92%);
@@ -9,7 +9,7 @@ $bg-violet-light: hsl(256, 51%, 93%);
 $bg-gold-light: hsl(0, 0%, 95%);
 $bg-pink-light: hsl(338, 35%, 91%);
 
-$color-error: hsl(0, 63%, 48%);
+$color-error: #C6250C;
 $color-warning: hsl(36, 75%, 49%);
 $color-success: hsl(135, 47%, 37%);
 $color-info: hsl(220, 60%, 43%);
@@ -26,9 +26,11 @@ $color-violet: hsl(256, 50%, 51%);
 $color-gold: hsl(47, 100%, 32%);
 $color-pink: hsl(338, 53%, 39%);
 $color-carrot: #f17777;
+$color-teal-0: #EBFEFF;
 $color-teal: #00abb7;
 $color-teal-1: #cceef1;
 $color-teal-2: #02838B;
+$color-teal-3: #046E76;
 $color-green: #06464a;
 $color-dawn: #FED349;
 
@@ -50,6 +52,7 @@ $grey-5: #EFF2F2;
 $grey-6: #f1eef1;
 
 $border-1: 1px solid $grey-4;
+$border-2: 1px solid $bg-light;
 $box-shadow-1: 0px 1px 4px rgba(0, 0, 0, 0.14);
 $box-shadow-inset: inset 0px 0px 4px rgba(0, 0, 0, 0.08);
 $drop-shadow: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.08));

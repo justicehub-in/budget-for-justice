@@ -1858,8 +1858,8 @@ button {
   font-weight: 500;
 }
 .dialog__close {
-  width: 44px;
-  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   font-size: 1.5rem;
 }
 .dialog__backdrop {
@@ -2837,6 +2837,159 @@ button {
 }
 .team__social {
   margin-top: 1rem;
+}
+
+.schemeModal {
+  max-width: 1216px;
+  width: 90vw;
+  height: 80vh;
+  max-height: 716px;
+  top: 31rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.schemeModal__header {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+.schemeModal__header > div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eff2f2;
+}
+.schemeModal__header > div h2 {
+  font-size: 1.75rem;
+  line-height: 130%;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.6);
+}
+.schemeModal__header > div button {
+  color: #C6250C;
+  font-weight: 600;
+  line-height: 175%;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+.schemeModal__header .search {
+  margin-top: 12px;
+  margin-right: 0;
+}
+.schemeModal__header .search__input {
+  background-color: #EBFEFF;
+}
+.schemeModal__body {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 256px) 1fr;
+  height: 100%;
+}
+.schemeModal__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.schemeModal .listing__indicators {
+  margin-right: 1rem;
+  border: 1px solid #cdd1d1;
+  border-radius: 6px;
+  background-color: #eff2f2;
+  padding: 8px;
+}
+.schemeModal .listing__indicators h3 {
+  font-weight: 500;
+  font-size: 12px;
+  border-bottom: 1px solid #cdd1d1;
+  line-height: 133%;
+  padding-bottom: 8px;
+}
+.schemeModal .listing__indicators ul {
+  display: block;
+}
+.schemeModal .listing__indicators li {
+  display: block;
+  margin-top: 8px;
+}
+.schemeModal__tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.schemeModal__tabs a {
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 175%;
+  font-weight: bold;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 4px 0px 0px 4px;
+}
+.schemeModal__tabs a svg {
+  fill: rgba(0, 0, 0, 0.6);
+  text-align: end;
+}
+.schemeModal__tabs a[aria-selected=true] {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #eff2f2;
+}
+.schemeModal__tabs a[aria-selected=true] span {
+  position: relative;
+}
+.schemeModal__tabs a[aria-selected=true] span::before {
+  content: " ";
+  background-color: #046E76;
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  right: 300%;
+  top: 53%;
+  transform: translate(-50%, -50%);
+}
+.schemeModal__tabs a[aria-selected=true] svg {
+  fill: rgba(0, 0, 0, 0.87);
+}
+.schemeModal__content {
+  background-color: #eff2f2;
+  padding: 20px 24px;
+  border-radius: 4px;
+}
+.schemeModal__content ul {
+  display: flex;
+}
+.schemeModal__content li {
+  width: 49%;
+}
+.schemeModal__content a {
+  font-weight: 500;
+  line-height: 175%;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
+  transition: color 0.2s ease, -webkit-text-decoration-color 0.2s ease;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease, -webkit-text-decoration-color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+.schemeModal__content a span {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
+.schemeModal__content a svg {
+  min-width: 28px;
+  margin-right: 8px;
+}
+.schemeModal__content a:hover {
+  color: #046E76;
+  -webkit-text-decoration-color: #046E76;
+          text-decoration-color: #046E76;
 }
 
 .home__heading {
@@ -4007,6 +4160,11 @@ button {
 .explorer__source p {
   color: rgba(0, 0, 0, 0.6);
   font-weight: 500;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
 }
 .explorer .banner {
   margin-bottom: -10rem;

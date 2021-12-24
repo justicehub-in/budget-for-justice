@@ -17,8 +17,8 @@ import { useSearch } from "utils/search";
 
 function categoryIcon(tags: any) {
   if (tags.includes("Ministry of Law and Justice")) return <LawJustice />;
-  else if (tags.includes("Ministry of Law and Justice")) return <WomenChild />;
-  else if (tags.includes("Ministry of Law and Justice")) return <Police />;
+  // else if (tags.includes("Ministry of Law and Justice")) return <WomenChild />;
+  // else if (tags.includes("Ministry of Law and Justice")) return <Police />;
   else return <HomeAffairs />;
 }
 
