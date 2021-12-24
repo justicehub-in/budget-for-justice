@@ -12,12 +12,11 @@ import {
   fetchFromTags,
   datasetPopulation,
 } from "utils";
-import { Share, Download, ArrowForward } from "components/icons/ListingIcons";
+import { Download, ArrowForward } from "components/icons/ListingIcons";
 import Indicator from "components/analytics/Indicator";
 import Modal from "react-modal";
 import SimpleBarLineChartViz from "components/viz/SimpleBarLineChart";
 import DataAlter from "components/datasets/DataAlter";
-// import { Table } from 'components/_shared';
 import Banner from "components/_shared/Banner";
 import { resourceGetter } from "utils/resourceParser";
 import Dropdown from "components/_shared/dropdown";
@@ -25,6 +24,8 @@ import { barLineTransformer } from "transformers/BarLineTransformer";
 import Table from "components/_shared/Table";
 import { downloadPackage } from "utils/downloadPackage";
 import SchemeModal from "components/explorer/SchemeModal";
+import ShareModal from "components/explorer/ShareModal";
+
 Modal.setAppElement("#__next");
 
 type Props = {
@@ -36,6 +37,7 @@ type Props = {
 
 const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   const [schemeModalOpen, setSchemeModalOpen] = useState(false);
+  const [shareModalOpen, setShareModalOpen] = useState(false);
   const [indicatorFiltered, setIndicatorFiltered] = useState([]);
   const [finalFiltered, setFinalFiltered] = useState([]);
   const [budgetTypes, setBudgetTypes] = useState([]);
@@ -167,6 +169,10 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     setSchemeModalOpen(!schemeModalOpen);
   }
 
+  function shareModalHandler() {
+    setShareModalOpen(!shareModalOpen);
+  }
+
   function handleNewVizData(val: any) {
     const filtered = filter_data_indicator(fileData, val);
     const budgetType = [...new Set(filtered.map((item) => item.budgetType))];
@@ -216,22 +222,26 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
             Home <ArrowForward />
           </a>
         </div>
-        <div className="explorer__buttons container">
-          <button
-            className="btn-secondary"
-            onClick={() => schemeModalHandler()}
-          >
-            Select Another Scheme
-          </button>
-          <SchemeModal
-            isOpen={schemeModalOpen}
-            handleModal={schemeModalHandler}
-            data={allData}
-          />
 
-          <button className="btn-secondary-invert">
-            Share <Share />
-          </button>
+        <div className="explorer__buttons container">
+          <div className="explorer__scheme-change">
+            <a href="/datasets" className="btn-secondary">
+              Select Another Scheme
+            </a>
+            <button
+              className="btn-secondary "
+              onClick={() => schemeModalHandler()}
+            >
+              Select Another Scheme
+            </button>
+            <SchemeModal
+              isOpen={schemeModalOpen}
+              handleModal={schemeModalHandler}
+              data={allData}
+            />
+          </div>
+
+          <ShareModal />
         </div>
 
         <section className="explorer__heading container">
@@ -317,16 +327,18 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
               </div>
             </div>
 
-            {/* viz graphs */}
-            {vizItems.map((item, index) => (
-              <figure
-                key={`vizItem-${index}`}
-                className="viz__bar"
-                id={item.id}
-              >
-                {item.graph}
-              </figure>
-            ))}
+            <div>
+              {/* viz graphs */}
+              {vizItems.map((item, index) => (
+                <figure
+                  key={`vizItem-${index}`}
+                  className="viz__bar"
+                  id={item.id}
+                >
+                  {item.graph}
+                </figure>
+              ))}
+            </div>
 
             <div className="explorer__source">
               <strong>Data Source: </strong>
