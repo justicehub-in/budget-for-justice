@@ -18,7 +18,7 @@ const Search: React.FC<{ text?: string; newSearch?: any }> = ({
     input.value = "";
     input.focus();
     setQ("");
-    newSearch('')
+    newSearch("");
   }
 
   const handleSubmit = (event) => {

@@ -1,7 +1,7 @@
 import React, { Fragment, useRef, useState, useEffect, useMemo } from "react";
 
 const Arrow = ({ sortDir, isCurrent }) => {
-  let ascending = sortDir === "ascending";
+  const ascending = sortDir === "ascending";
   return (
     <svg viewBox="0 0 100 200" width="100" height="200">
       {!(!ascending && isCurrent) && <polyline points="20 50, 50 20, 80 50" />}
@@ -37,9 +37,7 @@ const Table = ({ headers, rows, caption, sortable }) => {
   const container = useRef(null);
   //The captionID is calculated and stored as init value of a ref.
   //This ensures that the ID remains constant for all renders.
-  const captionID = useRef(
-    `caption-${rows[0]}`
-  );
+  const captionID = useRef(`caption-${rows[0]}`);
   const [tabIndex, setTabIndex] = useState(null);
   //The following two state vars could be combined into an object,
   //but keeping them separate makes the usage cleaner. It is a matter
@@ -51,7 +49,7 @@ const Table = ({ headers, rows, caption, sortable }) => {
   //as componentDidMount in React class components.
   useEffect(() => {
     const { scrollWidth, clientWidth } = container.current;
-    let scrollable = scrollWidth > clientWidth;
+    const scrollable = scrollWidth > clientWidth;
     setTabIndex(scrollable ? "0" : null);
   }, [headers]);
 
@@ -66,7 +64,7 @@ const Table = ({ headers, rows, caption, sortable }) => {
 
   const sortBy = (i) => {
     let updatedSortDir;
-    let ascending = sortDir === "ascending";
+    const ascending = sortDir === "ascending";
     if (i === sortedBy) {
       updatedSortDir = !ascending ? "ascending" : "descending";
     } else {

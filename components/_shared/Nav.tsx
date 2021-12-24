@@ -120,9 +120,7 @@ const Nav: React.FC = () => {
                     </>
                   ) : navItem.isButton ? (
                     <Link href={navItem.link}>
-                      <a
-                        className={`navbar__item btn-primary`}
-                      >
+                      <a className={`navbar__item btn-primary`}>
                         {navItem.name}
                       </a>
                     </Link>

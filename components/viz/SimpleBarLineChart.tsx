@@ -40,7 +40,7 @@ const SimpleBarLineChartViz: React.FC<SimpleBarLineChartProps> = ({
   type,
   smooth,
   showSymbol,
-}) => {  
+}) => {
   const series = seriesMaker(color, dataset, type, smooth, showSymbol);
   const options = {
     tooltip: {},
@@ -84,9 +84,8 @@ const SimpleBarLineChartViz: React.FC<SimpleBarLineChartProps> = ({
       notMerge={true}
       lazyUpdate={true}
       style={{
-        height: '100%',
+        height: "100%",
       }}
-      
     />
   );
 };

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 const Indicator = ({ data, newIndicator }) => {
-
   useEffect(() => {
     (document.getElementById("Budget Estimates") as HTMLInputElement).checked =
       true;
@@ -19,7 +18,13 @@ const Indicator = ({ data, newIndicator }) => {
         {data &&
           data.map((item, index) => (
             <div key={`indicatorItem-${index}`}>
-              <input onClick={e => handleIndicatorChange(e.target)} type="radio" name="indicators" id={item} value={item} />
+              <input
+                onClick={(e) => handleIndicatorChange(e.target)}
+                type="radio"
+                name="indicators"
+                id={item}
+                value={item}
+              />
               <label htmlFor={item}>{item}</label>
             </div>
           ))}

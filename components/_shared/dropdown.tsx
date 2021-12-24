@@ -11,7 +11,7 @@ const Dropdown = (props) => (
     <select
       id="custom_select"
       className="select-comp"
-      onChange={e => props.handleDropdownChange(e.target.value)}
+      onChange={(e) => props.handleDropdownChange(e.target.value)}
       value={props.default ? props.default : props.options[0]}
     >
       {props.options.map((option: any, index: any) => (
