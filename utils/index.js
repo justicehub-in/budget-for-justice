@@ -6,8 +6,8 @@ import {
 } from "components/icons/ListingIcons";
 export function categoryIcon(tags) {
   if (tags.includes("Ministry of Law and Justice")) return <LawJustice />;
-  else if (tags.includes("Ministry of Law and Justice")) return <WomenChild />;
-  else if (tags.includes("Ministry of Law and Justice")) return <Police />;
+  // else if (tags.includes("Ministry of Law and Justice")) return <WomenChild />;
+  // else if (tags.includes("Ministry of Law and Justice")) return <Police />;
   else return <HomeAffairs />;
 }
 

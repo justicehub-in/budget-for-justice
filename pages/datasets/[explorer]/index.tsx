@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import {
   tabbedInterface,
   fetchAPI,
@@ -9,13 +10,13 @@ import {
   filter_data_indicator,
   filter_data_budgettype,
   fetchFromTags,
+  datasetPopulation,
 } from "utils";
 import { Share, Download, ArrowForward } from "components/icons/ListingIcons";
 import Indicator from "components/analytics/Indicator";
 import Modal from "react-modal";
 import SimpleBarLineChartViz from "components/viz/SimpleBarLineChart";
 import DataAlter from "components/datasets/DataAlter";
-import Link from "next/link";
 // import { Table } from 'components/_shared';
 import Banner from "components/_shared/Banner";
 import { resourceGetter } from "utils/resourceParser";
@@ -23,17 +24,18 @@ import Dropdown from "components/_shared/dropdown";
 import { barLineTransformer } from "transformers/BarLineTransformer";
 import Table from "components/_shared/Table";
 import { downloadPackage } from "utils/downloadPackage";
-
+import SchemeModal from "components/explorer/SchemeModal";
 Modal.setAppElement("#__next");
 
 type Props = {
   data: any;
   meta: any;
   fileData: any;
+  allData: any;
 };
 
-const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
+  const [schemeModalOpen, setSchemeModalOpen] = useState(false);
   const [indicatorFiltered, setIndicatorFiltered] = useState([]);
   const [finalFiltered, setFinalFiltered] = useState([]);
   const [budgetTypes, setBudgetTypes] = useState([]);
@@ -161,8 +163,8 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
     else setShowTable(true);
   }
 
-  function handleButtonClick() {
-    setModalIsOpen(!modalIsOpen);
+  function schemeModalHandler() {
+    setSchemeModalOpen(!schemeModalOpen);
   }
 
   function handleNewVizData(val: any) {
@@ -215,7 +217,18 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
           </a>
         </div>
         <div className="explorer__buttons container">
-          <button className="btn-secondary">Select Another Scheme</button>
+          <button
+            className="btn-secondary"
+            onClick={() => schemeModalHandler()}
+          >
+            Select Another Scheme
+          </button>
+          <SchemeModal
+            isOpen={schemeModalOpen}
+            handleModal={schemeModalHandler}
+            data={allData}
+          />
+
           <button className="btn-secondary-invert">
             Share <Share />
           </button>
@@ -239,7 +252,8 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
               <strong>Type of Scheme: </strong>Centrally Sponsored Scheme
             </span>
             <span>
-              <strong>Frequency: </strong>{meta[4][1]}
+              <strong>Frequency: </strong>
+              {meta[4][1]}
             </span>
           </div>
         </section>
@@ -306,7 +320,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
             {/* viz graphs */}
             {vizItems.map((item, index) => (
               <figure
-                key={`vizIyem-${index}`}
+                key={`vizItem-${index}`}
                 className="viz__bar"
                 id={item.id}
               >
@@ -315,122 +329,13 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData }) => {
             ))}
 
             <div className="explorer__source">
-              <strong>Data Source: </strong><p>
-                {meta[2][1]}
-              </p>
+              <strong>Data Source: </strong>
+              <p>{meta[2][1]}</p>
             </div>
           </div>
           {/* <button className="btn-secondary" onClick={handleButtonClick}>
             Download Visualization
           </button> */}
-
-          <Modal
-            isOpen={modalIsOpen}
-            onRequestClose={handleButtonClick}
-            className="dialog"
-            overlayClassName="dialog__backdrop"
-            contentLabel="Download Tenders"
-            aria={{
-              labelledby: "dialog-head",
-              describedby: "dialog-para",
-            }}
-            closeTimeoutMS={200}
-            preventScroll={true}
-            htmlOpenClassName="ReactModal__Html--open"
-          >
-            <section className="dialog__header">
-              <div>
-                <h1 id="dialog-head">Download Tenders</h1>
-                <p id="dialog-para">
-                  Select your desired option to download the tenders
-                </p>
-              </div>
-              <button
-                type="button"
-                className="dialog__close"
-                id="modalCancel"
-                aria-label="Close navigation"
-                onClick={handleButtonClick}
-              >
-                &#x78;
-              </button>
-            </section>
-            <section className="dialog__body">
-              <div>
-                <label htmlFor="downloadOption1">
-                  <input
-                    type="radio"
-                    id="downloadOption1"
-                    name="dialog-option"
-                    value="tender-only"
-                  />
-                  Download the details of this tender
-                </label>
-
-                <label htmlFor="downloadOption2">
-                  <input
-                    type="radio"
-                    id="downloadOption2"
-                    name="dialog-option"
-                    value="all-details"
-                  />
-                  Download the details of this tender along with all the
-                  attached documents
-                </label>
-              </div>
-              <div className="dialog__format">
-                <p>Choose file format</p>
-                <div>
-                  <label htmlFor="downloadFormat1">
-                    <input
-                      type="radio"
-                      id="downloadFormat1"
-                      name="dialog-download"
-                      value="csv"
-                    />
-                    CSV File
-                  </label>
-
-                  <label htmlFor="downloadFormat1">
-                    <input
-                      type="radio"
-                      id="downloadFormat2"
-                      name="dialog-download"
-                      value="xls"
-                    />
-                    XLS File
-                  </label>
-
-                  <label htmlFor="downloadFormat1">
-                    <input
-                      type="radio"
-                      id="downloadFormat3"
-                      name="dialog-download"
-                      value="pdf"
-                    />
-                    PDF File
-                  </label>
-
-                  <label htmlFor="downloadFormat1">
-                    <input
-                      type="radio"
-                      id="downloadFormat4"
-                      name="dialog-download"
-                      value="zip"
-                    />
-                    ZIP File
-                  </label>
-                </div>
-              </div>
-            </section>
-            <button
-              className="btn-primary dialog__submit"
-              id="modalSubmit"
-              onClick={handleButtonClick}
-            >
-              Download
-            </button>
-          </Modal>
         </section>
 
         <Banner details={bannerDetails} />
@@ -511,6 +416,21 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const relatedSchemes = await fetchFromTags(data.tags, data.id);
   const indicators = [...new Set(fileData.map((item) => item.indicators))];
 
+  const ministry = await fetch(
+    "https://justicehub.in/api/3/action/package_search?fq=(tags:ministry AND groups:budget-for-justice)&rows=200"
+  ).then((res) => res.json());
+  const scheme = await fetch(
+    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme AND groups:budget-for-justice)&rows=200"
+  ).then((res) => res.json());
+  const category = await fetch(
+    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme-category AND groups:budget-for-justice)&rows=200"
+  ).then((res) => res.json());
+  const allData = {
+    ministry: datasetPopulation(ministry.result.results),
+    scheme: datasetPopulation(scheme.result.results),
+    category: datasetPopulation(category.result.results),
+  };
+
   data.indicators = indicators;
   data.relatedSchemes = relatedSchemes;
   return {
@@ -518,6 +438,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       data,
       meta,
       fileData,
+      allData,
     },
   };
 };
