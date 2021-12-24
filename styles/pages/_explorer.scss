@@ -23,13 +23,32 @@
     gap: 2rem;
     margin-top: 2rem;
 
-    button {
+    button,
+    a {
       font-weight: bold;
       border-width: 2px;
     }
 
     svg {
-      margin-bottom: -4px;
+      margin-bottom: -5px;
+      margin-left: 8px;
+      margin-right: 0;
+    }
+  }
+
+  &__scheme-change {
+    a {
+      display: none;
+    }
+
+    @include media.narrowerThan("sprout") {
+      a {
+        display: block;
+      }
+
+      button {
+        display: none;
+      }
     }
   }
 

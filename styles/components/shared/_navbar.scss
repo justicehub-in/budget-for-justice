@@ -88,7 +88,9 @@
   }
 
   &__nested {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
     position: absolute;
     top: 120%;
     width: 11rem;
@@ -98,6 +100,7 @@
     li {
       position: relative;
       background-color: $bg-submenu;
+      border: 1px solid $btn-secondary-bg;
       border-radius: 4px;
       transition: background-color 200ms ease-in;
 
@@ -126,7 +129,7 @@
       position: absolute;
       border-left: 14px solid transparent;
       border-right: 14px solid transparent;
-      border-bottom: 17px solid $bg-submenu;
+      border-bottom: 17px solid $btn-secondary-bg;
       top: -10px;
       left: 10%;
     }
@@ -139,6 +142,7 @@
         border-bottom-color: $nav-text;
         border-right: 2px solid $nav-text;
         border-right-color: $nav-text;
+
         content: " ";
         display: inline-block;
         height: 8px;
