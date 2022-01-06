@@ -128,7 +128,7 @@ const About = () => {
                 </li>
               </ul>
             </section>
-            <figure>
+            <figure className="about__img-first">
               <img
                 src="https://placekitten.com/416/453"
                 width={416}

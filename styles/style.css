@@ -212,12 +212,12 @@ button {
 }
 @media screen and (min-width: 980px) {
   .container {
-    width: 900px;
+    width: 960px;
   }
 }
 @media screen and (min-width: 1200px) {
   .container {
-    width: 1100px;
+    width: 1180px;
   }
 }
 @media screen and (min-width: 1350px) {
@@ -3775,6 +3775,9 @@ button {
   line-height: 175%;
   font-weight: 500;
   margin-top: 0.5rem;
+}
+.about__img-first {
+  order: -1;
 }
 .about__analysis {
   background-color: #EBFEFF;

@@ -112,6 +112,10 @@
     }
   }
 
+  &__img-first {
+    order: -1;
+  }
+
   &__analysis {
     background-color: $color-teal-0;
     padding: 5rem 0;
