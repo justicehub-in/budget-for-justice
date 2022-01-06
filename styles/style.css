@@ -3798,6 +3798,9 @@ button {
   font-size: 22px;
   line-height: 145%;
 }
+.about__analysis section svg {
+  margin-right: 8px;
+}
 .about__analysis section p {
   font-weight: 500;
   line-height: 175%;
@@ -3808,13 +3811,15 @@ button {
 }
 .about__end {
   margin-top: 5rem;
-  padding-bottom: 6rem;
-  margin-bottom: -5rem;
 }
 .about__end-para {
   font-weight: 500;
   line-height: 175%;
   margin-top: 1rem;
+}
+.about__cta {
+  padding-bottom: 6rem;
+  margin-bottom: -5rem;
 }
 .about .banner {
   margin-top: 5rem;

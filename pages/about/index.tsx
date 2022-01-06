@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Banner from "components/_shared/Banner";
+import { RawData, RealtimeData } from "components/icons/ListingIcons";
 
 const bannerDetails = {
   heading: "Looking for more clarity?",
@@ -189,7 +190,9 @@ const About = () => {
 
             <div>
               <section>
-                <h3>Raw Data</h3>
+                <h3>
+                  <RawData /> Raw Data
+                </h3>
                 <p>
                   Non, vestibulum, est lorem elementum donec morbi mi commodo.
                   Ac, quam enim amet, nibh diam eget quis. Elementum sed vitae,
@@ -206,7 +209,9 @@ const About = () => {
               </section>
 
               <section>
-                <h3>Realtime Data Explorer</h3>
+                <h3>
+                  <RealtimeData /> Realtime Data Explorer
+                </h3>
                 <p>
                   Non, vestibulum, est lorem elementum donec morbi mi commodo.
                   Ac, quam enim amet, nibh diam eget quis. Elementum sed vitae,
@@ -247,9 +252,11 @@ const About = () => {
             egestas urna, dignissim. At non lectus quam morbi nullam commodo,
             rhoncus ornare.
           </p>
-
-          <Banner details={bannerDetails} />
         </section>
+
+        <div className="about__cta">
+          <Banner details={bannerDetails} />
+        </div>
       </main>
     </>
   );

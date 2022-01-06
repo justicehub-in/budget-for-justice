@@ -137,6 +137,10 @@
         line-height: 145%;
       }
 
+      svg {
+        margin-right: 8px;
+      }
+
       p {
         font-weight: 500;
         line-height: 175%;
@@ -151,14 +155,17 @@
 
   &__end {
     margin-top: 5rem;
-    padding-bottom: 6rem;
-    margin-bottom: -5rem;
 
     &-para {
       font-weight: 500;
       line-height: 175%;
       margin-top: 1rem;
     }
+  }
+
+  &__cta {
+    padding-bottom: 6rem;
+    margin-bottom: -5rem;
   }
 
   .banner {
