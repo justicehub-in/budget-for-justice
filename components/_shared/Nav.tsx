@@ -6,27 +6,29 @@ import Modal from "react-modal";
 // import Hamburger from 'public/assets/icons/hamburger.svg';
 Modal.setAppElement("#__next");
 
-const navName = "Justice Hub";
+const navName = "Budget for Justice";
 
 const navList = [
   {
-    // link: '#forum',
-    name: "All Menu",
-    hasSubMenu: true,
-    subMenu: [
-      {
-        link: "/explore",
-        name: "Scheme Explore",
-      },
-      {
-        link: "/about",
-        name: "About Us",
-      },
-      {
-        link: "/faq",
-        name: "FAQs",
-      },
-    ],
+    link: "/",
+    name: "Home",
+  },
+  {
+    link: "/explore",
+    name: "Featured",
+  },
+  {
+    link: "/about",
+    name: "About Us",
+  },
+  {
+    link: "/#",
+    name: "Resources",
+  },
+  {
+    link: "/faq",
+    name: "FAQs",
+    hasSubMenu: false,
   },
   {
     link: "/datasets",
@@ -37,6 +39,8 @@ const navList = [
 
 const Nav: React.FC = () => {
   const router = useRouter();
+  console.log(router);
+
   const [navIsOpen, setNavIsOpen] = useState(false);
 
   // opening / closing mobile navbar
@@ -85,7 +89,6 @@ const Nav: React.FC = () => {
           <div className="header__brand">
             <Link href="/">
               <a>
-                <img src="/assets/images/jh_logo_min.png" alt="" />
                 <h1>{navName}</h1>
               </a>
             </Link>
@@ -94,7 +97,7 @@ const Nav: React.FC = () => {
           <nav className="navbar">
             <h2 className="sr-only">Navigation menu</h2>
             <ul className="navbar__container">
-              {navList.map((navItem, index) => (
+              {navList.map((navItem: any, index) => (
                 <li key={`navItemMobile-${index}`} className="navbar__links">
                   {navItem.hasSubMenu ? (
                     <>
@@ -130,7 +133,15 @@ const Nav: React.FC = () => {
                     </Link>
                   ) : (
                     <Link href={navItem.link}>
-                      <a className={`navbar__item`}>{navItem.name}</a>
+                      <a
+                        className={`navbar__item ${
+                          router.pathname == navItem.link
+                            ? "navbar__item--active"
+                            : ""
+                        }`}
+                      >
+                        {navItem.name}
+                      </a>
                     </Link>
                   )}
                 </li>
@@ -158,7 +169,7 @@ const Nav: React.FC = () => {
               height="20"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
-              fill="#f65940"
+              fill="#EBFEFF"
             >
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
             </svg>
@@ -167,7 +178,6 @@ const Nav: React.FC = () => {
           <div className="header__brand">
             <Link href="/">
               <a>
-                <img src="/assets/images/jh_logo_min.png" alt="" />
                 <h1>{navName}</h1>
               </a>
             </Link>
@@ -200,7 +210,7 @@ const Nav: React.FC = () => {
           </div>
 
           <ul className="m-navbar__container">
-            {navList.map((navItem, index) => (
+            {navList.map((navItem: any, index) => (
               <li key={`navItemMobile-${index}`} className="navbar__links">
                 {navItem.hasSubMenu ? (
                   <>
@@ -237,7 +247,7 @@ const Nav: React.FC = () => {
                       href={navItem.link}
                       onClick={mobileNavHandler}
                       className={`navbar__item ${
-                        router.pathname.includes(navItem.link)
+                        router.pathname == navItem.link
                           ? "navbar__item--active"
                           : ""
                       }`}

@@ -1219,8 +1219,8 @@ button {
 }
 
 .header {
-  background-color: white;
-  color: rgba(0, 0, 0, 0.87);
+  background-color: #06464a;
+  color: #fdfcfc;
   padding: 0.6rem 0;
 }
 .header a {
@@ -1245,11 +1245,10 @@ button {
   margin-right: 0.5rem;
 }
 .header__brand h1 {
-  font-size: 1.4rem;
-  font-weight: 500;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  font-size: 1.375rem;
+  font-weight: 800;
+  line-height: 145%;
+  color: #EBFEFF;
 }
 .header__divider {
   border: 1px solid rgba(255, 255, 255, 0.7);
@@ -1280,17 +1279,19 @@ button {
 .navbar__item.btn-primary {
   padding: 6px 12px;
   font-weight: 400;
+  margin-left: 1.5rem;
+  font-weight: 600;
 }
 .navbar__item:hover {
-  background-color: white;
+  background-color: #0a7379;
 }
 .navbar__item--active {
-  box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.87);
+  box-shadow: inset 0 -2px 0 0 #fdfcfc;
   font-weight: 500;
 }
 @media screen and (max-width: 979px) {
   .navbar__item--active {
-    box-shadow: inset 3px 0 0 0 rgba(0, 0, 0, 0.87);
+    box-shadow: inset 3px 0 0 0 #fdfcfc;
   }
 }
 .navbar__container {
@@ -1338,10 +1339,10 @@ button {
   left: 10%;
 }
 .navbar__item[type=button]::after {
-  border-bottom: 2px solid rgba(0, 0, 0, 0.87);
-  border-bottom-color: rgba(0, 0, 0, 0.87);
-  border-right: 2px solid rgba(0, 0, 0, 0.87);
-  border-right-color: rgba(0, 0, 0, 0.87);
+  border-bottom: 2px solid #fdfcfc;
+  border-bottom-color: #fdfcfc;
+  border-right: 2px solid #fdfcfc;
+  border-right-color: #fdfcfc;
   content: " ";
   display: inline-block;
   height: 8px;
@@ -1349,7 +1350,7 @@ button {
   transform: translateY(-35%) rotate(45deg);
   vertical-align: middle;
   width: 8px;
-  border-color: rgba(0, 0, 0, 0.87);
+  border-color: #fdfcfc;
 }
 
 .m-header {
@@ -1369,6 +1370,7 @@ button {
 }
 .m-header__button {
   margin-right: 1rem;
+  margin-bottom: -4px;
   width: 44px;
   height: 44px;
 }
@@ -1382,8 +1384,8 @@ button {
 }
 
 .m-navbar {
-  background-color: white;
-  color: rgba(0, 0, 0, 0.87);
+  background-color: #06464a;
+  color: #fdfcfc;
 }
 .m-navbar a {
   text-decoration: none;
@@ -1410,10 +1412,10 @@ button {
   line-height: 2rem;
 }
 .m-navbar .navbar__item[type=button]::after {
-  border-bottom: 2px solid rgba(0, 0, 0, 0.87);
-  border-bottom-color: rgba(0, 0, 0, 0.87);
-  border-right: 2px solid rgba(0, 0, 0, 0.87);
-  border-right-color: rgba(0, 0, 0, 0.87);
+  border-bottom: 2px solid #fdfcfc;
+  border-bottom-color: #fdfcfc;
+  border-right: 2px solid #fdfcfc;
+  border-right-color: #fdfcfc;
   content: " ";
   display: inline-block;
   height: 8px;
@@ -1421,7 +1423,7 @@ button {
   transform: translateY(-35%) rotate(45deg);
   vertical-align: middle;
   width: 8px;
-  border-color: rgba(0, 0, 0, 0.87);
+  border-color: #fdfcfc;
   transition: transform 300ms ease;
 }
 .m-navbar .navbar__item[aria-expanded=true] {
