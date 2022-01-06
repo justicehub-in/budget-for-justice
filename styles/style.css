@@ -4400,7 +4400,6 @@ button {
 .faq__content > div {
   border-radius: 8px;
   background-color: white;
-  padding: 1rem;
   margin-top: 1.5rem;
 }
 .faq__content h3 {
@@ -4410,7 +4409,7 @@ button {
   cursor: pointer;
 }
 .faq__content h3 button {
-  all: inherit;
+  padding: 1rem;
   border: 0;
   display: flex;
   justify-content: space-between;
@@ -4429,6 +4428,7 @@ button {
   font-weight: 500;
   line-height: 175%;
   margin-top: 0.5rem;
+  padding: 0 1rem 1rem;
 }
 .faq__content [aria-expanded=true] {
   color: #00abb7;

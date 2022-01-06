@@ -17,7 +17,6 @@
     > div {
       border-radius: 8px;
       background-color: $bg-lightest;
-      padding: 1rem;
       margin-top: 1.5rem;
     }
 
@@ -28,7 +27,7 @@
       cursor: pointer;
 
       button {
-        all: inherit;
+        padding: 1rem;
         border: 0;
         display: flex;
         justify-content: space-between;
@@ -51,6 +50,7 @@
       font-weight: 500;
       line-height: 175%;
       margin-top: 0.5rem;
+      padding: 0 1rem 1rem;
     }
 
     [aria-expanded="true"] {
