@@ -39,8 +39,6 @@ const navList = [
 
 const Nav: React.FC = () => {
   const router = useRouter();
-  console.log(router);
-
   const [navIsOpen, setNavIsOpen] = useState(false);
 
   // opening / closing mobile navbar

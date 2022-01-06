@@ -4149,6 +4149,7 @@ button {
 @media screen and (max-width: 979px) {
   .explorer__viz {
     grid-template-columns: 1fr;
+    display: block;
   }
 }
 .explorer .viz {

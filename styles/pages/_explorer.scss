@@ -179,6 +179,7 @@
 
     @include media.narrowerThan("sprout") {
       grid-template-columns: 1fr;
+      display: block;
     }
   }
 
