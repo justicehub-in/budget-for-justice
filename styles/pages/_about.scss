@@ -54,7 +54,9 @@
   }
 
   &__process {
-    margin-top: 4rem;
+    padding: 4rem 0 7rem;
+    box-shadow: $box-shadow-2;
+    isolation: isolate;
 
     @include media.narrowerThan("plant") {
       margin-top: 8rem;
@@ -64,7 +66,7 @@
       max-width: 696px;
     }
 
-    > div {
+    .container > div {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -119,7 +121,7 @@
   &__analysis {
     background-color: $color-teal-0;
     padding: 5rem 0;
-    margin-top: 7rem;
+    box-shadow: $box-shadow-inset-2;
 
     .container > div {
       margin-top: 5rem;

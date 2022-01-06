@@ -58,122 +58,126 @@ const About = () => {
           </div>
         </div>
 
-        <div className="about__process container">
-          <h2 className="heading">A look at how we put the pieces together</h2>
-          <p className="home__sub-head">
-            Know the complete process of doing what your are seeing on this
-            platform
-          </p>
+        <div className="about__process">
+          <div className="container">
+            <h2 className="heading">
+              A look at how we put the pieces together
+            </h2>
+            <p className="home__sub-head">
+              Know the complete process of doing what your are seeing on this
+              platform
+            </p>
 
-          <div>
-            <figure>
-              <img
-                src="https://placekitten.com/416/452"
-                width={416}
-                height={452}
-                alt=""
-              />
-            </figure>
-            <section>
-              <h3>01. Massa quam quam semper massa</h3>
-              <ul>
-                <li>
-                  Interdum arcu morbi lorem lorem sagittis, mattis sem sapien
-                  eget. A fringilla ultricies nisi vitae ut vitae. Felis
-                  gravida eu blandit gravida.
-                </li>
-                <li>
-                  Elementum duis lacus vitae in ornare neque, enim, ultricies
-                  tortor. Tincidunt sed aliquam tortor sed pellentesque nisl
-                  tempus. Accumsan nec faucibus consequat arcu ut et.
-                </li>
-                <li>
-                  Morbi donec hac dolor eu pulvinar nisi. Maecenas blandit
-                  tortor tristique tincidunt montes, lacus consequat
-                  adipiscing. Nisl dignissim fusce amet, adipiscing aliquet
-                  elit eget.
-                </li>
-                <li>
-                  Egestas nullam ornare mattis turpis sed pellentesque. Nunc,
-                  vehicula neque nunc scelerisque felis, dictum eu. Vitae
-                  feugiat velit in sed elementum.
-                </li>
-              </ul>
-            </section>
-          </div>
+            <div>
+              <figure>
+                <img
+                  src="https://placekitten.com/416/452"
+                  width={416}
+                  height={452}
+                  alt=""
+                />
+              </figure>
+              <section>
+                <h3>01. Massa quam quam semper massa</h3>
+                <ul>
+                  <li>
+                    Interdum arcu morbi lorem lorem sagittis, mattis sem sapien
+                    eget. A fringilla ultricies nisi vitae ut vitae. Felis
+                    gravida eu blandit gravida.
+                  </li>
+                  <li>
+                    Elementum duis lacus vitae in ornare neque, enim, ultricies
+                    tortor. Tincidunt sed aliquam tortor sed pellentesque nisl
+                    tempus. Accumsan nec faucibus consequat arcu ut et.
+                  </li>
+                  <li>
+                    Morbi donec hac dolor eu pulvinar nisi. Maecenas blandit
+                    tortor tristique tincidunt montes, lacus consequat
+                    adipiscing. Nisl dignissim fusce amet, adipiscing aliquet
+                    elit eget.
+                  </li>
+                  <li>
+                    Egestas nullam ornare mattis turpis sed pellentesque. Nunc,
+                    vehicula neque nunc scelerisque felis, dictum eu. Vitae
+                    feugiat velit in sed elementum.
+                  </li>
+                </ul>
+              </section>
+            </div>
 
-          <div>
-            <section>
-              <h3>02. Ac egestas lectus elit urna</h3>
-              <ul>
-                <li>
-                  Interdum arcu morbi lorem lorem sagittis, mattis sem sapien
-                  eget. A fringilla ultricies nisi vitae ut vitae. Felis
-                  gravida eu blandit gravida.
-                </li>
-                <li>
-                  Elementum duis lacus vitae in ornare neque, enim, ultricies
-                  tortor. Tincidunt sed aliquam tortor sed pellentesque nisl
-                  tempus. Accumsan nec faucibus consequat arcu ut et.
-                </li>
-                <li>
-                  Morbi donec hac dolor eu pulvinar nisi. Maecenas blandit
-                  tortor tristique tincidunt montes, lacus consequat
-                  adipiscing. Nisl dignissim fusce amet, adipiscing aliquet
-                  elit eget.
-                </li>
-                <li>
-                  Egestas nullam ornare mattis turpis sed pellentesque. Nunc,
-                  vehicula neque nunc scelerisque felis, dictum eu. Vitae
-                  feugiat velit in sed elementum.
-                </li>
-              </ul>
-            </section>
-            <figure className="about__img-first">
-              <img
-                src="https://placekitten.com/416/453"
-                width={416}
-                height={452}
-                alt=""
-              />
-            </figure>
-          </div>
+            <div>
+              <section>
+                <h3>02. Ac egestas lectus elit urna</h3>
+                <ul>
+                  <li>
+                    Interdum arcu morbi lorem lorem sagittis, mattis sem sapien
+                    eget. A fringilla ultricies nisi vitae ut vitae. Felis
+                    gravida eu blandit gravida.
+                  </li>
+                  <li>
+                    Elementum duis lacus vitae in ornare neque, enim, ultricies
+                    tortor. Tincidunt sed aliquam tortor sed pellentesque nisl
+                    tempus. Accumsan nec faucibus consequat arcu ut et.
+                  </li>
+                  <li>
+                    Morbi donec hac dolor eu pulvinar nisi. Maecenas blandit
+                    tortor tristique tincidunt montes, lacus consequat
+                    adipiscing. Nisl dignissim fusce amet, adipiscing aliquet
+                    elit eget.
+                  </li>
+                  <li>
+                    Egestas nullam ornare mattis turpis sed pellentesque. Nunc,
+                    vehicula neque nunc scelerisque felis, dictum eu. Vitae
+                    feugiat velit in sed elementum.
+                  </li>
+                </ul>
+              </section>
+              <figure className="about__img-first">
+                <img
+                  src="https://placekitten.com/416/453"
+                  width={416}
+                  height={452}
+                  alt=""
+                />
+              </figure>
+            </div>
 
-          <div>
-            <figure>
-              <img
-                src="https://placekitten.com/416/454"
-                width={416}
-                height={452}
-                alt=""
-              />
-            </figure>
-            <section>
-              <h3>03. Elit ipsum mollis sit nunc</h3>
-              <ul>
-                <li>
-                  Interdum arcu morbi lorem lorem sagittis, mattis sem sapien
-                  eget. A fringilla ultricies nisi vitae ut vitae. Felis
-                  gravida eu blandit gravida.
-                </li>
-                <li>
-                  Elementum duis lacus vitae in ornare neque, enim, ultricies
-                  tortor. Tincidunt sed aliquam tortor sed pellentesque nisl
-                  tempus. Accumsan nec faucibus consequat arcu ut et.
-                </li>
-                <li>
-                  Morbi donec hac dolor eu pulvinar nisi. Maecenas blandit
-                  tortor tristique tincidunt montes, lacus consequat
-                  adipiscing. Nisl dignissim fusce amet, adipiscing aliquet
-                  elit eget.
-                </li>
-                <li>
-                  Egestas nullam ornare mattis turpis sed pellentesque. Nunc,
-                  vehicula neque nunc scelerisque felis, dictum eu. Vitae
-                  feugiat velit in sed elementum.
-                </li>
-              </ul>
-            </section>
+            <div>
+              <figure>
+                <img
+                  src="https://placekitten.com/416/454"
+                  width={416}
+                  height={452}
+                  alt=""
+                />
+              </figure>
+              <section>
+                <h3>03. Elit ipsum mollis sit nunc</h3>
+                <ul>
+                  <li>
+                    Interdum arcu morbi lorem lorem sagittis, mattis sem sapien
+                    eget. A fringilla ultricies nisi vitae ut vitae. Felis
+                    gravida eu blandit gravida.
+                  </li>
+                  <li>
+                    Elementum duis lacus vitae in ornare neque, enim, ultricies
+                    tortor. Tincidunt sed aliquam tortor sed pellentesque nisl
+                    tempus. Accumsan nec faucibus consequat arcu ut et.
+                  </li>
+                  <li>
+                    Morbi donec hac dolor eu pulvinar nisi. Maecenas blandit
+                    tortor tristique tincidunt montes, lacus consequat
+                    adipiscing. Nisl dignissim fusce amet, adipiscing aliquet
+                    elit eget.
+                  </li>
+                  <li>
+                    Egestas nullam ornare mattis turpis sed pellentesque. Nunc,
+                    vehicula neque nunc scelerisque felis, dictum eu. Vitae
+                    feugiat velit in sed elementum.
+                  </li>
+                </ul>
+              </section>
+            </div>
           </div>
         </div>
 

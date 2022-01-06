@@ -54,5 +54,7 @@ $grey-6: #f1eef1;
 $border-1: 1px solid $grey-4;
 $border-2: 1px solid $bg-light;
 $box-shadow-1: 0px 1px 4px rgba(0, 0, 0, 0.14);
+$box-shadow-2: 0px 4px 12px rgba(0, 0, 0, 0.08);
 $box-shadow-inset: inset 0px 0px 4px rgba(0, 0, 0, 0.08);
+$box-shadow-inset-2:  inset 0px -4px 12px rgba(0, 0, 0, 0.04), inset 0px 4px 12px rgba(0, 0, 0, 0.04);
 $drop-shadow: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.08));
