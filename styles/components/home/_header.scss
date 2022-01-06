@@ -28,6 +28,7 @@
       width: 4px;
       display: inline-block;
       margin-right: 1rem;
+      margin-top: 0.5rem;
 
       &:empty:before {
         content: "\00a0";

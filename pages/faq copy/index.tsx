@@ -86,7 +86,7 @@ const bannerDetails = {
   color: "#F65940",
 };
 
-const Faq = () => {
+const Explore = () => {
   useEffect(() => {
     collapseHeader();
   }, []);
@@ -152,4 +152,4 @@ const Faq = () => {
   );
 };
 
-export default Faq;
+export default Explore;

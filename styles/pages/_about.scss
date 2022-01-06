@@ -1,95 +1,186 @@
 @use "../settings/variables" as *;
 @use "../tools/mixins/media" as media;
 .about {
-  .partners {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    justify-content: space-between;
+  background-color: $bg-lightest;
 
-    li {
-      width: 48%;
-      height: 100%;
+  &__header {
+    background-color: $color-teal-0;
 
-      @include media.narrowerThan("sprout") {
-        width: 100%;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
 
-        &:first-child {
-          margin-bottom: 1rem;
+      > div {
+        flex-grow: 1;
+        flex-basis: 60%;
+      }
+    }
+
+    h2 {
+      padding-top: 5.75rem;
+    }
+
+    p {
+      font-weight: 500;
+      line-height: 175%;
+      margin-top: 12px;
+      padding-bottom: 5.5rem;
+    }
+
+    figure {
+      filter: $drop-shadow;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin-bottom: -6rem;
+      padding-top: 4rem;
+
+      flex-basis: 0;
+      flex-grow: 999;
+      min-width: 37%;
+
+      @include media.narrowerThan("plant") {
+        padding-top: 0;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+  }
+
+  &__process {
+    margin-top: 4rem;
+
+    @include media.narrowerThan("plant") {
+      margin-top: 8rem;
+    }
+
+    h2 {
+      max-width: 696px;
+    }
+
+    > div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-top: 8rem;
+
+      &:first-of-type {
+        margin-top: 4rem;
+      }
+
+      figure {
+        flex-grow: 1;
+
+        img {
+          border-radius: 16px;
+          object-fit: cover;
+          max-width: 100%;
         }
+      }
+
+      section {
+        flex-basis: 0;
+        flex-grow: 999;
+        min-width: 50%;
+        max-width: 696px;
+      }
+
+      h3 {
+        font-size: 1.75rem;
+        font-weight: 800;
+        line-height: 130%;
+      }
+
+      ul {
+        list-style: disc;
+        margin-top: 1.25rem;
+        margin-left: 1rem;
+      }
+
+      li {
+        line-height: 175%;
+        font-weight: 500;
+        margin-top: 0.5rem;
       }
     }
   }
 
-  &__team {
-    margin-top: 4rem;
+  &__analysis {
+    background-color: $color-teal-0;
+    padding: 5rem 0;
+    margin-top: 7rem;
 
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 500;
-      line-height: 130%;
-      color: $text-light-light;
-
-      span {
-        background: #4965b2;
-        border-radius: 2px;
-        width: 3rem;
-        display: inline-block;
-        height: 3px;
-        margin-right: 0.5rem;
-      }
-    }
-
-    p {
-      font-size: 2.5rem;
-      line-height: 130%;
-      margin-top: 10px;
-    }
-
-    ul {
-      margin-top: 3rem;
-      background-color: $bg-lightest;
-      border-radius: 12px;
-      border: 1px solid $grey-4;
-      padding: 0 6rem 5rem;
+    .container > div {
+      margin-top: 5rem;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      gap: 4rem;
     }
 
-    li {
-      width: 33.3%;
-      display: flex;
-      justify-content: center;
-    }
+    section {
+      flex: 1 25rem;
 
-    @include media.narrowerThan("plant") {
-      ul {
-        padding: 0 3rem 5rem;
-      }
-    }
-
-    @include media.narrowerThan("sprout") {
-      li {
-        width: 50%;
-      }
-    }
-
-    @include media.narrowerThan("seedling") {
-      ul {
-        padding: 0 1rem 5rem;
+      h3 {
+        font-weight: 800;
+        font-size: 22px;
+        line-height: 145%;
       }
 
-      li img {
-        width: 170px;
-        height: 170px;
+      p {
+        font-weight: 500;
+        line-height: 175%;
+        margin-top: 0.5rem;
+      }
+
+      a {
+        margin-top: 1.75rem;
       }
     }
+  }
 
-    @include media.narrowerThan("seed") {
-      li img {
-        width: 120px;
-        height: 120px;
+  &__end {
+    margin-top: 5rem;
+    padding-bottom: 6rem;
+    margin-bottom: -5rem;
+
+    &-para {
+      font-weight: 500;
+      line-height: 175%;
+      margin-top: 1rem;
+    }
+  }
+
+  .banner {
+    margin-top: 5rem;
+
+    &__content {
+      p {
+        margin-top: 0;
+        font-weight: 500;
+      }
+
+      > div {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+        gap: 1rem;
+      }
+
+      .btn-primary-invert {
+        background-color: $bg-lightest;
+      }
+
+      button {
+        svg {
+          margin: 0 0 -4px 8px;
+        }
       }
     }
   }

@@ -25,8 +25,8 @@ const bannerDetails = {
       </p>
     </>
   ),
-  image: "/assets/icons/send-email-fly.svg",
-  color: "#F65940",
+  image: "/assets/icons/send-email-fly-blue.svg",
+  color: "#00ABB7",
 };
 
 const Home: React.FC<{ forumData: any }> = () => {
@@ -39,14 +39,16 @@ const Home: React.FC<{ forumData: any }> = () => {
       <main className="home">
         <Header />
         <Video />
-        <Latest />
+        {/* <Latest /> */}
 
         <Carousel />
 
         <Insights />
-        <News />
+        {/* <News /> */}
 
-        <Banner details={bannerDetails} />
+        <div className="home__banner">
+          <Banner details={bannerDetails} />
+        </div>
 
         <Slider data={contributors} />
       </main>

@@ -22,6 +22,10 @@ const navList = [
         link: "/about",
         name: "About Us",
       },
+      {
+        link: "/faq",
+        name: "FAQs",
+      },
     ],
   },
   {

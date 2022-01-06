@@ -10,6 +10,7 @@
   transition: background-color 200ms ease;
   display: block;
   width: max-content;
+  font-weight: bold;
 
   @include media.narrowerThan("sprout") {
     font-size: 0.9rem;

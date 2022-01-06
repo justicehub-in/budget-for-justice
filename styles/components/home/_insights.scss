@@ -4,7 +4,7 @@
 .home-insights {
   background-color: $bg-lightest;
   padding-top: 4.5rem;
-  padding-bottom: 4.5rem;
+  padding-bottom: 15rem;
 
   .container {
     display: flex;
@@ -105,7 +105,8 @@
   }
 
   p {
-    line-height: 1.5;
+    line-height: 175%;
+    font-weight: 500;
   }
 
   img {
