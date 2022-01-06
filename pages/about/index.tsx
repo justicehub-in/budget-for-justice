@@ -25,7 +25,7 @@ const About = () => {
   return (
     <>
       <Head>
-        <title>OCI - Assam | About Us</title>
+        <title>B4J | About Us</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="about">
