@@ -31,9 +31,10 @@
     }
 
     h1 {
-      font-size: 1.4rem;
-      font-weight: 500;
-      width: max-content;
+      font-size: 1.375rem;
+      font-weight: 800;
+      line-height: 145%;
+      color: $nav-site-name;
     }
   }
 
@@ -67,6 +68,8 @@
     &.btn-primary {
       padding: 6px 12px;
       font-weight: 400;
+      margin-left: 1.5rem;
+      font-weight: 600;
     }
 
     &:hover {
@@ -173,6 +176,7 @@
 
   &__button {
     margin-right: 1rem;
+    margin-bottom: -4px;
     width: 44px;
     height: 44px;
   }
