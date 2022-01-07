@@ -1,17 +1,16 @@
 import { Share } from "components/icons/ListingIcons";
+import { useRouter } from "next/router";
 
-const ShareModal = () => {
+const ShareModal = ({ title }) => {
+  const router = useRouter();
+
   // open / close sub-menu
   function shareButtonHandler(e: any) {
-    console.log(navigator);
-
     // check if web share api is supported
     if (navigator.share) {
       navigator.share({
-        title:
-          "Union budget data for the Ministry of Law and Justice (2016-17 - 2021-22)",
-        text: "Union budget data for the Ministry of Law and Justice (2016-17 - 2021-22)",
-        url: "http://172.31.47.22:3000/datasets/union-budget-data-for-the-ministry-of-law-and-justice-2016-17-2021-22",
+        text: title,
+        url: `https://budgets.justicehub.in/datasets/${router.query.exploere}`,
       });
     } else {
       // if clicked on already opened menu

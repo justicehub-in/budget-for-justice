@@ -43,6 +43,32 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   const [budgetTypes, setBudgetTypes] = useState([]);
   const [selectedBudgetType, setSelectedBudgetType] = useState("");
   const [showTable, setShowTable] = useState(true);
+  const [showShare, setShowShare] = useState(false);
+
+  useEffect(() => {
+    // ceating tabbed interface for viz selector
+    const tablist = document.querySelector(".viz__tabs");
+    const panels = document.querySelectorAll(".viz figure");
+    tabbedInterface(tablist, panels);
+
+    handleNewVizData("Budget Estimates");
+
+    if (navigator.share) setShowShare(true);
+  }, [fileData]);
+
+  // Run whenever a new indicator is selected
+  useEffect(() => {
+    const budgetType = [
+      ...new Set(indicatorFiltered.map((item) => item.budgetType)),
+    ];
+
+    if (budgetType.includes(selectedBudgetType))
+      handleDropdownChange(selectedBudgetType);
+    else if (selectedBudgetType == "") handleDropdownChange("Total");
+    else if (selectedBudgetType == "NA" && budgetType.length > 1)
+      handleDropdownChange("Total");
+    else handleDropdownChange(budgetType[0]);
+  }, [indicatorFiltered]);
 
   const bannerDetails = {
     heading: "Data Resources",
@@ -69,7 +95,28 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     image: "/assets/icons/zip-file-download.svg",
     color: "#00ABB7",
   };
+  useEffect(() => {
+    // ceating tabbed interface for viz selector
+    const tablist = document.querySelector(".viz__tabs");
+    const panels = document.querySelectorAll(".viz figure");
+    tabbedInterface(tablist, panels);
 
+    handleNewVizData("Budget Estimates");
+  }, [fileData]);
+
+  // Run whenever a new indicator is selected
+  useEffect(() => {
+    const budgetType = [
+      ...new Set(indicatorFiltered.map((item) => item.budgetType)),
+    ];
+
+    if (budgetType.includes(selectedBudgetType))
+      handleDropdownChange(selectedBudgetType);
+    else if (selectedBudgetType == "") handleDropdownChange("Total");
+    else if (selectedBudgetType == "NA" && budgetType.length > 1)
+      handleDropdownChange("Total");
+    else handleDropdownChange(budgetType[0]);
+  }, [indicatorFiltered]);
   const vizToggle = [
     {
       name: "Bar Graph",
@@ -186,29 +233,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     setSelectedBudgetType(val);
     setFinalFiltered(finalFiltered);
   }
-
-  useEffect(() => {
-    // ceating tabbed interface for viz selector
-    const tablist = document.querySelector(".viz__tabs");
-    const panels = document.querySelectorAll(".viz figure");
-    tabbedInterface(tablist, panels);
-
-    handleNewVizData("Budget Estimates");
-  }, [fileData]);
-
-  // Run whenever a new indicator is selected
-  useEffect(() => {
-    const budgetType = [
-      ...new Set(indicatorFiltered.map((item) => item.budgetType)),
-    ];
-
-    if (budgetType.includes(selectedBudgetType))
-      handleDropdownChange(selectedBudgetType);
-    else if (selectedBudgetType == "") handleDropdownChange("Total");
-    else if (selectedBudgetType == "NA" && budgetType.length > 1)
-      handleDropdownChange("Total");
-    else handleDropdownChange(budgetType[0]);
-  }, [indicatorFiltered]);
+  console.log(meta);
 
   return (
     <>
@@ -240,8 +265,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
               data={allData}
             />
           </div>
-
-          <ShareModal />
+          {showShare && <ShareModal title={data.title} />}
         </div>
 
         <section className="explorer__heading container">
@@ -259,11 +283,12 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
           <p>{data.notes}</p>
           <div className="explorer__meta ">
             <span>
-              <strong>Type of Scheme: </strong>Centrally Sponsored Scheme
+              <strong>Type of Scheme: </strong>
+              {meta[1][1]}
             </span>
             <span>
               <strong>Frequency: </strong>
-              {meta[4][1]}
+              {meta[5][1]}
             </span>
           </div>
         </section>

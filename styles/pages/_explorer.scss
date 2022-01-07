@@ -180,7 +180,12 @@
     @include media.narrowerThan("sprout") {
       grid-template-columns: 1fr;
       display: block;
+      margin-top: 1.5rem;
     }
+  }
+
+  .data-alter {
+    margin-top: 2rem;
   }
 
   .viz {

@@ -1,13 +1,6 @@
 @use "../../settings/variables" as *;
 
 .table-container {
-  // overflow-x: auto;
-  // overflow-y: auto;
-
-  @media (max-width: 400px) {
-    display: none;
-  }
-
   table {
     border-collapse: collapse;
     background-color: $grey-5;
@@ -42,14 +35,6 @@
     margin-bottom: 0.5rem;
     font-style: italic;
     text-align: left;
-  }
-
-  .lists-container {
-    display: none;
-
-    @media (max-width: 400px) {
-      display: block;
-    }
   }
 
   dl {

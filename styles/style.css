@@ -2636,11 +2636,6 @@ button {
   }
 }
 
-@media (max-width: 400px) {
-  .table-container {
-    display: none;
-  }
-}
 .table-container table {
   border-collapse: collapse;
   background-color: #EFF2F2;
@@ -2668,14 +2663,6 @@ button {
   margin-bottom: 0.5rem;
   font-style: italic;
   text-align: left;
-}
-.table-container .lists-container {
-  display: none;
-}
-@media (max-width: 400px) {
-  .table-container .lists-container {
-    display: block;
-  }
 }
 .table-container dl {
   display: flex;
@@ -4160,7 +4147,11 @@ button {
   .explorer__viz {
     grid-template-columns: 1fr;
     display: block;
+    margin-top: 1.5rem;
   }
+}
+.explorer .data-alter {
+  margin-top: 2rem;
 }
 .explorer .viz {
   background-color: white;
