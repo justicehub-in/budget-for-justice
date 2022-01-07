@@ -238,7 +238,6 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     setSelectedBudgetType(val);
     setFinalFiltered(finalFiltered);
   }
-  console.log(meta);
 
   return (
     <>
