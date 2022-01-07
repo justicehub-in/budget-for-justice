@@ -11,7 +11,7 @@ function collapseHeader() {
     // with the SVG plus/minus icon
     heading.innerHTML = `
       <button aria-expanded="false">
-        ${heading.textContent}
+        <span>${heading.textContent}</span>
         <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10">
           <rect class="vert" height="8" width="2" y="1" x="4"/>
           <rect height="2" width="8" y="4" x="1"/>
@@ -20,7 +20,7 @@ function collapseHeader() {
     `;
 
     // Function to create a node list
-    // of the content between this <h2> and the next
+    // of the content between this <h3> and the next
     const getContent = (elem) => {
       const elems = [];
       while (
