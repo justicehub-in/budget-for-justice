@@ -32,6 +32,7 @@
     z-index: 10;
     opacity: 0;
     width: 0;
+    isolation: isolate;
 
     &::before {
       border-left: 0.8em solid transparent;

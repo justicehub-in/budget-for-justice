@@ -111,7 +111,6 @@ body {
   line-height: 1;
 }
 
-ol,
 ul {
   list-style: none;
 }
@@ -2573,6 +2572,7 @@ button {
   z-index: 10;
   opacity: 0;
   width: 0;
+  isolation: isolate;
 }
 .toggle [role=status]::before {
   border-left: 0.8em solid transparent;
@@ -4388,16 +4388,14 @@ button {
   margin-inline: auto;
   max-width: 1008px;
 }
-.faq__content > div {
-  border-radius: 8px;
-  background-color: white;
-  margin-top: 1.5rem;
-}
 .faq__content h3 {
   font-weight: 800;
   font-size: 18px;
   line-height: 156%;
   cursor: pointer;
+  border-radius: 8px;
+  background-color: white;
+  margin-top: 1.5rem;
 }
 .faq__content h3 button {
   padding: 1rem;
@@ -4420,11 +4418,20 @@ button {
   height: 1em;
   margin-left: 0.5em;
 }
-.faq__content p {
+.faq__content p,
+.faq__content ol,
+.faq__content ul {
   font-weight: 500;
   line-height: 175%;
-  margin-top: 0.5rem;
   padding: 0 1rem 1rem;
+  background-color: white;
+}
+.faq__content ol {
+  padding-left: 2rem;
+  list-style: decimal;
+}
+.faq__content ol li > ul, .faq__content ol ol {
+  list-style: lower-alpha;
 }
 .faq__content [aria-expanded=true] {
   color: #00abb7;

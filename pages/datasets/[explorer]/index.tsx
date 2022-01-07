@@ -16,7 +16,6 @@ import { Download, ArrowForward } from "components/icons/ListingIcons";
 import Indicator from "components/analytics/Indicator";
 import Modal from "react-modal";
 import SimpleBarLineChartViz from "components/viz/SimpleBarLineChart";
-import DataAlter from "components/datasets/DataAlter";
 import Banner from "components/_shared/Banner";
 import { resourceGetter } from "utils/resourceParser";
 import Dropdown from "components/_shared/dropdown";
@@ -37,13 +36,21 @@ type Props = {
 
 const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   const [schemeModalOpen, setSchemeModalOpen] = useState(false);
-  const [shareModalOpen, setShareModalOpen] = useState(false);
   const [indicatorFiltered, setIndicatorFiltered] = useState([]);
   const [finalFiltered, setFinalFiltered] = useState([]);
   const [budgetTypes, setBudgetTypes] = useState([]);
   const [selectedBudgetType, setSelectedBudgetType] = useState("");
   const [showTable, setShowTable] = useState(true);
   const [showShare, setShowShare] = useState(false);
+
+  // todo: make it dynamic lie scheme dashboard
+  const IndicatorDesc = [
+    meta["Indicator 1 - Description"],
+    meta["Indicator 2 - Description"],
+    meta["Indicator 3 - Description"],
+    meta["Indicator 4 - Description"],
+    meta["Indicator 5 - Description"],
+  ];
 
   useEffect(() => {
     // ceating tabbed interface for viz selector
@@ -231,6 +238,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     setSelectedBudgetType(val);
     setFinalFiltered(finalFiltered);
   }
+  console.log(meta);
 
   return (
     <>
@@ -281,11 +289,11 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
           <div className="explorer__meta ">
             <span>
               <strong>Type of Scheme: </strong>
-              {meta[1][1]}
+              {meta["Type of Scheme"]}
             </span>
             <span>
               <strong>Frequency: </strong>
-              {meta[5][1]}
+              {meta["Frequency"]}
             </span>
           </div>
         </section>
@@ -316,11 +324,16 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
           <IndicatorAlter
             indicators={data.indicators}
             newIndicator={handleNewVizData}
+            meta={IndicatorDesc}
           />
         </div>
 
         <section className="explorer__viz container">
-          <Indicator data={data.indicators} newIndicator={handleNewVizData} />
+          <Indicator
+            data={data.indicators}
+            meta={IndicatorDesc}
+            newIndicator={handleNewVizData}
+          />
           <div className="viz">
             <div className="viz__header">
               {/* viz selector toggle */}
@@ -361,7 +374,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
 
             <div className="explorer__source">
               <strong>Data Source: </strong>
-              <p>{meta[2][1]}</p>
+              <p>{meta["Data Source"]}</p>
             </div>
           </div>
           {/* <button className="btn-secondary" onClick={handleButtonClick}>
@@ -442,7 +455,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await fetchAPI(context.query.explorer).then((res) =>
     explorerPopulation(res.result)
   );
-  const meta = await resourceGetter(data.metaUrl);
+  const metaRes = await resourceGetter(data.metaUrl);
+  const meta = {};
+  metaRes.forEach((elm) => {
+    meta[elm[0]] = elm[1] || "";
+  });
+
   const fileData = await resourceGetter(data.dataUrl, true);
   const relatedSchemes = await fetchFromTags(data.tags, data.id);
   const indicators = [...new Set(fileData.map((item) => item.indicators))];

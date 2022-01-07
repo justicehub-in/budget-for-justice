@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
+import Toggle from "components/_shared/Toggle";
+
 Modal.setAppElement("#__next");
 
-const IndicatorAlter = ({ indicators, newIndicator }) => {
+const IndicatorAlter = ({ indicators, newIndicator, meta }) => {
   const [sortIsOpen, setSortIsOpen] = useState(false);
   const [currentSort, setCurrentSort] = useState("Budget Estimates mobile");
   const [selectedSort, setSelectedSort] = useState("Budget Estimates mobile");
@@ -69,7 +71,7 @@ const IndicatorAlter = ({ indicators, newIndicator }) => {
                 />
               </svg>
             </div>
-            Sort Results
+            Indicators
           </button>
         </div>
       </div>
@@ -101,7 +103,7 @@ const IndicatorAlter = ({ indicators, newIndicator }) => {
                   name="sort-group"
                   id={`${elm} mobile`}
                 />
-                {elm}
+                {elm} <Toggle data={meta[index]} />
               </label>
             );
           })}

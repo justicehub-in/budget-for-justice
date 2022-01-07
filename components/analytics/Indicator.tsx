@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
+import Toggle from "components/_shared/Toggle";
 
-const Indicator = ({ data, newIndicator }) => {
+const Indicator = ({ data, newIndicator, meta }) => {
   useEffect(() => {
     (document.getElementById("Budget Estimates") as HTMLInputElement).checked =
       true;
@@ -25,7 +26,9 @@ const Indicator = ({ data, newIndicator }) => {
                 id={item}
                 value={item}
               />
-              <label htmlFor={item}>{item}</label>
+              <label htmlFor={item}>
+                {item} <Toggle data={meta[index]} />
+              </label>
             </div>
           ))}
       </fieldset>

@@ -1,6 +1,9 @@
+import { GetServerSideProps } from "next";
 import React, { useEffect } from "react";
 import Head from "next/head";
 import Banner from "components/_shared/Banner";
+import { Converter } from "showdown";
+import fs from "fs";
 
 function collapseHeader() {
   // Get all the <h2> headings
@@ -86,7 +89,7 @@ const bannerDetails = {
   color: "#F65940",
 };
 
-const Faq = () => {
+const Faq = ({ content }) => {
   useEffect(() => {
     collapseHeader();
   }, []);
@@ -104,52 +107,22 @@ const Faq = () => {
             industry.
           </p>
         </div>
-        <div className="faq__content">
-          <div>
-            <h3>
-              Neque congue ut duis vestibulum porttitor pellentesque vel?
-            </h3>
-            <p>
-              Consectetur viverra nec non elit lorem sit eget. Sollicitudin cum
-              faucibus pulvinar fusce. Quisque euismod orci fusce et nibh
-              potenti. Aliquet sit enim ut nunc morbi bibendum fames.
-              Sollicitudin sagittis, senectus at scelerisque. Egestas sed quam
-              porttitor cursus elit. Nulla ligula quisque velit ut neque dui.
-              Adipiscing volutpat viverra viverra id sit. Lacus, arcu facilisis
-              et id donec urna egestas. Auctor dictum lorem nisi commodo non a
-              dipiscing. In sollicitudin pretium vitae tellus euismod nibh
-              egestas. In arcu viverra et semper arcu eget. Porta eget nunc at
-              velit enim adipiscing enim. Arcu arcu nulla congue a sed.
-            </p>
-          </div>
-
-          <div>
-            <h3>
-              Elementum enim metus, praesent turpis in vestibulum tellus?
-            </h3>
-            <p>
-              Consectetur viverra nec non elit lorem sit eget. Sollicitudin cum
-              faucibus pulvinar fusce. Quisque euismod orci fusce et nibh
-              potenti. Aliquet sit enim ut nunc morbi bibendum fames.
-              Sollicitudin sagittis, senectus at scelerisque. Egestas sed quam
-              porttitor cursus elit. Nulla ligula quisque velit ut neque dui.
-              Adipiscing volutpat viverra viverra id sit.
-            </p>
-          </div>
-
-          <div>
-            <h3>Risus id vulputate metus, augue?</h3>
-            <p>
-              Porta eget nunc at velit enim adipiscing enim. Arcu arcu nulla
-              congue a sed.
-            </p>
-          </div>
-        </div>
+        <div
+          className="faq__content"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
 
         <Banner details={bannerDetails} />
       </main>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  let content = fs.readFileSync(`data/faq.md`, "utf8");
+  const converter = new Converter();
+  content = converter.makeHtml(content);
+  return { props: { content } };
 };
 
 export default Faq;

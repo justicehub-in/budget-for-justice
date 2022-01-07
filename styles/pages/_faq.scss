@@ -14,17 +14,21 @@
     margin-inline: auto;
     max-width: 1008px;
 
-    > div {
-      border-radius: 8px;
-      background-color: $bg-lightest;
-      margin-top: 1.5rem;
-    }
+    // > div {
+    //   border-radius: 8px;
+    //   background-color: $bg-lightest;
+    //   margin-top: 1.5rem;
+    // }
 
     h3 {
       font-weight: 800;
       font-size: 18px;
       line-height: 156%;
       cursor: pointer;
+
+      border-radius: 8px;
+      background-color: $bg-lightest;
+      margin-top: 1.5rem;
 
       button {
         padding: 1rem;
@@ -52,11 +56,22 @@
       }
     }
 
-    p {
+    p,
+    ol,
+    ul {
       font-weight: 500;
       line-height: 175%;
-      margin-top: 0.5rem;
       padding: 0 1rem 1rem;
+      background-color: $bg-lightest;
+    }
+
+    ol {
+      padding-left: 2rem;
+      list-style: decimal;
+
+       li > ul, ol {
+        list-style: lower-alpha;
+      }
     }
 
     [aria-expanded="true"] {
