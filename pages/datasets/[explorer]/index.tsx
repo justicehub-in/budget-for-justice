@@ -25,7 +25,7 @@ import Table from "components/_shared/Table";
 import { downloadPackage } from "utils/downloadPackage";
 import SchemeModal from "components/explorer/SchemeModal";
 import ShareModal from "components/explorer/ShareModal";
-
+import IndicatorAlter from "components/explorer/IndicatorAlter";
 Modal.setAppElement("#__next");
 
 type Props = {
@@ -216,16 +216,14 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     setSchemeModalOpen(!schemeModalOpen);
   }
 
-  function shareModalHandler() {
-    setShareModalOpen(!shareModalOpen);
-  }
-
   function handleNewVizData(val: any) {
-    const filtered = filter_data_indicator(fileData, val);
-    const budgetType = [...new Set(filtered.map((item) => item.budgetType))];
+    if (val) {
+      const filtered = filter_data_indicator(fileData, val);
+      const budgetType = [...new Set(filtered.map((item) => item.budgetType))];
 
-    setIndicatorFiltered(filtered);
-    setBudgetTypes(budgetType);
+      setIndicatorFiltered(filtered);
+      setBudgetTypes(budgetType);
+    }
   }
 
   function handleDropdownChange(val: any) {
@@ -233,7 +231,6 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     setSelectedBudgetType(val);
     setFinalFiltered(finalFiltered);
   }
-  console.log(meta);
 
   return (
     <>
@@ -316,12 +313,9 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
         </section> */}
 
         <div className="container">
-          <DataAlter
-            // data={indicatorsList}
-            newData={handleNewVizData}
-            sortShow={false}
+          <IndicatorAlter
+            indicators={data.indicators}
             newIndicator={handleNewVizData}
-            // indicators={indicators}
           />
         </div>
 

@@ -133,7 +133,7 @@ const DataAlter: React.FC<{
         if (document.querySelector("#modalSort"))
           document
             .querySelector("#modalSort")
-            .addEventListener("change", (e: any) => {
+            .removeEventListener("change", (e: any) => {
               setSelectedSort(e.target.value);
             });
       };
