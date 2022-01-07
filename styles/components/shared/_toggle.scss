@@ -19,7 +19,7 @@
 
   [role="status"] {
     position: absolute;
-    max-width: 60vw;
+    max-width: 50vw;
     font-weight: normal;
     font-size: 12px;
     line-height: 14px;
@@ -28,7 +28,7 @@
     border: $border-1;
     border-radius: 4px;
     bottom: 150%;
-    left: -20%;
+    left: -8rem;
     z-index: 10;
     opacity: 0;
     width: 0;
@@ -41,17 +41,17 @@
       bottom: -0.8em;
       content: " ";
       height: 0;
-      left: 2%;
+      left: 8rem;
       width: 0;
       position: absolute;
       z-index: 9;
     }
 
     @include media.narrowerThan("seed") {
-      left: -100px;
+      left: -10rem;
 
       &::before {
-        left: 50%;
+        left: 10rem;
       }
     }
   }

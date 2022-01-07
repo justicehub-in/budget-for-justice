@@ -1776,7 +1776,6 @@ button {
 
 .ReactModal__Body--open {
   position: static;
-  overflow-y: scroll;
 }
 
 .ReactModal__Html--open {
@@ -1829,14 +1828,16 @@ button {
 .dialog__body {
   padding: 2rem;
   padding-top: 0;
-  max-height: 50vh;
-  overflow-y: auto;
+  max-height: 70vh;
 }
 .dialog__body label {
   display: flex;
   margin-top: 1.5rem;
   align-items: center;
   font-weight: 500;
+}
+.dialog__body label .toggle {
+  margin-left: 1rem;
 }
 @media screen and (max-width: 719px) {
   .dialog__body {
@@ -2559,7 +2560,7 @@ button {
 }
 .toggle [role=status] {
   position: absolute;
-  max-width: 60vw;
+  max-width: 50vw;
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
@@ -2568,7 +2569,7 @@ button {
   border: 1px solid #cdd1d1;
   border-radius: 4px;
   bottom: 150%;
-  left: -20%;
+  left: -8rem;
   z-index: 10;
   opacity: 0;
   width: 0;
@@ -2581,17 +2582,17 @@ button {
   bottom: -0.8em;
   content: " ";
   height: 0;
-  left: 2%;
+  left: 8rem;
   width: 0;
   position: absolute;
   z-index: 9;
 }
 @media screen and (max-width: 479px) {
   .toggle [role=status] {
-    left: -100px;
+    left: -10rem;
   }
   .toggle [role=status]::before {
-    left: 50%;
+    left: 10rem;
   }
 }
 
@@ -2606,7 +2607,6 @@ button {
   height: max-content;
   max-height: 776px;
   padding: 1.5rem;
-  overflow-y: auto;
   height: 100%;
 }
 .indicator::-webkit-scrollbar {

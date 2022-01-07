@@ -3,7 +3,7 @@
 
 .ReactModal__Body--open {
   position: static;
-  overflow-y: scroll;
+  // overflow-y: scroll;
 }
 
 .ReactModal__Html--open {
@@ -61,14 +61,18 @@
   &__body {
     padding: 2rem;
     padding-top: 0;
-    max-height: 50vh;
-    overflow-y: auto;
+    max-height: 70vh;
+    // overflow-y: auto;
 
     label {
       display: flex;
       margin-top: 1.5rem;
       align-items: center;
       font-weight: 500;
+
+      .toggle {
+        margin-left: 1rem;
+      }
     }
 
     @include media.narrowerThan("seedling") {
