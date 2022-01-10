@@ -1,24 +1,42 @@
-const didYouKnow = [
-  {
-    content:
-      "Approved cost for the eCourts Phase II Schemes in 2015 was Rs. 1670 crores for 4 years, of which approximately 70% has been utilized so far.",
-  },
-  {
-    content:
-      "In 2021, a new scheme - SAMBAL - was introduced under the Ministry of Women and Child Development by combining the budgets for 7 other schemes, including One Stop Center and Mahila Police Volunteers.",
-  },
-  {
-    content:
-      "Expenditure on nation-wide elections, on average, formed  x% of total expenditure of law and justice ministry between 2015-16 and 2019-20.",
-  },
-];
-const Header = () => {
+import React, { useEffect, useState } from "react";
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
+
+const Header = ({ data }) => {
+  console.log(data);
+
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    // shuffle and select 3
+    const selectedList = shuffle(data);
+    const slicedList = selectedList.slice(0, 3);
+    setList(slicedList);
+  }, [data]);
+
   return (
     <section className="home-header">
       <div className="container wrapper">
         <h2>Did you know?</h2>
         <ul>
-          {didYouKnow.map((item, index) => (
+          {list.map((item, index) => (
             <li key={`homeHeader-${index}`}>
               <span></span> {item.content}
             </li>

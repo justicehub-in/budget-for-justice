@@ -286,14 +286,18 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
           </div>
           <p>{data.notes}</p>
           <div className="explorer__meta ">
-            <span>
-              <strong>Type of Scheme: </strong>
-              {meta["Type of Scheme"]}
-            </span>
-            <span>
-              <strong>Frequency: </strong>
-              {meta["Frequency"]}
-            </span>
+            {meta["Type of Scheme"] && (
+              <span>
+                <strong>Type of Scheme: </strong>
+                {meta["Type of Scheme"]}
+              </span>
+            )}
+            {meta["Frequency"] && (
+              <span>
+                <strong>Frequency: </strong>
+                {meta["Frequency"]}
+              </span>
+            )}
           </div>
         </section>
 

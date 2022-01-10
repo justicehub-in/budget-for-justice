@@ -1383,7 +1383,7 @@ button {
 }
 
 .m-navbar {
-  background-color: #06464a;
+  background-color: #00abb7;
   color: #fdfcfc;
 }
 .m-navbar a {
@@ -1393,14 +1393,17 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f17777;
+  background-color: #06464a;
   height: 4rem;
   padding-left: 1.5rem;
+  font-weight: 800;
+  font-size: 1.375rem;
 }
 .m-navbar__header button {
   height: 100%;
   width: 4rem;
   font-size: 1.5rem;
+  font-weight: 600;
 }
 .m-navbar .navbar__item {
   padding: 1rem 1.5rem;
@@ -1408,7 +1411,13 @@ button {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  line-height: 2rem;
+  line-height: 175%;
+  font-weight: bold;
+  border-bottom: 1px solid #cdd1d1;
+  width: 90%;
+}
+.m-navbar .navbar__item--active {
+  font-weight: 800;
 }
 .m-navbar .navbar__item[type=button]::after {
   border-bottom: 2px solid #fdfcfc;
@@ -1426,13 +1435,13 @@ button {
   transition: transform 300ms ease;
 }
 .m-navbar .navbar__item[aria-expanded=true] {
-  background-color: #f17777;
+  background-color: #00abb7;
 }
 .m-navbar .navbar__item[aria-expanded=true]::after {
   transform: rotate(-135deg);
 }
 .m-navbar .navbar__item[aria-expanded=true] + ul {
-  background-color: #f17777;
+  background-color: #00abb7;
   padding-bottom: 1rem;
 }
 .m-navbar__nested {

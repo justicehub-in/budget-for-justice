@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { tabbedInterface } from "utils/index";
 
-export const schemeList = [
+export const insightList = [
   {
     selector: "01",
     header: "eCourts Phase II",
@@ -22,7 +22,7 @@ export const schemeList = [
   },
 ];
 
-const Insights = () => {
+const Insights = ({ insightList }) => {
   useEffect(() => {
     // create tabbed interface for schemes
     const tablist = document.getElementById("schemeSelector");
@@ -37,7 +37,7 @@ const Insights = () => {
       <div className="container">
         <h2 className="sr-only">Schemes Insight</h2>
         <ul id="schemeSelector" role="tablist">
-          {schemeList.map((scheme: any, index: number) => (
+          {insightList.map((scheme: any, index: number) => (
             <li role="presentation" key={`schemeSelector-${index}`}>
               <a
                 role="tab"
@@ -52,7 +52,7 @@ const Insights = () => {
           ))}
         </ul>
         <div className="home-insights__content">
-          {schemeList.map((scheme: any, index: number) => (
+          {insightList.map((scheme: any, index: number) => (
             <section
               key={`scheme-news-${index}`}
               id={`scheme-${scheme.selector}`}

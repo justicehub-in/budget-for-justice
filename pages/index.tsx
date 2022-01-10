@@ -3,33 +3,15 @@ import Head from "next/head";
 import Carousel from "components/home/Carousel";
 import Header from "components/home/Header";
 import Video from "components/home/Video";
-import Latest from "components/home/Latest";
+// import Latest from "components/home/Latest";
 import Insights from "components/home/Insights";
-import News from "components/home/News";
+// import News from "components/home/News";
 import Banner from "components/_shared/Banner";
 import Slider from "components/_shared/Slider";
-import { contributors } from "data/placeholder";
+import * as data from "data/home";
+console.log(data);
 
-const bannerDetails = {
-  heading: "Placeholder Text for Heading",
-  content: (
-    <>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industrys standard dummy text ever
-        since the 1500s.
-      </p>
-      <p>
-        For more information connect us at{" "}
-        <a href="#">collaborate@civicdatalab.in</a>
-      </p>
-    </>
-  ),
-  image: "/assets/icons/send-email-fly-blue.svg",
-  color: "#00ABB7",
-};
-
-const Home: React.FC<{ forumData: any }> = () => {
+const Home: React.FC = () => {
   return (
     <>
       <Head>
@@ -37,20 +19,20 @@ const Home: React.FC<{ forumData: any }> = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="home">
-        <Header />
-        <Video />
+        <Header data={data.didYouKnow} />
+        <Video data={data.video} />
         {/* <Latest /> */}
 
-        <Carousel />
+        <Carousel data={data.carousel} />
 
-        <Insights />
+        <Insights insightList={data.Insights} />
         {/* <News /> */}
 
         <div className="home__banner">
-          <Banner details={bannerDetails} />
+          <Banner details={data.CTA} />
         </div>
 
-        <Slider data={contributors} />
+        <Slider data={data.contributors} />
       </main>
     </>
   );

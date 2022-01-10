@@ -191,7 +191,7 @@
 }
 
 .m-navbar {
-  background-color: $nav-bg;
+  background-color: $nav-bg-2;
   color: $nav-text;
 
   a {
@@ -202,14 +202,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $nav-bg-2;
+    background-color: $nav-bg;
     height: 4rem;
     padding-left: 1.5rem;
+    font-weight: 800;
+    font-size: 1.375rem;
+
 
     button {
       height: 100%;
       width: 4rem;
       font-size: 1.5rem;
+      font-weight: 600;
     }
   }
 
@@ -219,7 +223,14 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    line-height: 2rem;
+    line-height: 175%;
+    font-weight: bold;
+    border-bottom: $nav-border;
+    width: 90%;
+    
+    &--active {
+      font-weight: 800;
+    }
 
     &[type="button"] {
       &::after {

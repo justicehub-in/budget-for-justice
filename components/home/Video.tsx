@@ -1,4 +1,4 @@
-const Video = () => {
+const Video = ({ data }) => {
   return (
     <section className="home-video container">
       <div className="home-video__item">
@@ -10,11 +10,8 @@ const Video = () => {
         />
       </div>
       <div className="home-video__desc">
-        <h2 className="heading">Here’s what we do!</h2>
-        <p>
-          Watch a quick introduction on what you can do using Budget for
-          Justice.
-        </p>
+        <h2 className="heading">{data.heading}</h2>
+        <p>{data.text}</p>
       </div>
     </section>
   );
