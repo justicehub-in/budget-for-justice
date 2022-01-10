@@ -22,16 +22,20 @@
   }
 
   a {
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+
     display: block;
     margin-bottom: 2rem;
     display: flex;
     align-items: center;
     line-height: 1.5;
     font-weight: 600;
+    transition: text-decoration-color 0.3s ease, transform 0.3s ease;
 
     &:hover {
-      font-weight: 700;
+      text-decoration-color: currentColor;
+      transform: translateX(22px);
 
       span {
         background-color: $color-primary;
@@ -42,6 +46,8 @@
 
   span {
     background-color: $bg-light;
+    text-decoration: none;
+    display: inline-block;
     padding: 1rem;
     font-weight: 700;
     margin-right: 1rem;
@@ -49,5 +55,6 @@
     border: 2px solid $color-primary;
     border-radius: 50%;
     line-height: 1.2;
+    transition: color 0.3s ease, background-color 0.3s ease;
   }
 }

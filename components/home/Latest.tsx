@@ -13,7 +13,7 @@ const Latest = () => {
         {latest.map((news, index) => (
           <li key={`latest-${index}`}>
             <a href={news.link}>
-              <span>{`0${index + 1}`}</span> <p>{news.name}</p>
+              <span>{`0${index + 1}`}</span> {news.name}
             </a>
           </li>
         ))}

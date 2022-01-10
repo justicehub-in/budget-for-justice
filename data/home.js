@@ -19,18 +19,11 @@ export const video = {
   text: "Watch a quick introduction on what you can do using Budget for Justice.",
 };
 
-export const carousel = [
-  {
-    text: " This collaborative initiative between Justice Hub and Civis seeks to make open data on budgets from the Union and State governments of India accessible, usable and comprehensible for the law and justice sector so we can stay informed on budget availability and financial capacity of the sector.",
-    link: "/about",
-    image: "/assets/icons/home_carousel.svg",
-  },
-  {
-    text: "Data a more resilient justice system, accessible so that citizens can demand a more resilient justice system.",
-    link: "/",
-    image: "/assets/icons/home_carousel.svg",
-  },
-];
+export const carousel = {
+  text: " This collaborative initiative between Justice Hub and Civis seeks to make open data on budgets from the Union and State governments of India accessible, usable and comprehensible for the law and justice sector so we can stay informed on budget availability and financial capacity of the sector.",
+  link: "/about",
+  image: "/assets/icons/home_carousel.svg",
+};
 
 export const Insights = [
   {

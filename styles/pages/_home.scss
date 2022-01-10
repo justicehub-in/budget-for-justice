@@ -14,6 +14,44 @@
     line-height: 1.5;
   }
 
+  &__about {
+    background-color: $color-teal-1;
+    margin-top: 7rem;
+    text-align: center;
+    width: 100%;
+    padding-top: 5.5rem;
+    padding-bottom: 10rem;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.5;
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.5;
+      color: $color-green;
+      max-width: 800px;
+      margin-top: 3rem;
+    }
+
+    a {
+      margin-top: 2.5rem;
+      margin-inline: auto;
+      font-weight: bold;
+      line-height: 175%;
+      padding: 12px 24px;
+    }
+  }
+
   .carousel {
     background-color: transparent;
     margin-top: 7rem;

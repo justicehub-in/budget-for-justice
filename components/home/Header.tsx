@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
@@ -20,8 +21,6 @@ function shuffle(array) {
 }
 
 const Header = ({ data }) => {
-  console.log(data);
-
   const [list, setList] = useState([]);
 
   useEffect(() => {
