@@ -2,12 +2,13 @@
 
 .home-video {
   position: relative;
+  background: url('/assets/images/home-bg.jpg') no-repeat;
 
-  figure {
-    position: absolute;
-    inset: 0;
-    top: 0;
-  }
+  // figure {
+  //   position: absolute;
+  //   inset: 0;
+  //   top: 0;
+  // }
 
   &__content {
     padding-top: 4.75rem;
@@ -25,7 +26,8 @@
   }
 
   &__item {
-    margin-top: 12rem;
+    margin-top: 4rem;
+    margin-bottom: -4rem;
 
     img {
       filter: $drop-shadow;

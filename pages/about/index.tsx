@@ -26,10 +26,10 @@ const About = () => {
             </p>
           </div>
 
-          <h3>For Budgets for Justice, we have:</h3>
+          <p className="about__bold">For Budgets for Justice, we have:</p>
           <ol>
             <li>
-              <a href="https://justicehub.in/dataset?groups=budget-for-justice">
+              <a href="https://justicehub.in/dataset?groups=budgets-for-justice">
                 Curated datasets
               </a>{" "}
               which include budget data between the years 2015-16 and 2021-22
@@ -48,6 +48,7 @@ const About = () => {
               budgeting process and the data.
             </li>
           </ol>
+          <br />
           <p>
             To learn more about the data and understand our methodology, please
             see our{" "}

@@ -102,30 +102,6 @@ export const allNews = [
     image: "",
     link: "",
   },
-  {
-    heading: "Title for the published news and placeholder for all others",
-    para: "Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story",
-    publisher: "The Hindu",
-    tag: "Data for Justice",
-    image: "",
-    link: "",
-  },
-  {
-    heading: "Title for the published news and placeholder for all others",
-    para: "Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story",
-    publisher: "Live Law",
-    tag: "Data for Justice",
-    image: "",
-    link: "",
-  },
-  {
-    heading: "Title for the published news and placeholder for all others",
-    para: "Data analysis feature helps you view, analyze and use the procurement data of Assam. See stories and post done using this dataset. You can also contribute your own story",
-    publisher: "Times of India",
-    tag: "Data for Justice",
-    image: "",
-    link: "",
-  },
 ];
 
 export const latest = [

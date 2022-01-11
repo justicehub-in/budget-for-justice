@@ -12,15 +12,8 @@ import {
 } from "components/icons/ListingIcons";
 import { ToggleData } from "data/placeholder";
 import Toggle from "components/_shared/Toggle";
-import { datasetPopulation } from "utils";
+import { datasetPopulation, categoryIcon } from "utils";
 import { useSearch } from "utils/search";
-
-function categoryIcon(tags: any) {
-  if (tags.includes("Ministry of Law and Justice")) return <LawJustice />;
-  // else if (tags.includes("Ministry of Law and Justice")) return <WomenChild />;
-  // else if (tags.includes("Ministry of Law and Justice")) return <Police />;
-  else return <HomeAffairs />;
-}
 
 const Lisitng = ({ data }) => {
   const [filteredObj, setFilteredObj] = useState(data);
@@ -150,13 +143,13 @@ const Lisitng = ({ data }) => {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const ministry = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:ministry AND groups:budget-for-justice)&rows=200"
+    "https://justicehub.in/api/3/action/package_search?fq=(tags:ministry AND groups:budgets-for-justice)&rows=200"
   ).then((res) => res.json());
   const scheme = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme AND groups:budget-for-justice)&rows=200"
+    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme AND groups:budgets-for-justice)&rows=200"
   ).then((res) => res.json());
   const category = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme-category AND groups:budget-for-justice)&rows=200"
+    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme-category AND groups:budgets-for-justice)&rows=200"
   ).then((res) => res.json());
   const data = {
     ministry: datasetPopulation(ministry.result.results),

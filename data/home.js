@@ -15,8 +15,8 @@ export const didYouKnow = [
 
 export const video = {
   link: "/",
-  heading: "Here’s what we do!",
-  text: "Watch a quick introduction on what you can do using Budget for Justice.",
+  heading: "Explore Budgets for Justice",
+  text: " Explore the Union Budget Datasets from last 5 years for selected schemes related to Law and Justice",
 };
 
 export const carousel = {
@@ -47,17 +47,25 @@ export const Insights = [
 ];
 
 export const CTA = {
-  heading: "Placeholder Text for Heading",
+  heading: "Want to learn more about budgets data for law and justice?",
   content: (
     <>
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industrys standard dummy text ever
-        since the 1500s.
+        Tune into our conversations with experts from the field of public
+        finance and law. Join us on{" "}
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://twitter.com/JusticeHubIndia"
+        >
+          Twitter
+        </a>
+        to know more about the upcoming events.
       </p>
+      <br />
       <p>
-        For more information connect us at{" "}
-        <a href="#">collaborate@civicdatalab.in</a>
+        Have more queries? Write to us at{" "}
+        <a href="mailto:info@justicehub.in">info[at]justicehub.in</a>
       </p>
     </>
   ),
