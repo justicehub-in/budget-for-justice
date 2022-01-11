@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Modal from "react-modal";
+import { ArrowForward } from "components/icons/ListingIcons";
 // import Hamburger from 'public/assets/icons/hamburger.svg';
 Modal.setAppElement("#__next");
 
@@ -10,25 +11,19 @@ const navName = "Budget for Justice";
 
 const navList = [
   {
-    link: "/",
-    name: "Home",
-  },
-  {
-    link: "/explore",
-    name: "Featured",
-  },
-  {
-    link: "/about",
-    name: "About Us",
-  },
-  {
-    link: "/#",
-    name: "Resources",
-  },
-  {
-    link: "/faq",
-    name: "FAQs",
-    hasSubMenu: false,
+    // link: "/#",
+    name: "All Menu",
+    hasSubMenu: true,
+    subMenu: [
+      {
+        link: "/about",
+        name: "About Us",
+      },
+      {
+        link: "/faq",
+        name: "FAQs",
+      },
+    ],
   },
   {
     link: "/datasets",
@@ -116,7 +111,10 @@ const Nav: React.FC = () => {
                           <li key={`submenuItem-${index}`}>
                             <Link href={subMenuItem.link}>
                               <a>
-                                {subMenuItem.name} <span>&#x279D;</span>
+                                {subMenuItem.name}{" "}
+                                <span>
+                                  <ArrowForward />
+                                </span>
                               </a>
                             </Link>
                           </li>
@@ -232,7 +230,10 @@ const Nav: React.FC = () => {
                               href={subMenuItem.link}
                               onClick={mobileNavHandler}
                             >
-                              {subMenuItem.name} <span>&#x279D;</span>
+                              {subMenuItem.name}{" "}
+                              <span>
+                                <ArrowForward />
+                              </span>
                             </a>
                           </Link>
                         </li>

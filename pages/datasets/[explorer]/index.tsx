@@ -12,7 +12,11 @@ import {
   fetchFromTags,
   datasetPopulation,
 } from "utils";
-import { Download, ArrowForward } from "components/icons/ListingIcons";
+import {
+  Download,
+  ArrowForward,
+  ExternalLink,
+} from "components/icons/ListingIcons";
 import Indicator from "components/analytics/Indicator";
 import Modal from "react-modal";
 import SimpleBarLineChartViz from "components/viz/SimpleBarLineChart";
@@ -87,7 +91,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
             className="btn-primary-invert"
             href={`https://justicehub.in/dataset/${data.id}`}
           >
-            Go to JusticeHub
+            Go to JusticeHub <ExternalLink />
           </a>
           <button
             className="btn-primary"
@@ -97,6 +101,22 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
             Download Data Package <Download />
           </button>
         </div>
+        <p className="banner__notice">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            fill="none"
+            viewBox="0 0 14 14"
+          >
+            <path
+              fill="#fff"
+              d="M7 .333A6.665 6.665 0 0 0 .333 7 6.665 6.665 0 0 0 7 13.667 6.665 6.665 0 0 0 13.666 7 6.665 6.665 0 0 0 7 .333Zm.666 10H6.333v-4h1.333v4Zm0-5.333H6.333V3.667h1.333V5Z"
+            />
+          </svg>
+          You’ll get all the raw related to this scheme data for your further
+          manual exploration.
+        </p>
       </>
     ),
     image: "/assets/icons/zip-file-download.svg",
@@ -246,60 +266,51 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="explorer">
-        <div className="explorer__breadcrumb container">
-          <a href="/">
-            Home <ArrowForward />
-          </a>
-        </div>
-
-        <div className="explorer__buttons container">
-          <div className="explorer__scheme-change">
-            <a href="/datasets" className="btn-secondary">
-              Select Another Scheme
+        <div className="explorer__header">
+          <div className="explorer__breadcrumb container">
+            <a href="/">
+              Home <ArrowForward />
             </a>
-            <button
-              className="btn-secondary "
-              onClick={() => schemeModalHandler()}
-            >
-              Select Another Scheme
-            </button>
-            <SchemeModal
-              isOpen={schemeModalOpen}
-              handleModal={schemeModalHandler}
-              data={allData}
-            />
           </div>
-          {showShare && <ShareModal title={data.title} />}
-        </div>
 
-        <section className="explorer__heading container">
-          <div className="explorer__content">
-            <figure>{categoryIcon(data.tags)}</figure>
-            <div>
-              <h2>{data.title}</h2>
-              <ul>
-                {data.tags.map((item, index) => (
-                  <li key={`explorer-${index}`}>{item}</li>
-                ))}
-              </ul>
+          <div className="explorer__buttons container">
+            <div className="explorer__scheme-change">
+              <a href="/datasets" className="btn-secondary">
+                Select Another Scheme
+              </a>
+              <button
+                className="btn-secondary"
+                onClick={() => schemeModalHandler()}
+              >
+                Select Another Scheme
+              </button>
+              <SchemeModal
+                isOpen={schemeModalOpen}
+                handleModal={schemeModalHandler}
+                data={allData}
+              />
             </div>
+            {showShare && <ShareModal title={data.title} />}
           </div>
-          <p>{data.notes}</p>
-          <div className="explorer__meta ">
-            {meta["Type of Scheme"] && (
-              <span>
-                <strong>Type of Scheme: </strong>
-                {meta["Type of Scheme"]}
-              </span>
-            )}
-            {meta["Frequency"] && (
-              <span>
-                <strong>Frequency: </strong>
-                {meta["Frequency"]}
-              </span>
-            )}
-          </div>
-        </section>
+
+          <section className="explorer__heading container">
+            <div className="explorer__content">
+              <figure>{categoryIcon(data.tags)}</figure>
+              <div>
+                <h2>{data.title}</h2>
+                <ul>
+                  {data.tags.map((item, index) => (
+                    <li key={`explorer-${index}`}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <p>{data.notes}</p>
+            <div className="explorer__meta ">
+              {meta["Type of Scheme"] && <span>{meta["Type of Scheme"]}</span>}
+            </div>
+          </section>
+        </div>
 
         {/* <section className="explorer__summary container">
           <h3 className="sr-only">Scheme Summary</h3>
@@ -355,7 +366,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
                   <Dropdown
                     default={selectedBudgetType}
                     options={budgetTypes}
-                    // heading="Rows:&nbsp;"
+                    heading="Select Budget Type:&nbsp;"
                     handleDropdownChange={handleDropdownChange}
                   />
                 )}

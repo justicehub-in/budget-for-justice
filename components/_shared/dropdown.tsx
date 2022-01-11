@@ -2,11 +2,7 @@ import React from "react";
 
 const Dropdown = (props) => (
   <>
-    {props.heading && (
-      <label className="label-green" htmlFor="custom_select">
-        {props.heading}
-      </label>
-    )}
+    {props.heading && <label htmlFor="custom_select">{props.heading}</label>}
 
     <select
       id="custom_select"

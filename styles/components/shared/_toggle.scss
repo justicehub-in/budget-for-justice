@@ -20,13 +20,14 @@
   [role="status"] {
     position: absolute;
     max-width: 50vw;
-    font-weight: normal;
+    font-weight: 500;
     font-size: 12px;
-    line-height: 14px;
-    padding: 7px 12px;
-    background-color: $bg-lighter;
-    border: $border-1;
-    border-radius: 4px;
+    line-height: 133%;
+    padding: 10px 12px;
+    background-color: $grey-2;
+    color: $text-dark-high;
+    border: 1px solid $grey-2;
+    border-radius: 8px;
     bottom: 150%;
     left: -8rem;
     z-index: 10;
@@ -37,7 +38,7 @@
     &::before {
       border-left: 0.8em solid transparent;
       border-right: 0.8em solid transparent;
-      border-top: 0.8em solid $grey-4;
+      border-top: 0.8em solid $grey-2;
       bottom: -0.8em;
       content: " ";
       height: 0;
