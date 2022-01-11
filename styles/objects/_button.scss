@@ -3,7 +3,7 @@
 
 @mixin button {
   padding: 12px 24px;
-  line-height: 1.4;
+  line-height: 133%;
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
@@ -53,6 +53,19 @@
 
   &:hover {
     background-color: lighten($btn-secondary-bg, 5);
+  }
+
+  &-mini {
+    @include button;
+    background-color: $btn-secondary-bg;
+    color: $btn-secondary-text;
+    border: 1px solid $btn-secondary-bg;
+    font-size: 12px;
+    padding: 8px 12px;
+
+    &:hover {
+      background-color: lighten($btn-secondary-bg, 5);
+    }
   }
 }
 

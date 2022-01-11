@@ -57,8 +57,6 @@ const SchemeModal = ({ isOpen, handleModal, data }) => {
     },
   ];
 
-  console.log(modalItems);
-
   function handleButtonClick() {
     handleModal(false);
   }

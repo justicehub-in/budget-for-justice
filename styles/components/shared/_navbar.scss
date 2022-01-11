@@ -66,8 +66,7 @@
     font-weight: 500;
 
     &.btn-primary {
-      padding: 6px 12px;
-      font-weight: 400;
+      padding: 12px 24px;
       margin-left: 1.5rem;
       font-weight: 600;
     }
@@ -94,12 +93,10 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 120%;
+    top: 134%;
     width: 9rem;
     font-size: 0.8rem;
     z-index: 100;
-    border: $nav-border;
-    border-radius: 4px;
 
     li {
       position: relative;
@@ -109,6 +106,18 @@
       font-weight: 600;
       line-height: 175%;
 
+      &:first-child {
+        border-radius: 4px 4px 0 0;
+        border: $nav-border;
+        border-bottom: none;
+      }
+
+      &:last-child {
+        border-radius: 0 0 4px 4px;
+        border: $nav-border;
+        border-top: none;
+      }
+
       svg {
         fill: $submenu-text;
       }
@@ -117,7 +126,6 @@
         text-decoration: underline;
         padding: 0.7rem 1rem 0.7rem 1rem;
         display: block;
-        // border-radius: 4px;
 
         span {
           text-decoration: none;
@@ -132,7 +140,7 @@
       }
     }
 
-    &::before {
+    &::after {
       content: "";
       display: inline-block;
       position: absolute;
@@ -140,26 +148,22 @@
       border-right: 14px solid transparent;
       border-bottom: 17px solid $bg-submenu;
       top: -10px;
-      left: 10%;
+      right: 20%;
     }
   }
 
   &__item {
     &[type="button"] {
-      &::after {
-        border-bottom: 2px solid $nav-text;
-        border-bottom-color: $nav-text;
-        border-right: 2px solid $nav-text;
-        border-right-color: $nav-text;
+      border-radius: 4px;
+      background-color: lighten($nav-bg, 5);
+      font-weight: bold;
+      line-height: 175%;
+      padding: 8px 16px;
 
-        content: " ";
-        display: inline-block;
-        height: 8px;
-        margin: 0 2px 0 0.5rem;
-        transform: translateY(-35%) rotate(45deg);
-        vertical-align: middle;
-        width: 8px;
-        border-color: $nav-text;
+      svg{
+        fill: $nav-text;
+        margin-left: 12px;
+        transform: rotate(90deg);
       }
     }
   }
@@ -272,6 +276,10 @@
   &__nested {
     width: 100%;
     z-index: 100;
+
+    svg {
+      fill: $nav-text;
+    }
 
     a {
       padding: 1rem 1.5rem;

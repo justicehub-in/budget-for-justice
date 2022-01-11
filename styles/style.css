@@ -476,7 +476,7 @@ button {
 
 .btn-primary {
   padding: 12px 24px;
-  line-height: 1.4;
+  line-height: 133%;
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
@@ -504,7 +504,7 @@ button {
 
 .btn-primary-invert {
   padding: 12px 24px;
-  line-height: 1.4;
+  line-height: 133%;
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
@@ -533,7 +533,7 @@ button {
 
 .btn-secondary {
   padding: 12px 24px;
-  line-height: 1.4;
+  line-height: 133%;
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
@@ -558,10 +558,39 @@ button {
 .btn-secondary:hover {
   background-color: #00c3d1;
 }
+.btn-secondary-mini {
+  padding: 12px 24px;
+  line-height: 133%;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 200ms ease;
+  display: block;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-weight: bold;
+  background-color: #00abb7;
+  color: white;
+  border: 1px solid #00abb7;
+  font-size: 12px;
+  padding: 8px 12px;
+}
+@media screen and (max-width: 979px) {
+  .btn-secondary-mini {
+    font-size: 0.9rem;
+  }
+}
+.btn-secondary-mini svg {
+  margin-right: 1rem;
+}
+.btn-secondary-mini:hover {
+  background-color: #00c3d1;
+}
 
 .btn-secondary-invert {
   padding: 12px 24px;
-  line-height: 1.4;
+  line-height: 133%;
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
@@ -1299,8 +1328,7 @@ button {
   font-weight: 500;
 }
 .navbar__item.btn-primary {
-  padding: 6px 12px;
-  font-weight: 400;
+  padding: 12px 24px;
   margin-left: 1.5rem;
   font-weight: 600;
 }
@@ -1323,12 +1351,10 @@ button {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 120%;
+  top: 134%;
   width: 9rem;
   font-size: 0.8rem;
   z-index: 100;
-  border: 1px solid #ABB0B0;
-  border-radius: 4px;
 }
 .navbar__nested li {
   position: relative;
@@ -1337,6 +1363,16 @@ button {
   transition: background-color 200ms ease-in;
   font-weight: 600;
   line-height: 175%;
+}
+.navbar__nested li:first-child {
+  border-radius: 4px 4px 0 0;
+  border: 1px solid #ABB0B0;
+  border-bottom: none;
+}
+.navbar__nested li:last-child {
+  border-radius: 0 0 4px 4px;
+  border: 1px solid #ABB0B0;
+  border-top: none;
 }
 .navbar__nested li svg {
   fill: #00abb7;
@@ -1354,7 +1390,7 @@ button {
 .navbar__nested li:hover, .navbar__nested li:focus-within {
   background-color: #EBFEFF;
 }
-.navbar__nested::before {
+.navbar__nested::after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -1362,21 +1398,19 @@ button {
   border-right: 14px solid transparent;
   border-bottom: 17px solid white;
   top: -10px;
-  left: 10%;
+  right: 20%;
 }
-.navbar__item[type=button]::after {
-  border-bottom: 2px solid #fdfcfc;
-  border-bottom-color: #fdfcfc;
-  border-right: 2px solid #fdfcfc;
-  border-right-color: #fdfcfc;
-  content: " ";
-  display: inline-block;
-  height: 8px;
-  margin: 0 2px 0 0.5rem;
-  transform: translateY(-35%) rotate(45deg);
-  vertical-align: middle;
-  width: 8px;
-  border-color: #fdfcfc;
+.navbar__item[type=button] {
+  border-radius: 4px;
+  background-color: #085c62;
+  font-weight: bold;
+  line-height: 175%;
+  padding: 8px 16px;
+}
+.navbar__item[type=button] svg {
+  fill: #fdfcfc;
+  margin-left: 12px;
+  transform: rotate(90deg);
 }
 
 .m-header {
@@ -1474,6 +1508,9 @@ button {
 .m-navbar__nested {
   width: 100%;
   z-index: 100;
+}
+.m-navbar__nested svg {
+  fill: #fdfcfc;
 }
 .m-navbar__nested a {
   padding: 1rem 1.5rem;
@@ -4253,17 +4290,25 @@ button {
 .explorer__source {
   border-top: 1px solid #cdd1d1;
   display: flex;
-  padding: 1.5rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem 0;
   margin: 0 1.5rem;
 }
 .explorer__source strong {
   margin-right: 0.5rem;
+  font-weight: bold;
+  font-size: 12px;
 }
 .explorer__source p {
   color: rgba(0, 0, 0, 0.6);
   font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  display: inline;
   -webkit-box-orient: vertical;
-  display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;

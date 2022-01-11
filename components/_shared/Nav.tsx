@@ -105,6 +105,7 @@ const Nav: React.FC = () => {
                         onClick={navButtonHandler}
                       >
                         {navItem.name}
+                        <ArrowForward />
                       </button>
                       <ul className="navbar__nested" hidden>
                         {navItem.subMenu.map((subMenuItem, index) => (
