@@ -12,7 +12,11 @@ import {
   fetchFromTags,
   datasetPopulation,
 } from "utils";
-import { Download, ArrowForward } from "components/icons/ListingIcons";
+import {
+  Download,
+  ArrowForward,
+  ExternalLink,
+} from "components/icons/ListingIcons";
 import Indicator from "components/analytics/Indicator";
 import Modal from "react-modal";
 import SimpleBarLineChartViz from "components/viz/SimpleBarLineChart";
@@ -25,6 +29,7 @@ import { downloadPackage } from "utils/downloadPackage";
 import SchemeModal from "components/explorer/SchemeModal";
 import ShareModal from "components/explorer/ShareModal";
 import IndicatorAlter from "components/explorer/IndicatorAlter";
+import DownloadViz from "components/explorer/DownloadViz";
 Modal.setAppElement("#__next");
 
 type Props = {
@@ -40,8 +45,9 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   const [finalFiltered, setFinalFiltered] = useState([]);
   const [budgetTypes, setBudgetTypes] = useState([]);
   const [selectedBudgetType, setSelectedBudgetType] = useState("");
-  const [showTable, setShowTable] = useState(true);
+  const [isTable, setIsTable] = useState(false);
   const [showShare, setShowShare] = useState(false);
+  const [currentViz, setCurrentViz] = useState("#barGraph");
 
   // todo: make it dynamic lie scheme dashboard
   const IndicatorDesc = [
@@ -52,78 +58,6 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     meta["Indicator 5 - Description"],
   ];
 
-  useEffect(() => {
-    // ceating tabbed interface for viz selector
-    const tablist = document.querySelector(".viz__tabs");
-    const panels = document.querySelectorAll(".viz figure");
-    tabbedInterface(tablist, panels);
-
-    handleNewVizData("Budget Estimates");
-
-    if (navigator.share) setShowShare(true);
-  }, [fileData]);
-
-  // Run whenever a new indicator is selected
-  useEffect(() => {
-    const budgetType = [
-      ...new Set(indicatorFiltered.map((item) => item.budgetType)),
-    ];
-
-    if (budgetType.includes(selectedBudgetType))
-      handleDropdownChange(selectedBudgetType);
-    else if (selectedBudgetType == "") handleDropdownChange("Total");
-    else if (selectedBudgetType == "NA" && budgetType.length > 1)
-      handleDropdownChange("Total");
-    else handleDropdownChange(budgetType[0]);
-  }, [indicatorFiltered]);
-
-  const bannerDetails = {
-    heading: "Data Resources",
-    content: (
-      <>
-        <p>All the raw data for your own explortation &amp; analysis</p>
-        <div>
-          <a
-            className="btn-primary-invert"
-            href={`https://justicehub.in/dataset/${data.id}`}
-          >
-            Go to JusticeHub
-          </a>
-          <button
-            className="btn-primary"
-            type="button"
-            onClick={() => downloadPackage(data.resUrls, data.title)}
-          >
-            Download Data Package <Download />
-          </button>
-        </div>
-      </>
-    ),
-    image: "/assets/icons/zip-file-download.svg",
-    color: "#00ABB7",
-  };
-  useEffect(() => {
-    // ceating tabbed interface for viz selector
-    const tablist = document.querySelector(".viz__tabs");
-    const panels = document.querySelectorAll(".viz figure");
-    tabbedInterface(tablist, panels);
-
-    handleNewVizData("Budget Estimates");
-  }, [fileData]);
-
-  // Run whenever a new indicator is selected
-  useEffect(() => {
-    const budgetType = [
-      ...new Set(indicatorFiltered.map((item) => item.budgetType)),
-    ];
-
-    if (budgetType.includes(selectedBudgetType))
-      handleDropdownChange(selectedBudgetType);
-    else if (selectedBudgetType == "") handleDropdownChange("Total");
-    else if (selectedBudgetType == "NA" && budgetType.length > 1)
-      handleDropdownChange("Total");
-    else handleDropdownChange(budgetType[0]);
-  }, [indicatorFiltered]);
   const vizToggle = [
     {
       name: "Bar Graph",
@@ -207,16 +141,107 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
               : ["header1"]
           }
           rows={indicatorFiltered.map(Object.values)}
-          caption="Grindcore bands"
+          caption="Table"
           sortable
         />
       ),
     },
   ];
 
+  const bannerDetails = {
+    heading: "Data Resources",
+    content: (
+      <>
+        <p>All the raw data for your own explortation &amp; analysis</p>
+        <div>
+          <a
+            className="btn-primary-invert"
+            href={`https://justicehub.in/dataset/${data.id}`}
+          >
+            View Raw Data <ExternalLink />
+          </a>
+          <button
+            className="btn-primary"
+            type="button"
+            onClick={() => downloadPackage(data.resUrls, data.title)}
+          >
+            Download Data Package <Download />
+          </button>
+        </div>
+        <p className="banner__notice">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            fill="none"
+            viewBox="0 0 14 14"
+          >
+            <path
+              fill="#fff"
+              d="M7 .333A6.665 6.665 0 0 0 .333 7 6.665 6.665 0 0 0 7 13.667 6.665 6.665 0 0 0 13.666 7 6.665 6.665 0 0 0 7 .333Zm.666 10H6.333v-4h1.333v4Zm0-5.333H6.333V3.667h1.333V5Z"
+            />
+          </svg>
+          You’ll get all the raw related to this scheme data for your further
+          manual exploration.
+        </p>
+      </>
+    ),
+    image: "/assets/icons/zip-file-download.svg",
+    color: "#00ABB7",
+  };
+
+  useEffect(() => {
+    // ceating tabbed interface for viz selector
+    const tablist = document.querySelector(".viz__tabs");
+    const panels = document.querySelectorAll(".viz figure");
+    tabbedInterface(tablist, panels);
+
+    handleNewVizData("Budget Estimates");
+
+    if (navigator.share) setShowShare(true);
+  }, [fileData]);
+
+  // Run whenever a new indicator is selected
+  useEffect(() => {
+    const budgetType = [
+      ...new Set(indicatorFiltered.map((item) => item.budgetType)),
+    ];
+
+    if (budgetType.includes(selectedBudgetType))
+      handleDropdownChange(selectedBudgetType);
+    else if (selectedBudgetType == "") handleDropdownChange("Total");
+    else if (selectedBudgetType == "NA" && budgetType.length > 1)
+      handleDropdownChange("Total");
+    else handleDropdownChange(budgetType[0]);
+  }, [indicatorFiltered]);
+
+  useEffect(() => {
+    // ceating tabbed interface for viz selector
+    const tablist = document.querySelector(".viz__tabs");
+    const panels = document.querySelectorAll(".viz figure");
+    tabbedInterface(tablist, panels);
+
+    handleNewVizData("Budget Estimates");
+  }, [fileData]);
+
+  // Run whenever a new indicator is selected
+  useEffect(() => {
+    const budgetType = [
+      ...new Set(indicatorFiltered.map((item) => item.budgetType)),
+    ];
+
+    if (budgetType.includes(selectedBudgetType))
+      handleDropdownChange(selectedBudgetType);
+    else if (selectedBudgetType == "") handleDropdownChange("Total");
+    else if (selectedBudgetType == "NA" && budgetType.length > 1)
+      handleDropdownChange("Total");
+    else handleDropdownChange(budgetType[0]);
+  }, [indicatorFiltered]);
+
   function showDropdown(e) {
-    if (e.target.getAttribute("href") == "#tableView") setShowTable(false);
-    else setShowTable(true);
+    setCurrentViz(e.target.getAttribute("href"));
+    if (e.target.getAttribute("href") == "#tableView") setIsTable(true);
+    else setIsTable(false);
   }
 
   function schemeModalHandler() {
@@ -246,56 +271,51 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="explorer">
-        <div className="explorer__breadcrumb container">
-          <a href="/">
-            Home <ArrowForward />
-          </a>
-        </div>
-
-        <div className="explorer__buttons container">
-          <div className="explorer__scheme-change">
-            <a href="/datasets" className="btn-secondary">
-              Select Another Scheme
+        <div className="explorer__header">
+          <div className="explorer__breadcrumb container">
+            <a href="/">
+              Home <ArrowForward />
             </a>
-            <button
-              className="btn-secondary "
-              onClick={() => schemeModalHandler()}
-            >
-              Select Another Scheme
-            </button>
-            <SchemeModal
-              isOpen={schemeModalOpen}
-              handleModal={schemeModalHandler}
-              data={allData}
-            />
           </div>
-          {showShare && <ShareModal title={data.title} />}
-        </div>
 
-        <section className="explorer__heading container">
-          <div className="explorer__content">
-            <figure>{categoryIcon(data.tags)}</figure>
-            <div>
-              <h2>{data.title}</h2>
-              <ul>
-                {data.tags.map((item, index) => (
-                  <li key={`explorer-${index}`}>{item}</li>
-                ))}
-              </ul>
+          <div className="explorer__buttons container">
+            <div className="explorer__scheme-change">
+              <a href="/datasets" className="btn-secondary">
+                Select Another Scheme
+              </a>
+              <button
+                className="btn-secondary"
+                onClick={() => schemeModalHandler()}
+              >
+                Select Another Scheme
+              </button>
+              <SchemeModal
+                isOpen={schemeModalOpen}
+                handleModal={schemeModalHandler}
+                data={allData}
+              />
             </div>
+            {showShare && <ShareModal title={data.title} />}
           </div>
-          <p>{data.notes}</p>
-          <div className="explorer__meta ">
-            <span>
-              <strong>Type of Scheme: </strong>
-              {meta["Type of Scheme"]}
-            </span>
-            <span>
-              <strong>Frequency: </strong>
-              {meta["Frequency"]}
-            </span>
-          </div>
-        </section>
+
+          <section className="explorer__heading container">
+            <div className="explorer__content">
+              <figure>{categoryIcon(data.tags)}</figure>
+              <div>
+                <h2>{data.title}</h2>
+                <ul>
+                  {data.tags.map((item, index) => (
+                    <li key={`explorer-${index}`}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <p>{data.notes}</p>
+            <div className="explorer__meta ">
+              {meta["Type of Scheme"] && <span>{meta["Type of Scheme"]}</span>}
+            </div>
+          </section>
+        </div>
 
         {/* <section className="explorer__summary container">
           <h3 className="sr-only">Scheme Summary</h3>
@@ -347,11 +367,11 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
                 ))}
               </ul>
               <div className="dropdown">
-                {budgetTypes.length > 1 && showTable && (
+                {budgetTypes.length > 1 && !isTable && (
                   <Dropdown
                     default={selectedBudgetType}
                     options={budgetTypes}
-                    // heading="Rows:&nbsp;"
+                    heading="Select Budget Type:&nbsp;"
                     handleDropdownChange={handleDropdownChange}
                   />
                 )}
@@ -372,13 +392,22 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
             </div>
 
             <div className="explorer__source">
-              <strong>Data Source: </strong>
-              <p>{meta["Data Source"]}</p>
+              <div>
+                <strong>Data Source: </strong>
+                <p>{meta["Data Source"]}</p>
+              </div>
+              <DownloadViz
+                viz={currentViz}
+                type={selectedBudgetType}
+                indicator={
+                  indicatorFiltered[0]
+                    ? indicatorFiltered[0]["indicators"]
+                    : "Budget Estimates"
+                }
+                name={data.title}
+              />
             </div>
           </div>
-          {/* <button className="btn-secondary" onClick={handleButtonClick}>
-            Download Visualization
-          </button> */}
         </section>
 
         <Banner details={bannerDetails} />

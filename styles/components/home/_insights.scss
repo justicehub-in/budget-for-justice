@@ -6,16 +6,13 @@
   padding-top: 4.5rem;
   padding-bottom: 15rem;
 
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1rem;
-  }
+  display: flex;
+  flex-wrap: wrap;
 
   #schemeSelector {
     flex-grow: 1;
     text-align: right;
-    flex-basis: 12rem;
+    flex-basis: 20%;
     padding-right: 3rem;
     display: flex;
     flex-direction: column;
@@ -66,11 +63,25 @@
     flex-grow: 999;
     min-width: 80%;
     background-color: $color-primary;
-    mix-blend-mode: multiply;
+    background: url("/assets/images/insight-bg-1.jpg") no-repeat;
+    background-size: cover;
     border-radius: 16px 0px 0px 16px;
-    padding: 2rem 3rem;
+    padding: 4.5rem 2rem 4.5rem 4.5rem;
     color: $text-dark-high;
     position: relative;
+    min-height: 525px;
+
+    h3 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 130%;
+    }
+
+    p {
+      line-height: 156%;
+      font-weight: 600;
+      font-size: 18px;
+    }
 
     a {
       background-color: $bg-lightest;
@@ -78,7 +89,7 @@
       font-weight: bold;
       line-height: 175%;
       padding: 12px 24px;
-      margin-top: 3rem;
+      // margin-top: 2rem;
 
       &:hover {
         color: $text-light-medium;
@@ -88,25 +99,20 @@
 
   section {
     display: flex;
-    gap: 1.5rem;
-    width: 70%;
+    max-width: 65rem;
+    height: 100%;
 
     > div {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      display: grid;
+      gap: 1rem;
+
+      > div {
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+        width: 100%;
+        align-self: flex-end;
+        padding-top: 2rem;
+      }
     }
-  }
-
-  h3 {
-    font-size: 2.5rem;
-    font-weight: 900;
-    line-height: 1.5;
-  }
-
-  p {
-    line-height: 175%;
-    font-weight: 500;
   }
 
   img {

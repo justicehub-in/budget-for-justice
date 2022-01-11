@@ -1,22 +1,34 @@
-const Video = () => {
+import Image from "next/image";
+
+const Video = ({ data }) => {
   return (
-    <section className="home-video container">
-      <div className="home-video__item">
-        <img
-          src={`https://placekitten.com/700/356`}
+    <div className="home-video">
+      <figure>
+        <Image
+          src={"/assets/images/home-bg.jpg"}
+          layout="responsive"
+          width={1440}
+          height={600}
           alt=""
-          width="700"
-          height="356"
+          className="home__bg"
         />
-      </div>
-      <div className="home-video__desc">
-        <h2 className="heading">Here’s what we do!</h2>
-        <p>
-          Watch a quick introduction on what you can do using Budget for
-          Justice.
-        </p>
-      </div>
-    </section>
+      </figure>
+
+      <section className="home-video__content container">
+        <div className="home-video__desc">
+          <h2 className="heading">{data.heading}</h2>
+          <p>{data.text}</p>
+        </div>
+        <div className="home-video__item">
+          <img
+            src={`https://placekitten.com/1008/480`}
+            alt=""
+            width="1008"
+            height="480"
+          />
+        </div>
+      </section>
+    </div>
   );
 };
 

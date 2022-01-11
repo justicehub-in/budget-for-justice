@@ -7,9 +7,11 @@ $text-header: $text-light-high;
 // navbar
 $nav-site-name: $color-teal-0;
 $nav-bg: $color-green;
-$nav-bg-2: $color-carrot;
+$nav-bg-2: $color-teal;
 $nav-text: $text-dark-high;
-$bg-submenu: $color-teal-1;
+$submenu-text: $color-teal;
+$bg-submenu: $bg-lightest;
+$nav-border: 1px solid #ABB0B0;
 
 // footer
 $bg-footer: $color-black;

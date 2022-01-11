@@ -28,14 +28,17 @@ const SchemeModal = ({ isOpen, handleModal, data }) => {
     {
       name: "Ministries",
       id: "#modalMinistry",
+      length: filteredObj.ministry.length,
     },
     {
       name: "Categories",
       id: "#modalCategories",
+      length: filteredObj.category.length,
     },
     {
       name: "Schemes",
       id: "#modalSchemes",
+      length: filteredObj.scheme.length,
     },
   ];
 
@@ -101,6 +104,7 @@ const SchemeModal = ({ isOpen, handleModal, data }) => {
               <li key={`modalToggleItem-${index}`}>
                 <a href={item.id}>
                   {item.name}
+                  {` (${item.length})`}
                   <span>
                     <ArrowForward />
                   </span>

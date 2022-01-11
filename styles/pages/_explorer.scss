@@ -2,9 +2,13 @@
 @use "../tools/mixins/media" as media;
 
 .explorer {
-  &__breadcrumb {
-    margin-top: 2rem;
+  &__header {
+    background-color: $bg-lightest;
+    padding-bottom: 2.5rem;
+    padding-top: 2rem;
+  }
 
+  &__breadcrumb {
     a {
       color: $grey-3;
       font-weight: bold;
@@ -112,7 +116,7 @@
     margin-top: 1rem;
 
     span {
-      background-color: $bg-lightest;
+      background-color: $grey-5;
       font-weight: 500;
       line-height: 175%;
       padding: 4px 12px;
@@ -167,7 +171,7 @@
     display: grid;
     gap: 2rem;
     grid-template-columns: 312px minmax(0, 1fr);
-    margin-top: 4rem;
+    margin-top: 2.5rem;
 
     h3 {
       font-weight: 800;
@@ -206,13 +210,23 @@
     .dropdown {
       max-height: 2rem;
       margin-top: -6px;
+      flex-basis: 17rem;
+
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      label {
+        font-weight: bold;
+        font-size: 12px;
+      }
     }
 
     &__tabs {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 2.5rem;
+      gap: 1.5rem;
 
       li {
         min-width: 0;
@@ -267,19 +281,29 @@
   &__source {
     border-top: $border-1;
     display: flex;
-    padding: 1.5rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem 0;
     margin: 0 1.5rem;
 
     strong {
       margin-right: 0.5rem;
+      font-weight: bold;
+      font-size: 12px;
     }
 
     p {
       color: $text-light-medium;
       font-weight: 500;
+      font-size: 12px;
+      line-height: 133%;
+      display: inline;
+
 
       -webkit-box-orient: vertical;
-      display: -webkit-box;
+      // display: -webkit-box;
       overflow: hidden;
       text-overflow: ellipsis;
       -webkit-line-clamp: 3;
@@ -288,6 +312,7 @@
 
   .banner {
     margin-bottom: -10rem;
+    margin-top: 4rem;
 
     &__content {
       p {
@@ -304,11 +329,29 @@
 
       a {
         background-color: $bg-lightest;
+
+        svg {
+          margin: 0 0 -2px 8px;
+        }
       }
 
       button {
         svg {
           margin: 0 0 -4px 8px;
+        }
+      }
+
+      .banner__notice {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 139%;
+        margin-top: 0.5rem;
+        vertical-align: middle;
+
+        svg {
+          margin-right: 0.5rem;
+          // width: 1.5em;
+          vertical-align: middle;
         }
       }
     }
@@ -318,6 +361,7 @@
     padding-top: 15rem;
     padding-bottom: 9rem;
     margin-bottom: -5rem;
+    background-color: $bg-lightest;
 
     &--split {
       display: flex;

@@ -66,8 +66,7 @@
     font-weight: 500;
 
     &.btn-primary {
-      padding: 6px 12px;
-      font-weight: 400;
+      padding: 12px 24px;
       margin-left: 1.5rem;
       font-weight: 600;
     }
@@ -93,25 +92,40 @@
   &__nested {
     display: flex;
     flex-direction: column;
-    gap: 4px;
     position: absolute;
-    top: 120%;
-    width: 11rem;
+    top: 134%;
+    width: 9rem;
     font-size: 0.8rem;
     z-index: 100;
 
     li {
       position: relative;
       background-color: $bg-submenu;
-      border: 1px solid $btn-secondary-bg;
-      border-radius: 4px;
+      color: $submenu-text;
       transition: background-color 200ms ease-in;
+      font-weight: 600;
+      line-height: 175%;
+
+      &:first-child {
+        border-radius: 4px 4px 0 0;
+        border: $nav-border;
+        border-bottom: none;
+      }
+
+      &:last-child {
+        border-radius: 0 0 4px 4px;
+        border: $nav-border;
+        border-top: none;
+      }
+
+      svg {
+        fill: $submenu-text;
+      }
 
       a {
         text-decoration: underline;
         padding: 0.7rem 1rem 0.7rem 1rem;
         display: block;
-        border-radius: 4px;
 
         span {
           text-decoration: none;
@@ -122,38 +136,34 @@
 
       &:hover,
       &:focus-within {
-        background-color: lighten($bg-submenu, 10);
+        background-color: $nav-site-name;
       }
     }
 
-    &::before {
+    &::after {
       content: "";
       display: inline-block;
       position: absolute;
       border-left: 14px solid transparent;
       border-right: 14px solid transparent;
-      border-bottom: 17px solid $btn-secondary-bg;
+      border-bottom: 17px solid $bg-submenu;
       top: -10px;
-      left: 10%;
+      right: 20%;
     }
   }
 
   &__item {
     &[type="button"] {
-      &::after {
-        border-bottom: 2px solid $nav-text;
-        border-bottom-color: $nav-text;
-        border-right: 2px solid $nav-text;
-        border-right-color: $nav-text;
+      border-radius: 4px;
+      background-color: lighten($nav-bg, 5);
+      font-weight: bold;
+      line-height: 175%;
+      padding: 8px 16px;
 
-        content: " ";
-        display: inline-block;
-        height: 8px;
-        margin: 0 2px 0 0.5rem;
-        transform: translateY(-35%) rotate(45deg);
-        vertical-align: middle;
-        width: 8px;
-        border-color: $nav-text;
+      svg{
+        fill: $nav-text;
+        margin-left: 12px;
+        transform: rotate(90deg);
       }
     }
   }
@@ -191,7 +201,7 @@
 }
 
 .m-navbar {
-  background-color: $nav-bg;
+  background-color: $nav-bg-2;
   color: $nav-text;
 
   a {
@@ -202,14 +212,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $nav-bg-2;
+    background-color: $nav-bg;
     height: 4rem;
     padding-left: 1.5rem;
+    font-weight: 800;
+    font-size: 1.375rem;
 
     button {
       height: 100%;
       width: 4rem;
       font-size: 1.5rem;
+      font-weight: 600;
     }
   }
 
@@ -219,7 +232,14 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    line-height: 2rem;
+    line-height: 175%;
+    font-weight: bold;
+    border-bottom: $nav-border;
+    width: 90%;
+
+    &--active {
+      font-weight: 800;
+    }
 
     &[type="button"] {
       &::after {
@@ -256,6 +276,10 @@
   &__nested {
     width: 100%;
     z-index: 100;
+
+    svg {
+      fill: $nav-text;
+    }
 
     a {
       padding: 1rem 1.5rem;

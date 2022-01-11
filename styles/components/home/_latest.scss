@@ -21,22 +21,32 @@
     min-width: 50%;
   }
 
-  a {
-    text-decoration: none;
-    display: block;
-    margin-bottom: 2rem;
+  li {
     display: flex;
     align-items: center;
-    line-height: 1.5;
-    font-weight: 600;
-
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
     &:hover {
-      font-weight: 700;
+      transform: translateX(22px);
 
       span {
         background-color: $color-primary;
         color: $text-dark-high;
       }
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+
+    display: block;
+    line-height: 1.5;
+    font-weight: 600;
+    transition: text-decoration-color 0.3s ease;
+
+    &:hover {
+      text-decoration-color: currentColor;
     }
   }
 
@@ -49,5 +59,9 @@
     border: 2px solid $color-primary;
     border-radius: 50%;
     line-height: 1.2;
+    transition: color 0.3s ease, background-color 0.3s ease;
+
+    text-decoration: none;
+    display: inline-block;
   }
 }
