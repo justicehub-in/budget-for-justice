@@ -21,20 +21,12 @@
     min-width: 50%;
   }
 
-  a {
-    text-decoration: underline;
-    text-decoration-color: transparent;
-
-    display: block;
-    margin-bottom: 2rem;
+  li {
     display: flex;
     align-items: center;
-    line-height: 1.5;
-    font-weight: 600;
-    transition: text-decoration-color 0.3s ease, transform 0.3s ease;
-
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
     &:hover {
-      text-decoration-color: currentColor;
       transform: translateX(22px);
 
       span {
@@ -44,10 +36,22 @@
     }
   }
 
+  a {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+
+    display: block;
+    line-height: 1.5;
+    font-weight: 600;
+    transition: text-decoration-color 0.3s ease;
+
+    &:hover {
+      text-decoration-color: currentColor;
+    }
+  }
+
   span {
     background-color: $bg-light;
-    text-decoration: none;
-    display: inline-block;
     padding: 1rem;
     font-weight: 700;
     margin-right: 1rem;
@@ -56,5 +60,8 @@
     border-radius: 50%;
     line-height: 1.2;
     transition: color 0.3s ease, background-color 0.3s ease;
+
+    text-decoration: none;
+    display: inline-block;
   }
 }
