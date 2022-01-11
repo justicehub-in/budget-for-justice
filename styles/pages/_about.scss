@@ -3,198 +3,135 @@
 .about {
   background-color: $bg-lightest;
 
-  &__header {
-    background-color: $color-teal-0;
+  a {
+    font-weight: 600;
+    color: $color-primary;
+  }
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-between;
-
-      > div {
-        flex-grow: 1;
-        flex-basis: 60%;
-      }
-    }
-
-    h2 {
-      padding-top: 5.75rem;
-    }
+  &__initiative {
+    padding-top: 3.5rem;
+    max-width: 1008px;
+    margin-inline: auto;
 
     p {
       font-weight: 500;
       line-height: 175%;
       margin-top: 12px;
-      padding-bottom: 5.5rem;
     }
 
-    figure {
-      filter: $drop-shadow;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      margin-bottom: -6rem;
-      padding-top: 4rem;
+    h3 {
+      font-weight: 800;
+      font-size: 18px;
+      line-height: 156%;
+      color: $text-light-medium;
+      margin-top: 1.5rem;
+    }
 
-      flex-basis: 0;
-      flex-grow: 999;
-      min-width: 37%;
+    ol {
+      counter-reset: list;
+    }
 
-      @include media.narrowerThan("plant") {
-        padding-top: 0;
+    li {
+      font-weight: 500;
+      line-height: 175%;
+      margin-top: 12px;
+      list-style: none;
+
+      &::before {
+        content: "(" counter(list, lower-alpha) "). ";
+        counter-increment: list;
+        font-weight: bold;
       }
-    }
-
-    img {
-      max-width: 100%;
-      object-fit: cover;
-      border-radius: 16px;
     }
   }
 
-  &__process {
-    padding: 4rem 0 7rem;
-    box-shadow: $box-shadow-2;
-    isolation: isolate;
+  &__team {
+    margin-top: 4rem;
+    padding-bottom: 5.5rem;
+    max-width: 1008px;
+    margin-inline: auto;
 
-    @include media.narrowerThan("plant") {
-      margin-top: 8rem;
+    p {
+      font-weight: 800;
+      font-size: 18px;
+      line-height: 156%;
+      color: $text-light-medium;
+      margin-top: 0.5rem;
     }
 
-    h2 {
-      max-width: 696px;
-    }
-
-    .container > div {
-      display: flex;
-      flex-wrap: wrap;
+    ul {
+      margin-top: 2rem;
+      display: grid;
+      gap: 12px;
       justify-content: space-between;
-      gap: 2rem;
-      margin-top: 8rem;
 
-      &:first-of-type {
-        margin-top: 4rem;
+      @supports (width: min(250px, 100%)) {
+        grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+      }
+    }
+
+    a {
+      text-decoration-color: transparent;
+      color: $color-primary;
+      font-weight: bold;
+      line-height: 175%;
+      transition: text-decoration-color 0.3s ease;
+
+      svg {
+        margin-left: 12px;
+        fill: #abb0b0;
+        transition: fill 0.3s ease;
       }
 
-      figure {
-        flex-grow: 1;
+      &:hover {
+        text-decoration-color: currentColor;
 
-        img {
-          border-radius: 16px;
-          object-fit: cover;
-          max-width: 100%;
+        svg {
+          fill: #4083c5;
         }
       }
-
-      section {
-        flex-basis: 0;
-        flex-grow: 999;
-        min-width: 50%;
-        max-width: 696px;
-      }
-
-      h3 {
-        font-size: 1.75rem;
-        font-weight: 800;
-        line-height: 130%;
-      }
-
-      ul {
-        list-style: disc;
-        margin-top: 1.25rem;
-        margin-left: 1rem;
-      }
-
-      li {
-        line-height: 175%;
-        font-weight: 500;
-        margin-top: 0.5rem;
-      }
     }
   }
 
-  &__img-first {
-    order: -1;
-  }
+  &__partners {
+    background-color: $bg-light;
+    width: 100%;
+    padding-top: 5.5rem;
 
-  &__analysis {
-    background-color: $color-teal-0;
-    padding: 5rem 0;
-    box-shadow: $box-shadow-inset-2;
+    .container {
+      max-width: 1008px;
+      margin-inline: auto;
 
-    .container > div {
-      margin-top: 5rem;
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
       gap: 4rem;
+      justify-content: space-between;
+
+      @supports (width: min(250px, 100%)) {
+        grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+      }
     }
 
     section {
-      flex: 1 25rem;
+      // width: 48%;
 
-      h3 {
-        font-weight: 800;
-        font-size: 22px;
-        line-height: 145%;
-      }
-
-      svg {
-        margin-right: 8px;
-      }
-
-      p {
-        font-weight: 500;
-        line-height: 175%;
-        margin-top: 0.5rem;
-      }
-
-      a {
-        margin-top: 1.75rem;
+      div {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 1rem;
       }
     }
-  }
 
-  &__end {
-    margin-top: 5rem;
+    figure {
+      background-color: $bg-lightest;
+      padding: 2rem;
+      border-radius: 50%;
+      border: $border-1;
+    }
 
-    &-para {
+    p {
       font-weight: 500;
       line-height: 175%;
-      margin-top: 1rem;
-    }
-  }
-
-  &__cta {
-    padding-bottom: 6rem;
-    margin-bottom: -5rem;
-  }
-
-  .banner {
-    margin-top: 5rem;
-
-    &__content {
-      p {
-        margin-top: 0;
-        font-weight: 500;
-      }
-
-      > div {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 1rem;
-        gap: 1rem;
-      }
-
-      .btn-primary-invert {
-        background-color: $bg-lightest;
-      }
-
-      button {
-        svg {
-          margin: 0 0 -4px 8px;
-        }
-      }
     }
   }
 }

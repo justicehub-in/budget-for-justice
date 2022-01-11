@@ -1,26 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import Banner from "components/_shared/Banner";
-import { RawData, RealtimeData } from "components/icons/ListingIcons";
-
-const bannerDetails = {
-  heading: "Looking for more clarity?",
-  content: (
-    <>
-      <p>All the raw data for your own explortation &amp; analysis</p>
-      <div>
-        <a className="btn-primary-invert" href="https://forum.justicehub.in">
-          Go to Forum
-        </a>
-        <a className="btn-primary" href="/faq">
-          Open FAQs
-        </a>
-      </div>
-    </>
-  ),
-  image: "/assets/icons/conversation-question.svg",
-  color: "#00ABB7",
-};
+import Image from "next/image";
+import { team } from "data/about";
 
 const About = () => {
   return (
@@ -30,237 +11,166 @@ const About = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="about">
-        <div className="about__header">
+        <div className="about__initiative container">
+          <div>
+            <h2 className="heading">About the Initiative</h2>
+            <p>
+              The Budgets for Justice initiative, launched January 2022, is a
+              curated platform that brings together open budget data from the
+              Union Government of India over the last few years to reveal
+              trends and patterns in budget allocation and expenditures for the
+              law and justice sector. Our objective is to make budget data more
+              accessible, usable and comprehensive so we can stay informed
+              about how the law and justice sector (including courts, police,
+              prison, legal aid etc.) is funded and sourced.
+            </p>
+          </div>
+
+          <h3>For Budgets for Justice, we have:</h3>
+          <ol>
+            <li>
+              <a href="https://justicehub.in/dataset?groups=budget-for-justice">
+                Curated datasets
+              </a>{" "}
+              which include budget data between the years 2015-16 and 2021-22
+              for specific schemes and heads of expenditure under different
+              ministries and departments, such as Union Ministry of Law and
+              Justice, Department of Police under Ministry of Home Affairs,
+              Ministry of Women and Child Development;
+            </li>
+            <li>
+              Built explorers to visualize time-series and compare budget data
+              for different schemes and heads of expenditure; and
+            </li>
+            <li>
+              Curated conversations and discussions with experts in the areas
+              of public finance and law and justice to help understand the
+              budgeting process and the data.
+            </li>
+          </ol>
+          <p>
+            To learn more about the data and understand our methodology, please
+            see our{" "}
+            <a href="https://docs.google.com/document/d/e/2PACX-1vS9CRjRdISyPY8dxO2UQyCO97Tk5hbegUv8cOq3khWr-GHB5oX7Mcz2-i888eR4yO_PKqjc27Y0ue3u/pub">
+              data guidebook.
+            </a>
+          </p>
+          <p>
+            The source code for the Budget for Justice platform is available on{" "}
+            <a href="https://github.com/justicehub-in/budget-for-justice">
+              Github
+            </a>{" "}
+            under license{" "}
+            <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">
+              GNU Affero General Public License version 3.0
+            </a>
+            . We encourage all sorts of contributions. You can refer to the{" "}
+            <a href="https://github.com/justicehub-in/budget-for-justice/blob/main/CONTRIBUTING.md">
+              contribution guidelines
+            </a>{" "}
+            if you’d like to help us build the Budget for Justice platform.
+          </p>
+          <p>
+            Do join us on{" "}
+            <a href="https://twitter.com/JusticeHubIndia">Twitter</a> to stay
+            updated about the project. To learn more about using budget
+            datasets for advocacy, participate in our community events.{" "}
+            <a href="https://dataforjustice.substack.com/">
+              Subscribe to our newsletter
+            </a>{" "}
+            to know more about the datasets and the data contributors.
+          </p>
+        </div>
+        <section className="about__team container">
+          <h2 className="heading">About our team</h2>
+          <p>
+            Budgets for Justice is a collaborative initiative between{" "}
+            <a href="https://justicehub.in/">Justice Hub</a> and{" "}
+            <a href="https://www.civis.vote/">Civis</a>. Our team members
+            include:
+          </p>
+          <ul>
+            {team.map((item, index) => (
+              <li key={`team-${index}`}>
+                <a href={item.linkedin}>
+                  {item.name}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="14"
+                    fill="none"
+                    viewBox="0 0 16 14"
+                  >
+                    <path d="M3.183 1.556c0 .413-.168.808-.467 1.1a1.61 1.61 0 0 1-1.125.455 1.61 1.61 0 0 1-1.125-.456A1.538 1.538 0 0 1 0 1.555c0-.413.168-.808.467-1.1A1.61 1.61 0 0 1 1.592 0c.422 0 .827.164 1.125.456.299.292.466.688.466 1.1Zm.048 2.707H.048V14H3.23V4.263Zm5.029 0H5.093V14h3.135V8.89c0-2.846 3.796-3.11 3.796 0V14h3.143V7.833c0-4.8-5.618-4.62-6.94-2.264l.033-1.306Z" />
+                  </svg>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="about__partners">
           <div className="container">
-            <div>
-              <h2 className="heading">
-                Budget for Justice - Lorem Ipsum is simply dummy text
-              </h2>
+            <section>
+              <div>
+                <figure>
+                  <Image
+                    src={"/assets/images/jh_logo.png"}
+                    width={50}
+                    height={50}
+                    alt=""
+                  />
+                </figure>
+                <h2 className="heading">
+                  About <br /> Justice Hub
+                </h2>
+              </div>
+
               <p>
-                Non, vestibulum, est lorem elementum donec morbi mi commodo.
-                Ac, quam enim amet, nibh diam eget quis. Elementum sed vitae,
-                consequat elementum nunc donec auctor commodo. Sit vestibulum
-                tellus vestibulum amet dictum. Sem est pretium at id elit erat
-                vitae in. Cursus id neque curabitur netus mauris. Sit vel
-                risus, molestie leo sapien leo ultrices elit condimentum. At
-                pulvinar vel sapien pretium pulvinar aliquet volutpat viverra.
+                <a href="https://justicehub.in/">Justice Hub</a> empowers
+                communities for data-driven justice by making legal and justice
+                data open, accessible and actionable. By becoming a shared and
+                open resource for discovering and publishing justice data and
+                related information, Justice Hub aims to encourage a culture of
+                data-sharing and data-use and promote an open-data movement for
+                law and justice in India.
               </p>
-            </div>
+              <br />
+              <p>
+                Justice Hub has been co-created by{" "}
+                <a href="https://civicdatalab.in/">CivicDataLab</a> and{" "}
+                <a href="https://agami.in/">Agami</a>.
+              </p>
+            </section>
 
-            <figure>
-              <img
-                src="https://placekitten.com/416/540"
-                width={416}
-                height={540}
-                alt=""
-              />
-            </figure>
-          </div>
-        </div>
+            <section>
+              <div>
+                <figure>
+                  <Image
+                    src={"/assets/images/jh_logo.png"}
+                    width={50}
+                    height={50}
+                    alt=""
+                  />
+                </figure>
+                <h2 className="heading">
+                  About <br /> Civis
+                </h2>
+              </div>
 
-        <div className="about__process">
-          <div className="container">
-            <h2 className="heading">
-              A look at how we put the pieces together
-            </h2>
-            <p className="home__sub-head">
-              Know the complete process of doing what your are seeing on this
-              platform
-            </p>
-
-            <div>
-              <figure>
-                <img
-                  src="https://placekitten.com/416/452"
-                  width={416}
-                  height={452}
-                  alt=""
-                />
-              </figure>
-              <section>
-                <h3>01. Massa quam quam semper massa</h3>
-                <ul>
-                  <li>
-                    Interdum arcu morbi lorem lorem sagittis, mattis sem sapien
-                    eget. A fringilla ultricies nisi vitae ut vitae. Felis
-                    gravida eu blandit gravida.
-                  </li>
-                  <li>
-                    Elementum duis lacus vitae in ornare neque, enim, ultricies
-                    tortor. Tincidunt sed aliquam tortor sed pellentesque nisl
-                    tempus. Accumsan nec faucibus consequat arcu ut et.
-                  </li>
-                  <li>
-                    Morbi donec hac dolor eu pulvinar nisi. Maecenas blandit
-                    tortor tristique tincidunt montes, lacus consequat
-                    adipiscing. Nisl dignissim fusce amet, adipiscing aliquet
-                    elit eget.
-                  </li>
-                  <li>
-                    Egestas nullam ornare mattis turpis sed pellentesque. Nunc,
-                    vehicula neque nunc scelerisque felis, dictum eu. Vitae
-                    feugiat velit in sed elementum.
-                  </li>
-                </ul>
-              </section>
-            </div>
-
-            <div>
-              <section>
-                <h3>02. Ac egestas lectus elit urna</h3>
-                <ul>
-                  <li>
-                    Interdum arcu morbi lorem lorem sagittis, mattis sem sapien
-                    eget. A fringilla ultricies nisi vitae ut vitae. Felis
-                    gravida eu blandit gravida.
-                  </li>
-                  <li>
-                    Elementum duis lacus vitae in ornare neque, enim, ultricies
-                    tortor. Tincidunt sed aliquam tortor sed pellentesque nisl
-                    tempus. Accumsan nec faucibus consequat arcu ut et.
-                  </li>
-                  <li>
-                    Morbi donec hac dolor eu pulvinar nisi. Maecenas blandit
-                    tortor tristique tincidunt montes, lacus consequat
-                    adipiscing. Nisl dignissim fusce amet, adipiscing aliquet
-                    elit eget.
-                  </li>
-                  <li>
-                    Egestas nullam ornare mattis turpis sed pellentesque. Nunc,
-                    vehicula neque nunc scelerisque felis, dictum eu. Vitae
-                    feugiat velit in sed elementum.
-                  </li>
-                </ul>
-              </section>
-              <figure className="about__img-first">
-                <img
-                  src="https://placekitten.com/416/453"
-                  width={416}
-                  height={452}
-                  alt=""
-                />
-              </figure>
-            </div>
-
-            <div>
-              <figure>
-                <img
-                  src="https://placekitten.com/416/454"
-                  width={416}
-                  height={452}
-                  alt=""
-                />
-              </figure>
-              <section>
-                <h3>03. Elit ipsum mollis sit nunc</h3>
-                <ul>
-                  <li>
-                    Interdum arcu morbi lorem lorem sagittis, mattis sem sapien
-                    eget. A fringilla ultricies nisi vitae ut vitae. Felis
-                    gravida eu blandit gravida.
-                  </li>
-                  <li>
-                    Elementum duis lacus vitae in ornare neque, enim, ultricies
-                    tortor. Tincidunt sed aliquam tortor sed pellentesque nisl
-                    tempus. Accumsan nec faucibus consequat arcu ut et.
-                  </li>
-                  <li>
-                    Morbi donec hac dolor eu pulvinar nisi. Maecenas blandit
-                    tortor tristique tincidunt montes, lacus consequat
-                    adipiscing. Nisl dignissim fusce amet, adipiscing aliquet
-                    elit eget.
-                  </li>
-                  <li>
-                    Egestas nullam ornare mattis turpis sed pellentesque. Nunc,
-                    vehicula neque nunc scelerisque felis, dictum eu. Vitae
-                    feugiat velit in sed elementum.
-                  </li>
-                </ul>
-              </section>
-            </div>
-          </div>
-        </div>
-
-        <section className="about__analysis">
-          <div className="container">
-            <h2 className="heading">
-              Best Analysis Platform for the Budget for Justice
-            </h2>
-
-            <p className="home__sub-head">
-              People who review the current dataset also find these following
-              datasets useful
-            </p>
-
-            <div>
-              <section>
-                <h3>
-                  <RawData /> Raw Data
-                </h3>
-                <p>
-                  Non, vestibulum, est lorem elementum donec morbi mi commodo.
-                  Ac, quam enim amet, nibh diam eget quis. Elementum sed vitae,
-                  consequat elementum nunc donec auctor commodo. Sit vestibulum
-                  tellus vestibulum amet dictum. Sem est pretium at id elit
-                  erat vitae in. Cursus id neque curabitur netus mauris. Sit
-                  vel risus, molestie leo sapien leo ultrices elit condimentum.
-                  At pulvinar vel sapien pretium pulvinar aliquet volutpat
-                  viverra.
-                </p>
-                <a className="btn-primary" href="/">
-                  See Methodologies
-                </a>
-              </section>
-
-              <section>
-                <h3>
-                  <RealtimeData /> Realtime Data Explorer
-                </h3>
-                <p>
-                  Non, vestibulum, est lorem elementum donec morbi mi commodo.
-                  Ac, quam enim amet, nibh diam eget quis. Elementum sed vitae,
-                  consequat elementum nunc donec auctor commodo. Sit vestibulum
-                  tellus vestibulum amet dictum. Sem est pretium at id elit
-                  erat vitae in. Cursus id neque curabitur netus mauris. Sit
-                  vel risus, molestie leo sapien leo ultrices elit condimentum.
-                  At pulvinar vel sapien pretium pulvinar aliquet volutpat
-                  viverra.
-                </p>
-                <a className="btn-primary" href="/">
-                  Explore Now
-                </a>
-              </section>
-            </div>
+              <p>
+                <a href="https://civis.vote/">Civis</a> seeks to build a bridge
+                between citizens and governments to ensure that people’s voice
+                is not just heard but acknowledged and acted upon by those in
+                power. Civis presents various public policies being worked on
+                by the government to their website and encourages citizens to
+                share their feedback. The feedback is then passed on to the
+                relevant authorities to initiate a dialogue between citizens
+                and government and keep the spirit of democracy alive.
+              </p>
+            </section>
           </div>
         </section>
-
-        <section className="about__end container">
-          <h2 className="heading">Heading - Placeholder</h2>
-
-          <p className="home__sub-head">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </p>
-
-          <p className="about__end-para">
-            Fusce etiam cursus feugiat fermentum sem. Aliquam vitae mi vel
-            egestas in vel massa. Lorem nisl urna, scelerisque fermentum purus
-            ac hendrerit enim habitant. Sagittis, viverra mus imperdiet justo.
-            Mattis scelerisque tempus placerat placerat non, nec aenean a.
-            Convallis blandit fermentum eget aliquet nec tortor sit et diam.
-            Praesent nunc dictumst purus fermentum viverra. Felis eget at sit
-            bibendum sagittis nibh convallis rutrum. Rutrum neque ut faucibus
-            dictumst ullamcorper. Feugiat pellentesque tristique volutpat amet,
-            scelerisque. Tortor interdum lacus vel donec arcu risus arcu,
-            dolor. Habitant auctor nunc arcu, suspendisse laoreet. Sapien in
-            egestas urna, dignissim. At non lectus quam morbi nullam commodo,
-            rhoncus ornare.
-          </p>
-        </section>
-
-        <div className="about__cta">
-          <Banner details={bannerDetails} />
-        </div>
       </main>
     </>
   );
