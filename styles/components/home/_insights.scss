@@ -63,8 +63,10 @@
     flex-grow: 999;
     min-width: 80%;
     background-color: $color-primary;
+    background: url("/assets/images/insight-bg-1.jpg") no-repeat;
+    background-size: cover;
     border-radius: 16px 0px 0px 16px;
-    padding: 4.5rem 3rem;
+    padding: 4.5rem 2rem 4.5rem 4.5rem;
     color: $text-dark-high;
     position: relative;
     min-height: 525px;
