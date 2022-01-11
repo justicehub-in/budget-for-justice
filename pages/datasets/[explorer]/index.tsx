@@ -494,13 +494,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const indicators = [...new Set(fileData.map((item) => item.indicators))];
 
   const ministry = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:ministry AND groups:budget-for-justice)&rows=200"
+    "https://justicehub.in/api/3/action/package_search?fq=(tags:ministry AND groups:budgets-for-justice)&rows=200"
   ).then((res) => res.json());
   const scheme = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme AND groups:budget-for-justice)&rows=200"
+    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme AND groups:budgets-for-justice)&rows=200"
   ).then((res) => res.json());
   const category = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme-category AND groups:budget-for-justice)&rows=200"
+    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme-category AND groups:budgets-for-justice)&rows=200"
   ).then((res) => res.json());
   const allData = {
     ministry: datasetPopulation(ministry.result.results),

@@ -17,6 +17,10 @@
       font-weight: 500;
       line-height: 175%;
       margin-top: 12px;
+
+      &.about__bold {
+        font-weight: 700;
+      }
     }
 
     h3 {
@@ -29,6 +33,7 @@
 
     ol {
       counter-reset: list;
+      padding-left: 1rem;
     }
 
     li {

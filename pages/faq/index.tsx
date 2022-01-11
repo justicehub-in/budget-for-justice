@@ -101,18 +101,14 @@ const Faq = ({ content }) => {
       </Head>
       <main className="faq container">
         <div className="faq__header">
-          <h2 className="heading">FAQs</h2>
-          <p className="home__sub-head">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </p>
+          <h2 className="heading">Frequently Asked Questions</h2>
         </div>
         <div
           className="faq__content"
           dangerouslySetInnerHTML={{ __html: content }}
         />
 
-        <Banner details={bannerDetails} />
+        {/* <Banner details={bannerDetails} /> */}
       </main>
     </>
   );

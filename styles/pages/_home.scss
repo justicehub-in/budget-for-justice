@@ -77,6 +77,10 @@
 
   .banner {
     margin-top: -10rem;
+
+    &__content {
+      width: clamp(250px, 100%, 800px);
+    }
   }
 
   .slider {

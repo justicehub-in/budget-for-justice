@@ -12,7 +12,7 @@ const navName = "Budget for Justice";
 const navList = [
   {
     // link: "/#",
-    name: "All Menu",
+    name: "Menu",
     hasSubMenu: true,
     subMenu: [
       {

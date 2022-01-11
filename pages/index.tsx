@@ -9,7 +9,6 @@ import News from "components/home/News";
 import Banner from "components/_shared/Banner";
 // import Slider from "components/_shared/Slider";
 import * as data from "data/home";
-console.log(data);
 
 const Home: React.FC = () => {
   return (

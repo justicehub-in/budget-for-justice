@@ -3,7 +3,7 @@ import Image from "next/image";
 const Video = ({ data }) => {
   return (
     <div className="home-video">
-      <figure>
+      {/* <figure>
         <Image
           src={"/assets/images/home-bg.jpg"}
           layout="responsive"
@@ -12,7 +12,7 @@ const Video = ({ data }) => {
           alt=""
           className="home__bg"
         />
-      </figure>
+      </figure> */}
 
       <section className="home-video__content container">
         <div className="home-video__desc">

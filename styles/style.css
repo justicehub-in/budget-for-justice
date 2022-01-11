@@ -879,11 +879,7 @@ button {
 
 .home-video {
   position: relative;
-}
-.home-video figure {
-  position: absolute;
-  inset: 0;
-  top: 0;
+  background: url("/assets/images/home-bg.jpg") no-repeat;
 }
 .home-video__content {
   padding-top: 4.75rem;
@@ -899,7 +895,8 @@ button {
   text-align: center;
 }
 .home-video__item {
-  margin-top: 12rem;
+  margin-top: 4rem;
+  margin-bottom: -4rem;
 }
 .home-video__item img {
   filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.08));
@@ -920,7 +917,7 @@ button {
 }
 
 .home-latest {
-  margin-top: 7rem;
+  margin-top: 10rem;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
@@ -2553,6 +2550,7 @@ button {
 .banner p {
   line-height: 1.5;
   margin-top: 0.5rem;
+  font-weight: 500;
 }
 .banner a {
   text-decoration: none;
@@ -3141,6 +3139,9 @@ button {
 }
 .home .banner {
   margin-top: -10rem;
+}
+.home .banner__content {
+  width: clamp(250px, 100%, 800px);
 }
 .home .slider {
   background-color: #eff2f2;
@@ -3789,6 +3790,9 @@ button {
   line-height: 175%;
   margin-top: 12px;
 }
+.about__initiative p.about__bold {
+  font-weight: 700;
+}
 .about__initiative h3 {
   font-weight: 800;
   font-size: 18px;
@@ -3798,6 +3802,7 @@ button {
 }
 .about__initiative ol {
   counter-reset: list;
+  padding-left: 1rem;
 }
 .about__initiative li {
   font-weight: 500;

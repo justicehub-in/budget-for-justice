@@ -5,9 +5,9 @@ import {
   HomeAffairs,
 } from "components/icons/ListingIcons";
 export function categoryIcon(tags) {
-  if (tags.includes("Ministry of Law and Justice")) return <LawJustice />;
-  // else if (tags.includes("Ministry of Law and Justice")) return <WomenChild />;
-  // else if (tags.includes("Ministry of Law and Justice")) return <Police />;
+  if (tags.includes("law")) return <LawJustice />;
+  else if (tags.includes("wcd")) return <WomenChild />;
+  else if (tags.includes("police")) return <Police />;
   else return <HomeAffairs />;
 }
 
@@ -30,7 +30,7 @@ export function explorerPopulation(obj) {
     tags: obj.tags.map((item) => item.display_name),
     dataUrl: resources.dataUrl || "",
     metaUrl: resources.metaUrl || "",
-    resUrls
+    resUrls,
   };
 
   return newObj;
@@ -84,7 +84,7 @@ export function filter_data_budgettype(mainData, budgetType) {
 export async function fetchFromTags(tags, id) {
   const tagsString = tags.map((i) => `"${i}"`).join(" OR ");
   const response = await fetch(
-    `https://justicehub.in/api/3/action/package_search?fq=tags:(${tagsString}) AND groups:budget-for-justice`
+    `https://justicehub.in/api/3/action/package_search?fq=tags:(${tagsString}) AND groups:budgets-for-justice`
   ).then((res) => res.json());
   const data = response.result.results;
   let filteredData = data.filter((item) => item.name != id).splice(0, 2);
