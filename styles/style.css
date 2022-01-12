@@ -2538,14 +2538,17 @@ button {
 .banner__content > a {
   margin-top: 14px;
 }
-.banner img {
+.banner figure {
   position: absolute;
   right: 8%;
   top: 50%;
   transform: translateY(-50%);
-  max-width: 184px;
-  max-height: 184px;
   z-index: -1;
+}
+@media screen and (max-width: 719px) {
+  .banner figure {
+    display: none;
+  }
 }
 .banner p {
   line-height: 1.5;
