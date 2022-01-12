@@ -1,4 +1,5 @@
 @use "../../settings/variables" as *;
+@use "../../tools/mixins/media" as media;
 
 .banner {
   margin-top: 7rem;
@@ -21,14 +22,16 @@
     }
   }
 
-  img {
+  figure {
     position: absolute;
     right: 8%;
     top: 50%;
     transform: translateY(-50%);
-    max-width: 184px;
-    max-height: 184px;
     z-index: -1;
+
+    @include media.narrowerThan("seedling") {
+      display: none;
+    }
   }
 
   p {

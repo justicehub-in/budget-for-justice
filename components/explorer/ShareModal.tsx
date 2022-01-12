@@ -1,34 +1,55 @@
 import { Share } from "components/icons/ListingIcons";
 import { useRouter } from "next/router";
+import {
+  Facebook,
+  Reddit,
+  Linkedin,
+  Twitter,
+} from "components/icons/ExplorerIcons";
 
 const ShareModal = ({ title }) => {
   const router = useRouter();
 
   // open / close sub-menu
   function shareButtonHandler(e: any) {
+    function hideMenu() {
+      console.log("called");
+
+      e.target.setAttribute("aria-expanded", "false");
+      e.target.setAttribute(
+        "aria-label",
+        e.target.getAttribute("data-text-for-show")
+      );
+      if (e.target.nextElementSibling)
+        e.target.nextElementSibling.setAttribute("hidden", "true");
+    }
+
+    function showMenu() {
+      e.target.setAttribute("aria-expanded", "true");
+      e.target.setAttribute(
+        "aria-label",
+        e.target.getAttribute("data-text-for-hide")
+      );
+      if (e.target.nextElementSibling)
+        e.target.nextElementSibling.removeAttribute("hidden");
+    }
+
     // check if web share api is supported
     if (navigator.share) {
       navigator.share({
         text: title,
-        url: `https://budgets.justicehub.in/datasets/${router.query.exploere}`,
+        url: `https://budgets.justicehub.in/datasets/${router.query.explorer}`,
       });
     } else {
-      // if clicked on already opened menu
+      // if clicked on already opened menu, close
       if (e.target.getAttribute("aria-expanded") == "true") {
-        e.target.setAttribute("aria-expanded", "false");
-        e.target.setAttribute(
-          "aria-label",
-          e.target.getAttribute("data-text-for-show")
-        );
-        e.target.nextElementSibling.setAttribute("hidden", "true");
+        hideMenu();
       } else {
-        // open current clicked menu
-        e.target.setAttribute("aria-expanded", "true");
-        e.target.setAttribute(
-          "aria-label",
-          e.target.getAttribute("data-text-for-hide")
-        );
-        e.target.nextElementSibling.removeAttribute("hidden");
+        // if not open, then open current clicked menu
+        showMenu();
+        // document.addEventListener("mousedown", () => hideMenu(), {
+        //   once: true,
+        // });
       }
     }
   }
@@ -47,17 +68,47 @@ const ShareModal = ({ title }) => {
       >
         Share <Share />
       </button>
-      <ul className="navbar__nested" hidden>
-        <li>abc</li>
-        {/* {navItem.subMenu.map((subMenuItem, index) => (
-          <li key={`submenuItem-${index}`}>
-            <Link href={subMenuItem.link}>
-              <a>
-                {subMenuItem.name} <span>&#x279D;</span>
-              </a>
-            </Link>
-          </li>
-        ))} */}
+      <ul className="shareModal__dropdown" hidden>
+        <li>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={`https://www.facebook.com/sharer.php?u=https://budgets.justicehub.in/datasets/${router.query.explorer}`}
+          >
+            <Facebook />
+            <span>Facebook</span>
+          </a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={`https://twitter.com/intent/tweet?url=https://budgets.justicehub.in/datasets/${router.query.explorer}`}
+          >
+            <Twitter />
+            <span>Twitter</span>
+          </a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={`https://www.linkedin.com/shareArticle?url=https://budgets.justicehub.in/datasets/${router.query.explorer}`}
+          >
+            <Linkedin />
+            <span>LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={`https://www.reddit.com/submit?url=https://budgets.justicehub.in/datasets/${router.query.explorer}`}
+          >
+            <Reddit />
+            <span>Reddit</span>
+          </a>
+        </li>
       </ul>
     </div>
   );

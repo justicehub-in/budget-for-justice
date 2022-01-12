@@ -116,12 +116,13 @@
     margin-top: 1rem;
 
     span {
-      background-color: $grey-5;
-      font-weight: 500;
-      line-height: 175%;
-      padding: 4px 12px;
-      border-radius: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 130%;
       color: $text-light-medium;
+      background-color: $text-light-disabled;
+      padding: 4px 6px;
     }
 
     strong {
@@ -300,7 +301,6 @@
       font-size: 12px;
       line-height: 133%;
       display: inline;
-
 
       -webkit-box-orient: vertical;
       // display: -webkit-box;

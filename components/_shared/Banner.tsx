@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Banner = ({ details }) => {
   return (
     <section
@@ -8,7 +10,9 @@ const Banner = ({ details }) => {
         <h2 className="heading">{details.heading}</h2>
         {details.content}
       </div>
-      <img src={details.image} alt="" />
+      <figure>
+        <Image src={details.image} width={184} height={184} alt="" />
+      </figure>
     </section>
   );
 };

@@ -1395,7 +1395,7 @@ button {
   border-right: 14px solid transparent;
   border-bottom: 17px solid white;
   top: -10px;
-  right: 20%;
+  right: 35%;
 }
 .navbar__item[type=button] {
   border-radius: 4px;
@@ -2538,14 +2538,17 @@ button {
 .banner__content > a {
   margin-top: 14px;
 }
-.banner img {
+.banner figure {
   position: absolute;
   right: 8%;
   top: 50%;
   transform: translateY(-50%);
-  max-width: 184px;
-  max-height: 184px;
   z-index: -1;
+}
+@media screen and (max-width: 719px) {
+  .banner figure {
+    display: none;
+  }
 }
 .banner p {
   line-height: 1.5;
@@ -3031,12 +3034,18 @@ button {
   background-color: #eff2f2;
   padding: 20px 24px;
   border-radius: 4px;
+  overflow-y: auto;
+  height: 100%;
+  max-height: 59vh;
 }
 .schemeModal__content ul {
-  display: flex;
+  display: grid;
+  gap: 1rem;
 }
-.schemeModal__content li {
-  width: 49%;
+@supports (width: min(250px, 100%)) {
+  .schemeModal__content ul {
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  }
 }
 .schemeModal__content a {
   font-weight: 500;
@@ -3054,7 +3063,7 @@ button {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
 }
 .schemeModal__content a svg {
   min-width: 28px;
@@ -3073,6 +3082,34 @@ button {
 .shareModal button {
   font-weight: bold;
   border-width: 2px;
+}
+.shareModal__dropdown {
+  background-color: white;
+  border: 1px solid #cdd1d1;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  top: 4rem;
+  right: 0;
+}
+.shareModal__dropdown a {
+  font-weight: 500 !important;
+  line-height: 175%;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
+}
+.shareModal__dropdown a svg {
+  margin-top: -6px;
+  margin-right: 12px;
+  flex-basis: 1.5rem;
+  width: 1.5rem;
+}
+.shareModal__dropdown a:hover {
+  -webkit-text-decoration-color: currentColor;
+          text-decoration-color: currentColor;
 }
 
 .home__heading {
@@ -4154,12 +4191,13 @@ button {
   margin-top: 1rem;
 }
 .explorer__meta span {
-  background-color: #EFF2F2;
-  font-weight: 500;
-  line-height: 175%;
-  padding: 4px 12px;
-  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 130%;
   color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.08);
+  padding: 4px 6px;
 }
 .explorer__meta strong {
   color: #02838B;
