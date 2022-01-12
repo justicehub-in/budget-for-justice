@@ -148,7 +148,7 @@ const About = () => {
               <div>
                 <figure>
                   <Image
-                    src={"/assets/images/jh_logo.png"}
+                    src={"/assets/images/civis.png"}
                     width={50}
                     height={50}
                     alt=""

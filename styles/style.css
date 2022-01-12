@@ -1034,6 +1034,7 @@ button {
   background-size: cover;
   border-radius: 16px 0px 0px 16px;
   padding: 4.5rem 2rem 4.5rem 4.5rem;
+  padding-left: clamp(2.5rem, 10%, 4.5rem);
   color: #fdfcfc;
   position: relative;
   min-height: 525px;
@@ -2533,7 +2534,7 @@ button {
   z-index: 10;
 }
 .banner__content h2 {
-  line-height: 1.5;
+  line-height: 130%;
 }
 .banner__content > a {
   margin-top: 14px;
