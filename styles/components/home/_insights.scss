@@ -67,6 +67,7 @@
     background-size: cover;
     border-radius: 16px 0px 0px 16px;
     padding: 4.5rem 2rem 4.5rem 4.5rem;
+    padding-left: clamp(2.5rem, 10%, 4.5rem);
     color: $text-dark-high;
     position: relative;
     min-height: 525px;
