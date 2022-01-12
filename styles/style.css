@@ -1374,6 +1374,7 @@ button {
 }
 .navbar__nested li svg {
   fill: #00abb7;
+  pointer-events: none;
 }
 .navbar__nested li a {
   text-decoration: underline;
@@ -1409,6 +1410,7 @@ button {
   fill: #fdfcfc;
   margin-left: 12px;
   transform: rotate(90deg);
+  pointer-events: none;
 }
 
 .m-header {
@@ -1509,6 +1511,7 @@ button {
 }
 .m-navbar__nested svg {
   fill: #fdfcfc;
+  pointer-events: none;
 }
 .m-navbar__nested a {
   padding: 1rem 1.5rem;
@@ -4127,6 +4130,7 @@ button {
   margin-bottom: -5px;
   margin-left: 8px;
   margin-right: 0;
+  pointer-events: none;
 }
 .explorer__scheme-change a {
   display: none;
