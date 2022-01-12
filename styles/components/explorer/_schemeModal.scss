@@ -134,13 +134,17 @@
     background-color: $bg-light;
     padding: 20px 24px;
     border-radius: 4px;
+    overflow-y: auto;
+    height: 100%;
+    max-height: 59vh;
 
     ul {
-      display: flex;
-    }
+      display: grid;
+      gap: 1rem;
 
-    li {
-      width: 49%;
+      @supports (width: min(250px, 100%)) {
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      }
     }
 
     a {
@@ -156,7 +160,7 @@
         display: -webkit-box;
         overflow: hidden;
         text-overflow: ellipsis;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 3;
       }
 
       svg {

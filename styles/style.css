@@ -3031,12 +3031,18 @@ button {
   background-color: #eff2f2;
   padding: 20px 24px;
   border-radius: 4px;
+  overflow-y: auto;
+  height: 100%;
+  max-height: 59vh;
 }
 .schemeModal__content ul {
-  display: flex;
+  display: grid;
+  gap: 1rem;
 }
-.schemeModal__content li {
-  width: 49%;
+@supports (width: min(250px, 100%)) {
+  .schemeModal__content ul {
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  }
 }
 .schemeModal__content a {
   font-weight: 500;
@@ -3054,7 +3060,7 @@ button {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
 }
 .schemeModal__content a svg {
   min-width: 28px;
