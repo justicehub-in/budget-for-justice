@@ -4163,12 +4163,13 @@ button {
   margin-top: 1rem;
 }
 .explorer__meta span {
-  background-color: #EFF2F2;
-  font-weight: 500;
-  line-height: 175%;
-  padding: 4px 12px;
-  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 130%;
   color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.08);
+  padding: 4px 6px;
 }
 .explorer__meta strong {
   color: #02838B;
