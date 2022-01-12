@@ -1395,7 +1395,7 @@ button {
   border-right: 14px solid transparent;
   border-bottom: 17px solid white;
   top: -10px;
-  right: 20%;
+  right: 35%;
 }
 .navbar__item[type=button] {
   border-radius: 4px;

@@ -12,6 +12,28 @@ const ShareModal = ({ title }) => {
 
   // open / close sub-menu
   function shareButtonHandler(e: any) {
+    function hideMenu() {
+      console.log("called");
+
+      e.target.setAttribute("aria-expanded", "false");
+      e.target.setAttribute(
+        "aria-label",
+        e.target.getAttribute("data-text-for-show")
+      );
+      if (e.target.nextElementSibling)
+        e.target.nextElementSibling.setAttribute("hidden", "true");
+    }
+
+    function showMenu() {
+      e.target.setAttribute("aria-expanded", "true");
+      e.target.setAttribute(
+        "aria-label",
+        e.target.getAttribute("data-text-for-hide")
+      );
+      if (e.target.nextElementSibling)
+        e.target.nextElementSibling.removeAttribute("hidden");
+    }
+
     // check if web share api is supported
     if (navigator.share) {
       navigator.share({
@@ -19,24 +41,15 @@ const ShareModal = ({ title }) => {
         url: `https://budgets.justicehub.in/datasets/${router.query.explorer}`,
       });
     } else {
-      // if clicked on already opened menu
+      // if clicked on already opened menu, close
       if (e.target.getAttribute("aria-expanded") == "true") {
-        e.target.setAttribute("aria-expanded", "false");
-        e.target.setAttribute(
-          "aria-label",
-          e.target.getAttribute("data-text-for-show")
-        );
-        if (e.target.nextElementSibling)
-          e.target.nextElementSibling.setAttribute("hidden", "true");
+        hideMenu();
       } else {
-        // open current clicked menu
-        e.target.setAttribute("aria-expanded", "true");
-        e.target.setAttribute(
-          "aria-label",
-          e.target.getAttribute("data-text-for-hide")
-        );
-        if (e.target.nextElementSibling)
-          e.target.nextElementSibling.removeAttribute("hidden");
+        // if not open, then open current clicked menu
+        showMenu();
+        // document.addEventListener("mousedown", () => hideMenu(), {
+        //   once: true,
+        // });
       }
     }
   }
