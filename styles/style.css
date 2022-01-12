@@ -3083,6 +3083,34 @@ button {
   font-weight: bold;
   border-width: 2px;
 }
+.shareModal__dropdown {
+  background-color: white;
+  border: 1px solid #cdd1d1;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  top: 4rem;
+  right: 0;
+}
+.shareModal__dropdown a {
+  font-weight: 500 !important;
+  line-height: 175%;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
+}
+.shareModal__dropdown a svg {
+  margin-top: -6px;
+  margin-right: 12px;
+  flex-basis: 1.5rem;
+  width: 1.5rem;
+}
+.shareModal__dropdown a:hover {
+  -webkit-text-decoration-color: currentColor;
+          text-decoration-color: currentColor;
+}
 
 .home__heading {
   font-weight: 900;

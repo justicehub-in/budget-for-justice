@@ -1,5 +1,11 @@
 import { Share } from "components/icons/ListingIcons";
 import { useRouter } from "next/router";
+import {
+  Facebook,
+  Reddit,
+  Linkedin,
+  Twitter,
+} from "components/icons/ExplorerIcons";
 
 const ShareModal = ({ title }) => {
   const router = useRouter();
@@ -10,7 +16,7 @@ const ShareModal = ({ title }) => {
     if (navigator.share) {
       navigator.share({
         text: title,
-        url: `https://budgets.justicehub.in/datasets/${router.query.exploere}`,
+        url: `https://budgets.justicehub.in/datasets/${router.query.explorer}`,
       });
     } else {
       // if clicked on already opened menu
@@ -20,7 +26,8 @@ const ShareModal = ({ title }) => {
           "aria-label",
           e.target.getAttribute("data-text-for-show")
         );
-        e.target.nextElementSibling.setAttribute("hidden", "true");
+        if (e.target.nextElementSibling)
+          e.target.nextElementSibling.setAttribute("hidden", "true");
       } else {
         // open current clicked menu
         e.target.setAttribute("aria-expanded", "true");
@@ -28,7 +35,8 @@ const ShareModal = ({ title }) => {
           "aria-label",
           e.target.getAttribute("data-text-for-hide")
         );
-        e.target.nextElementSibling.removeAttribute("hidden");
+        if (e.target.nextElementSibling)
+          e.target.nextElementSibling.removeAttribute("hidden");
       }
     }
   }
@@ -47,17 +55,47 @@ const ShareModal = ({ title }) => {
       >
         Share <Share />
       </button>
-      <ul className="navbar__nested" hidden>
-        <li>abc</li>
-        {/* {navItem.subMenu.map((subMenuItem, index) => (
-          <li key={`submenuItem-${index}`}>
-            <Link href={subMenuItem.link}>
-              <a>
-                {subMenuItem.name} <span>&#x279D;</span>
-              </a>
-            </Link>
-          </li>
-        ))} */}
+      <ul className="shareModal__dropdown" hidden>
+        <li>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={`https://www.facebook.com/sharer.php?u=https://budgets.justicehub.in/datasets/${router.query.explorer}`}
+          >
+            <Facebook />
+            <span>Facebook</span>
+          </a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={`https://twitter.com/intent/tweet?url=https://budgets.justicehub.in/datasets/${router.query.explorer}`}
+          >
+            <Twitter />
+            <span>Twitter</span>
+          </a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={`https://www.linkedin.com/shareArticle?url=https://budgets.justicehub.in/datasets/${router.query.explorer}`}
+          >
+            <Linkedin />
+            <span>LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={`https://www.reddit.com/submit?url=https://budgets.justicehub.in/datasets/${router.query.explorer}`}
+          >
+            <Reddit />
+            <span>Reddit</span>
+          </a>
+        </li>
       </ul>
     </div>
   );

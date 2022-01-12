@@ -295,7 +295,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
                 data={allData}
               />
             </div>
-            {showShare && <ShareModal title={data.title} />}
+            {<ShareModal title={data.title} />}
           </div>
 
           <section className="explorer__heading container">
