@@ -2921,7 +2921,6 @@ button {
   width: 90vw;
   height: 80vh;
   max-height: 716px;
-  top: 31rem;
   padding: 1rem 1.5rem;
   display: flex;
   flex-direction: column;
