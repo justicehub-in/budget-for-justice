@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Head from "next/head";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -15,6 +14,7 @@ import { SectionTypeData } from "data/placeholder";
 import Toggle from "components/_shared/Toggle";
 import { datasetPopulation, categoryIcon } from "utils";
 import { useSearch } from "utils/search";
+import Seo from "components/_shared/seo";
 
 const Lisitng = ({ data }) => {
   const [filteredObj, setFilteredObj] = useState(data);
@@ -27,10 +27,8 @@ const Lisitng = ({ data }) => {
 
   return (
     <>
-      <Head>
-        <title>B4J | Datasets</title>
-        <link rel="icon" href="assets/icons/b4j.png" />
-      </Head>
+      <Seo />
+
       <main className="listing">
         <section className="listing__header">
           <div className="container">

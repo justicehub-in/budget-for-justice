@@ -11,6 +11,14 @@ export function categoryIcon(tags) {
   else return <HomeAffairs />;
 }
 
+export function stripTitle(name) {
+  const shortName = name.includes("data for the")
+    ? name.split("data for the ")[1]
+    : name.split("data for ")[1];
+
+  return shortName;
+}
+
 export function explorerPopulation(obj) {
   let newObj = {};
 

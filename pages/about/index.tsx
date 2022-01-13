@@ -1,15 +1,13 @@
 import React from "react";
-import Head from "next/head";
 import Image from "next/image";
 import { team } from "data/about";
+import Seo from "components/_shared/seo";
 
 const About = () => {
   return (
     <>
-      <Head>
-        <title>B4J | About Us</title>
-        <link rel="icon" href="assets/icons/b4j.png" />
-      </Head>
+      <Seo />
+
       <main className="about">
         <div className="about__initiative container">
           <div>

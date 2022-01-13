@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
-import Head from "next/head";
 import Link from "next/link";
 import {
   tabbedInterface,
@@ -30,6 +29,8 @@ import SchemeModal from "components/explorer/SchemeModal";
 import ShareModal from "components/explorer/ShareModal";
 import IndicatorAlter from "components/explorer/IndicatorAlter";
 import DownloadViz from "components/explorer/DownloadViz";
+import Seo from "components/_shared/seo";
+
 Modal.setAppElement("#__next");
 
 type Props = {
@@ -46,7 +47,6 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   const [budgetTypes, setBudgetTypes] = useState([]);
   const [selectedBudgetType, setSelectedBudgetType] = useState("");
   const [isTable, setIsTable] = useState(false);
-  const [showShare, setShowShare] = useState(false);
   const [currentViz, setCurrentViz] = useState("#barGraph");
 
   // todo: make it dynamic lie scheme dashboard
@@ -197,8 +197,6 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     tabbedInterface(tablist, panels);
 
     handleNewVizData("Budget Estimates");
-
-    if (navigator.share) setShowShare(true);
   }, [fileData]);
 
   // Run whenever a new indicator is selected
@@ -264,12 +262,14 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     setFinalFiltered(finalFiltered);
   }
 
+  const seo = {
+    title: data.title,
+    description: data.notes,
+  };
+
   return (
     <>
-      <Head>
-        <title>B4J | {data.title}</title>
-        <link rel="icon" href="/assets/icons/b4j.png" />
-      </Head>
+      <Seo seo={seo} />
       <main className="explorer">
         <div className="explorer__header">
           <div className="explorer__breadcrumb container">
