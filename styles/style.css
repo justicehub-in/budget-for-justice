@@ -1293,12 +1293,6 @@ button {
      object-fit: contain;
   margin-right: 0.5rem;
 }
-.header__brand h1 {
-  font-size: 1.375rem;
-  font-weight: 800;
-  line-height: 145%;
-  color: #EBFEFF;
-}
 .header__divider {
   border: 1px solid rgba(255, 255, 255, 0.7);
   margin: 0 1rem;
@@ -1427,10 +1421,10 @@ button {
 .m-header .container {
   padding: 0.2rem;
   justify-content: flex-start;
+  padding-top: 12px;
 }
 .m-header__button {
   margin-right: 1rem;
-  margin-bottom: -4px;
   width: 44px;
   height: 44px;
 }
@@ -1473,12 +1467,10 @@ button {
   justify-content: space-between;
   width: 100%;
   line-height: 175%;
-  font-weight: bold;
+  font-weight: 700;
   border-bottom: 1px solid #ABB0B0;
   width: 90%;
-}
-.m-navbar .navbar__item--active {
-  font-weight: 800;
+  background-color: #00abb7;
 }
 .m-navbar .navbar__item[type=button]::after {
   border-bottom: 2px solid #fdfcfc;
@@ -1504,6 +1496,7 @@ button {
 .m-navbar .navbar__item[aria-expanded=true] + ul {
   background-color: #00abb7;
   padding-bottom: 1rem;
+  font-weight: 700;
 }
 .m-navbar__nested {
   width: 100%;
