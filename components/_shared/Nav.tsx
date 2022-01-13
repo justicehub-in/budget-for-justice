@@ -7,7 +7,7 @@ import { ArrowForward } from "components/icons/ListingIcons";
 // import Hamburger from 'public/assets/icons/hamburger.svg';
 Modal.setAppElement("#__next");
 
-const navName = "Budget for Justice";
+const navName = "Budgets for Justice";
 
 const navList = [
   {
@@ -27,7 +27,7 @@ const navList = [
   },
   {
     link: "/datasets",
-    name: "Explore Budget",
+    name: "Explore Budgets",
     isButton: true,
   },
 ];
