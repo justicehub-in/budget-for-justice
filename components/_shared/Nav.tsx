@@ -1,13 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import Modal from "react-modal";
 import { ArrowForward } from "components/icons/ListingIcons";
 // import Hamburger from 'public/assets/icons/hamburger.svg';
 Modal.setAppElement("#__next");
-
-const navName = "Budget for Justice";
 
 const navList = [
   {
@@ -27,7 +26,7 @@ const navList = [
   },
   {
     link: "/datasets",
-    name: "Explore Budget",
+    name: "Explore Budgets",
     isButton: true,
   },
 ];
@@ -82,7 +81,14 @@ const Nav: React.FC = () => {
           <div className="header__brand">
             <Link href="/">
               <a>
-                <h1>{navName}</h1>
+                <figure>
+                  <Image
+                    src={"/assets/images/b4j_logo.png"}
+                    width={232}
+                    height={32}
+                    alt=""
+                  />
+                </figure>
               </a>
             </Link>
           </div>
@@ -175,7 +181,14 @@ const Nav: React.FC = () => {
           <div className="header__brand">
             <Link href="/">
               <a>
-                <h1>{navName}</h1>
+                <figure>
+                  <Image
+                    src={"/assets/images/b4j_logo.png"}
+                    width={232}
+                    height={32}
+                    alt=""
+                  />
+                </figure>
               </a>
             </Link>
           </div>
@@ -207,6 +220,19 @@ const Nav: React.FC = () => {
           </div>
 
           <ul className="m-navbar__container">
+            <li className="navbar__links">
+              <Link href={"/"}>
+                <a
+                  href={"/"}
+                  onClick={mobileNavHandler}
+                  className={`navbar__item ${
+                    router.pathname == "/" ? "navbar__item--active" : ""
+                  }`}
+                >
+                  Home
+                </a>
+              </Link>
+            </li>
             {navList.map((navItem: any, index) => (
               <li key={`navItemMobile-${index}`} className="navbar__links">
                 {navItem.hasSubMenu ? (

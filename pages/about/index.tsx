@@ -1,15 +1,13 @@
 import React from "react";
-import Head from "next/head";
 import Image from "next/image";
 import { team } from "data/about";
+import Seo from "components/_shared/seo";
 
 const About = () => {
   return (
     <>
-      <Head>
-        <title>B4J | About Us</title>
-        <link rel="icon" href="assets/icons/b4j.png" />
-      </Head>
+      <Seo />
+
       <main className="about">
         <div className="about__initiative container">
           <div>
@@ -57,7 +55,7 @@ const About = () => {
             </a>
           </p>
           <p>
-            The source code for the Budget for Justice platform is available on{" "}
+            The source code for the Budgets for Justice platform is available on{" "}
             <a href="https://github.com/justicehub-in/budget-for-justice">
               Github
             </a>{" "}
@@ -69,7 +67,7 @@ const About = () => {
             <a href="https://github.com/justicehub-in/budget-for-justice/blob/main/CONTRIBUTING.md">
               contribution guidelines
             </a>{" "}
-            if you’d like to help us build the Budget for Justice platform.
+            if you’d like to help us build the Budgets for Justice platform.
           </p>
           <p>
             Do join us on{" "}

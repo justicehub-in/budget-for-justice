@@ -1,14 +1,14 @@
 import { saveAs } from "file-saver";
+import { stripTitle } from "utils";
 
 function fileName(type, name, indicator, format) {
   // splitting the string to find the required part of title
-  let shortName = name.split("data for ");
-  shortName = shortName[1].split(" scheme (20");
+  const shortName = stripTitle(name);
 
   // If there is no type, eg: table, don;t add it to the name
   if (type != "NA" && format != "csv")
-    return `${shortName[0]} - ${indicator} - ${type}.${format}`;
-  else return `${shortName[0]} - ${indicator}.${format}`;
+    return `${shortName} - ${indicator} - ${type}.${format}`;
+  else return `${shortName} - ${indicator}.${format}`;
 }
 
 function download_csv(csv, filename) {

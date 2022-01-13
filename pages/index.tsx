@@ -1,5 +1,4 @@
 import React from "react";
-import Head from "next/head";
 // import Carousel from "components/home/Carousel";
 // import Header from "components/home/Header";
 import Video from "components/home/Video";
@@ -8,15 +7,14 @@ import Insights from "components/home/Insights";
 import News from "components/home/News";
 import Banner from "components/_shared/Banner";
 // import Slider from "components/_shared/Slider";
+import Seo from "components/_shared/seo";
+
 import * as data from "data/home";
 
 const Home: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>Budget 4 Justice</title>
-        <link rel="icon" href="assets/icons/b4j.png" />
-      </Head>
+      <Seo />
       <main className="home">
         {/* <Header data={data.didYouKnow} /> */}
         <Video data={data.video} />
