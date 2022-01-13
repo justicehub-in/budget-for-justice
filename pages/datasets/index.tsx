@@ -9,12 +9,19 @@ import {
   Police,
   HomeAffairs,
 } from "components/icons/ListingIcons";
-import { ToggleData } from "data/placeholder";
-import { SectionTypeData } from "data/placeholder";
 import Toggle from "components/_shared/Toggle";
 import { datasetPopulation, categoryIcon } from "utils";
 import { useSearch } from "utils/search";
 import Seo from "components/_shared/seo";
+
+export const SectionTypeData = {
+  Ministries:
+    "This section lists all the budget datasets that are curated at a ministry / department level.",
+  Categories:
+    "This section lists all the budget datasets for scheme categories. These categories represent a collection of schemes and are present within the budget documents.",
+  Schemes:
+    "This section lists all the budget datasets for various schemes that are present within a budget document.",
+};
 
 const Lisitng = ({ data }) => {
   const [filteredObj, setFilteredObj] = useState(data);
