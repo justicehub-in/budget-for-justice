@@ -37,6 +37,7 @@
     "graphql": "^15.1.0",
     "graphql-anywhere": "^4.2.7",
     "graphql-tag": "^2.10.3",
+    "gsap": "^3.9.1",
     "html-react-parser": "^0.13.0",
     "jszip": "^3.7.1",
     "jszip-utils": "^0.1.0",

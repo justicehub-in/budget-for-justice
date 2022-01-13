@@ -6,10 +6,20 @@
     background-color: $color-teal-1;
     padding-top: 5rem;
     padding-bottom: 3rem;
+    // position: sticky;
+    // top: 0;
+    z-index: 10;
+
+    // &--scrolled {
+    //   p {
+    //     opacity: 0;
+    //   }
+    // }
 
     p {
       line-height: 1.5;
       margin: 2rem 0;
+      transition: opacity 200ms ease-out;
     }
 
     filter: $drop-shadow;

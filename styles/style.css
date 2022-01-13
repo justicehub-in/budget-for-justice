@@ -4006,11 +4006,13 @@ button {
   background-color: #cceef1;
   padding-top: 5rem;
   padding-bottom: 3rem;
+  z-index: 10;
   filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.08));
 }
 .listing__header p {
   line-height: 1.5;
   margin: 2rem 0;
+  transition: opacity 200ms ease-out;
 }
 .listing__indicators {
   margin-top: 2rem;
@@ -4364,6 +4366,11 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;
+}
+.explorer__source button svg {
+  width: 10px;
+  margin-left: 8px;
+  margin-bottom: -4px;
 }
 .explorer .banner {
   margin-bottom: -10rem;

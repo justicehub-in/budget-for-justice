@@ -1,5 +1,6 @@
 import { saveAs } from "file-saver";
 import { stripTitle } from "utils";
+import { Download } from "components/icons/ListingIcons";
 
 function fileName(type, name, indicator, format) {
   // splitting the string to find the required part of title
@@ -67,7 +68,8 @@ const DownloadViz = ({ viz, type, name, indicator }) => {
 
   return (
     <button onClick={() => downloadViz(viz)} className="btn-secondary-mini">
-      {`Download ${viz == "#tableView" ? "CSV" : "Visualisation"}`}
+      {`Download ${viz == "#tableView" ? "CSV" : "Visualisation"}`}{" "}
+      <Download />
     </button>
   );
 };

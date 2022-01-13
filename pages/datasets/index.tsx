@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -14,6 +14,9 @@ import { datasetPopulation, categoryIcon, stripTitle } from "utils";
 import { useSearch } from "utils/search";
 import Seo from "components/_shared/seo";
 
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 export const SectionTypeData = {
   Ministries:
     "This section lists all the budget datasets that are curated at a ministry / department level.",
@@ -27,6 +30,52 @@ const Lisitng = ({ data }) => {
   const [filteredObj, setFilteredObj] = useState(data);
   const router = useRouter();
 
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // const tl = gsap.timeline();
+
+    // tl.to(".listing__header p", {
+    //   y: "-=60",
+    //   ease: "power2.out",
+    //   delay: 0.5,
+    // });
+    // tl.to(".listing__header p", {
+    //   opacity: 0,
+    //   ease: "power2.out",
+    //   delay: -0.5,
+    // });
+    // tl.to(".listing__header", {
+    //   y: "-=60",
+    //   ease: "power2.out",
+    //   delay: -0.5,
+    // });
+    // tl.to(".listing__header form", {
+    //   height: "80%",
+    //   ease: "power2.out",
+    //   delay: -0.5,
+    // });
+
+    // const actionNav = gsap.to(".listing__header", {
+    //   y: "-=60",
+    //   duration: 0.5,
+    //   ease: "power2.in",
+    //   paused: true,
+    // });
+
+    // ScrollTrigger.create({
+    //   trigger: ".listing__header",
+    //   start: ".listing__header",
+    //   end: 99999,
+    //   pin: true,
+    //   pinSpacing: false,
+    //   scrub: true,
+
+    //   onEnter: () => tl.play(),
+    //   onLeaveBack: () => tl.reverse(),
+    // });
+  }, []);
+
   function changeResult(val) {
     const newObj = useSearch(val, data);
     setFilteredObj(newObj);
@@ -39,7 +88,7 @@ const Lisitng = ({ data }) => {
       <main className="listing">
         <section className="listing__header">
           <div className="container">
-            <h2 className="heading">Explore Budgets for Justice</h2>
+            <h2 className="heading">Budget Datasets (2016-17 - 2021-22)</h2>
             <p>
               Select a data set from the list below to view the trends in
               budget estimates, revised estimates, actual expenditure and fund
