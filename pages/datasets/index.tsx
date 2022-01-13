@@ -10,7 +10,7 @@ import {
   HomeAffairs,
 } from "components/icons/ListingIcons";
 import Toggle from "components/_shared/Toggle";
-import { datasetPopulation, categoryIcon } from "utils";
+import { datasetPopulation, categoryIcon, stripTitle } from "utils";
 import { useSearch } from "utils/search";
 import Seo from "components/_shared/seo";
 
@@ -41,14 +41,11 @@ const Lisitng = ({ data }) => {
           <div className="container">
             <h2 className="heading">Explore Budgets for Justice</h2>
             <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using Content here,
-              content here, making it look like readable English. Many desktop
-              publishing packages and web page editors now use Lorem Ipsum as
-              their default model text, and a search for will uncover many web
-              sites still in their infancy.
+              Select a data set from the list below to view the trends in
+              budget estimates, revised estimates, actual expenditure and fund
+              utilisation for a scheme, scheme category or a
+              ministry/department. Data points for all indicators are available
+              from 2016-17 onward.
             </p>
             <Search newSearch={changeResult} />
           </div>
@@ -90,7 +87,7 @@ const Lisitng = ({ data }) => {
                   <Link href={`${router.pathname}/${item.id}`}>
                     <a>
                       {categoryIcon(item.tags)}
-                      <span>{item.title}</span>
+                      <span>{stripTitle(item.title)}</span>
                     </a>
                   </Link>
                 </li>
@@ -112,7 +109,7 @@ const Lisitng = ({ data }) => {
                     <a>
                       {categoryIcon(item.tags)}
 
-                      <span>{item.title}</span>
+                      <span>{stripTitle(item.title)}</span>
                     </a>
                   </Link>
                 </li>
@@ -134,7 +131,7 @@ const Lisitng = ({ data }) => {
                     <a>
                       {categoryIcon(item.tags)}
 
-                      <span>{item.title}</span>
+                      <span>{stripTitle(item.title)}</span>
                     </a>
                   </Link>
                 </li>
