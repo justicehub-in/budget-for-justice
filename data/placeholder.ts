@@ -12,7 +12,7 @@ export const didYouKnow = [
   },
 ];
 
-export const schemeList = [
+export const schemeList = [ 
   {
     selector: "01",
     header: "Scheme 1",
@@ -22,7 +22,7 @@ export const schemeList = [
         item: "Women Beneficiaries",
         value: "5,00,000+",
       },
-      {
+       {
         item: "District Covered",
         value: "250+",
       },
@@ -175,3 +175,10 @@ export const lists = [
 
 export const ToggleData =
   "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum.";
+
+export const SectionTypeData = {
+    Ministries: "M Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum.",
+    Categories: "C Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum.",
+    Schemes: "S Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum.",
+  }
+  

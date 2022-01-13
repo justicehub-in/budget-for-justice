@@ -10,6 +10,7 @@ import {
   HomeAffairs,
 } from "components/icons/ListingIcons";
 import { ToggleData } from "data/placeholder";
+import { SectionTypeData } from "data/placeholder";
 import Toggle from "components/_shared/Toggle";
 import { datasetPopulation, categoryIcon } from "utils";
 import { useSearch } from "utils/search";
@@ -73,7 +74,7 @@ const Lisitng = ({ data }) => {
         {filteredObj.ministry.length > 0 && (
           <section className="listing__items container">
             <h3>
-              Ministries <Toggle data={ToggleData} />
+              Ministries <Toggle data={SectionTypeData.Ministries} />
             </h3>
 
             <ul>
@@ -94,7 +95,7 @@ const Lisitng = ({ data }) => {
         {filteredObj.category.length > 0 && (
           <section className="listing__items container">
             <h3>
-              Categories <Toggle data={ToggleData} />
+              Categories <Toggle data={SectionTypeData.Categories} />
             </h3>
 
             <ul>
@@ -116,7 +117,7 @@ const Lisitng = ({ data }) => {
         {filteredObj.scheme.length > 0 && (
           <section className="listing__items container">
             <h3>
-              Schemes <Toggle data={ToggleData} />
+              Schemes <Toggle data={SectionTypeData.Schemes} />
             </h3>
 
             <ul>

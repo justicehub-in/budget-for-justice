@@ -264,6 +264,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
 
   const seo = {
     title: data.title,
+    description: data.notes,
   };
 
   return (
