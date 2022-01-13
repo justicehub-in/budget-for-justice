@@ -1,9 +1,9 @@
 import { GetServerSideProps } from "next";
 import React, { useEffect } from "react";
-import Head from "next/head";
-import Banner from "components/_shared/Banner";
+// import Banner from "components/_shared/Banner";
 import { Converter } from "showdown";
 import fs from "fs";
+import Seo from "components/_shared/seo";
 
 function collapseHeader() {
   // Get all the <h2> headings
@@ -73,21 +73,21 @@ function collapseHeader() {
   });
 }
 
-const bannerDetails = {
-  heading: "Gateway to Forum",
-  content: (
-    <>
-      <p>
-        Discuss your doubts and raise concerns with in the larger community
-      </p>
-      <a href="https://forum.justicehub.in/" className="btn-secondary">
-        Go to Forum
-      </a>
-    </>
-  ),
-  image: "/assets/icons/chat.svg",
-  color: "#F65940",
-};
+// const bannerDetails = {
+//   heading: "Gateway to Forum",
+//   content: (
+//     <>
+//       <p>
+//         Discuss your doubts and raise concerns with in the larger community
+//       </p>
+//       <a href="https://forum.justicehub.in/" className="btn-secondary">
+//         Go to Forum
+//       </a>
+//     </>
+//   ),
+//   image: "/assets/icons/chat.svg",
+//   color: "#F65940",
+// };
 
 const Faq = ({ content }) => {
   useEffect(() => {
@@ -95,10 +95,7 @@ const Faq = ({ content }) => {
   }, []);
   return (
     <>
-      <Head>
-        <title>B4J | FAQ</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Seo />
       <main className="faq container">
         <div className="faq__header">
           <h2 className="heading">Frequently Asked Questions</h2>

@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Seo from "components/_shared/seo";
 import Banner from "components/_shared/Banner";
 
 const bannerDetails = {
@@ -18,10 +18,8 @@ const bannerDetails = {
 const Explore = () => {
   return (
     <>
-      <Head>
-        <title>B4J | Explore</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Seo />
+
       <main className="explore container">
         <div className="explore__header">
           <p className="heading">
