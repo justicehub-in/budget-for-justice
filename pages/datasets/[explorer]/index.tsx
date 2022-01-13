@@ -268,7 +268,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     <>
       <Head>
         <title>B4J | {data.title}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/assets/icons/b4j.png" />
       </Head>
       <main className="explorer">
         <div className="explorer__header">

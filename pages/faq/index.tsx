@@ -97,7 +97,7 @@ const Faq = ({ content }) => {
     <>
       <Head>
         <title>B4J | FAQ</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="assets/icons/b4j.png" />
       </Head>
       <main className="faq container">
         <div className="faq__header">

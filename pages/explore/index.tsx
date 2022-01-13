@@ -20,7 +20,7 @@ const Explore = () => {
     <>
       <Head>
         <title>B4J | Explore</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="assets/icons/b4j.png" />
       </Head>
       <main className="explore container">
         <div className="explore__header">

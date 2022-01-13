@@ -8,7 +8,7 @@ const About = () => {
     <>
       <Head>
         <title>B4J | About Us</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="assets/icons/b4j.png" />
       </Head>
       <main className="about">
         <div className="about__initiative container">

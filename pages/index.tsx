@@ -15,7 +15,7 @@ const Home: React.FC = () => {
     <>
       <Head>
         <title>Budget 4 Justice</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="assets/icons/b4j.png" />
       </Head>
       <main className="home">
         {/* <Header data={data.didYouKnow} /> */}
