@@ -107,6 +107,11 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     },
   ];
 
+  const crData = ["Budget Estimates", "Revised Estimates", "Actual Expenditure"];
+
+  const prData = ["Actual Expenditure as a % of Total Actual Expenditure", "Actual Expenditure as a % of Ministry", "Fund Utilisation"];
+
+
   const vizItems = [
     {
       id: "barGraph",
@@ -119,6 +124,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
           showSymbol={true}
           Title={selectedIndicator + (budgetTypes.length > 1 ? " - " + selectedBudgetType : "")}
           subTitle={data.title}
+          unit={crData.includes(selectedIndicator) ? "Cr" : "%" }
         />
       ),
     },
@@ -132,7 +138,8 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
           smooth={true}
           showSymbol={true}
           Title={selectedIndicator + (budgetTypes.length > 1 ? " - " + selectedBudgetType : "")}
-          subTitle={data.title}         
+          subTitle={data.title}  
+          unit={crData.includes(selectedIndicator) ? "Cr" : "%" }      
         />
       ),
     },

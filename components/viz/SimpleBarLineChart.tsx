@@ -11,7 +11,7 @@ import {
 } from "echarts/components";
 import ReactEChartsCore from "echarts-for-react/lib/core";
 
-function seriesMaker(color, dataset, type, smooth, showSymbol) { 
+function seriesMaker(color, dataset, type, smooth, showSymbol, unit) { 
   const SetSeries = [];
 
   SetSeries.push({
@@ -25,7 +25,10 @@ function seriesMaker(color, dataset, type, smooth, showSymbol) {
     label: {
       normal: {
           show: true,
-          position: 'top'
+          position: 'top',
+          formatter: function(d) {
+     			 return (d.data + " " + unit);
+    		}
         }
     },
   });
@@ -40,6 +43,7 @@ interface SimpleBarLineChartProps {
   showSymbol: boolean;
   Title: string;
   subTitle: string;
+  unit: string;
 }
 
 const SimpleBarLineChartViz: React.FC<SimpleBarLineChartProps> = ({
@@ -50,14 +54,15 @@ const SimpleBarLineChartViz: React.FC<SimpleBarLineChartProps> = ({
   showSymbol,
   Title,
   subTitle,
+  unit
 }) => {
-  const series = seriesMaker(color, dataset, type, smooth, showSymbol);
+  const series = seriesMaker(color, dataset, type, smooth, showSymbol, unit);
   const options = {
     tooltip: {
       trigger: 'axis',
       formatter: function (params) {
         return `${Title.split("-")[0]} - <br />
-        ${params[0].name}: ${params[0].data}<br />`;
+        ${params[0].name}: ${params[0].data} ${unit}<br />`;
 }
     },
     grid: {
