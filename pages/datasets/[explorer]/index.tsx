@@ -41,6 +41,7 @@ type Props = {
 
 const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   const [schemeModalOpen, setSchemeModalOpen] = useState(false);
+  const [selectedIndicator, setSelectedIndicator] = useState("Budget Estimates");
   const [indicatorFiltered, setIndicatorFiltered] = useState([]);
   const [finalFiltered, setFinalFiltered] = useState([]);
   const [budgetTypes, setBudgetTypes] = useState([]);
@@ -112,10 +113,12 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
       graph: (
         <SimpleBarLineChartViz
           color={"#00ABB7"}
-          dataset={barLineTransformer(finalFiltered)}
+          dataset={barLineTransformer(finalFiltered, selectedIndicator)}
           type="bar"
           smooth={true}
           showSymbol={true}
+          Title={selectedIndicator + (budgetTypes.length > 1 ? " - " + selectedBudgetType : "")}
+          subTitle={data.title}
         />
       ),
     },
@@ -124,10 +127,12 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
       graph: (
         <SimpleBarLineChartViz
           color={"#00ABB7"}
-          dataset={barLineTransformer(finalFiltered)}
+          dataset={barLineTransformer(finalFiltered, selectedIndicator)}
           type="line"
           smooth={true}
           showSymbol={true}
+          Title={selectedIndicator + (budgetTypes.length > 1 ? " - " + selectedBudgetType : "")}
+          subTitle={data.title}         
         />
       ),
     },
@@ -253,6 +258,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
       const filtered = filter_data_indicator(fileData, val);
       const budgetType = [...new Set(filtered.map((item) => item.budgetType))];
 
+      setSelectedIndicator(val);
       setIndicatorFiltered(filtered);
       setBudgetTypes(budgetType);
     }
