@@ -8,7 +8,9 @@ import {
   TitleComponent,
   LegendComponent,
   TooltipComponent,
+  ToolboxComponent
 } from "echarts/components";
+
 import ReactEChartsCore from "echarts-for-react/lib/core";
 
 function seriesMaker(color, dataset, type, smooth, showSymbol, unit) { 
@@ -91,6 +93,16 @@ const SimpleBarLineChartViz: React.FC<SimpleBarLineChartProps> = ({
           padding: [0, 0, 50, 0],
           subtext: subTitle,
     },
+   toolbox: {
+    show : true,
+    feature : {
+	mark : {show: true},
+	dataView : {show: true, readOnly: false},
+	// magicType: {show: true, type: ['line', 'bar']},
+	// restore : {show: true},
+	saveAsImage : {show: true}
+    }  
+   },
     series: series,
   };
   echarts.use([
@@ -102,6 +114,7 @@ const SimpleBarLineChartViz: React.FC<SimpleBarLineChartProps> = ({
     DatasetComponent,
     LegendComponent,
     TooltipComponent,
+    ToolboxComponent,
   ]);
 
   return (
