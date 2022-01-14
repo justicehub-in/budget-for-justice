@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -8,15 +8,14 @@ import {
   WomenChild,
   Police,
   HomeAffairs,
+  All,
 } from "components/icons/ListingIcons";
 import Toggle from "components/_shared/Toggle";
 import { datasetPopulation, categoryIcon, stripTitle } from "utils";
 import { useSearch } from "utils/search";
 import Seo from "components/_shared/seo";
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Flip } from "gsap/dist/Flip";
+import { ListingHeader } from "animation/listingHeader";
 
 export const SectionTypeData = {
   Ministries:
@@ -29,41 +28,38 @@ export const SectionTypeData = {
 
 const Lisitng = ({ data }) => {
   const [filteredObj, setFilteredObj] = useState(data);
+  const [currentIndicator, setCurrentIndicator] = useState("all");
+
   const router = useRouter();
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.registerPlugin(Flip);
+  useEffect(() => {
+    ListingHeader();
 
-    const bar = document.querySelector(".listing__header"),
-      text = bar.querySelector("p"),
-      input = bar.querySelector("input");
-
-    ScrollTrigger.create({
-      start: 1,
-      end: 99999,
-      onEnter: () => {
-        const state = Flip.getState([bar, input], { props: "opacity" });
-        Flip.makeAbsolute(text);
-        gsap.to(text, { y: "-=60", autoAlpha: 0, overwrite: true });
-        Flip.from(state);
-      },
-      onLeaveBack: () => {
-        const state = Flip.getState([bar, input], { props: "opacity" });
-        gsap.set(text, {
-          position: "relative",
-          clearProps: "transform,opacity,visibility,width,height",
-          overwrite: true,
-        });
-        gsap.from(text, { y: -60, autoAlpha: 0 });
-        Flip.from(state);
-      },
-    });
+    (document.getElementById("list-all") as HTMLInputElement).checked = true;
   }, []);
 
   function changeResult(val) {
     const newObj = useSearch(val, data);
     setFilteredObj(newObj);
+  }
+
+  function useFilter(val) {
+    if (val != currentIndicator) {
+      setCurrentIndicator(val);
+
+      if (val.getAttribute("value") == "all") {
+        setFilteredObj(data);
+      } else {
+        const newFilteredObj = {};
+
+        Object.keys(filteredObj).forEach((cat) => {
+          newFilteredObj[cat] = data[cat].filter((item) =>
+            item.tags.includes(val.getAttribute("value"))
+          );
+        });
+        setFilteredObj(newFilteredObj);
+      }
+    }
   }
 
   return (
@@ -87,25 +83,70 @@ const Lisitng = ({ data }) => {
 
         <section className="listing__indicators container">
           <div>
-            <h3>Ministry or Department Indicators: </h3>
-            <ul>
-              <li>
-                <LawJustice />
-                <span>Law &amp; Justice</span>
-              </li>
-              <li>
-                <WomenChild />
-                <span>Women &amp; Child Development</span>
-              </li>
-              <li>
-                <Police />
-                <span>Police</span>
-              </li>
-              <li>
-                <HomeAffairs />
-                <span>Home Affairs</span>
-              </li>
-            </ul>
+            <h3>Select Ministry or Department: </h3>
+            <div className="listing__filter">
+              <div>
+                <input
+                  type="radio"
+                  id="list-all"
+                  name="datasetList"
+                  value="all"
+                  onClick={(e) => useFilter(e.target)}
+                />
+                <label htmlFor="list-all">
+                  <All /> All
+                </label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  id="list-law"
+                  name="datasetList"
+                  onClick={(e) => useFilter(e.target)}
+                  value="law"
+                />
+                <label htmlFor="list-law">
+                  <LawJustice /> Law &amp; Justice
+                </label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="list-wcd"
+                  name="datasetList"
+                  onClick={(e) => useFilter(e.target)}
+                  value="wcd"
+                />
+                <label htmlFor="list-wcd">
+                  <WomenChild /> Women &amp; Child Development
+                </label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="list-police"
+                  name="datasetList"
+                  onClick={(e) => useFilter(e.target)}
+                  value="police"
+                />
+                <label htmlFor="list-police">
+                  <Police /> Police
+                </label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="list-home"
+                  name="datasetList"
+                  onClick={(e) => useFilter(e.target)}
+                  value="home"
+                />
+                <label htmlFor="list-home">
+                  <HomeAffairs /> Home Affairs
+                </label>
+              </div>
+            </div>
           </div>
         </section>
 

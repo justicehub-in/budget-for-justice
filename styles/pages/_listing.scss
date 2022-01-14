@@ -4,8 +4,8 @@
 .listing {
   &__header {
     background-color: $color-teal-1;
-    padding-top: 5rem;
-    padding-bottom: 3rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -41,32 +41,47 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1rem;
+      gap: 2rem;
     }
 
     h3 {
-      // font-weight: 500;
+      font-weight: 500;
       font-size: 12px;
     }
+  }
 
-    ul {
+  &__filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2.5rem;
+
+    input {
+      transform: scale(1.5);
+      accent-color: #666d6e;
+      margin-right: 12px;
+
+      &:checked + label {
+        font-weight: bold;
+      }
+    }
+
+    > div {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      align-items: center;
+    }
+
+    label {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 133%;
+      display: flex;
       align-items: center;
 
-      li {
-        font-weight: bold;
-        font-size: 12px;
-        line-height: 1.5;
-        display: flex;
-        align-items: center;
-
-        svg {
-          margin-right: 0.5rem;
-          width: 19px;
-          height: 19px;
-        }
+      svg {
+        margin-right: 0.5rem;
+        width: 19px;
+        height: 19px;
       }
     }
   }
