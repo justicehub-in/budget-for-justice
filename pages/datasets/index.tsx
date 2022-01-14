@@ -16,6 +16,7 @@ import Seo from "components/_shared/seo";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { Flip } from "gsap/dist/Flip";
 
 export const SectionTypeData = {
   Ministries:
@@ -32,48 +33,32 @@ const Lisitng = ({ data }) => {
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(Flip);
 
-    // const tl = gsap.timeline();
+    const bar = document.querySelector(".listing__header"),
+      text = bar.querySelector("p"),
+      input = bar.querySelector("input");
 
-    // tl.to(".listing__header p", {
-    //   y: "-=60",
-    //   ease: "power2.out",
-    //   delay: 0.5,
-    // });
-    // tl.to(".listing__header p", {
-    //   opacity: 0,
-    //   ease: "power2.out",
-    //   delay: -0.5,
-    // });
-    // tl.to(".listing__header", {
-    //   y: "-=60",
-    //   ease: "power2.out",
-    //   delay: -0.5,
-    // });
-    // tl.to(".listing__header form", {
-    //   height: "80%",
-    //   ease: "power2.out",
-    //   delay: -0.5,
-    // });
-
-    // const actionNav = gsap.to(".listing__header", {
-    //   y: "-=60",
-    //   duration: 0.5,
-    //   ease: "power2.in",
-    //   paused: true,
-    // });
-
-    // ScrollTrigger.create({
-    //   trigger: ".listing__header",
-    //   start: ".listing__header",
-    //   end: 99999,
-    //   pin: true,
-    //   pinSpacing: false,
-    //   scrub: true,
-
-    //   onEnter: () => tl.play(),
-    //   onLeaveBack: () => tl.reverse(),
-    // });
+    ScrollTrigger.create({
+      start: 1,
+      end: 99999,
+      onEnter: () => {
+        const state = Flip.getState([bar, input], { props: "opacity" });
+        Flip.makeAbsolute(text);
+        gsap.to(text, { y: "-=60", autoAlpha: 0, overwrite: true });
+        Flip.from(state);
+      },
+      onLeaveBack: () => {
+        const state = Flip.getState([bar, input], { props: "opacity" });
+        gsap.set(text, {
+          position: "relative",
+          clearProps: "transform,opacity,visibility,width,height",
+          overwrite: true,
+        });
+        gsap.from(text, { y: -60, autoAlpha: 0 });
+        Flip.from(state);
+      },
+    });
   }, []);
 
   function changeResult(val) {

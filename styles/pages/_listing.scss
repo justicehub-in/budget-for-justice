@@ -6,8 +6,8 @@
     background-color: $color-teal-1;
     padding-top: 5rem;
     padding-bottom: 3rem;
-    // position: sticky;
-    // top: 0;
+    position: sticky;
+    top: 0;
     z-index: 10;
 
     // &--scrolled {
@@ -18,8 +18,12 @@
 
     p {
       line-height: 1.5;
-      margin: 2rem 0;
+      margin-top: 2rem;
       transition: opacity 200ms ease-out;
+    }
+
+    form {
+      margin-top: 2rem;
     }
 
     filter: $drop-shadow;
