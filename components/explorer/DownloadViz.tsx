@@ -52,9 +52,9 @@ export function export_table_to_csv(filename: any) {
 const DownloadViz = ({ viz, type, name, indicator }) => {
   function svg2img() {
 
-        var myChart = echarts.getInstanceByDom(document.querySelector('.echarts-for-react '));
+        let myChart = echarts.getInstanceByDom(document.querySelector('.echarts-for-react '));
 	
-	var url = myChart.getConnectedDataURL({
+	let url = myChart.getConnectedDataURL({
 	pixelRatio: 5,　　//derived ratio picture resolution, default 1
 	backgroundColor: '#fff',　　//chart background color
 	excludeComponents:[　　//ignored when you save a chart tool components, the default toolbar ignored 
@@ -63,15 +63,15 @@ const DownloadViz = ({ viz, type, name, indicator }) => {
 	type:'png'　　//Image types support png and jpeg 
 	});
 
-	var $a = document.createElement('a');
-	var type = 'png';
+	let $a = document.createElement('a');
+	let type = 'png';
 	$a.download = myChart.getOption().title[0].text + '.' + type;
 	$a.target = '_blank';
 	$a.href = url;
 
 	//Chrome and Firefox
 	if (typeof MouseEvent === 'function') {
-	var evt = new MouseEvent('click', {
+	let evt = new MouseEvent('click', {
 	view: window,
 	bubbles: true,
 	cancelable: false
@@ -80,12 +80,12 @@ const DownloadViz = ({ viz, type, name, indicator }) => {
 	}
 	//IE
 	else {
-	var html = ''
+	let html = ''
 
 	'<body style="margin:0;">'
 	'![](' + url + ')'
 	'</body>';
-	var tab = window.open();
+	let tab = window.open();
 	tab.document.write(html);
 	}
 
