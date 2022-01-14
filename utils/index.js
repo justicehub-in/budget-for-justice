@@ -4,11 +4,20 @@ import {
   Police,
   HomeAffairs,
 } from "components/icons/ListingIcons";
+
 export function categoryIcon(tags) {
   if (tags.includes("law")) return <LawJustice />;
   else if (tags.includes("wcd")) return <WomenChild />;
   else if (tags.includes("police")) return <Police />;
   else return <HomeAffairs />;
+}
+
+export function categoryTag(tags) {
+  if (tags.includes("law")) return "Ministry of Law & Justice";
+  else if (tags.includes("wcd"))
+    return "Ministry of Women & Child Development";
+  else if (tags.includes("police")) return "Department of Police";
+  else return "Ministry of Home Affairs";
 }
 
 export function stripTitle(name) {

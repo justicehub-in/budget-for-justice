@@ -10,12 +10,9 @@ import {
   filter_data_budgettype,
   fetchFromTags,
   datasetPopulation,
+  categoryTag,
 } from "utils";
-import {
-  Download,
-  ArrowForward,
-  ExternalLink,
-} from "components/icons/ListingIcons";
+import { Download, ExternalLink } from "components/icons/ListingIcons";
 import Indicator from "components/analytics/Indicator";
 import Modal from "react-modal";
 import SimpleBarLineChartViz from "components/viz/SimpleBarLineChart";
@@ -112,12 +109,6 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     "Budget Estimates",
     "Revised Estimates",
     "Actual Expenditure",
-  ];
-
-  const prData = [
-    "Actual Expenditure as a % of Total Actual Expenditure",
-    "Actual Expenditure as a % of Ministry",
-    "Fund Utilisation",
   ];
 
   const vizItems = [
@@ -334,6 +325,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
             <p>{data.notes}</p>
             <div className="explorer__meta ">
               {meta["Type of Scheme"] && <span>{meta["Type of Scheme"]}</span>}
+              {<span>{categoryTag(data.tags)}</span>}
             </div>
           </section>
         </div>
