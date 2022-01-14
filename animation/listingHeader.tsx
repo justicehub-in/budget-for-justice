@@ -2,11 +2,11 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Flip } from "gsap/dist/Flip";
 
-export function ListingHeader() {
+export function ListingHeader(element) {
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(Flip);
 
-  const bar = document.querySelector(".listing__header"),
+  const bar = document.querySelector(element),
     text = bar.querySelector("p"),
     input = bar.querySelector("input");
 
