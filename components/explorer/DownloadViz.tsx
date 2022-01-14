@@ -1,5 +1,6 @@
 import { saveAs } from "file-saver";
 import { stripTitle } from "utils";
+import { Download } from "components/icons/ListingIcons";
 import * as echarts from "echarts/core";
 
 function fileName(type, name, indicator, format) {
@@ -51,43 +52,45 @@ export function export_table_to_csv(filename: any) {
 
 const DownloadViz = ({ viz, type, name, indicator }) => {
   function svg2img() {
+    const myChart = echarts.getInstanceByDom(
+      document.querySelector(".echarts-for-react ")
+    );
 
-        let myChart = echarts.getInstanceByDom(document.querySelector('.echarts-for-react '));
-	
-	let url = myChart.getConnectedDataURL({
-	pixelRatio: 5,　　//derived ratio picture resolution, default 1
-	backgroundColor: '#fff',　　//chart background color
-	excludeComponents:[　　//ignored when you save a chart tool components, the default toolbar ignored 
-	'toolbox'
-	],
-	type:'png'　　//Image types support png and jpeg 
-	});
+    const url = myChart.getConnectedDataURL({
+      pixelRatio: 5, //derived ratio picture resolution, default 1
+      backgroundColor: "#fff", //chart background color
+      excludeComponents: [
+        //ignored when you save a chart tool components, the default toolbar ignored
+        "toolbox",
+      ],
+      type: "png", //Image types support png and jpeg
+    });
 
-	let $a = document.createElement('a');
-	let type = 'png';
-	$a.download = myChart.getOption().title[0].text + '.' + type;
-	$a.target = '_blank';
-	$a.href = url;
+    const $a = document.createElement("a");
+    const type = "png";
+    $a.download = myChart.getOption().title[0].text + "." + type;
+    $a.target = "_blank";
+    $a.href = url;
 
-	//Chrome and Firefox
-	if (typeof MouseEvent === 'function') {
-	let evt = new MouseEvent('click', {
-	view: window,
-	bubbles: true,
-	cancelable: false
-	});
-	$a.dispatchEvent(evt);
-	}
-	//IE
-	else {
-	let html = ''
+    //Chrome and Firefox
+    if (typeof MouseEvent === "function") {
+      const evt = new MouseEvent("click", {
+        view: window,
+        bubbles: true,
+        cancelable: false,
+      });
+      $a.dispatchEvent(evt);
+    }
+    //IE
+    else {
+      const html = "";
 
-	'<body style="margin:0;">'
-	'![](' + url + ')'
-	'</body>';
-	let tab = window.open();
-	tab.document.write(html);
-	}
+      ('<body style="margin:0;">');
+      "![](" + url + ")";
+      ("</body>");
+      const tab = window.open();
+      tab.document.write(html);
+    }
 
     //const svg = document.querySelector(`${viz} svg`);
     //const xml = new XMLSerializer().serializeToString(svg);
@@ -106,7 +109,8 @@ const DownloadViz = ({ viz, type, name, indicator }) => {
 
   return (
     <button onClick={() => downloadViz(viz)} className="btn-secondary-mini">
-      {`Download ${viz == "#tableView" ? "CSV" : "Visualisation"}`}
+      {`Download ${viz == "#tableView" ? "CSV" : "Visualisation"}`}{" "}
+      <Download />
     </button>
   );
 };

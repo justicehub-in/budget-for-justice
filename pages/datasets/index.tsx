@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -14,6 +14,10 @@ import { datasetPopulation, categoryIcon, stripTitle } from "utils";
 import { useSearch } from "utils/search";
 import Seo from "components/_shared/seo";
 
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { Flip } from "gsap/dist/Flip";
+
 export const SectionTypeData = {
   Ministries:
     "This section lists all the budget datasets that are curated at a ministry / department level.",
@@ -27,6 +31,36 @@ const Lisitng = ({ data }) => {
   const [filteredObj, setFilteredObj] = useState(data);
   const router = useRouter();
 
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(Flip);
+
+    const bar = document.querySelector(".listing__header"),
+      text = bar.querySelector("p"),
+      input = bar.querySelector("input");
+
+    ScrollTrigger.create({
+      start: 1,
+      end: 99999,
+      onEnter: () => {
+        const state = Flip.getState([bar, input], { props: "opacity" });
+        Flip.makeAbsolute(text);
+        gsap.to(text, { y: "-=60", autoAlpha: 0, overwrite: true });
+        Flip.from(state);
+      },
+      onLeaveBack: () => {
+        const state = Flip.getState([bar, input], { props: "opacity" });
+        gsap.set(text, {
+          position: "relative",
+          clearProps: "transform,opacity,visibility,width,height",
+          overwrite: true,
+        });
+        gsap.from(text, { y: -60, autoAlpha: 0 });
+        Flip.from(state);
+      },
+    });
+  }, []);
+
   function changeResult(val) {
     const newObj = useSearch(val, data);
     setFilteredObj(newObj);
@@ -39,7 +73,7 @@ const Lisitng = ({ data }) => {
       <main className="listing">
         <section className="listing__header">
           <div className="container">
-            <h2 className="heading">Explore Budgets for Justice</h2>
+            <h2 className="heading">Budget Datasets (2016-17 - 2021-22)</h2>
             <p>
               Select a data set from the list below to view the trends in
               budget estimates, revised estimates, actual expenditure and fund

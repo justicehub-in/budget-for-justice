@@ -6,7 +6,7 @@ const Search: React.FC<{ text?: string; newSearch?: any }> = ({
   newSearch,
 }) => {
   const router = useRouter();
-  const [q, setQ] = useState(router.query.q);
+  const [q, setQ] = useState(router.query.q || "");
 
   const handleChange = (value) => {
     setQ(value);
