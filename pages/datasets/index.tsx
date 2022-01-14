@@ -39,14 +39,15 @@ const Lisitng = ({ data }) => {
   }, []);
 
   function changeResult(val) {
+    (document.getElementById("list-all") as HTMLInputElement).checked = true;
+    setCurrentIndicator("all");
+
     const newObj = useSearch(val, data);
     setFilteredObj(newObj);
   }
 
   function useFilter(val) {
     if (val != currentIndicator) {
-      setCurrentIndicator(val);
-
       if (val.getAttribute("value") == "all") {
         setFilteredObj(data);
       } else {
@@ -58,6 +59,7 @@ const Lisitng = ({ data }) => {
           );
         });
         setFilteredObj(newFilteredObj);
+        setCurrentIndicator(val);
       }
     }
   }

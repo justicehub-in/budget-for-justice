@@ -69,6 +69,7 @@ const SimpleBarLineChartViz: React.FC<SimpleBarLineChartProps> = ({
     },
     grid: {
       show: false,
+      top: "20%",
     },
     xAxis: {
       type: "category",
@@ -86,11 +87,13 @@ const SimpleBarLineChartViz: React.FC<SimpleBarLineChartProps> = ({
       axisLine: { onZero: false, show: true, symbol: ["none", "arrow"] },
       nameLocation: "middle",
       nameGap: 50,
+      max: function (val) {
+        return val.max <= 1 ? 1 : null;
+      },
     },
     title: {
       text: Title,
       left: "center",
-      padding: [0, 0, 50, 0],
       subtext: subTitle,
     },
     // toolbox: {
