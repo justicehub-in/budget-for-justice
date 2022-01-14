@@ -42,7 +42,8 @@ type Props = {
 
 const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   const [schemeModalOpen, setSchemeModalOpen] = useState(false);
-  const [selectedIndicator, setSelectedIndicator] = useState("Budget Estimates");
+  const [selectedIndicator, setSelectedIndicator] =
+    useState("Budget Estimates");
   const [indicatorFiltered, setIndicatorFiltered] = useState([]);
   const [finalFiltered, setFinalFiltered] = useState([]);
   const [budgetTypes, setBudgetTypes] = useState([]);
@@ -107,10 +108,17 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     },
   ];
 
-  const crData = ["Budget Estimates", "Revised Estimates", "Actual Expenditure"];
+  const crData = [
+    "Budget Estimates",
+    "Revised Estimates",
+    "Actual Expenditure",
+  ];
 
-  const prData = ["Actual Expenditure as a % of Total Actual Expenditure", "Actual Expenditure as a % of Ministry", "Fund Utilisation"];
-
+  const prData = [
+    "Actual Expenditure as a % of Total Actual Expenditure",
+    "Actual Expenditure as a % of Ministry",
+    "Fund Utilisation",
+  ];
 
   const vizItems = [
     {
@@ -122,9 +130,12 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
           type="bar"
           smooth={true}
           showSymbol={true}
-          Title={selectedIndicator + (budgetTypes.length > 1 ? " - " + selectedBudgetType : "")}
+          Title={
+            selectedIndicator +
+            (budgetTypes.length > 1 ? " - " + selectedBudgetType : "")
+          }
           subTitle={data.title}
-          unit={crData.includes(selectedIndicator) ? "Cr" : "%" }
+          unit={crData.includes(selectedIndicator) ? "Cr" : "%"}
         />
       ),
     },
@@ -137,9 +148,12 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
           type="line"
           smooth={true}
           showSymbol={true}
-          Title={selectedIndicator + (budgetTypes.length > 1 ? " - " + selectedBudgetType : "")}
-          subTitle={data.title}  
-          unit={crData.includes(selectedIndicator) ? "Cr" : "%" }      
+          Title={
+            selectedIndicator +
+            (budgetTypes.length > 1 ? " - " + selectedBudgetType : "")
+          }
+          subTitle={data.title}
+          unit={crData.includes(selectedIndicator) ? "Cr" : "%"}
         />
       ),
     },
@@ -285,12 +299,6 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
       <Seo seo={seo} />
       <main className="explorer">
         <div className="explorer__header">
-          <div className="explorer__breadcrumb container">
-            <a href="/">
-              Home <ArrowForward />
-            </a>
-          </div>
-
           <div className="explorer__buttons container">
             <div className="explorer__scheme-change">
               <a href="/datasets" className="btn-secondary">

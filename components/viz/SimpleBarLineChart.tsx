@@ -1,19 +1,19 @@
 import React, { FC } from "react";
 import * as echarts from "echarts/core";
 import { BarChart, LineChart } from "echarts/charts";
-import { SVGRenderer } from "echarts/renderers";
+import { CanvasRenderer } from "echarts/renderers";
 import {
   GridComponent,
   DatasetComponent,
   TitleComponent,
   LegendComponent,
   TooltipComponent,
-  ToolboxComponent
+  ToolboxComponent,
 } from "echarts/components";
 
 import ReactEChartsCore from "echarts-for-react/lib/core";
 
-function seriesMaker(color, dataset, type, smooth, showSymbol, unit) { 
+function seriesMaker(color, dataset, type, smooth, showSymbol, unit) {
   const SetSeries = [];
 
   SetSeries.push({
@@ -26,12 +26,12 @@ function seriesMaker(color, dataset, type, smooth, showSymbol, unit) {
     showSymbol: showSymbol,
     label: {
       normal: {
-          show: true,
-          position: 'top',
-          formatter: function(d) {
-     			 return (d.data + " " + unit);
-    		}
-        }
+        show: true,
+        position: "top",
+        formatter: function (d) {
+          return d.data + " " + unit;
+        },
+      },
     },
   });
   return SetSeries;
@@ -56,16 +56,16 @@ const SimpleBarLineChartViz: React.FC<SimpleBarLineChartProps> = ({
   showSymbol,
   Title,
   subTitle,
-  unit
+  unit,
 }) => {
   const series = seriesMaker(color, dataset, type, smooth, showSymbol, unit);
   const options = {
     tooltip: {
-      trigger: 'axis',
+      trigger: "axis",
       formatter: function (params) {
         return `${Title.split("-")[0]} - <br />
         ${params[0].name}: ${params[0].data} ${unit}<br />`;
-}
+      },
     },
     grid: {
       show: false,
@@ -88,27 +88,27 @@ const SimpleBarLineChartViz: React.FC<SimpleBarLineChartProps> = ({
       nameGap: 50,
     },
     title: {
-          text: Title,
-          left: "center",
-          padding: [0, 0, 50, 0],
-          subtext: subTitle,
+      text: Title,
+      left: "center",
+      padding: [0, 0, 50, 0],
+      subtext: subTitle,
     },
-   toolbox: {
-    show : true,
-    feature : {
-	mark : {show: true},
-	dataView : {show: true, readOnly: false},
-	// magicType: {show: true, type: ['line', 'bar']},
-	// restore : {show: true},
-	saveAsImage : {show: true}
-    }  
-   },
+    // toolbox: {
+    //   show: true,
+    //   feature: {
+    //     mark: { show: true },
+    //     dataView: { show: true, readOnly: false },
+    //     magicType: {show: true, type: ['line', 'bar']},
+    //     restore : {show: true},
+    //     saveAsImage: { show: true },
+    //   },
+    // },
     series: series,
   };
   echarts.use([
     BarChart,
     LineChart,
-    SVGRenderer,
+    CanvasRenderer,
     GridComponent,
     TitleComponent,
     DatasetComponent,

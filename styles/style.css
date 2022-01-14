@@ -1343,7 +1343,7 @@ button {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 134%;
+  top: 120%;
   width: 9rem;
   font-size: 0.8rem;
   z-index: 100;
@@ -1382,16 +1382,6 @@ button {
 }
 .navbar__nested li:hover, .navbar__nested li:focus-within {
   background-color: #EBFEFF;
-}
-.navbar__nested::after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  border-left: 14px solid transparent;
-  border-right: 14px solid transparent;
-  border-bottom: 17px solid white;
-  top: -10px;
-  right: 35%;
 }
 .navbar__item[type=button] {
   border-radius: 4px;
@@ -4004,8 +3994,8 @@ button {
 
 .listing__header {
   background-color: #cceef1;
-  padding-top: 5rem;
-  padding-bottom: 3rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -4032,25 +4022,38 @@ button {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 .listing__indicators h3 {
+  font-weight: 500;
   font-size: 12px;
 }
-.listing__indicators ul {
+.listing__filter {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
   align-items: center;
+  gap: 2.5rem;
 }
-.listing__indicators ul li {
+.listing__filter input {
+  transform: scale(1.5);
+  accent-color: #666d6e;
+  margin-right: 12px;
+}
+.listing__filter input:checked + label {
   font-weight: bold;
-  font-size: 12px;
-  line-height: 1.5;
+}
+.listing__filter > div {
   display: flex;
   align-items: center;
 }
-.listing__indicators ul li svg {
+.listing__filter label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 133%;
+  display: flex;
+  align-items: center;
+}
+.listing__filter label svg {
   margin-right: 0.5rem;
   width: 19px;
   height: 19px;
@@ -4117,7 +4120,7 @@ button {
 .explorer__header {
   background-color: white;
   padding-bottom: 2.5rem;
-  padding-top: 2rem;
+  padding-top: 2.5rem;
 }
 .explorer__breadcrumb a {
   color: #888F8F;
@@ -4132,7 +4135,6 @@ button {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem;
-  margin-top: 2rem;
 }
 .explorer__buttons button,
 .explorer__buttons a {
