@@ -33,7 +33,7 @@ const Lisitng = ({ data }) => {
   const router = useRouter();
 
   useEffect(() => {
-    ListingHeader();
+    ListingHeader(".listing__header");
 
     (document.getElementById("list-all") as HTMLInputElement).checked = true;
   }, []);
@@ -67,7 +67,9 @@ const Lisitng = ({ data }) => {
   return (
     <>
       <Seo />
-
+      <div className="skiptarget">
+        <span id="maincontent">-</span>
+      </div>
       <main className="listing">
         <section className="listing__header">
           <div className="container">

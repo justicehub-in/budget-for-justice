@@ -1,0 +1,30 @@
+.skiptarget {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  float: right;
+}
+
+.skip-to-content-link {
+  background: #4b4797;
+  color: white;
+  height: 2rem;
+  left: 50%;
+  padding-top: 0.5rem;
+  position: absolute;
+  transform: translateY(-150%);
+  transition: transform 0.3s;
+  // line-height: 1.5;
+
+  &:focus {
+    transform: translateY(0%);
+  }
+}
+
+#top-of-site-pixel-anchor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: -100px;
+  left: 0;
+}

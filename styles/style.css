@@ -652,6 +652,35 @@ button {
   line-height: 92%;
 }
 
+.skiptarget {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  float: right;
+}
+
+.skip-to-content-link {
+  background: #4b4797;
+  color: white;
+  height: 2rem;
+  left: 50%;
+  padding-top: 0.5rem;
+  position: absolute;
+  transform: translateY(-150%);
+  transition: transform 0.3s;
+}
+.skip-to-content-link:focus {
+  transform: translateY(0%);
+}
+
+#top-of-site-pixel-anchor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: -100px;
+  left: 0;
+}
+
 .home-search {
   padding-top: 50px;
 }
@@ -4027,6 +4056,24 @@ button {
 .listing__indicators h3 {
   font-weight: 500;
   font-size: 12px;
+}
+.listing__indicators ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+.listing__indicators li {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+}
+.listing__indicators li svg {
+  margin-right: 0.5rem;
+  width: 19px;
+  height: 19px;
 }
 .listing__filter {
   display: flex;
