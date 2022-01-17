@@ -5,7 +5,7 @@
 <img alt="GNU Affero General Public License v3.0" src="https://img.shields.io/badge/License-AGPL_v3-blue.svg"/>
 </a>
 </p>
-<p align="center">The <a href='https://budgets.justicehub.in'>Budgets for Justice</a> initiative, launched January 2022, is a curated platform that brings together open budget data from the Union Government of India over the last few years to reveal trends and patterns in budget allocation and expenditures for the law and justice sector. Our objective is to make budget data more accessible, usable and comprehensive so we can stay informed about how the law and justice sector (including courts, police, prison, legal aid etc.) is funded and sourced. Read more <a href='https://budgets.justicehub.in/about'>here</a></p>
+<p align="center">The <a href='https://budgets.justicehub.in'>Budgets for Justice</a> platform brings together open budget data from the Union Government of India over the last few years to reveal trends and patterns in budget allocation and expenditures for the law and justice sector. Our objective is to make budget data more accessible, usable and comprehensive so we can stay informed about how the law and justice sector (including courts, police, prison, legal aid etc.) is funded and sourced. Read more <a href='https://budgets.justicehub.in/about'>here</a></p>
 
 - [Features](#features)
 - [Getting Started](#getting-started)
