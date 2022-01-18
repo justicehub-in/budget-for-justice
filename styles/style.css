@@ -4689,14 +4689,17 @@ button {
 .faq__content ul {
   font-weight: 500;
   line-height: 175%;
-  padding: 0 1rem 1rem;
+  padding: 6px 1rem 1rem;
   background-color: white;
+  border-radius: 0 0 8px 8px;
+  margin-top: -6px;
 }
 .faq__content ol {
   padding-left: 2rem;
   list-style: decimal;
 }
-.faq__content ol li > ul, .faq__content ol ol {
+.faq__content ol li > ul,
+.faq__content ol ol {
   list-style: lower-alpha;
 }
 .faq__content [aria-expanded=true] {

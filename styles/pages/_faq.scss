@@ -55,15 +55,19 @@
     ul {
       font-weight: 500;
       line-height: 175%;
-      padding: 0 1rem 1rem;
+      padding: 6px 1rem 1rem;
       background-color: $bg-lightest;
+      border-radius: 0 0 8px 8px;
+      margin-top: -6px;
+
     }
 
     ol {
       padding-left: 2rem;
       list-style: decimal;
 
-       li > ul, ol {
+      li > ul,
+      ol {
         list-style: lower-alpha;
       }
     }
