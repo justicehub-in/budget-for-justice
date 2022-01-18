@@ -11,30 +11,28 @@
 - [Getting Started](#getting-started)
 - [Guide](#guide)
   - [Styling 🎨](#styling-)
-  - [Backend](#backend)
   - [Pages](#pages)
   - [Data fetching](#data-fetching)
     - [Fetch all datasets for listing pages](#fetch-all-datasets-for-listing-pages)
     - [Fetch particluar dataset](#fetch-particluar-dataset)
 - [Developers](#developers)
   - [Boot the local instance](#boot-the-local-instance)
-  - [Tests](#tests)
   - [Architecture](#architecture)
 - [Contributing](#contributing)
 
 ## Features
 
-- 🗺️ Unified sites: present data and content in one seamless site, pulling datasets from a DMS (e.g. CKAN) and content from a CMS (e.g. wordpress) with a common internal API.
-- ♿ Accessible: The platform is screen-reader friendly.
-- 👩‍💻 Developer friendly: built with NextJS, SASS, GraphQL to make the developer experience a treat.
+- 🗺️ Unified sites: abilitiy to present data and content in one seamless site, pulling datasets from a DMS (eg CKAN) and a CMS.
+- ♿ Accessible: The platform is accessible and screen-reader friendly.
+- 👩‍💻 Developer friendly: built with NextJS and SASS to make the developer experience a treat.
 - 🚀 ITCSS & BEM: Combination of BEM methodology and ITCSS architecture to better organize the styling and make it scalable.
 - 📋 Typescript: Developed usign typescript to improve development experience by catching errors and providing fixes.
 - 🧱 Extensible: quickly extend and develop/import your own React components
-- 📝 Well documented: full set of documentation plus the documentation of NextJS and Apollo
+- 📝 Well documented: full set of documentation plus the documentation of NextJS
 
 ## Getting Started
 
-Install a recent version of Node. Node 16 is recommended.
+Install a recent version of Node. Minimum Node 14 is recommended.
 
 ## Guide
 
@@ -42,30 +40,13 @@ Install a recent version of Node. Node 16 is recommended.
 
 We use SASS preprocessor to manage styling. All of it can be found at `/styles` directory where it's managed by using ITCSS architecture to make it scalable. For naming, we use BEM methodology.
 
-### Backend
-
-You can connect CMS and DMS backends easily via environment variables:
-
-```console
-$ export DMS=http://ckan:5000
-$ export CMS=http://myblog.wordpress.com
-```
-
-> Note that we don't yet have implementations for the following CKAN features:
->
-> - Activities
-> - Auth
-> - Groups
-
 ### Pages
 
 - Home `/`
 - Dataset lisitng `/datasets`
-- Tender `/datasets/[tender]`
-- KPI listing `/kpi`
-- KPI Analysis `/kpi/[analysis]`
-- Stories `/stories`
+- Explorer `/datasets/[explorer]`
 - About `/about`
+- FAQ `/faq`
 
 ### Data fetching
 
@@ -91,7 +72,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 ```
 
-- `convertToCkanSearchQuery` (from [PortalJS](https://github.com/datopian/portal.js)) helps to convert the search query parameters into a object which we can use.
 - `fetchDatasets` helps to fetch a list of datasets of particular type.
 
 Learn more about them [here](utils/README.md).
@@ -138,22 +118,12 @@ Open [http://localhost:3000](http://localhost:3000) to see the home page 🎉
 
 You can start editing the page by modifying `/pages/index.tsx`. The page auto-updates as you edit the file.
 
-### Tests
-
-We use Jest for running tests:
-
-```bash
-npm run test
-
-# turn on watching
-npm run test --watch
-```
-
 ### Architecture
 
 - Language: Javascript
 - Framework: [Next.js](https://nextjs.com/)
 - Styling: [SASS](https://sass-lang.com/) with [BEM](http://getbem.com/) and ITCSS
+- Animation: [GSAP](https://greensock.com/gsap/)
 
 ## Contributing
 
