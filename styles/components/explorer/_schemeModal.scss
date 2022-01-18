@@ -62,11 +62,15 @@
     background-color: $bg-light;
     padding: 8px;
 
-    h3 {
+    h3,
+    li {
       font-weight: 500;
       font-size: 12px;
-      border-bottom: $border-1;
       line-height: 133%;
+    }
+
+    h3 {
+      border-bottom: $border-1;
       padding-bottom: 8px;
     }
 
@@ -76,7 +80,11 @@
 
     li {
       display: block;
-      margin-top: 8px;
+      margin-top: 12px;
+    }
+
+    svg {
+      margin-bottom: -2px;
     }
   }
 

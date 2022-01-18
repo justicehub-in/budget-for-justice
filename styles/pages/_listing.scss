@@ -9,24 +9,18 @@
     position: sticky;
     top: 0;
     z-index: 10;
-
-    // &--scrolled {
-    //   p {
-    //     opacity: 0;
-    //   }
-    // }
+    filter: $drop-shadow;
 
     p {
-      line-height: 1.5;
-      margin-top: 2rem;
+      line-height: 175%;
+      font-weight: 500;
+      margin-top: 12px;
       transition: opacity 200ms ease-out;
     }
 
     form {
       margin-top: 2rem;
     }
-
-    filter: $drop-shadow;
   }
 
   &__indicators {
@@ -136,8 +130,9 @@
       a {
         display: flex;
         align-items: center;
-        padding: 14px;
-        line-height: 1.5;
+        padding: 1rem;
+        line-height: 175%;
+        font-weight: 500;
         height: 100%;
         text-decoration-color: transparent;
         transition: text-decoration-color 0.3s ease-out;

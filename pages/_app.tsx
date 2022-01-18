@@ -31,6 +31,12 @@ const MyApp: React.FC<Props> = ({ Component, pageProps }) => {
   const router = useRouter();
 
   useEffect(() => {
+    const handleRouteChange = (url) => {
+      window.gtag("config", process.env.NEXT_PUBLIC_ANALYTICS_ID, {
+        page_path: url,
+      });
+    };
+
     const handleRouteComplete = () => {
       // change focus to top
       if (document.querySelector("#top-of-site-pixel-anchor")) {
@@ -59,12 +65,14 @@ const MyApp: React.FC<Props> = ({ Component, pageProps }) => {
 
     Router.events.on("routeChangeComplete", handleRouteComplete);
     Router.events.on("routeChangeStart", handleRouteStart);
+    router.events.on("routeChangeComplete", handleRouteChange);
 
     return () => {
       Router.events.off("routeChangeComplete", handleRouteComplete);
-      Router.events.on("routeChangeStart", handleRouteStart);
+      Router.events.off("routeChangeStart", handleRouteStart);
+      router.events.off("routeChangeComplete", handleRouteChange);
     };
-  });
+  }, [router.events]);
 
   return (
     <Layout>

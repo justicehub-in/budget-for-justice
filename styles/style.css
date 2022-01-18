@@ -428,9 +428,45 @@ template {
   display: none !important;
 }
 
+@font-face {
+  font-family: "Gilroy";
+  src: url("/assets/fonts/Gilroy-Regular.otf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("/assets/fonts/Gilroy-Medium.otf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("/assets/fonts/Gilroy-Semibold.otf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("/assets/fonts/Gilroy-Bold.woff") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("/assets/fonts/Gilroy-Extrabold.otf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("/assets/fonts/Gilroy-Black.woff") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
 body {
   --site-border: 0.5em;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Gilroy", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   transition: background-color var(--base-animation-duration) var(--base-easing);
   background-color: #eff2f2;
   color: rgba(0, 0, 0, 0.87);
@@ -514,7 +550,7 @@ button {
   width: -moz-max-content;
   width: max-content;
   font-weight: bold;
-  border: 1px solid #f65940;
+  border: 2px solid #f65940;
   color: #f65940;
   background-color: none;
 }
@@ -528,7 +564,7 @@ button {
 }
 .btn-primary-invert:hover {
   color: #f42f0f;
-  border: 1px solid #f42f0f;
+  border-color: #f42f0f;
 }
 
 .btn-secondary {
@@ -2651,7 +2687,7 @@ button {
 .toggle [role=status] {
   position: absolute;
   max-width: 50vw;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 12px;
   line-height: 133%;
   padding: 10px 12px;
@@ -2989,11 +3025,14 @@ button {
   background-color: #eff2f2;
   padding: 8px;
 }
-.schemeModal .listing__indicators h3 {
+.schemeModal .listing__indicators h3,
+.schemeModal .listing__indicators li {
   font-weight: 500;
   font-size: 12px;
-  border-bottom: 1px solid #cdd1d1;
   line-height: 133%;
+}
+.schemeModal .listing__indicators h3 {
+  border-bottom: 1px solid #cdd1d1;
   padding-bottom: 8px;
 }
 .schemeModal .listing__indicators ul {
@@ -3001,7 +3040,10 @@ button {
 }
 .schemeModal .listing__indicators li {
   display: block;
-  margin-top: 8px;
+  margin-top: 12px;
+}
+.schemeModal .listing__indicators svg {
+  margin-bottom: -2px;
 }
 .schemeModal__tabs {
   display: flex;
@@ -3145,9 +3187,9 @@ button {
 }
 .home__sub-head {
   color: rgba(0, 0, 0, 0.32);
-  font-weight: bold;
-  margin-top: 0.7rem;
-  line-height: 1.5;
+  font-weight: 500;
+  margin-top: 4px;
+  line-height: 175%;
 }
 .home__about {
   background-color: #cceef1;
@@ -3846,16 +3888,20 @@ button {
 }
 .about__initiative {
   padding-top: 3.5rem;
-  max-width: 1008px;
+  max-width: 1038px;
   margin-inline: auto;
 }
 .about__initiative p {
   font-weight: 500;
   line-height: 175%;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 .about__initiative p.about__bold {
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 156%;
+  margin-top: 1.5rem;
+  color: rgba(0, 0, 0, 0.6);
 }
 .about__initiative h3 {
   font-weight: 800;
@@ -3882,7 +3928,7 @@ button {
 .about__team {
   margin-top: 4rem;
   padding-bottom: 5.5rem;
-  max-width: 1008px;
+  max-width: 1038px;
   margin-inline: auto;
 }
 .about__team p {
@@ -3931,7 +3977,7 @@ button {
   padding-top: 5.5rem;
 }
 .about__partners .container {
-  max-width: 1008px;
+  max-width: 1038px;
   margin-inline: auto;
   display: grid;
   gap: 4rem;
@@ -3963,11 +4009,11 @@ button {
   margin-top: 5rem;
   border-bottom: 1px solid #d0d0d3;
   padding-bottom: 2rem;
-  max-width: 1008px;
+  max-width: 1038px;
   margin: 5rem auto 0;
 }
 .explore__schemes {
-  max-width: 1008px;
+  max-width: 1038px;
   margin: 0 auto;
 }
 .explore__schemes > div {
@@ -4032,8 +4078,9 @@ button {
   filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.08));
 }
 .listing__header p {
-  line-height: 1.5;
-  margin-top: 2rem;
+  line-height: 175%;
+  font-weight: 500;
+  margin-top: 12px;
   transition: opacity 200ms ease-out;
 }
 .listing__header form {
@@ -4136,8 +4183,9 @@ button {
 .listing__items li a {
   display: flex;
   align-items: center;
-  padding: 14px;
-  line-height: 1.5;
+  padding: 1rem;
+  line-height: 175%;
+  font-weight: 500;
   height: 100%;
   -webkit-text-decoration-color: transparent;
           text-decoration-color: transparent;
@@ -4193,6 +4241,10 @@ button {
   margin-left: 8px;
   margin-right: 0;
   pointer-events: none;
+}
+.explorer__scheme-change a,
+.explorer__scheme-change button {
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.14);
 }
 .explorer__scheme-change a {
   display: none;
@@ -4309,7 +4361,7 @@ button {
 }
 .explorer__viz h3 {
   font-weight: 800;
-  font-size: 1.25rem;
+  font-size: 18px;
   line-height: 156%;
   border-bottom: 1px solid #EFF2F2;
   padding-bottom: 1rem;
@@ -4344,11 +4396,14 @@ button {
   flex-basis: 17rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 .explorer .viz .dropdown label {
   font-weight: bold;
   font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.6);
 }
 .explorer .viz__tabs {
   display: flex;
@@ -4401,7 +4456,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-start;
   padding: 1rem 0;
   margin: 0 1.5rem;
@@ -4409,18 +4464,18 @@ button {
 .explorer__source strong {
   margin-right: 0.5rem;
   font-weight: bold;
-  font-size: 12px;
+  flex-basis: 8rem;
+}
+.explorer__source > div {
+  display: flex;
+  flex-basis: 65%;
+  flex-grow: 1;
 }
 .explorer__source p {
   color: rgba(0, 0, 0, 0.6);
   font-weight: 500;
-  font-size: 12px;
   line-height: 133%;
   display: inline;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
 }
 .explorer__source button svg {
   width: 10px;
@@ -4588,16 +4643,16 @@ button {
   margin-top: 4rem;
   border-bottom: 1px solid #cdd1d1;
   padding-bottom: 2.5rem;
-  max-width: 1008px;
+  max-width: 1038px;
   margin-inline: auto;
 }
 .faq__content {
   margin-top: 3rem;
   margin-inline: auto;
-  max-width: 1008px;
+  max-width: 1038px;
 }
 .faq__content h3 {
-  font-weight: 800;
+  font-weight: 600;
   font-size: 18px;
   line-height: 156%;
   cursor: pointer;

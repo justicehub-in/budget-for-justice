@@ -15,7 +15,7 @@ const Toggle = ({ data }) => {
       liveRegion.innerHTML = `
       <span class="toggletip-bubble">${message}</span>
       `;
-    }, 100);
+    }, 20);
 
     // close on outside click
     document.addEventListener("click", function handler(e: any) {

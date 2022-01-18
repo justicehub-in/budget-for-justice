@@ -10,16 +10,20 @@
 
   &__initiative {
     padding-top: 3.5rem;
-    max-width: 1008px;
+    max-width: 1038px;
     margin-inline: auto;
 
     p {
       font-weight: 500;
       line-height: 175%;
-      margin-top: 12px;
+      margin-top: 8px;
 
       &.about__bold {
-        font-weight: 700;
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 156%;
+        margin-top: 1.5rem;
+        color: $text-light-medium;
       }
     }
 
@@ -53,7 +57,7 @@
   &__team {
     margin-top: 4rem;
     padding-bottom: 5.5rem;
-    max-width: 1008px;
+    max-width: 1038px;
     margin-inline: auto;
 
     p {
@@ -104,7 +108,7 @@
     padding-top: 5.5rem;
 
     .container {
-      max-width: 1008px;
+      max-width: 1038px;
       margin-inline: auto;
 
       display: grid;

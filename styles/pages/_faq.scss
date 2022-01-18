@@ -5,23 +5,17 @@
     margin-top: 4rem;
     border-bottom: $border-1;
     padding-bottom: 2.5rem;
-    max-width: 1008px;
+    max-width: 1038px;
     margin-inline: auto;
   }
 
   &__content {
     margin-top: 3rem;
     margin-inline: auto;
-    max-width: 1008px;
-
-    // > div {
-    //   border-radius: 8px;
-    //   background-color: $bg-lightest;
-    //   margin-top: 1.5rem;
-    // }
+    max-width: 1038px;
 
     h3 {
-      font-weight: 800;
+      font-weight: 600;
       font-size: 18px;
       line-height: 156%;
       cursor: pointer;
