@@ -35,13 +35,13 @@
 .btn-primary-invert {
   @include button;
 
-  border: 1px solid $btn-primary-bg;
+  border: 2px solid $btn-primary-bg;
   color: $btn-primary-bg;
   background-color: none;
 
   &:hover {
     color: darken($btn-primary-bg, 10);
-    border: 1px solid darken($btn-primary-bg, 10);
+    border-color: darken($btn-primary-bg, 10);
   }
 }
 
