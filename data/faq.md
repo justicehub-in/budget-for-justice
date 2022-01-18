@@ -52,4 +52,4 @@ The dataset updates can be defined in two ways:
 
 ### I have access to data that I would like to contribute. How can I share it with you?
 
-If you have access to data that can help us make the budget datasets more accessible and robust, then you can write to us at [info@justicehub.in](mailto:info@justicehub.in). We will work with you to make those datasets available on the Justice Hub and if possible make them a part of the Budget for Justice platform. 
+If you have access to data that can help us make the budget datasets more accessible and robust, then you can write to us at [info@justicehub.in](mailto:info@justicehub.in). We will work with you to make those datasets available on the Justice Hub and if possible make them a part of the Budgets for Justice platform. 

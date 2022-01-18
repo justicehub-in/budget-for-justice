@@ -66,6 +66,23 @@ export function HomeAffairs() {
   );
 }
 
+export function All() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="none"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill="#51AD75"
+        d="M13.6 16H2.4A2.4 2.4 0 0 1 0 13.6V.8A.8.8 0 0 1 .8 0H12a.8.8 0 0 1 .8.8v9.6H16v3.2a2.4 2.4 0 0 1-2.4 2.4Zm-.8-4v1.6a.8.8 0 1 0 1.6 0V12h-1.6ZM3.2 4v1.6h6.4V4H3.2Zm0 3.2v1.6h6.4V7.2H3.2Zm0 3.2V12h4v-1.6h-4Z"
+      />
+    </svg>
+  );
+}
+
 export function Share() {
   return (
     <svg

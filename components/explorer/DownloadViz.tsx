@@ -1,14 +1,16 @@
 import { saveAs } from "file-saver";
+import { stripTitle } from "utils";
+import { Download } from "components/icons/ListingIcons";
+import * as echarts from "echarts/core";
 
 function fileName(type, name, indicator, format) {
   // splitting the string to find the required part of title
-  let shortName = name.split("data for ");
-  shortName = shortName[1].split(" scheme (20");
+  const shortName = stripTitle(name);
 
   // If there is no type, eg: table, don;t add it to the name
   if (type != "NA" && format != "csv")
-    return `${shortName[0]} - ${indicator} - ${type}.${format}`;
-  else return `${shortName[0]} - ${indicator}.${format}`;
+    return `${shortName} - ${indicator} - ${type}.${format}`;
+  else return `${shortName} - ${indicator}.${format}`;
 }
 
 function download_csv(csv, filename) {
@@ -50,13 +52,21 @@ export function export_table_to_csv(filename: any) {
 
 const DownloadViz = ({ viz, type, name, indicator }) => {
   function svg2img() {
-    const svg = document.querySelector(`${viz} svg`);
-    const xml = new XMLSerializer().serializeToString(svg);
-    const svg64 = window.btoa(encodeURIComponent(xml));
-    saveAs(
-      "data:image/png;base64," + svg64,
-      fileName(type, name, indicator, "png")
+    const myChart = echarts.getInstanceByDom(
+      document.querySelector(".echarts-for-react")
     );
+
+    const url = myChart.getConnectedDataURL({
+      pixelRatio: 5, //derived ratio picture resolution, default 1
+      backgroundColor: "#fff", //chart background color
+      excludeComponents: [
+        //ignored when you save a chart tool components, the default toolbar ignored
+        "toolbox",
+      ],
+      type: "png", //Image types support png and jpeg
+    });
+
+    saveAs(url, fileName(type, name, indicator, "png"));
   }
 
   function downloadViz(viz) {
@@ -67,7 +77,8 @@ const DownloadViz = ({ viz, type, name, indicator }) => {
 
   return (
     <button onClick={() => downloadViz(viz)} className="btn-secondary-mini">
-      {`Download ${viz == "#tableView" ? "CSV" : "Visualisation"}`}
+      {`Download ${viz == "#tableView" ? "CSV" : "Visualisation"}`}{" "}
+      <Download />
     </button>
   );
 };

@@ -652,6 +652,35 @@ button {
   line-height: 92%;
 }
 
+.skiptarget {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  float: right;
+}
+
+.skip-to-content-link {
+  background: #4b4797;
+  color: white;
+  height: 2rem;
+  left: 50%;
+  padding-top: 0.5rem;
+  position: absolute;
+  transform: translateY(-150%);
+  transition: transform 0.3s;
+}
+.skip-to-content-link:focus {
+  transform: translateY(0%);
+}
+
+#top-of-site-pixel-anchor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: -100px;
+  left: 0;
+}
+
 .home-search {
   padding-top: 50px;
 }
@@ -1293,12 +1322,6 @@ button {
      object-fit: contain;
   margin-right: 0.5rem;
 }
-.header__brand h1 {
-  font-size: 1.375rem;
-  font-weight: 800;
-  line-height: 145%;
-  color: #EBFEFF;
-}
 .header__divider {
   border: 1px solid rgba(255, 255, 255, 0.7);
   margin: 0 1rem;
@@ -1349,7 +1372,7 @@ button {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 134%;
+  top: 120%;
   width: 9rem;
   font-size: 0.8rem;
   z-index: 100;
@@ -1389,16 +1412,6 @@ button {
 .navbar__nested li:hover, .navbar__nested li:focus-within {
   background-color: #EBFEFF;
 }
-.navbar__nested::after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  border-left: 14px solid transparent;
-  border-right: 14px solid transparent;
-  border-bottom: 17px solid white;
-  top: -10px;
-  right: 35%;
-}
 .navbar__item[type=button] {
   border-radius: 4px;
   background-color: #085c62;
@@ -1427,10 +1440,10 @@ button {
 .m-header .container {
   padding: 0.2rem;
   justify-content: flex-start;
+  padding-top: 12px;
 }
 .m-header__button {
   margin-right: 1rem;
-  margin-bottom: -4px;
   width: 44px;
   height: 44px;
 }
@@ -1473,12 +1486,10 @@ button {
   justify-content: space-between;
   width: 100%;
   line-height: 175%;
-  font-weight: bold;
+  font-weight: 700;
   border-bottom: 1px solid #ABB0B0;
   width: 90%;
-}
-.m-navbar .navbar__item--active {
-  font-weight: 800;
+  background-color: #00abb7;
 }
 .m-navbar .navbar__item[type=button]::after {
   border-bottom: 2px solid #fdfcfc;
@@ -1504,6 +1515,7 @@ button {
 .m-navbar .navbar__item[aria-expanded=true] + ul {
   background-color: #00abb7;
   padding-bottom: 1rem;
+  font-weight: 700;
 }
 .m-navbar__nested {
   width: 100%;
@@ -3119,6 +3131,18 @@ button {
   font-weight: 900;
   font-size: 2.5rem;
 }
+.home .yt-lite {
+  border-radius: 32px;
+}
+.home .lty-playbtn {
+  background-color: transparent !important;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='152' height='152' fill='none' viewBox='0 0 152 152'%3E%3Ccircle cx='76' cy='76' r='67' fill='%23F65940' opacity='.56'/%3E%3Cg filter='url(%23a)' opacity='.64'%3E%3Ccircle cx='76' cy='76' r='52' fill='%23F65940'/%3E%3C/g%3E%3Cg filter='url(%23b)'%3E%3Ccircle cx='76' cy='76' r='36' fill='%23C73D26'/%3E%3C/g%3E%3Cpath fill='%23fff' d='M69.334 67.367v17.266a1.663 1.663 0 0 0 2.567 1.4L85.467 77.4c1.034-.65 1.034-2.15 0-2.817l-13.566-8.616a1.663 1.663 0 0 0-2.567 1.4Z'/%3E%3Cdefs%3E%3Cfilter id='a' width='152' height='152' x='0' y='0' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' result='hardAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset/%3E%3CfeGaussianBlur stdDeviation='12'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix values='0 0 0 0 0.501961 0 0 0 0 0.0705882 0 0 0 0 0 0 0 0 0.64 0'/%3E%3CfeBlend in2='BackgroundImageFix' result='effect1_dropShadow_957_11259'/%3E%3CfeBlend in='SourceGraphic' in2='effect1_dropShadow_957_11259' result='shape'/%3E%3C/filter%3E%3Cfilter id='b' width='120' height='120' x='16' y='16' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' result='hardAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset/%3E%3CfeGaussianBlur stdDeviation='12'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix values='0 0 0 0 0.501961 0 0 0 0 0.0705882 0 0 0 0 0 0 0 0 1 0'/%3E%3CfeBlend in2='BackgroundImageFix' result='effect1_dropShadow_957_11259'/%3E%3CfeBlend in='SourceGraphic' in2='effect1_dropShadow_957_11259' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat;
+  width: 150px !important;
+  height: 150px !important;
+}
+.home .lty-playbtn::before {
+  display: none;
+}
 .home__sub-head {
   color: rgba(0, 0, 0, 0.32);
   font-weight: bold;
@@ -3999,13 +4023,21 @@ button {
 
 .listing__header {
   background-color: #cceef1;
-  padding-top: 5rem;
-  padding-bottom: 3rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
   filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.08));
 }
 .listing__header p {
   line-height: 1.5;
-  margin: 2rem 0;
+  margin-top: 2rem;
+  transition: opacity 200ms ease-out;
+}
+.listing__header form {
+  margin-top: 2rem;
 }
 .listing__indicators {
   margin-top: 2rem;
@@ -4019,9 +4051,10 @@ button {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 .listing__indicators h3 {
+  font-weight: 500;
   font-size: 12px;
 }
 .listing__indicators ul {
@@ -4030,14 +4063,44 @@ button {
   gap: 1.5rem;
   align-items: center;
 }
-.listing__indicators ul li {
+.listing__indicators li {
   font-weight: bold;
   font-size: 12px;
   line-height: 1.5;
   display: flex;
   align-items: center;
 }
-.listing__indicators ul li svg {
+.listing__indicators li svg {
+  margin-right: 0.5rem;
+  width: 19px;
+  height: 19px;
+}
+.listing__filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.5rem;
+}
+.listing__filter input {
+  transform: scale(1.5);
+  accent-color: #666d6e;
+  margin-right: 12px;
+}
+.listing__filter input:checked + label {
+  font-weight: bold;
+}
+.listing__filter > div {
+  display: flex;
+  align-items: center;
+}
+.listing__filter label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 133%;
+  display: flex;
+  align-items: center;
+}
+.listing__filter label svg {
   margin-right: 0.5rem;
   width: 19px;
   height: 19px;
@@ -4104,7 +4167,7 @@ button {
 .explorer__header {
   background-color: white;
   padding-bottom: 2.5rem;
-  padding-top: 2rem;
+  padding-top: 2.5rem;
 }
 .explorer__breadcrumb a {
   color: #888F8F;
@@ -4119,7 +4182,6 @@ button {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem;
-  margin-top: 2rem;
 }
 .explorer__buttons button,
 .explorer__buttons a {
@@ -4359,6 +4421,11 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;
+}
+.explorer__source button svg {
+  width: 10px;
+  margin-left: 8px;
+  margin-bottom: -4px;
 }
 .explorer .banner {
   margin-bottom: -10rem;

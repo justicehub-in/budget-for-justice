@@ -1,5 +1,6 @@
 import Image from "next/image";
-
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 const Video = ({ data }) => {
   return (
     <div className="home-video">
@@ -20,11 +21,11 @@ const Video = ({ data }) => {
           <p>{data.text}</p>
         </div>
         <div className="home-video__item">
-          <img
-            src={`https://placekitten.com/1008/480`}
-            alt=""
-            width="1008"
-            height="480"
+          <LiteYouTubeEmbed
+            id="LZKBY3V2ppE"
+            title="Why do you choose to share your Justice Data openly?"
+            params="disablekb=1"
+            noCookie
           />
         </div>
       </section>

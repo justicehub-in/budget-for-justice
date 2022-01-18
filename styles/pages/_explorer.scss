@@ -5,7 +5,7 @@
   &__header {
     background-color: $bg-lightest;
     padding-bottom: 2.5rem;
-    padding-top: 2rem;
+    padding-top: 2.5rem;
   }
 
   &__breadcrumb {
@@ -25,7 +25,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 2rem;
-    margin-top: 2rem;
+    // margin-top: 2rem;
 
     button,
     a {
@@ -308,6 +308,14 @@
       overflow: hidden;
       text-overflow: ellipsis;
       -webkit-line-clamp: 3;
+    }
+
+    button {
+      svg {
+        width: 10px;
+        margin-left: 8px;
+        margin-bottom: -4px;
+      }
     }
   }
 

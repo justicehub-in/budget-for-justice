@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
-import Head from "next/head";
 import Link from "next/link";
 import {
   tabbedInterface,
@@ -11,12 +10,9 @@ import {
   filter_data_budgettype,
   fetchFromTags,
   datasetPopulation,
+  categoryTag,
 } from "utils";
-import {
-  Download,
-  ArrowForward,
-  ExternalLink,
-} from "components/icons/ListingIcons";
+import { Download, ExternalLink } from "components/icons/ListingIcons";
 import Indicator from "components/analytics/Indicator";
 import Modal from "react-modal";
 import SimpleBarLineChartViz from "components/viz/SimpleBarLineChart";
@@ -30,6 +26,8 @@ import SchemeModal from "components/explorer/SchemeModal";
 import ShareModal from "components/explorer/ShareModal";
 import IndicatorAlter from "components/explorer/IndicatorAlter";
 import DownloadViz from "components/explorer/DownloadViz";
+import Seo from "components/_shared/seo";
+
 Modal.setAppElement("#__next");
 
 type Props = {
@@ -41,12 +39,13 @@ type Props = {
 
 const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   const [schemeModalOpen, setSchemeModalOpen] = useState(false);
+  const [selectedIndicator, setSelectedIndicator] =
+    useState("Budget Estimates");
   const [indicatorFiltered, setIndicatorFiltered] = useState([]);
   const [finalFiltered, setFinalFiltered] = useState([]);
   const [budgetTypes, setBudgetTypes] = useState([]);
   const [selectedBudgetType, setSelectedBudgetType] = useState("");
   const [isTable, setIsTable] = useState(false);
-  const [showShare, setShowShare] = useState(false);
   const [currentViz, setCurrentViz] = useState("#barGraph");
 
   // todo: make it dynamic lie scheme dashboard
@@ -106,16 +105,28 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     },
   ];
 
+  const crData = [
+    "Budget Estimates",
+    "Revised Estimates",
+    "Actual Expenditure",
+  ];
+
   const vizItems = [
     {
       id: "barGraph",
       graph: (
         <SimpleBarLineChartViz
           color={"#00ABB7"}
-          dataset={barLineTransformer(finalFiltered)}
+          dataset={barLineTransformer(finalFiltered, selectedIndicator)}
           type="bar"
           smooth={true}
           showSymbol={true}
+          Title={
+            selectedIndicator +
+            (budgetTypes.length > 1 ? " - " + selectedBudgetType : "")
+          }
+          subTitle={data.title}
+          unit={crData.includes(selectedIndicator) ? "Cr" : "%"}
         />
       ),
     },
@@ -124,10 +135,16 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
       graph: (
         <SimpleBarLineChartViz
           color={"#00ABB7"}
-          dataset={barLineTransformer(finalFiltered)}
+          dataset={barLineTransformer(finalFiltered, selectedIndicator)}
           type="line"
           smooth={true}
           showSymbol={true}
+          Title={
+            selectedIndicator +
+            (budgetTypes.length > 1 ? " - " + selectedBudgetType : "")
+          }
+          subTitle={data.title}
+          unit={crData.includes(selectedIndicator) ? "Cr" : "%"}
         />
       ),
     },
@@ -197,8 +214,6 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     tabbedInterface(tablist, panels);
 
     handleNewVizData("Budget Estimates");
-
-    if (navigator.share) setShowShare(true);
   }, [fileData]);
 
   // Run whenever a new indicator is selected
@@ -253,6 +268,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
       const filtered = filter_data_indicator(fileData, val);
       const budgetType = [...new Set(filtered.map((item) => item.budgetType))];
 
+      setSelectedIndicator(val);
       setIndicatorFiltered(filtered);
       setBudgetTypes(budgetType);
     }
@@ -264,20 +280,16 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
     setFinalFiltered(finalFiltered);
   }
 
+  const seo = {
+    title: data.title,
+    description: data.notes,
+  };
+
   return (
     <>
-      <Head>
-        <title>B4J | {data.title}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Seo seo={seo} />
       <main className="explorer">
         <div className="explorer__header">
-          <div className="explorer__breadcrumb container">
-            <a href="/">
-              Home <ArrowForward />
-            </a>
-          </div>
-
           <div className="explorer__buttons container">
             <div className="explorer__scheme-change">
               <a href="/datasets" className="btn-secondary">
@@ -313,6 +325,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
             <p>{data.notes}</p>
             <div className="explorer__meta ">
               {meta["Type of Scheme"] && <span>{meta["Type of Scheme"]}</span>}
+              {<span>{categoryTag(data.tags)}</span>}
             </div>
           </section>
         </div>
