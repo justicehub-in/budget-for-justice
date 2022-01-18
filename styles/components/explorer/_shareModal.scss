@@ -7,6 +7,10 @@
   button {
     font-weight: bold;
     border-width: 2px;
+
+    &[aria-expanded="true"] {
+      background-color: $color-teal-0;
+    }
   }
 
   &__dropdown {
