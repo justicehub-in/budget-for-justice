@@ -407,7 +407,10 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
             <div className="explorer__source">
               <div>
                 <strong>Data Source: </strong>
-                <p>{meta["Data Source"]}</p>
+                <p>
+                  Union Budget documents (2016-17 to 2021-22) sourced from Open
+                  Budgets India
+                </p>
               </div>
               <DownloadViz
                 viz={currentViz}

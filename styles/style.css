@@ -4401,8 +4401,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: flex-end;
   padding: 1rem 0;
   margin: 0 1.5rem;
 }
@@ -4410,6 +4409,12 @@ button {
   margin-right: 0.5rem;
   font-weight: bold;
   font-size: 12px;
+  flex-basis: 6rem;
+}
+.explorer__source > div {
+  display: flex;
+  flex-basis: 65%;
+  flex-grow: 1;
 }
 .explorer__source p {
   color: rgba(0, 0, 0, 0.6);
@@ -4417,10 +4422,6 @@ button {
   font-size: 12px;
   line-height: 133%;
   display: inline;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
 }
 .explorer__source button svg {
   width: 10px;

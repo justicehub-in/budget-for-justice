@@ -285,8 +285,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: flex-end;
     padding: 1rem 0;
     margin: 0 1.5rem;
 
@@ -294,6 +293,13 @@
       margin-right: 0.5rem;
       font-weight: bold;
       font-size: 12px;
+      flex-basis: 6rem;
+    }
+
+    > div {
+      display: flex;
+      flex-basis: 65%;
+      flex-grow: 1;
     }
 
     p {
@@ -302,12 +308,6 @@
       font-size: 12px;
       line-height: 133%;
       display: inline;
-
-      -webkit-box-orient: vertical;
-      // display: -webkit-box;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      -webkit-line-clamp: 3;
     }
 
     button {

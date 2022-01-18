@@ -1,6 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-const GA_TRACKING_ID = "G-NX72GYFHFS";
 export default class CustomDocument extends Document {
   render() {
     return (
@@ -33,7 +32,10 @@ export default class CustomDocument extends Document {
           <link rel="alternate icon" href="/assets/favicon/favicon.ico" />
           <link rel="manifest" href="/assets/favicon/site.webmanifest"></link>
 
-          <script async src="https://www.googletagmanager.com/gtag/js?id=" />
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}
+          />
           <script
             dangerouslySetInnerHTML={{
               __html: `
@@ -41,7 +43,7 @@ export default class CustomDocument extends Document {
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
 
-              gtag('config', '${GA_TRACKING_ID}',{
+              gtag('config', '${process.env.NEXT_PUBLIC_ANALYTICS_ID}',{
                 page_path: window.location.pathname,
               });
             `,

@@ -55,7 +55,8 @@ const About = () => {
             </a>
           </p>
           <p>
-            The source code for the Budgets for Justice platform is available on{" "}
+            The source code for the Budgets for Justice platform is available
+            on{" "}
             <a href="https://github.com/justicehub-in/budget-for-justice">
               Github
             </a>{" "}
