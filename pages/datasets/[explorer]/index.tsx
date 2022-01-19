@@ -175,6 +175,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
             className="btn-primary-invert"
             href={`https://justicehub.in/dataset/${data.id}`}
           >
+            <span className="sr-only"> :opens in new window</span>
             View Raw Data <ExternalLink />
           </a>
           <button
@@ -406,23 +407,37 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
             </div>
 
             <div className="explorer__source">
-              <div>
+              <div className="explorer__source--text">
                 <strong>Data Source: </strong>
                 <p>
-                  Union Budget documents (2016-17 to 2021-22) sourced from Open
-                  Budgets India
+                  Union Budget documents (2016-17 to 2021-22) sourced from{" "}
+                  <a href="https://openbudgetsindia.org/">
+                    Open Budgets India
+                  </a>
                 </p>
               </div>
-              <DownloadViz
-                viz={currentViz}
-                type={selectedBudgetType}
-                indicator={
-                  indicatorFiltered[0]
-                    ? indicatorFiltered[0]["indicators"]
-                    : "Budget Estimates"
-                }
-                name={data.title}
-              />
+
+              <div className="explorer__source--buttons">
+                <a
+                  href="https://docs.google.com/document/d/1PlnurMmjyzKdIZ5ktHbQZxYmI0XWKdd0NAW1OHtvhe8/preview"
+                  rel="noreferrer"
+                  target="_blank"
+                  className="btn-secondary-invert-mini"
+                >
+                  <span className="sr-only"> :opens in new window</span>
+                  Data Guidebook <ExternalLink fill="#00abb7" />
+                </a>
+                <DownloadViz
+                  viz={currentViz}
+                  type={selectedBudgetType}
+                  indicator={
+                    indicatorFiltered[0]
+                      ? indicatorFiltered[0]["indicators"]
+                      : "Budget Estimates"
+                  }
+                  name={data.title}
+                />
+              </div>
             </div>
           </div>
         </section>

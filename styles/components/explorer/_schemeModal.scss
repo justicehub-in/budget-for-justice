@@ -161,6 +161,7 @@
       transition: text-decoration-color 0.2s ease, color 0.2s ease;
       display: flex;
       align-items: center;
+      color: $text-light-high;
 
       span {
         -webkit-box-orient: vertical;

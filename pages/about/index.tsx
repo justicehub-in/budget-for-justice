@@ -60,7 +60,7 @@ const About = () => {
             <a href="https://github.com/justicehub-in/budget-for-justice">
               Github
             </a>{" "}
-            under license{" "}
+            under{" "}
             <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">
               GNU Affero General Public License version 3.0
             </a>

@@ -482,7 +482,8 @@ a {
 }
 
 a {
-  color: inherit;
+  font-weight: 600;
+  color: #f65940;
 }
 a.button, a.c2a {
   text-decoration: none;
@@ -532,7 +533,7 @@ button {
   }
 }
 .btn-primary svg {
-  margin-right: 1rem;
+  margin-right: 6px;
 }
 .btn-primary:hover {
   background-color: #f42f0f !important;
@@ -560,7 +561,7 @@ button {
   }
 }
 .btn-primary-invert svg {
-  margin-right: 1rem;
+  margin-right: 6px;
 }
 .btn-primary-invert:hover {
   color: #f42f0f;
@@ -589,7 +590,7 @@ button {
   }
 }
 .btn-secondary svg {
-  margin-right: 1rem;
+  margin-right: 6px;
 }
 .btn-secondary:hover {
   background-color: #00c3d1;
@@ -618,7 +619,7 @@ button {
   }
 }
 .btn-secondary-mini svg {
-  margin-right: 1rem;
+  margin-right: 6px;
 }
 .btn-secondary-mini:hover {
   background-color: #00c3d1;
@@ -646,9 +647,38 @@ button {
   }
 }
 .btn-secondary-invert svg {
-  margin-right: 1rem;
+  margin-right: 6px;
 }
 .btn-secondary-invert:hover {
+  background-color: #e6e6e6;
+}
+.btn-secondary-invert-mini {
+  padding: 12px 24px;
+  line-height: 133%;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 200ms ease;
+  display: block;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-weight: bold;
+  border: 1px solid #00abb7;
+  color: #00abb7;
+  background-color: white;
+  font-size: 12px;
+  padding: 8px 12px;
+}
+@media screen and (max-width: 979px) {
+  .btn-secondary-invert-mini {
+    font-size: 0.9rem;
+  }
+}
+.btn-secondary-invert-mini svg {
+  margin-right: 6px;
+}
+.btn-secondary-invert-mini:hover {
   background-color: #e6e6e6;
 }
 
@@ -1444,6 +1474,7 @@ button {
   text-decoration: underline;
   padding: 0.7rem 1rem 0.7rem 1rem;
   display: block;
+  color: #00abb7;
 }
 .navbar__nested li a span {
   text-decoration: none;
@@ -3119,6 +3150,7 @@ button {
   transition: text-decoration-color 0.2s ease, color 0.2s ease, -webkit-text-decoration-color 0.2s ease;
   display: flex;
   align-items: center;
+  color: rgba(0, 0, 0, 0.87);
 }
 .schemeModal__content a span {
   -webkit-box-orient: vertical;
@@ -3158,6 +3190,7 @@ button {
 }
 .shareModal__dropdown a {
   font-weight: 500 !important;
+  color: rgba(0, 0, 0, 0.87);
   line-height: 175%;
   padding: 8px 16px;
   display: flex;
@@ -3194,7 +3227,7 @@ button {
   display: none;
 }
 .home__sub-head {
-  color: rgba(0, 0, 0, 0.32);
+  color: rgba(0, 0, 0, 0.6);
   font-weight: 500;
   margin-top: 4px;
   line-height: 175%;
@@ -3946,6 +3979,10 @@ button {
   color: rgba(0, 0, 0, 0.6);
   margin-top: 0.5rem;
 }
+.about__team p a {
+  -webkit-text-decoration-color: currentColor;
+          text-decoration-color: currentColor;
+}
 .about__team ul {
   margin-top: 2rem;
   display: grid;
@@ -4201,6 +4238,7 @@ button {
   transition: text-decoration-color 0.3s ease-out;
   transition: text-decoration-color 0.3s ease-out, -webkit-text-decoration-color 0.3s ease-out;
   overflow-y: auto;
+  color: rgba(0, 0, 0, 0.87);
 }
 .listing__items li span {
   border-left: 1px solid #cdd1d1;
@@ -4470,14 +4508,17 @@ button {
   margin: 0 1.5rem;
 }
 .explorer__source strong {
-  margin-right: 0.5rem;
   font-weight: bold;
   flex-basis: 8rem;
 }
-.explorer__source > div {
-  display: flex;
-  flex-basis: 65%;
+.explorer__source--text {
+  flex-basis: 35%;
   flex-grow: 1;
+  font-size: 14px;
+}
+.explorer__source--buttons {
+  display: flex;
+  gap: 1rem;
 }
 .explorer__source p {
   color: rgba(0, 0, 0, 0.6);
@@ -4485,7 +4526,7 @@ button {
   line-height: 133%;
   display: inline;
 }
-.explorer__source button svg {
+.explorer__source button svg, .explorer__source a svg {
   width: 10px;
   margin-left: 8px;
   margin-bottom: -4px;
@@ -4540,10 +4581,12 @@ button {
 .explorer__schemes--split a {
   display: grid;
   background-color: white;
+  color: rgba(0, 0, 0, 0.87);
   border-radius: 12px;
   padding: 1.5rem 3rem;
   border: 1px solid #cdd1d1;
   transition: box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+  text-decoration: none;
   flex-basis: 48%;
   flex-grow: 1;
 }
@@ -4591,9 +4634,6 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;
-}
-.explorer__schemes a {
-  text-decoration: none;
 }
 .explorer__pagination {
   font-size: 1.5em;
@@ -4679,9 +4719,6 @@ button {
 }
 .faq__content h3 button span {
   text-align: left;
-}
-.faq__content h3 button:focus svg {
-  outline: 2px solid;
 }
 .faq__content h3 svg {
   height: 1em;

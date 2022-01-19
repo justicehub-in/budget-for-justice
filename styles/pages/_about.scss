@@ -66,6 +66,10 @@
       line-height: 156%;
       color: $text-light-medium;
       margin-top: 0.5rem;
+
+      a {
+        text-decoration-color: currentColor;
+      }
     }
 
     ul {

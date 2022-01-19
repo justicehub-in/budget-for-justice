@@ -298,15 +298,19 @@
     margin: 0 1.5rem;
 
     strong {
-      margin-right: 0.5rem;
       font-weight: bold;
       flex-basis: 8rem;
     }
 
-    > div {
-      display: flex;
-      flex-basis: 65%;
+    &--text {
+      flex-basis: 35%;
       flex-grow: 1;
+      font-size: 14px;
+    }
+
+    &--buttons {
+      display: flex;
+      gap: 1rem;
     }
 
     p {
@@ -316,7 +320,7 @@
       display: inline;
     }
 
-    button {
+    button, a {
       svg {
         width: 10px;
         margin-left: 8px;
@@ -388,10 +392,12 @@
       a {
         display: grid;
         background-color: $bg-lightest;
+        color: $text-light-high;
         border-radius: 12px;
         padding: 1.5rem 3rem;
         border: $border-1;
         transition: box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+        text-decoration: none;
 
         flex-basis: 48%;
         flex-grow: 1;
@@ -449,10 +455,6 @@
           -webkit-line-clamp: 3;
         }
       }
-    }
-
-    a {
-      text-decoration: none;
     }
   }
 

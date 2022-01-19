@@ -17,7 +17,7 @@
   }
 
   svg {
-    margin-right: 1rem;
+    margin-right: 6px;
   }
 }
 
@@ -78,5 +78,18 @@
 
   &:hover {
     background-color: darken($btn-secondary-text, 10);
+  }
+
+  &-mini {
+    @include button;
+    border: 1px solid $btn-secondary-bg;
+    color: $btn-secondary-bg;
+    background-color: $btn-secondary-text;
+    font-size: 12px;
+    padding: 8px 12px;
+
+    &:hover {
+      background-color: darken($btn-secondary-text, 10);
+    }
   }
 }

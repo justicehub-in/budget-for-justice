@@ -77,8 +77,7 @@ const DownloadViz = ({ viz, type, name, indicator }) => {
 
   return (
     <button onClick={() => downloadViz(viz)} className="btn-secondary-mini">
-      {`Download ${viz == "#tableView" ? "CSV" : "Visualisation"}`}{" "}
-      <Download />
+      {`Download ${viz == "#tableView" ? "CSV" : "Chart"}`} <Download />
     </button>
   );
 };
