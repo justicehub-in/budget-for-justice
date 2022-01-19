@@ -198,8 +198,9 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
               d="M7 .333A6.665 6.665 0 0 0 .333 7 6.665 6.665 0 0 0 7 13.667 6.665 6.665 0 0 0 13.666 7 6.665 6.665 0 0 0 7 .333Zm.666 10H6.333v-4h1.333v4Zm0-5.333H6.333V3.667h1.333V5Z"
             />
           </svg>
-          You’ll get all the raw related to this scheme data for your further
-          manual exploration.
+          The data package contains the datasheet, metadata sheet (scheme
+          details), data guidebook (which contains the data curation
+          methodology) and data codebook (or data dictionary)
         </p>
       </>
     ),
@@ -430,10 +431,14 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
 
         <section className="explorer__schemes">
           <div className="container">
-            <h3 className="heading">Explore some relevant Data Summaries</h3>
+            <h3 className="heading">Explore other Budget Datasets</h3>
             <p className="home__sub-head">
-              People who review the current dataset also find these following
-              datasets useful
+              Search for other relevant dataset using the Select Another Scheme
+              button from above or view all datasets on the{" "}
+              <Link href={"/datasets"}>
+                <a className="text-link">datasets listing</a>
+              </Link>{" "}
+              page.
             </p>
 
             <div className="explorer__schemes--split">

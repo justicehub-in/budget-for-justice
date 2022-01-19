@@ -14,7 +14,7 @@
 
 .heading {
   @include heading();
-  line-height: 130%
+  line-height: 130%;
 }
 
 .heading3-w-line {
@@ -27,4 +27,9 @@
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 92%;
+}
+
+.text-link {
+  font-weight: 600;
+  color: #f65940;
 }

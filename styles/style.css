@@ -688,6 +688,11 @@ button {
   line-height: 92%;
 }
 
+.text-link {
+  font-weight: 600;
+  color: #f65940;
+}
+
 .skiptarget {
   width: 1px;
   height: 1px;
@@ -4533,37 +4538,32 @@ button {
   margin-top: 2.5rem;
 }
 .explorer__schemes--split a {
-  flex-basis: 48%;
-  flex-grow: 1;
-}
-.explorer__schemes a {
-  text-decoration: none;
-}
-.explorer__schemes a {
   display: grid;
   background-color: white;
   border-radius: 12px;
   padding: 1.5rem 3rem;
   border: 1px solid #cdd1d1;
   transition: box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+  flex-basis: 48%;
+  flex-grow: 1;
 }
-.explorer__schemes a:hover, .explorer__schemes a:focus-within {
+.explorer__schemes--split a:hover, .explorer__schemes--split a:focus-within {
   box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.16);
   border-color: #EFF2F2;
 }
-.explorer__schemes a img {
+.explorer__schemes--split a img {
   border-radius: 8px;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.explorer__schemes a ul {
+.explorer__schemes--split a ul {
   display: flex;
   flex-wrap: wrap;
   margin: 1.5rem 0;
   gap: 1rem;
 }
-.explorer__schemes a ul li {
+.explorer__schemes--split a ul li {
   text-transform: uppercase;
   font-weight: 600;
   font-size: 12px;
@@ -4572,7 +4572,7 @@ button {
   background-color: rgba(0, 0, 0, 0.08);
   padding: 4px 6px;
 }
-.explorer__schemes a h3 {
+.explorer__schemes--split a h3 {
   font-weight: 800;
   font-size: 1.25rem;
   line-height: 1.3;
@@ -4582,7 +4582,7 @@ button {
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
 }
-.explorer__schemes a p {
+.explorer__schemes--split a p {
   font-weight: 500;
   line-height: 1.7;
   margin-top: 0.5rem;
@@ -4591,6 +4591,9 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;
+}
+.explorer__schemes a {
+  text-decoration: none;
 }
 .explorer__pagination {
   font-size: 1.5em;
