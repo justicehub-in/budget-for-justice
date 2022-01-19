@@ -79,7 +79,7 @@ const Nav: React.FC = () => {
       <header className="header" role="banner">
         <div className="container">
           <div className="header__brand">
-            <Link href="/">
+            <Link href="https://budgets.justicehub.in">
               <a>
                 <figure>
                   <Image
@@ -179,7 +179,7 @@ const Nav: React.FC = () => {
           </button>
 
           <div className="header__brand">
-            <Link href="/">
+            <Link href="https://budgets.justicehub.in">
               <a>
                 <figure>
                   <Image
