@@ -3129,7 +3129,7 @@ button {
   border-radius: 4px;
   overflow-y: auto;
   height: 100%;
-  max-height: 59vh;
+  max-height: 58vh;
 }
 .schemeModal__content ul {
   display: grid;
