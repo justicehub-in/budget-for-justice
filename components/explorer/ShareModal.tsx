@@ -47,9 +47,6 @@ const ShareModal = ({ title }) => {
       } else {
         // if not open, then open current clicked menu
         showMenu();
-        // document.addEventListener("mousedown", () => hideMenu(), {
-        //   once: true,
-        // });
       }
     }
   }
@@ -77,6 +74,7 @@ const ShareModal = ({ title }) => {
           >
             <Facebook />
             <span>Facebook</span>
+            <span className="sr-only"> :opens in new window</span>
           </a>
         </li>
         <li>
@@ -87,6 +85,7 @@ const ShareModal = ({ title }) => {
           >
             <Twitter />
             <span>Twitter</span>
+            <span className="sr-only"> :opens in new window</span>
           </a>
         </li>
         <li>
@@ -97,6 +96,7 @@ const ShareModal = ({ title }) => {
           >
             <Linkedin />
             <span>LinkedIn</span>
+            <span className="sr-only"> :opens in new window</span>
           </a>
         </li>
         <li>
@@ -107,6 +107,7 @@ const ShareModal = ({ title }) => {
           >
             <Reddit />
             <span>Reddit</span>
+            <span className="sr-only"> :opens in new window</span>
           </a>
         </li>
       </ul>

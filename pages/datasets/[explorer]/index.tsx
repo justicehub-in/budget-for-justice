@@ -174,9 +174,11 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
           <a
             className="btn-primary-invert"
             href={`https://justicehub.in/dataset/${data.id}`}
+            rel="noreferrer"
+            target="_blank"
           >
-            <span className="sr-only"> :opens in new window</span>
             View Raw Data <ExternalLink />
+            <span className="sr-only"> :opens in new window</span>
           </a>
           <button
             className="btn-primary"
@@ -411,8 +413,13 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
                 <strong>Data Source: </strong>
                 <p>
                   Union Budget documents (2016-17 to 2021-22) sourced from{" "}
-                  <a href="https://openbudgetsindia.org/">
+                  <a
+                    href="https://openbudgetsindia.org/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     Open Budgets India
+                    <span className="sr-only"> :opens in new window</span>
                   </a>
                 </p>
               </div>
@@ -424,8 +431,8 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
                   target="_blank"
                   className="btn-secondary-invert-mini"
                 >
-                  <span className="sr-only"> :opens in new window</span>
                   Data Guidebook <ExternalLink fill="#00abb7" />
+                  <span className="sr-only"> :opens in new window</span>
                 </a>
                 <DownloadViz
                   viz={currentViz}

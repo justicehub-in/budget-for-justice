@@ -59,6 +59,7 @@ export const CTA = {
           href="https://twitter.com/JusticeHubIndia"
         >
           Twitter
+          <span className="sr-only"> :opens in new window</span>
         </a>
         to know more about the upcoming events.
       </p>

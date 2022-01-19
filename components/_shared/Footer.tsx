@@ -64,10 +64,7 @@ const Footer = () => {
               />
               <span className="header__divider" />
               <div>
-                <a
-                  rel="noopener noreferrer"
-                  href="https://twitter.com/JusticeHubIndia"
-                >
+                <a rel="noreferrer" href="https://twitter.com/JusticeHubIndia">
                   <span className="sr-only">Justice-hub twitter</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -93,10 +90,7 @@ const Footer = () => {
                     </defs>
                   </svg>
                 </a>
-                <a
-                  rel="noopener noreferrer"
-                  href="https://github.com/justicehub-in"
-                >
+                <a rel="noreferrer" href="https://github.com/justicehub-in">
                   <span className="sr-only">Justice-hub github</span>
                   <svg
                     width="24"
@@ -112,7 +106,7 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a
-                  rel="noopener noreferrer"
+                  rel="noreferrer"
                   href="https://justicehub.in/feeds/dataset.atom"
                 >
                   <span className="sr-only">Justice-hub rss feed</span>
@@ -167,7 +161,7 @@ const Footer = () => {
           <section className="footer__logo">
             <h2>CREATED BY</h2>
             <div>
-              <a rel="noopener noreferrer" href="https://civicdatalab.in">
+              <a rel="noreferrer" href="https://civicdatalab.in">
                 <Image
                   src="/assets/images/cdl.png"
                   width={111}
@@ -176,7 +170,7 @@ const Footer = () => {
                 />
               </a>
 
-              <a rel="noopener noreferrer" href="https://agami.in">
+              <a rel="noreferrer" href="https://agami.in">
                 <Image
                   src="/assets/images/agami.svg"
                   width={154}

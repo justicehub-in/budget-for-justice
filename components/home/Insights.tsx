@@ -43,21 +43,11 @@ const Insights = ({ insightList }) => {
               <h3>{scheme.header}</h3>
               <p>{scheme.desc}</p>
               <div>
-                <a
-                  rel="nofollow noreferrer"
-                  className="btn-primary-invert"
-                  href={scheme.link}
-                >
+                <a className="btn-primary-invert" href={scheme.link}>
                   Explore Scheme
                 </a>
               </div>
             </div>
-            {/* <img
-              src={`https://placekitten.com/240/30${index}`}
-              alt=""
-              width="240"
-              height="300"
-            /> */}
           </section>
         ))}
       </div>
