@@ -48,8 +48,6 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   const [isTable, setIsTable] = useState(false);
   const [currentViz, setCurrentViz] = useState("#barGraph");
 
-  console.log(data);
-
   // todo: make it dynamic lie scheme dashboard
   const IndicatorDesc = [
     meta["Indicator 1 - Description"],
