@@ -58,11 +58,10 @@ When visiting a dataset lisitng page, you may want to fetch the particular type 
 
 ```javascript
 import { GetServerSideProps } from "next";
-import { convertToCkanSearchQuery, fetchDatasets } from "utils/index";
+import { fetchDatasets } from "utils/index";
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const variables = convertToCkanSearchQuery(context.query || {});
-  const data = await fetchDatasets("type_of_dataset", variables);
+export const getServerSideProps: GetServerSideProps = async () => {
+  const data = await fetchDatasets();
 
   return {
     props: {
@@ -72,7 +71,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 ```
 
-- `fetchDatasets` helps to fetch a list of datasets of particular type.
+- `fetchDatasets` helps to fetch a list of datasets.
 
 Learn more about them [here](utils/README.md).
 

@@ -188,27 +188,21 @@ export function getDate(time) {
 
 // fetch list of datasets.
 // Required: type -> type of dataset; variables -> from url parameters.
-export async function fetchDatasets(type, variables) {
-  function changeKeyName(key) {
-    if (key == "size") return "rows";
-    else if (key == "from") return "start";
-    else return key;
-  }
-
-  variables.fq
-    ? (variables.fq = variables.fq.concat(` AND type:${type}`))
-    : (variables.fq = `type:${type}`);
-
-  // creating a string of parameter from object of variables for CKAN API use
-  const varArray = Object.keys(variables).map((key) => {
-    return `${changeKeyName(key)}=${variables[key]}`;
-  });
-  const varString =
-    varArray.length > 0 ? varArray.join("&") : `fq=type:${type}`;
-  const response = await fetch(
-    `https://justicehub.in/api/3/action/package_search?${varString}`
-  );
-  const data = await response.json();
+export async function fetchDatasets() {
+  const ministry = await fetch(
+    "https://justicehub.in/api/3/action/package_search?fq=(tags:ministry AND groups:budgets-for-justice)&rows=200"
+  ).then((res) => res.json());
+  const scheme = await fetch(
+    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme AND groups:budgets-for-justice)&rows=200"
+  ).then((res) => res.json());
+  const category = await fetch(
+    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme-category AND groups:budgets-for-justice)&rows=200"
+  ).then((res) => res.json());
+  const data = {
+    ministry: datasetPopulation(ministry.result.results),
+    scheme: datasetPopulation(scheme.result.results),
+    category: datasetPopulation(category.result.results),
+  };
   return data;
 }
 
@@ -235,194 +229,6 @@ export async function getFilters(list, variable, page) {
   } catch (error) {
     throw new Error(error);
   }
-}
-
-export function convertToCkanSearchQuery(query) {
-  const ckanQuery = {
-    q: "",
-    fq: "",
-    rows: "",
-    start: "",
-    sort: "",
-    "facet.field": "",
-    "facet.limit": "",
-    "facet.mincount": 0,
-  };
-  // Split by space but ignore spaces within double quotes:
-  if (query.q) {
-    query.q.match(/(?:[^\s"]+|"[^"]*")+/g).forEach((part) => {
-      if (part.includes(":")) {
-        ckanQuery.fq += part + " ";
-      } else {
-        ckanQuery.q += part + " ";
-      }
-    });
-    ckanQuery.fq = ckanQuery.fq.trim();
-    ckanQuery.q = ckanQuery.q.trim();
-  }
-
-  if (query.fq) {
-    ckanQuery.fq = ckanQuery.fq ? ckanQuery.fq + " " + query.fq : query.fq;
-  }
-
-  // standard 'size' => ckan 'rows'
-  ckanQuery.rows = query.size || "";
-
-  // standard 'from' => ckan 'start'
-  ckanQuery.start = query.from || "";
-  ckanQuery.organization = query.organization || "";
-
-  // standard 'sort' => ckan 'sort'
-  const sortQueries = [];
-  if (query.sort && query.sort.constructor == Object) {
-    for (let [key, value] of Object.entries(query.sort)) {
-      sortQueries.push(`${key} ${value}`);
-    }
-    ckanQuery.sort = sortQueries.join(",");
-  } else if (query.sort && query.sort.constructor == String) {
-    ckanQuery.sort = query.sort.replace(":", " ");
-  } else if (query.sort && query.sort.constructor == Array) {
-    query.sort.forEach((sort) => {
-      sortQueries.push(sort.replace(":", " "));
-    });
-    ckanQuery.sort = sortQueries.join(",");
-  }
-
-  // Facets
-  ckanQuery["facet.field"] = query["facet.field"] || ckanQuery["facet.field"];
-  ckanQuery["facet.limit"] = query["facet.limit"] || ckanQuery["facet.limit"];
-  ckanQuery["facet.mincount"] =
-    query["facet.mincount"] || ckanQuery["facet.mincount"];
-  ckanQuery["facet.field"] = query["facet.field"] || ckanQuery["facet.field"];
-
-  // Remove attributes with empty string, null or undefined values
-  Object.keys(ckanQuery).forEach(
-    (key) => !ckanQuery[key] && delete ckanQuery[key]
-  );
-
-  return ckanQuery;
-}
-
-export function ckanToDataPackage(descriptor) {
-  // Make a copy
-  const datapackage = JSON.parse(JSON.stringify(descriptor));
-
-  // Lowercase name
-  datapackage.name = datapackage.name.toLowerCase();
-
-  // Rename notes => description
-  if (datapackage.notes) {
-    datapackage.description = datapackage.notes;
-    delete datapackage.notes;
-  }
-
-  // Rename ckan_url => homepage
-  if (datapackage.ckan_url) {
-    datapackage.homepage = datapackage.ckan_url;
-    delete datapackage.ckan_url;
-  }
-
-  // Parse license
-  const license = {};
-  if (datapackage.license_id) {
-    license.type = datapackage.license_id;
-    delete datapackage.license_id;
-  }
-  if (datapackage.license_title) {
-    license.title = datapackage.license_title;
-    delete datapackage.license_title;
-  }
-  if (datapackage.license_url) {
-    license.url = datapackage.license_url;
-    delete datapackage.license_url;
-  }
-  if (Object.keys(license).length > 0) {
-    datapackage.license = license;
-  }
-
-  // Parse author and sources
-  const source = {};
-  if (datapackage.author) {
-    source.name = datapackage.author;
-    delete datapackage.author;
-  }
-  if (datapackage.author_email) {
-    source.email = datapackage.author_email;
-    delete datapackage.author_email;
-  }
-  if (datapackage.url) {
-    source.web = datapackage.url;
-    delete datapackage.url;
-  }
-  if (Object.keys(source).length > 0) {
-    datapackage.sources = [source];
-  }
-
-  // Parse maintainer
-  const author = {};
-  if (datapackage.maintainer) {
-    author.name = datapackage.maintainer;
-    delete datapackage.maintainer;
-  }
-  if (datapackage.maintainer_email) {
-    author.email = datapackage.maintainer_email;
-    delete datapackage.maintainer_email;
-  }
-  if (Object.keys(author).length > 0) {
-    datapackage.author = author;
-  }
-
-  // Parse tags
-  if (datapackage.tags) {
-    datapackage.keywords = [];
-    datapackage.tags.forEach((tag) => {
-      datapackage.keywords.push(tag.name);
-    });
-    delete datapackage.tags;
-  }
-
-  const meta = {};
-  // Parse meta
-  if (datapackage.tender_date) {
-    meta.date = datapackage.tender_date;
-    delete datapackage.tender_date;
-  }
-  if (datapackage.fiscal_year) {
-    meta.fiscal_year = datapackage.fiscal_year;
-    delete datapackage.fiscal_year;
-  }
-  if (Object.keys(meta).length > 0) {
-    datapackage.meta = meta;
-  }
-
-  // Resources
-  datapackage.resources = datapackage.resources.map((resource) => {
-    if (resource.name) {
-      resource.title = resource.title || resource.name;
-      resource.name = resource.name.toLowerCase().replace(/ /g, "_");
-    } else {
-      resource.name = resource.id;
-    }
-
-    if (!resource.schema) {
-      // If 'fields' property exists use it as schema fields
-      if (resource.fields) {
-        if (typeof resource.fields === "string") {
-          try {
-            resource.fields = JSON.parse(resource.fields);
-          } catch (e) {
-            console.log("Could not parse resource.fields");
-          }
-        }
-        resource.schema = { fields: resource.fields };
-        delete resource.fields;
-      }
-    }
-
-    return resource;
-  });
-
-  return datapackage;
 }
 
 // function to create tabbed interface

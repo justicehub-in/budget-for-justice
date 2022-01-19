@@ -13,8 +13,6 @@ const ShareModal = ({ title }) => {
   // open / close sub-menu
   function shareButtonHandler(e: any) {
     function hideMenu() {
-      console.log("called");
-
       e.target.setAttribute("aria-expanded", "false");
       e.target.setAttribute(
         "aria-label",

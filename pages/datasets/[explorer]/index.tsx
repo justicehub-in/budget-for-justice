@@ -9,8 +9,8 @@ import {
   filter_data_indicator,
   filter_data_budgettype,
   fetchFromTags,
-  datasetPopulation,
   categoryTag,
+  fetchDatasets,
 } from "utils";
 import { Download, ExternalLink } from "components/icons/ListingIcons";
 import Indicator from "components/analytics/Indicator";
@@ -47,6 +47,8 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   const [selectedBudgetType, setSelectedBudgetType] = useState("");
   const [isTable, setIsTable] = useState(false);
   const [currentViz, setCurrentViz] = useState("#barGraph");
+
+  console.log(data);
 
   // todo: make it dynamic lie scheme dashboard
   const IndicatorDesc = [
@@ -492,64 +494,37 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
             </div>
           </div>
         </section>
-
-        {/* <div role="navigation" className="explorer__pagination">
-          <div className="container">
-            <ul>
-              <li className="prev">
-                <a href="/">
-                  <strong>
-                    <ArrowBack /> Previous
-                  </strong>
-                  <br />
-                  <span>Ut tristique eu accumsan</span>
-                </a>
-              </li>
-              <li className="next">
-                <a href="/">
-                  <strong>
-                    Next <ArrowForward />
-                  </strong>
-                  <br />
-                  <span>viverra nisl eget phasellus</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div> */}
       </main>
     </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  // fetch dataset
   const data = await fetchAPI(context.query.explorer).then((res) =>
     explorerPopulation(res.result)
   );
+
+  // fetch and parse metadata csv
   const metaRes = await resourceGetter(data.metaUrl);
   const meta = {};
   metaRes.forEach((elm) => {
     meta[elm[0]] = elm[1] || "";
   });
 
+  // fetch and parse data csv
   const fileData = await resourceGetter(data.dataUrl, true);
-  const relatedSchemes = await fetchFromTags(data.tags, data.id);
-  const indicators = [...new Set(fileData.map((item) => item.indicators))];
 
-  const ministry = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:ministry AND groups:budgets-for-justice)&rows=200"
-  ).then((res) => res.json());
-  const scheme = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme AND groups:budgets-for-justice)&rows=200"
-  ).then((res) => res.json());
-  const category = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme-category AND groups:budgets-for-justice)&rows=200"
-  ).then((res) => res.json());
-  const allData = {
-    ministry: datasetPopulation(ministry.result.results),
-    scheme: datasetPopulation(scheme.result.results),
-    category: datasetPopulation(category.result.results),
-  };
+  // fetch related schemes
+  const relatedSchemes = await fetchFromTags(data.tags, data.id);
+
+  // generate indicators
+  const indicators = [
+    ...new Set(fileData.map((item) => item.indicators || null)),
+  ];
+
+  // fetch all datasets for scheme changer modal
+  const allData = await fetchDatasets();
 
   data.indicators = indicators;
   data.relatedSchemes = relatedSchemes;

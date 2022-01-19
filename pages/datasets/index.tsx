@@ -11,7 +11,7 @@ import {
   All,
 } from "components/icons/ListingIcons";
 import Toggle from "components/_shared/Toggle";
-import { datasetPopulation, categoryIcon, stripTitle } from "utils";
+import { categoryIcon, stripTitle, fetchDatasets } from "utils";
 import { useSearch } from "utils/search";
 import Seo from "components/_shared/seo";
 
@@ -224,20 +224,7 @@ const Lisitng = ({ data }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const ministry = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:ministry AND groups:budgets-for-justice)&rows=200"
-  ).then((res) => res.json());
-  const scheme = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme AND groups:budgets-for-justice)&rows=200"
-  ).then((res) => res.json());
-  const category = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme-category AND groups:budgets-for-justice)&rows=200"
-  ).then((res) => res.json());
-  const data = {
-    ministry: datasetPopulation(ministry.result.results),
-    scheme: datasetPopulation(scheme.result.results),
-    category: datasetPopulation(category.result.results),
-  };
+  const data = await fetchDatasets();
 
   return {
     props: {

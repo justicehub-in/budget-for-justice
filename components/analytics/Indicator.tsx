@@ -17,20 +17,23 @@ const Indicator = ({ data, newIndicator, meta }) => {
       <fieldset>
         <legend className="sr-only">Choose Indicator:</legend>
         {data &&
-          data.map((item, index) => (
-            <div key={`indicatorItem-${index}`}>
-              <input
-                onClick={(e) => handleIndicatorChange(e.target)}
-                type="radio"
-                name="indicators"
-                id={item}
-                value={item}
-              />
-              <label htmlFor={item}>
-                {item} <Toggle data={meta[index]} />
-              </label>
-            </div>
-          ))}
+          data.map(
+            (item, index) =>
+              item && (
+                <div key={`indicatorItem-${index}`}>
+                  <input
+                    onClick={(e) => handleIndicatorChange(e.target)}
+                    type="radio"
+                    name="indicators"
+                    id={item}
+                    value={item}
+                  />
+                  <label htmlFor={item}>
+                    {item} <Toggle data={meta[index]} />
+                  </label>
+                </div>
+              )
+          )}
       </fieldset>
     </div>
   );

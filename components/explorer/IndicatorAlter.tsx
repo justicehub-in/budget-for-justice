@@ -96,15 +96,17 @@ const IndicatorAlter = ({ indicators, newIndicator, meta }) => {
           <legend className="sr-only">Select Indicator</legend>
           {indicators.map((elm, index) => {
             return (
-              <label key={`sort-${index}`} htmlFor={`${elm} mobile`}>
-                <input
-                  type="radio"
-                  value={elm}
-                  name="sort-group"
-                  id={`${elm} mobile`}
-                />
-                {elm} <Toggle data={meta[index]} />
-              </label>
+              elm && (
+                <label key={`sort-${index}`} htmlFor={`${elm} mobile`}>
+                  <input
+                    type="radio"
+                    value={elm}
+                    name="sort-group"
+                    id={`${elm} mobile`}
+                  />
+                  {elm} <Toggle data={meta[index]} />
+                </label>
+              )
             );
           })}
         </fieldset>

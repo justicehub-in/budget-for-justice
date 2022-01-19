@@ -3049,6 +3049,7 @@ button {
   display: grid;
   grid-template-columns: minmax(0, 256px) 1fr;
   height: 100%;
+  max-height: 61vh;
 }
 .schemeModal__left {
   display: flex;
@@ -3129,8 +3130,6 @@ button {
   padding: 20px 24px;
   border-radius: 4px;
   overflow-y: auto;
-  height: 100%;
-  max-height: 567px;
 }
 .schemeModal__content ul {
   display: grid;
