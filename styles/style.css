@@ -1534,6 +1534,7 @@ button {
 }
 .m-navbar a {
   text-decoration: none;
+  color: #fdfcfc;
 }
 .m-navbar__header {
   display: flex;
@@ -3129,7 +3130,7 @@ button {
   border-radius: 4px;
   overflow-y: auto;
   height: 100%;
-  max-height: 58vh;
+  max-height: 567px;
 }
 .schemeModal__content ul {
   display: grid;
@@ -4518,6 +4519,7 @@ button {
 }
 .explorer__source--buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 .explorer__source p {
@@ -4526,7 +4528,8 @@ button {
   line-height: 133%;
   display: inline;
 }
-.explorer__source button svg, .explorer__source a svg {
+.explorer__source button svg,
+.explorer__source a svg {
   width: 10px;
   margin-left: 8px;
   margin-bottom: -4px;
