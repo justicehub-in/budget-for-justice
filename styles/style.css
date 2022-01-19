@@ -3048,7 +3048,7 @@ button {
   margin-top: 1rem;
   display: grid;
   grid-template-columns: minmax(0, 256px) 1fr;
-  height: 100%;
+  height: 567px;
   max-height: 61vh;
 }
 .schemeModal__left {
