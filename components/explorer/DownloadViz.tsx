@@ -1,7 +1,14 @@
+import React from "react";
+import dynamic from "next/dynamic";
 import { saveAs } from "file-saver";
 import { stripTitle } from "utils";
 import { Download } from "components/icons/ListingIcons";
 import * as echarts from "echarts/core";
+import watermark from "watermarkjs";
+// const watermark = dynamic(() => import("watermarkjs"), {
+//   ssr: false,
+// });
+// console.log(watermark);
 
 function fileName(type, name, indicator, format) {
   // splitting the string to find the required part of title
@@ -29,7 +36,6 @@ function download_csv(csv, filename) {
   // Add the link to your DOM
   document.body.appendChild(downloadLink);
 
-  // Lanzamos
   downloadLink.click();
 }
 
@@ -59,24 +65,31 @@ const DownloadViz = ({ viz, type, name, indicator }) => {
     const url = myChart.getConnectedDataURL({
       pixelRatio: 5, //derived ratio picture resolution, default 1
       backgroundColor: "#fff", //chart background color
-      excludeComponents: [
-        //ignored when you save a chart tool components, the default toolbar ignored
-        "toolbox",
-      ],
+      excludeComponents: ["toolbox"],
       type: "png", //Image types support png and jpeg
     });
 
+    // if (process.browser) {
+    //   watermark([url, "/assets/images/jh_logo.png"])
+    //     .image(watermark.image.lowerRight(0.5))
+    //     .then((img) =>
+    //       saveAs(img.src, fileName(type, name, indicator, "png"))
+    //     );
+    // }
     saveAs(url, fileName(type, name, indicator, "png"));
   }
 
-  function downloadViz(viz) {
+  function downloadSelector(viz) {
     if (viz == "#tableView")
       export_table_to_csv(fileName(type, name, indicator, "csv"));
     else svg2img();
   }
 
   return (
-    <button onClick={() => downloadViz(viz)} className="btn-secondary-mini">
+    <button
+      onClick={() => downloadSelector(viz)}
+      className="btn-secondary-mini"
+    >
       {`Download ${viz == "#tableView" ? "CSV" : "Chart"}`} <Download />
     </button>
   );
