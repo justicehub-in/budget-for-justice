@@ -64,9 +64,13 @@ const Lisitng = ({ data }) => {
     }
   }
 
+  const seo = {
+    title: "Budgets for Justice | Datasets",
+  }
+
   return (
     <>
-      <Seo />
+      <Seo seo={seo} />
       <div className="skiptarget">
         <span id="maincontent">-</span>
       </div>
