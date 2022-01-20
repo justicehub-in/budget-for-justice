@@ -44,11 +44,11 @@ const Seo: React.FC<{ seo?: any }> = ({ seo }) => {
       {/* Image */}
       <meta
         property="og:image"
-        content="https://budgets.justicehub.in/assets/images/datasets.png"
+        content="https://budgets.justicehub.in/assets/images/share.png"
       />
       <meta
         property="twitter:image"
-        content="https://budgets.justicehub.in/assets/images/datasets.png"
+        content="https://budgets.justicehub.in/assets/images/share.png"
       />
 
       <meta
