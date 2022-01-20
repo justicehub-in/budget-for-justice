@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import {
   tabbedInterface,
@@ -25,8 +26,11 @@ import { downloadPackage } from "utils/downloadPackage";
 import SchemeModal from "components/explorer/SchemeModal";
 import ShareModal from "components/explorer/ShareModal";
 import IndicatorAlter from "components/explorer/IndicatorAlter";
-import DownloadViz from "components/explorer/DownloadViz";
 import Seo from "components/_shared/seo";
+
+const DownloadViz = dynamic(() => import("components/explorer/DownloadViz"), {
+  ssr: false,
+});
 
 Modal.setAppElement("#__next");
 

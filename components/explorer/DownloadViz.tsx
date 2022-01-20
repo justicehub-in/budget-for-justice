@@ -3,11 +3,10 @@ import { saveAs } from "file-saver";
 import { stripTitle } from "utils";
 import { Download } from "components/icons/ListingIcons";
 import * as echarts from "echarts/core";
-// import watermark from "watermarkjs";
+import watermark from "watermarkjs";
 // const watermark = dynamic(() => import("watermarkjs"), {
 //   ssr: false,
 // });
-// console.log(watermark);
 
 function fileName(type, name, indicator, format) {
   // splitting the string to find the required part of title
@@ -68,14 +67,9 @@ const DownloadViz = ({ viz, type, name, indicator }) => {
       type: "png", //Image types support png and jpeg
     });
 
-    // if (process.browser) {
-    //   watermark([url, "/assets/images/jh_logo.png"])
-    //     .image(watermark.image.lowerRight(0.5))
-    //     .then((img) =>
-    //       saveAs(img.src, fileName(type, name, indicator, "png"))
-    //     );
-    // }
-    saveAs(url, fileName(type, name, indicator, "png"));
+    watermark([url, "/assets/images/jh_logo.png"])
+      .image(watermark.image.lowerRight(0.5))
+      .then((img) => saveAs(img.src, fileName(type, name, indicator, "png")));
   }
 
   function downloadSelector(viz) {
