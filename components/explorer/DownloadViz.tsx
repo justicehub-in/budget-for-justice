@@ -1,10 +1,9 @@
 import React from "react";
-import dynamic from "next/dynamic";
 import { saveAs } from "file-saver";
 import { stripTitle } from "utils";
 import { Download } from "components/icons/ListingIcons";
 import * as echarts from "echarts/core";
-import watermark from "watermarkjs";
+// import watermark from "watermarkjs";
 // const watermark = dynamic(() => import("watermarkjs"), {
 //   ssr: false,
 // });
