@@ -79,8 +79,7 @@ const Nav: React.FC = () => {
       <header className="header" role="banner">
         <div className="container">
           <div className="header__brand">
-            <Link href="https://budgets.justicehub.in">
-              <a>
+              <a href="https://budgets.justicehub.in">
                 <figure>
                   <Image
                     src={"/assets/images/b4j_logo.svg"}
@@ -90,7 +89,6 @@ const Nav: React.FC = () => {
                   />
                 </figure>
               </a>
-            </Link>
           </div>
 
           <nav className="navbar">
@@ -179,8 +177,7 @@ const Nav: React.FC = () => {
           </button>
 
           <div className="header__brand">
-            <Link href="https://budgets.justicehub.in">
-              <a>
+              <a href="https://budgets.justicehub.in">
                 <figure>
                   <Image
                     src={"/assets/images/b4j_logo.svg"}
@@ -190,7 +187,6 @@ const Nav: React.FC = () => {
                   />
                 </figure>
               </a>
-            </Link>
           </div>
         </div>
       </header>
