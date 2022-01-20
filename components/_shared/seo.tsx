@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { stripTitle } from "utils";
 import { useRouter } from "next/router";
 
 const Seo: React.FC<{ seo?: any }> = ({ seo }) => {
@@ -7,7 +6,7 @@ const Seo: React.FC<{ seo?: any }> = ({ seo }) => {
 
   const title =
     seo && seo.title
-      ? `${stripTitle(seo.title)} - Budgets for Justice`
+      ? seo.title
       : "Budgets for Justice - A JusticeHub Initiative";
   const description =
     seo && seo.description

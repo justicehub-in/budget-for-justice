@@ -12,7 +12,9 @@ import {
   fetchFromTags,
   categoryTag,
   fetchDatasets,
+  stripTitle,
 } from "utils";
+
 import { Download, ExternalLink } from "components/icons/ListingIcons";
 import Indicator from "components/analytics/Indicator";
 import Modal from "react-modal";
@@ -289,7 +291,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   }
 
   const seo = {
-    title: data.title,
+    title: `${stripTitle(data.title)} - Budgets for Justice`,
     description: data.notes,
   };
 

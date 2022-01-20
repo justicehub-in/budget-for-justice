@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Modal from "react-modal";
 import { ArrowForward } from "components/icons/ListingIcons";
-// import Hamburger from 'public/assets/icons/hamburger.svg';
 Modal.setAppElement("#__next");
 
 const navList = [
@@ -79,16 +78,16 @@ const Nav: React.FC = () => {
       <header className="header" role="banner">
         <div className="container">
           <div className="header__brand">
-              <a href="https://budgets.justicehub.in">
-                <figure>
-                  <Image
-                    src={"/assets/images/b4j_logo.svg"}
-                    width={248}
-                    height={32}
-                    alt=""
-                  />
-                </figure>
-              </a>
+            <a href="https://budgets.justicehub.in">
+              <figure>
+                <Image
+                  src={"/assets/images/b4j_logo.svg"}
+                  width={248}
+                  height={32}
+                  alt=""
+                />
+              </figure>
+            </a>
           </div>
 
           <nav className="navbar">
@@ -177,16 +176,16 @@ const Nav: React.FC = () => {
           </button>
 
           <div className="header__brand">
-              <a href="https://budgets.justicehub.in">
-                <figure>
-                  <Image
-                    src={"/assets/images/b4j_logo.svg"}
-                    width={248}
-                    height={32}
-                    alt=""
-                  />
-                </figure>
-              </a>
+            <a href="https://budgets.justicehub.in">
+              <figure>
+                <Image
+                  src={"/assets/images/b4j_logo.svg"}
+                  width={248}
+                  height={32}
+                  alt=""
+                />
+              </figure>
+            </a>
           </div>
         </div>
       </header>
