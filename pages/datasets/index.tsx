@@ -66,7 +66,7 @@ const Lisitng = ({ data }) => {
 
   const seo = {
     title: "Budgets for Justice | Datasets",
-  }
+  };
 
   return (
     <>
