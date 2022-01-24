@@ -1,31 +1,31 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import Modal from "react-modal";
-import { ArrowForward } from "components/icons/ListingIcons";
-Modal.setAppElement("#__next");
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import Modal from 'react-modal';
+import { ArrowForward } from 'components/icons/ListingIcons';
+Modal.setAppElement('#__next');
 
 const navList = [
   {
     // link: "/#",
-    name: "Menu",
+    name: 'Menu',
     hasSubMenu: true,
     subMenu: [
       {
-        link: "/about",
-        name: "About Us",
+        link: '/about',
+        name: 'About Us',
       },
       {
-        link: "/faq",
-        name: "FAQs",
+        link: '/faq',
+        name: 'FAQs',
       },
     ],
   },
   {
-    link: "/datasets",
-    name: "Explore Budgets",
+    link: '/datasets',
+    name: 'Explore Budgets',
     isButton: true,
   },
 ];
@@ -42,13 +42,13 @@ const Nav: React.FC = () => {
   // open / close sub-menu
   function navButtonHandler(e: any) {
     // if clicked on already opened menu
-    if (e.target.getAttribute("aria-expanded") == "true") {
-      e.target.setAttribute("aria-expanded", "false");
+    if (e.target.getAttribute('aria-expanded') == 'true') {
+      e.target.setAttribute('aria-expanded', 'false');
       e.target.setAttribute(
-        "aria-label",
-        e.target.getAttribute("data-text-for-show")
+        'aria-label',
+        e.target.getAttribute('data-text-for-show')
       );
-      e.target.nextElementSibling.setAttribute("hidden", "true");
+      e.target.nextElementSibling.setAttribute('hidden', 'true');
     } else {
       // remove previous opened menu
       if (
@@ -56,20 +56,20 @@ const Nav: React.FC = () => {
         document.querySelector('.navbar__links > [aria-expanded="true"]')
       ) {
         const currentActive = document.querySelector('[aria-expanded="true"]');
-        currentActive.nextElementSibling.setAttribute("hidden", "true");
+        currentActive.nextElementSibling.setAttribute('hidden', 'true');
         currentActive.setAttribute(
-          "aria-label",
-          currentActive.getAttribute("data-text-for-show")
+          'aria-label',
+          currentActive.getAttribute('data-text-for-show')
         );
-        currentActive.setAttribute("aria-expanded", "false");
+        currentActive.setAttribute('aria-expanded', 'false');
       }
       // open current clicked menu
-      e.target.setAttribute("aria-expanded", "true");
+      e.target.setAttribute('aria-expanded', 'true');
       e.target.setAttribute(
-        "aria-label",
-        e.target.getAttribute("data-text-for-hide")
+        'aria-label',
+        e.target.getAttribute('data-text-for-hide')
       );
-      e.target.nextElementSibling.removeAttribute("hidden");
+      e.target.nextElementSibling.removeAttribute('hidden');
     }
   }
 
@@ -81,7 +81,7 @@ const Nav: React.FC = () => {
             <a href="https://budgets.justicehub.in">
               <figure>
                 <Image
-                  src={"/assets/images/b4j_logo.svg"}
+                  src={'/assets/images/b4j_logo.svg'}
                   width={248}
                   height={32}
                   alt=""
@@ -115,7 +115,7 @@ const Nav: React.FC = () => {
                           <li key={`submenuItem-${index}`}>
                             <Link href={subMenuItem.link}>
                               <a>
-                                {subMenuItem.name}{" "}
+                                {subMenuItem.name}{' '}
                                 <span>
                                   <ArrowForward />
                                 </span>
@@ -136,8 +136,8 @@ const Nav: React.FC = () => {
                       <a
                         className={`navbar__item ${
                           router.pathname == navItem.link
-                            ? "navbar__item--active"
-                            : ""
+                            ? 'navbar__item--active'
+                            : ''
                         }`}
                       >
                         {navItem.name}
@@ -179,7 +179,7 @@ const Nav: React.FC = () => {
             <a href="https://budgets.justicehub.in">
               <figure>
                 <Image
-                  src={"/assets/images/b4j_logo.svg"}
+                  src={'/assets/images/b4j_logo.svg'}
                   width={248}
                   height={32}
                   alt=""
@@ -197,7 +197,7 @@ const Nav: React.FC = () => {
         overlayClassName="dialog__backdrop"
         closeTimeoutMS={200}
         aria={{
-          labelledby: "mobileMenu",
+          labelledby: 'mobileMenu',
         }}
         preventScroll={true}
         htmlOpenClassName="ReactModal__Html--open"
@@ -216,12 +216,12 @@ const Nav: React.FC = () => {
 
           <ul className="m-navbar__container">
             <li className="navbar__links">
-              <Link href={"/"}>
+              <Link href={'/'}>
                 <a
-                  href={"/"}
+                  href={'/'}
                   onClick={mobileNavHandler}
                   className={`navbar__item ${
-                    router.pathname == "/" ? "navbar__item--active" : ""
+                    router.pathname == '/' ? 'navbar__item--active' : ''
                   }`}
                 >
                   Home
@@ -252,7 +252,7 @@ const Nav: React.FC = () => {
                               href={subMenuItem.link}
                               onClick={mobileNavHandler}
                             >
-                              {subMenuItem.name}{" "}
+                              {subMenuItem.name}{' '}
                               <span>
                                 <ArrowForward />
                               </span>
@@ -269,8 +269,8 @@ const Nav: React.FC = () => {
                       onClick={mobileNavHandler}
                       className={`navbar__item ${
                         router.pathname == navItem.link
-                          ? "navbar__item--active"
-                          : ""
+                          ? 'navbar__item--active'
+                          : ''
                       }`}
                     >
                       {navItem.name}

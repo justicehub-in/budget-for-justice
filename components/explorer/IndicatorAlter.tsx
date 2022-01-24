@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import Modal from "react-modal";
-import Toggle from "components/_shared/Toggle";
+import React, { useState, useEffect } from 'react';
+import Modal from 'react-modal';
+import Toggle from 'components/_shared/Toggle';
 
-Modal.setAppElement("#__next");
+Modal.setAppElement('#__next');
 
 const IndicatorAlter = ({ indicators, newIndicator, meta }) => {
   const [sortIsOpen, setSortIsOpen] = useState(false);
-  const [currentSort, setCurrentSort] = useState("Budget Estimates mobile");
-  const [selectedSort, setSelectedSort] = useState("Budget Estimates mobile");
+  const [currentSort, setCurrentSort] = useState('Budget Estimates mobile');
+  const [selectedSort, setSelectedSort] = useState('Budget Estimates mobile');
 
   useEffect(() => {
     setTimeout(() => {
-      if (document.querySelector("#modalSort-mobile")) {
+      if (document.querySelector('#modalSort-mobile')) {
         document
-          .querySelector("#modalSort-mobile")
-          .addEventListener("change", (e: any) => {
+          .querySelector('#modalSort-mobile')
+          .addEventListener('change', (e: any) => {
             setSelectedSort(e.target.id);
           });
       }
@@ -26,10 +26,10 @@ const IndicatorAlter = ({ indicators, newIndicator, meta }) => {
       if (selectSort) selectSort.checked = true;
     }, 50);
     return () => {
-      if (document.querySelector("#modalSort-mobile"))
+      if (document.querySelector('#modalSort-mobile'))
         document
-          .querySelector("#modalSort-mobile")
-          .removeEventListener("change", (e: any) => {
+          .querySelector('#modalSort-mobile')
+          .removeEventListener('change', (e: any) => {
             setSelectedSort(e.target.value);
           });
     };
@@ -84,7 +84,7 @@ const IndicatorAlter = ({ indicators, newIndicator, meta }) => {
         overlayClassName="dialog__backdrop"
         closeTimeoutMS={200}
         aria={{
-          labelledby: "dialog-head",
+          labelledby: 'dialog-head',
         }}
         preventScroll={true}
         htmlOpenClassName="ReactModal__Html--open"

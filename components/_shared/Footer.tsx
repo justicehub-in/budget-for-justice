@@ -1,50 +1,50 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
 const links = [
   {
-    name: "About",
-    link: "https://justicehub.in/about",
+    name: 'About',
+    link: 'https://justicehub.in/about',
   },
   {
-    name: "Contribute Data",
-    link: "https://justicehub.in/upload",
+    name: 'Contribute Data',
+    link: 'https://justicehub.in/upload',
   },
   {
-    name: "Explore Data",
-    link: "https://justicehub.in/dataset",
+    name: 'Explore Data',
+    link: 'https://justicehub.in/dataset',
   },
   {
-    name: "Resources",
-    link: "https://docs.justicehub.in/",
+    name: 'Resources',
+    link: 'https://docs.justicehub.in/',
   },
   {
-    name: "Contact",
-    link: "https://justicehub.in/contact",
+    name: 'Contact',
+    link: 'https://justicehub.in/contact',
   },
   {
-    name: "Subscribe",
-    link: "https://justicehub.in/feeds/dataset.atom",
+    name: 'Subscribe',
+    link: 'https://justicehub.in/feeds/dataset.atom',
   },
   {
-    name: "Terms of Service",
-    link: "https://docs.google.com/document/d/1EvAQ8PQuNrapM8GK1z5g3YKfwe8-zywWDliE4fRvnPs/preview",
+    name: 'Terms of Service',
+    link: 'https://docs.google.com/document/d/1EvAQ8PQuNrapM8GK1z5g3YKfwe8-zywWDliE4fRvnPs/preview',
   },
   {
-    name: "Code of Conduct",
-    link: "https://docs.google.com/document/d/11q5eXXm0qJE6ljtTC39t_5X5XYwoQKh95fsYxExoGlw/preview",
+    name: 'Code of Conduct',
+    link: 'https://docs.google.com/document/d/11q5eXXm0qJE6ljtTC39t_5X5XYwoQKh95fsYxExoGlw/preview',
   },
   {
-    name: "Privacy Policy",
-    link: "https://docs.google.com/document/d/1YtCveTE6f2s429INuj4e8MyViCOex-eoxp5c3TRlEZc/preview",
+    name: 'Privacy Policy',
+    link: 'https://docs.google.com/document/d/1YtCveTE6f2s429INuj4e8MyViCOex-eoxp5c3TRlEZc/preview',
   },
   {
-    name: "Notice and Feedback Policy",
-    link: "https://docs.google.com/document/d/1L5ODlOWFbJkZ0cr0rt2DePQD_V3a4pKxNsUdJeOhjhM/preview",
+    name: 'Notice and Feedback Policy',
+    link: 'https://docs.google.com/document/d/1L5ODlOWFbJkZ0cr0rt2DePQD_V3a4pKxNsUdJeOhjhM/preview',
   },
   {
-    name: "CKAN API",
-    link: "http://docs.ckan.org/en/2.8/api/",
+    name: 'CKAN API',
+    link: 'http://docs.ckan.org/en/2.8/api/',
   },
 ];
 

@@ -1,6 +1,6 @@
-import { useRouter } from "next/router";
-import React from "react";
-import Dropdown from "components/_shared/dropdown";
+import { useRouter } from 'next/router';
+import React from 'react';
+import Dropdown from 'components/_shared/dropdown';
 
 const Pagination: React.FC<{ total: number; newPage: any }> = ({
   total,
@@ -13,8 +13,8 @@ const Pagination: React.FC<{ total: number; newPage: any }> = ({
   const [maxPage, SetMaxPage] = React.useState(1);
 
   React.useEffect(() => {
-    const from = router.query.from ? router.query.from : "0";
-    const size = router.query.size ? router.query.size : "10";
+    const from = router.query.from ? router.query.from : '0';
+    const size = router.query.size ? router.query.size : '10';
     SetMaxPage(Math.floor(total / parseInt(size as string)) + 1);
 
     setResultSize(parseInt(size as string));
@@ -22,7 +22,7 @@ const Pagination: React.FC<{ total: number; newPage: any }> = ({
     const pageNo = Math.floor(
       parseInt(from as string) / parseInt(size as string) + 1
     );
-    (document.getElementById("jumpNumber") as HTMLInputElement).value =
+    (document.getElementById('jumpNumber') as HTMLInputElement).value =
       String(pageNo);
 
     setPage(pageNo);
@@ -38,32 +38,32 @@ const Pagination: React.FC<{ total: number; newPage: any }> = ({
   function handleRowsChange(e: any) {
     const size = e.target.value;
 
-    fetchNewResults(size, "size");
+    fetchNewResults(size, 'size');
   }
 
   function handleJump(val: string) {
     const jumpVal = parseInt(val as string);
     if (!(jumpVal < 1 || jumpVal > maxPage || jumpVal == current)) {
-      const size = router.query.size ? router.query.size : "10";
+      const size = router.query.size ? router.query.size : '10';
       const from = (jumpVal - 1) * parseInt(size as string);
 
       const pageNo = Math.floor(from / parseInt(size as string) + 1);
       setCurrent(pageNo);
 
-      fetchNewResults(from, "from");
+      fetchNewResults(from, 'from');
     }
   }
 
   function handleButton(val: number) {
     if (!((current == 1 && val == -1) || (current == maxPage && val == 1))) {
-      const size = router.query.size ? router.query.size : "10";
-      const oldFrom = router.query.from ? router.query.from : "0";
+      const size = router.query.size ? router.query.size : '10';
+      const oldFrom = router.query.from ? router.query.from : '0';
 
       const from =
         parseInt(oldFrom as string) + val * parseInt(size as string);
       setCurrent((prevCurrent) => prevCurrent + val * 1);
 
-      fetchNewResults(from, "from");
+      fetchNewResults(from, 'from');
     }
   }
 

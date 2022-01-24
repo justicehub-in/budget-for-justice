@@ -1,5 +1,5 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 const Seo: React.FC<{ seo?: any }> = ({ seo }) => {
   const router = useRouter();
@@ -7,13 +7,13 @@ const Seo: React.FC<{ seo?: any }> = ({ seo }) => {
   const title =
     seo && seo.title
       ? seo.title
-      : "Budgets for Justice - A JusticeHub Initiative";
+      : 'Budgets for Justice - A JusticeHub Initiative';
   const description =
     seo && seo.description
       ? seo.description
-      : "The Budgets for Justice platform brings together budget data to reveal trends and patterns in budget allocation and expenditures for the law and justice sector.";
+      : 'The Budgets for Justice platform brings together budget data to reveal trends and patterns in budget allocation and expenditures for the law and justice sector.';
 
-  const url = `https://budgets.justicehub.in${router.asPath || ""}`;
+  const url = `https://budgets.justicehub.in${router.asPath || ''}`;
   return (
     <Head>
       {title && (

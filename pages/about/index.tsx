@@ -1,7 +1,7 @@
-import React from "react";
-import Image from "next/image";
-import { team } from "data/about";
-import Seo from "components/_shared/seo";
+import React from 'react';
+import Image from 'next/image';
+import { team } from 'data/about';
+import Seo from 'components/_shared/seo';
 
 const About = () => {
   return (
@@ -29,7 +29,7 @@ const About = () => {
             <li>
               <a href="https://justicehub.in/dataset?groups=budgets-for-justice">
                 Curated datasets
-              </a>{" "}
+              </a>{' '}
               which include budget data between the years 2015-16 and 2021-22
               for specific schemes and heads of expenditure under different
               ministries and departments, such as Union Ministry of Law and
@@ -49,43 +49,43 @@ const About = () => {
           <br />
           <p>
             To learn more about the data and understand our methodology, please
-            see our{" "}
+            see our{' '}
             <a href="https://docs.google.com/document/d/e/2PACX-1vS9CRjRdISyPY8dxO2UQyCO97Tk5hbegUv8cOq3khWr-GHB5oX7Mcz2-i888eR4yO_PKqjc27Y0ue3u/pub">
               data guidebook.
             </a>
           </p>
           <p>
             The source code for the Budgets for Justice platform is available
-            on{" "}
+            on{' '}
             <a href="https://github.com/justicehub-in/budget-for-justice">
               Github
-            </a>{" "}
-            under{" "}
+            </a>{' '}
+            under{' '}
             <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">
               GNU Affero General Public License version 3.0
             </a>
-            . We encourage all sorts of contributions. You can refer to the{" "}
+            . We encourage all sorts of contributions. You can refer to the{' '}
             <a href="https://github.com/justicehub-in/budget-for-justice/blob/main/CONTRIBUTING.md">
               contribution guidelines
-            </a>{" "}
+            </a>{' '}
             if you’d like to help us build the Budgets for Justice platform.
           </p>
           <p>
-            Do join us on{" "}
+            Do join us on{' '}
             <a href="https://twitter.com/JusticeHubIndia">Twitter</a> to stay
             updated about the project. To learn more about using budget
-            datasets for advocacy, participate in our community events.{" "}
+            datasets for advocacy, participate in our community events.{' '}
             <a href="https://dataforjustice.substack.com/">
               Subscribe to our newsletter
-            </a>{" "}
+            </a>{' '}
             to know more about the datasets and the data contributors.
           </p>
         </div>
         <section className="about__team container">
           <h2 className="heading">About our team</h2>
           <p>
-            Budgets for Justice is a collaborative initiative between{" "}
-            <a href="https://justicehub.in/">Justice Hub</a> and{" "}
+            Budgets for Justice is a collaborative initiative between{' '}
+            <a href="https://justicehub.in/">Justice Hub</a> and{' '}
             <a href="https://www.civis.vote/">Civis</a>. Our team members
             include:
           </p>
@@ -115,7 +115,7 @@ const About = () => {
               <div>
                 <figure>
                   <Image
-                    src={"/assets/images/jh_logo.png"}
+                    src={'/assets/images/jh_logo.png'}
                     width={50}
                     height={50}
                     alt=""
@@ -137,8 +137,8 @@ const About = () => {
               </p>
               <br />
               <p>
-                Justice Hub has been co-created by{" "}
-                <a href="https://civicdatalab.in/">CivicDataLab</a> and{" "}
+                Justice Hub has been co-created by{' '}
+                <a href="https://civicdatalab.in/">CivicDataLab</a> and{' '}
                 <a href="https://agami.in/">Agami</a>.
               </p>
             </section>
@@ -147,7 +147,7 @@ const About = () => {
               <div>
                 <figure>
                   <Image
-                    src={"/assets/images/civis.png"}
+                    src={'/assets/images/civis.png'}
                     width={50}
                     height={50}
                     alt=""

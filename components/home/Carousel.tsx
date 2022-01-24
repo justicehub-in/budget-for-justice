@@ -1,44 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 const Carousel = ({ data }) => {
   const [position, setPosition] = useState(0);
 
   useEffect(() => {
-    if (!document.querySelector(".carousel__item--current"))
+    if (!document.querySelector('.carousel__item--current'))
       document
-        .querySelector("#carousel-0")
-        .classList.add("carousel__item--current");
+        .querySelector('#carousel-0')
+        .classList.add('carousel__item--current');
 
     if (!document.querySelector('.carousel__nav [aria-pressed="true"]'))
       document
-        .querySelector(".carousel__nav button")
-        .setAttribute("aria-pressed", "true");
+        .querySelector('.carousel__nav button')
+        .setAttribute('aria-pressed', 'true');
   }, []);
 
   useEffect(() => {
     // changing position of carousel nav
     const navButton = document.querySelector(`[data-number="${position}"]`);
-    if (navButton.getAttribute("aria-pressed") == "false") {
+    if (navButton.getAttribute('aria-pressed') == 'false') {
       document
         .querySelector('.carousel__nav [aria-pressed="true"]')
-        .setAttribute("aria-pressed", "false");
-      navButton.setAttribute("aria-pressed", "true");
+        .setAttribute('aria-pressed', 'false');
+      navButton.setAttribute('aria-pressed', 'true');
 
       document
         .querySelector(`.carousel__item--current`)
-        .classList.remove("carousel__item--current");
+        .classList.remove('carousel__item--current');
       document
         .querySelector(`#carousel-${position}`)
-        .classList.add("carousel__item--current");
+        .classList.add('carousel__item--current');
     }
 
     // changing the slide
     document
       .querySelector(`.carousel__item--current`)
-      .classList.remove("carousel__item--current");
+      .classList.remove('carousel__item--current');
     document
       .querySelector(`#carousel-${position}`)
-      .classList.add("carousel__item--current");
+      .classList.add('carousel__item--current');
   }, [position]);
 
   function updateCarousel(n: number) {
@@ -49,7 +49,7 @@ const Carousel = ({ data }) => {
 
   function handleCarouselNav(e: any) {
     const navButton = e.target as HTMLInputElement;
-    const newSlide = navButton.getAttribute("data-number");
+    const newSlide = navButton.getAttribute('data-number');
     setPosition(parseInt(newSlide));
   }
 

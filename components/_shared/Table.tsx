@@ -1,7 +1,7 @@
-import React, { Fragment, useRef, useState, useEffect, useMemo } from "react";
+import React, { Fragment, useRef, useState, useEffect, useMemo } from 'react';
 
 const Arrow = ({ sortDir, isCurrent, sort }) => {
-  const ascending = sortDir === "ascending";
+  const ascending = sortDir === 'ascending';
   return (
     <svg viewBox="0 0 100 200" width="100" height="200">
       {sort}
@@ -19,7 +19,7 @@ const Arrow = ({ sortDir, isCurrent, sort }) => {
 //dependency arrays of hooks such as useMemo.
 const sortRowsByIndex = (rows, sortedIndex, sortedDirection) =>
   rows.slice(0).sort((a, b) => {
-    if (sortedDirection === "ascending") {
+    if (sortedDirection === 'ascending') {
       return a[sortedIndex] > b[sortedIndex]
         ? 1
         : a[sortedIndex] < b[sortedIndex]
@@ -44,14 +44,14 @@ const Table = ({ headers, rows, caption, sortable }) => {
   //but keeping them separate makes the usage cleaner. It is a matter
   //of taste.
   const [sortedBy, setSortedBy] = useState(null);
-  const [sortDir, setSortDir] = useState("none");
+  const [sortDir, setSortDir] = useState('none');
 
   //Declaring useEffect with an empty deps array is the same
   //as componentDidMount in React class components.
   useEffect(() => {
     const { scrollWidth, clientWidth } = container.current;
     const scrollable = scrollWidth > clientWidth;
-    setTabIndex(scrollable ? "0" : null);
+    setTabIndex(scrollable ? '0' : null);
   }, [headers]);
 
   //The sorted rows are calculated directly from the prop. There is no need to
@@ -65,11 +65,11 @@ const Table = ({ headers, rows, caption, sortable }) => {
 
   const sortBy = (i) => {
     let updatedSortDir;
-    const ascending = sortDir === "ascending";
+    const ascending = sortDir === 'ascending';
     if (i === sortedBy) {
-      updatedSortDir = !ascending ? "ascending" : "descending";
+      updatedSortDir = !ascending ? 'ascending' : 'descending';
     } else {
-      updatedSortDir = "ascending";
+      updatedSortDir = 'ascending';
     }
     setSortedBy(i);
     setSortDir(updatedSortDir);
@@ -87,7 +87,7 @@ const Table = ({ headers, rows, caption, sortable }) => {
         <table>
           <caption id={captionID.current}>
             <span className="sr-only">{caption}</span>
-            {tabIndex === "0" && (
+            {tabIndex === '0' && (
               <div>
                 <small>(scroll to see more)</small>
               </div>
@@ -110,10 +110,10 @@ const Table = ({ headers, rows, caption, sortable }) => {
                         isCurrent={sortedBy === i}
                         sort={
                           <span className="sr-only">
-                            sort by {header} in{" "}
-                            {sortDir !== "ascending"
-                              ? "ascending"
-                              : "descending"}{" "}
+                            sort by {header} in{' '}
+                            {sortDir !== 'ascending'
+                              ? 'ascending'
+                              : 'descending'}{' '}
                             order
                           </span>
                         }

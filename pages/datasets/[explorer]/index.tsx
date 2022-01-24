@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { GetServerSideProps } from "next";
-import dynamic from "next/dynamic";
-import Link from "next/link";
+import React, { useEffect, useState } from 'react';
+import { GetServerSideProps } from 'next';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import {
   tabbedInterface,
   fetchAPI,
@@ -13,28 +13,28 @@ import {
   categoryTag,
   fetchDatasets,
   stripTitle,
-} from "utils";
+} from 'utils';
 
-import { Download, ExternalLink } from "components/icons/ListingIcons";
-import Indicator from "components/analytics/Indicator";
-import Modal from "react-modal";
-import SimpleBarLineChartViz from "components/viz/SimpleBarLineChart";
-import Banner from "components/_shared/Banner";
-import { resourceGetter } from "utils/resourceParser";
-import Dropdown from "components/_shared/dropdown";
-import { barLineTransformer } from "transformers/BarLineTransformer";
-import Table from "components/_shared/Table";
-import { downloadPackage } from "utils/downloadPackage";
-import SchemeModal from "components/explorer/SchemeModal";
-import ShareModal from "components/explorer/ShareModal";
-import IndicatorAlter from "components/explorer/IndicatorAlter";
-import Seo from "components/_shared/seo";
+import { Download, ExternalLink } from 'components/icons/ListingIcons';
+import Indicator from 'components/analytics/Indicator';
+import Modal from 'react-modal';
+import SimpleBarLineChartViz from 'components/viz/SimpleBarLineChart';
+import Banner from 'components/_shared/Banner';
+import { resourceGetter } from 'utils/resourceParser';
+import Dropdown from 'components/_shared/dropdown';
+import { barLineTransformer } from 'transformers/BarLineTransformer';
+import Table from 'components/_shared/Table';
+import { downloadPackage } from 'utils/downloadPackage';
+import SchemeModal from 'components/explorer/SchemeModal';
+import ShareModal from 'components/explorer/ShareModal';
+import IndicatorAlter from 'components/explorer/IndicatorAlter';
+import Seo from 'components/_shared/seo';
 
-const DownloadViz = dynamic(() => import("components/explorer/DownloadViz"), {
+const DownloadViz = dynamic(() => import('components/explorer/DownloadViz'), {
   ssr: false,
 });
 
-Modal.setAppElement("#__next");
+Modal.setAppElement('#__next');
 
 type Props = {
   data: any;
@@ -46,27 +46,27 @@ type Props = {
 const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   const [schemeModalOpen, setSchemeModalOpen] = useState(false);
   const [selectedIndicator, setSelectedIndicator] =
-    useState("Budget Estimates");
+    useState('Budget Estimates');
   const [indicatorFiltered, setIndicatorFiltered] = useState([]);
   const [finalFiltered, setFinalFiltered] = useState([]);
   const [budgetTypes, setBudgetTypes] = useState([]);
-  const [selectedBudgetType, setSelectedBudgetType] = useState("");
+  const [selectedBudgetType, setSelectedBudgetType] = useState('');
   const [isTable, setIsTable] = useState(false);
-  const [currentViz, setCurrentViz] = useState("#barGraph");
+  const [currentViz, setCurrentViz] = useState('#barGraph');
 
   // todo: make it dynamic lie scheme dashboard
   const IndicatorDesc = [
-    meta["Indicator 1 - Description"],
-    meta["Indicator 2 - Description"],
-    meta["Indicator 3 - Description"],
-    meta["Indicator 4 - Description"],
-    meta["Indicator 5 - Description"],
+    meta['Indicator 1 - Description'],
+    meta['Indicator 2 - Description'],
+    meta['Indicator 3 - Description'],
+    meta['Indicator 4 - Description'],
+    meta['Indicator 5 - Description'],
   ];
 
   const vizToggle = [
     {
-      name: "Bar Graph",
-      id: "#barGraph",
+      name: 'Bar Graph',
+      id: '#barGraph',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -80,8 +80,8 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
       ),
     },
     {
-      name: "Line Chart",
-      id: "#lineChart",
+      name: 'Line Chart',
+      id: '#lineChart',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -95,8 +95,8 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
       ),
     },
     {
-      name: "Table View",
-      id: "#tableView",
+      name: 'Table View',
+      id: '#tableView',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -112,56 +112,56 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   ];
 
   const crData = [
-    "Budget Estimates",
-    "Revised Estimates",
-    "Actual Expenditure",
+    'Budget Estimates',
+    'Revised Estimates',
+    'Actual Expenditure',
   ];
 
   const vizItems = [
     {
-      id: "barGraph",
+      id: 'barGraph',
       graph: (
         <SimpleBarLineChartViz
-          color={"#00ABB7"}
+          color={'#00ABB7'}
           dataset={barLineTransformer(finalFiltered, selectedIndicator)}
           type="bar"
           smooth={true}
           showSymbol={true}
           Title={
             selectedIndicator +
-            (budgetTypes.length > 1 ? " - " + selectedBudgetType : "")
+            (budgetTypes.length > 1 ? ' - ' + selectedBudgetType : '')
           }
           subTitle={data.title}
-          unit={crData.includes(selectedIndicator) ? "Cr" : "%"}
+          unit={crData.includes(selectedIndicator) ? 'Cr' : '%'}
         />
       ),
     },
     {
-      id: "lineChart",
+      id: 'lineChart',
       graph: (
         <SimpleBarLineChartViz
-          color={"#00ABB7"}
+          color={'#00ABB7'}
           dataset={barLineTransformer(finalFiltered, selectedIndicator)}
           type="line"
           smooth={true}
           showSymbol={true}
           Title={
             selectedIndicator +
-            (budgetTypes.length > 1 ? " - " + selectedBudgetType : "")
+            (budgetTypes.length > 1 ? ' - ' + selectedBudgetType : '')
           }
           subTitle={data.title}
-          unit={crData.includes(selectedIndicator) ? "Cr" : "%"}
+          unit={crData.includes(selectedIndicator) ? 'Cr' : '%'}
         />
       ),
     },
     {
-      id: "tableView",
+      id: 'tableView',
       graph: (
         <Table
           headers={
             indicatorFiltered[0]
               ? Object.keys(indicatorFiltered[0])
-              : ["header1"]
+              : ['header1']
           }
           rows={indicatorFiltered.map(Object.values)}
           caption="Table"
@@ -172,7 +172,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   ];
 
   const bannerDetails = {
-    heading: "Data Resources",
+    heading: 'Data Resources',
     content: (
       <>
         <p>All the raw data for your own explortation &amp; analysis</p>
@@ -213,17 +213,17 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
         </p>
       </>
     ),
-    image: "/assets/icons/zip-file-download.svg",
-    color: "#00ABB7",
+    image: '/assets/icons/zip-file-download.svg',
+    color: '#00ABB7',
   };
 
   useEffect(() => {
     // ceating tabbed interface for viz selector
-    const tablist = document.querySelector(".viz__tabs");
-    const panels = document.querySelectorAll(".viz figure");
+    const tablist = document.querySelector('.viz__tabs');
+    const panels = document.querySelectorAll('.viz figure');
     tabbedInterface(tablist, panels);
 
-    handleNewVizData("Budget Estimates");
+    handleNewVizData('Budget Estimates');
   }, [fileData]);
 
   // Run whenever a new indicator is selected
@@ -234,19 +234,19 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
 
     if (budgetType.includes(selectedBudgetType))
       handleDropdownChange(selectedBudgetType);
-    else if (selectedBudgetType == "") handleDropdownChange("Total");
-    else if (selectedBudgetType == "NA" && budgetType.length > 1)
-      handleDropdownChange("Total");
+    else if (selectedBudgetType == '') handleDropdownChange('Total');
+    else if (selectedBudgetType == 'NA' && budgetType.length > 1)
+      handleDropdownChange('Total');
     else handleDropdownChange(budgetType[0]);
   }, [indicatorFiltered]);
 
   useEffect(() => {
     // ceating tabbed interface for viz selector
-    const tablist = document.querySelector(".viz__tabs");
-    const panels = document.querySelectorAll(".viz figure");
+    const tablist = document.querySelector('.viz__tabs');
+    const panels = document.querySelectorAll('.viz figure');
     tabbedInterface(tablist, panels);
 
-    handleNewVizData("Budget Estimates");
+    handleNewVizData('Budget Estimates');
   }, [fileData]);
 
   // Run whenever a new indicator is selected
@@ -257,15 +257,15 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
 
     if (budgetType.includes(selectedBudgetType))
       handleDropdownChange(selectedBudgetType);
-    else if (selectedBudgetType == "") handleDropdownChange("Total");
-    else if (selectedBudgetType == "NA" && budgetType.length > 1)
-      handleDropdownChange("Total");
+    else if (selectedBudgetType == '') handleDropdownChange('Total');
+    else if (selectedBudgetType == 'NA' && budgetType.length > 1)
+      handleDropdownChange('Total');
     else handleDropdownChange(budgetType[0]);
   }, [indicatorFiltered]);
 
   function showDropdown(e) {
-    setCurrentViz(e.target.getAttribute("href"));
-    if (e.target.getAttribute("href") == "#tableView") setIsTable(true);
+    setCurrentViz(e.target.getAttribute('href'));
+    if (e.target.getAttribute('href') == '#tableView') setIsTable(true);
     else setIsTable(false);
   }
 
@@ -334,7 +334,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
             </div>
             <p>{data.notes}</p>
             <div className="explorer__meta ">
-              {meta["Type of Scheme"] && <span>{meta["Type of Scheme"]}</span>}
+              {meta['Type of Scheme'] && <span>{meta['Type of Scheme']}</span>}
               {<span>{categoryTag(data.tags)}</span>}
             </div>
           </section>
@@ -418,7 +418,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
               <div className="explorer__source--text">
                 <strong>Data Source: </strong>
                 <p>
-                  Union Budget documents (2016-17 to 2021-22) sourced from{" "}
+                  Union Budget documents (2016-17 to 2021-22) sourced from{' '}
                   <a
                     href="https://openbudgetsindia.org/"
                     rel="noreferrer"
@@ -445,8 +445,8 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
                   type={selectedBudgetType}
                   indicator={
                     indicatorFiltered[0]
-                      ? indicatorFiltered[0]["indicators"]
-                      : "Budget Estimates"
+                      ? indicatorFiltered[0]['indicators']
+                      : 'Budget Estimates'
                   }
                   name={data.title}
                 />
@@ -462,10 +462,10 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
             <h3 className="heading">Explore other Budget Datasets</h3>
             <p className="home__sub-head">
               Search for other relevant dataset using the Select Another Scheme
-              button from above or view all datasets on the{" "}
-              <Link href={"/datasets"}>
+              button from above or view all datasets on the{' '}
+              <Link href={'/datasets'}>
                 <a className="text-link">datasets listing</a>
-              </Link>{" "}
+              </Link>{' '}
               page.
             </p>
 
@@ -513,7 +513,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const metaRes = await resourceGetter(data.metaUrl);
   const meta = {};
   metaRes.forEach((elm) => {
-    meta[elm[0]] = elm[1] || "";
+    meta[elm[0]] = elm[1] || '';
   });
 
   // fetch and parse data csv

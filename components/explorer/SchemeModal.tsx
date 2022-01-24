@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import Modal from "react-modal";
-import Search from "components/datasets/Search";
-import { useSearch } from "utils/search";
-import { tabbedInterface, categoryIcon } from "utils";
-import { ArrowForward } from "components/icons/ListingIcons";
+import React, { useState, useEffect } from 'react';
+import Modal from 'react-modal';
+import Search from 'components/datasets/Search';
+import { useSearch } from 'utils/search';
+import { tabbedInterface, categoryIcon } from 'utils';
+import { ArrowForward } from 'components/icons/ListingIcons';
 import {
   LawJustice,
   WomenChild,
   Police,
   HomeAffairs,
-} from "components/icons/ListingIcons";
+} from 'components/icons/ListingIcons';
 
 const SchemeModal = ({ isOpen, handleModal, data }) => {
   const [filteredObj, setFilteredObj] = useState(data);
@@ -18,41 +18,41 @@ const SchemeModal = ({ isOpen, handleModal, data }) => {
     // ceating tabbed interface for viz selector
     if (isOpen) {
       setTimeout(() => {
-        const tablist = document.querySelector(".schemeModal__tabs");
-        const panels = document.querySelectorAll(".schemeModal__items");
+        const tablist = document.querySelector('.schemeModal__tabs');
+        const panels = document.querySelectorAll('.schemeModal__items');
         tabbedInterface(tablist, panels);
       }, 10);
     }
   }, [isOpen]);
   const modalToggle = [
     {
-      name: "Ministries",
-      id: "#modalMinistry",
+      name: 'Ministries',
+      id: '#modalMinistry',
       length: filteredObj.ministry.length,
     },
     {
-      name: "Categories",
-      id: "#modalCategories",
+      name: 'Categories',
+      id: '#modalCategories',
       length: filteredObj.category.length,
     },
     {
-      name: "Schemes",
-      id: "#modalSchemes",
+      name: 'Schemes',
+      id: '#modalSchemes',
       length: filteredObj.scheme.length,
     },
   ];
 
   const modalItems = [
     {
-      id: "modalMinistry",
+      id: 'modalMinistry',
       content: filteredObj.ministry,
     },
     {
-      id: "modalCategories",
+      id: 'modalCategories',
       content: filteredObj.category,
     },
     {
-      id: "modalSchemes",
+      id: 'modalSchemes',
       content: filteredObj.scheme,
     },
   ];
@@ -74,8 +74,8 @@ const SchemeModal = ({ isOpen, handleModal, data }) => {
       overlayClassName="dialog__backdrop"
       contentLabel="Download Tenders"
       aria={{
-        labelledby: "dialog-head",
-        describedby: "dialog-para",
+        labelledby: 'dialog-head',
+        describedby: 'dialog-para',
       }}
       closeTimeoutMS={200}
       preventScroll={true}

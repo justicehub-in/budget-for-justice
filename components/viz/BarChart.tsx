@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import * as echarts from "echarts/core";
-import { BarChart } from "echarts/charts";
-import { SVGRenderer } from "echarts/renderers";
+import React, { useState, useEffect } from 'react';
+import * as echarts from 'echarts/core';
+import { BarChart } from 'echarts/charts';
+import { SVGRenderer } from 'echarts/renderers';
 import {
   GridComponent,
   DatasetComponent,
   TitleComponent,
   LegendComponent,
   TooltipComponent,
-} from "echarts/components";
-import ReactEChartsCore from "echarts-for-react/lib/core";
+} from 'echarts/components';
+import ReactEChartsCore from 'echarts-for-react/lib/core';
 
 //  To import all the things at once
 // import ReactEcharts from 'echarts-for-react';
@@ -36,9 +36,9 @@ const BarChartViz: React.FC<BarChartProps> = ({
   useEffect(() => {
     const vizSeries = [];
 
-    let stackTrue = "";
-    if (stack == "True") {
-      stackTrue = "x";
+    let stackTrue = '';
+    if (stack == 'True') {
+      stackTrue = 'x';
     }
 
     for (
@@ -47,7 +47,7 @@ const BarChartViz: React.FC<BarChartProps> = ({
       columnLength++
     ) {
       vizSeries.push({
-        type: "bar",
+        type: 'bar',
         barMaxWidht: 16,
         itemStyle: { color: theme[columnLength] },
         stack: stackTrue,
@@ -66,19 +66,19 @@ const BarChartViz: React.FC<BarChartProps> = ({
       dataset: { source: dataset },
       grid: {},
       xAxis: {
-        type: "category",
+        type: 'category',
         name: xAxisLabel,
         axisLine: {
-          symbol: ["none", "arrow"],
+          symbol: ['none', 'arrow'],
         },
         axisTick: {
           show: false,
         },
       },
       yAxis: {
-        type: "value",
+        type: 'value',
         name: yAxisLabel,
-        axisLine: { onZero: false, show: true, symbol: ["none", "arrow"] },
+        axisLine: { onZero: false, show: true, symbol: ['none', 'arrow'] },
         nameRotate: 90,
       },
       series: series,

@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import Layout from "components/layout/layout";
-import I18nProvider from "next-translate/I18nProvider";
-import Router, { useRouter } from "next/router";
-import NextNprogress from "nextjs-progressbar";
-import "../styles/style.css";
+import { useEffect } from 'react';
+import Layout from 'components/layout/layout';
+import I18nProvider from 'next-translate/I18nProvider';
+import Router, { useRouter } from 'next/router';
+import NextNprogress from 'nextjs-progressbar';
+import '../styles/style.css';
 
 interface I8nObject {
   [property: string]: any;
@@ -32,17 +32,17 @@ const MyApp: React.FC<Props> = ({ Component, pageProps }) => {
 
   useEffect(() => {
     const handleRouteChange = (url) => {
-      window.gtag("config", process.env.NEXT_PUBLIC_ANALYTICS_ID, {
+      window.gtag('config', process.env.NEXT_PUBLIC_ANALYTICS_ID, {
         page_path: url,
       });
     };
 
     const handleRouteComplete = () => {
       // change focus to top
-      if (document.querySelector("#top-of-site-pixel-anchor")) {
+      if (document.querySelector('#top-of-site-pixel-anchor')) {
         (
           document.querySelector(
-            "#top-of-site-pixel-anchor"
+            '#top-of-site-pixel-anchor'
           ) as HTMLInputElement
         ).focus();
       }
@@ -54,23 +54,23 @@ const MyApp: React.FC<Props> = ({ Component, pageProps }) => {
         document.querySelector('.navbar__links > [aria-expanded="true"]')
       ) {
         const currentActive = document.querySelector('[aria-expanded="true"]');
-        currentActive.nextElementSibling.setAttribute("hidden", "true");
+        currentActive.nextElementSibling.setAttribute('hidden', 'true');
         currentActive.setAttribute(
-          "aria-label",
-          currentActive.getAttribute("data-text-for-show")
+          'aria-label',
+          currentActive.getAttribute('data-text-for-show')
         );
-        currentActive.setAttribute("aria-expanded", "false");
+        currentActive.setAttribute('aria-expanded', 'false');
       }
     };
 
-    Router.events.on("routeChangeComplete", handleRouteComplete);
-    Router.events.on("routeChangeStart", handleRouteStart);
-    router.events.on("routeChangeComplete", handleRouteChange);
+    Router.events.on('routeChangeComplete', handleRouteComplete);
+    Router.events.on('routeChangeStart', handleRouteStart);
+    router.events.on('routeChangeComplete', handleRouteChange);
 
     return () => {
-      Router.events.off("routeChangeComplete", handleRouteComplete);
-      Router.events.off("routeChangeStart", handleRouteStart);
-      router.events.off("routeChangeComplete", handleRouteChange);
+      Router.events.off('routeChangeComplete', handleRouteComplete);
+      Router.events.off('routeChangeStart', handleRouteStart);
+      router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, [router.events]);
 
@@ -82,7 +82,7 @@ const MyApp: React.FC<Props> = ({ Component, pageProps }) => {
           startPosition={0.3}
           stopDelayMs={100}
           height={3}
-          options={{ easing: "ease", speed: 300, showSpinner: false }}
+          options={{ easing: 'ease', speed: 300, showSpinner: false }}
         />
         <Component {...pageProps} />
       </I18nProvider>

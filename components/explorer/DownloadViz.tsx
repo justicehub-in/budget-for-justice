@@ -1,9 +1,9 @@
-import React from "react";
-import { saveAs } from "file-saver";
-import { stripTitle } from "utils";
-import { Download } from "components/icons/ListingIcons";
-import * as echarts from "echarts/core";
-import watermark from "watermarkjs";
+import React from 'react';
+import { saveAs } from 'file-saver';
+import { stripTitle } from 'utils';
+import { Download } from 'components/icons/ListingIcons';
+import * as echarts from 'echarts/core';
+import watermark from 'watermarkjs';
 // const watermark = dynamic(() => import("watermarkjs"), {
 //   ssr: false,
 // });
@@ -13,14 +13,14 @@ function fileName(type, name, indicator, format) {
   const shortName = stripTitle(name);
 
   // If there is no type, eg: table, don;t add it to the name
-  if (type != "NA" && format != "csv")
+  if (type != 'NA' && format != 'csv')
     return `${shortName} - ${indicator} - ${type}.${format}`;
   else return `${shortName} - ${indicator}.${format}`;
 }
 
 function download_csv(csv, filename) {
-  const csvFile = new Blob([csv], { type: "text/csv" });
-  const downloadLink = document.createElement("a");
+  const csvFile = new Blob([csv], { type: 'text/csv' });
+  const downloadLink = document.createElement('a');
 
   // File name
   downloadLink.download = filename;
@@ -29,7 +29,7 @@ function download_csv(csv, filename) {
   downloadLink.href = window.URL.createObjectURL(csvFile);
 
   // Make sure that the link is not displayed
-  downloadLink.style.display = "none";
+  downloadLink.style.display = 'none';
 
   // Add the link to your DOM
   document.body.appendChild(downloadLink);
@@ -39,42 +39,42 @@ function download_csv(csv, filename) {
 
 export function export_table_to_csv(filename: any) {
   const csv = [];
-  const rows = document.querySelectorAll("#tableView tr");
+  const rows = document.querySelectorAll('#tableView tr');
 
   for (let i = 0; i < rows.length; i += 1) {
     const row = [];
-    const cols = rows[i].querySelectorAll("td, th") as any;
+    const cols = rows[i].querySelectorAll('td, th') as any;
 
     for (let j = 0; j < cols.length; j += 1) row.push(cols[j].innerText);
 
-    csv.push(row.join(","));
+    csv.push(row.join(','));
   }
 
   // Download CSV
-  download_csv(csv.join("\n"), filename);
+  download_csv(csv.join('\n'), filename);
 }
 
 const DownloadViz = ({ viz, type, name, indicator }) => {
   function svg2img() {
     const myChart = echarts.getInstanceByDom(
-      document.querySelector(".echarts-for-react")
+      document.querySelector('.echarts-for-react')
     );
 
     const url = myChart.getConnectedDataURL({
       pixelRatio: 5, //derived ratio picture resolution, default 1
-      backgroundColor: "#fff", //chart background color
-      excludeComponents: ["toolbox"],
-      type: "png", //Image types support png and jpeg
+      backgroundColor: '#fff', //chart background color
+      excludeComponents: ['toolbox'],
+      type: 'png', //Image types support png and jpeg
     });
 
-    watermark([url, "/assets/images/jh_logo.png"])
+    watermark([url, '/assets/images/jh_logo.png'])
       .image(watermark.image.lowerRight(0.5))
-      .then((img) => saveAs(img.src, fileName(type, name, indicator, "png")));
+      .then((img) => saveAs(img.src, fileName(type, name, indicator, 'png')));
   }
 
   function downloadSelector(viz) {
-    if (viz == "#tableView")
-      export_table_to_csv(fileName(type, name, indicator, "csv"));
+    if (viz == '#tableView')
+      export_table_to_csv(fileName(type, name, indicator, 'csv'));
     else svg2img();
   }
 
@@ -83,7 +83,7 @@ const DownloadViz = ({ viz, type, name, indicator }) => {
       onClick={() => downloadSelector(viz)}
       className="btn-secondary-mini"
     >
-      {`Download ${viz == "#tableView" ? "CSV" : "Chart"}`} <Download />
+      {`Download ${viz == '#tableView' ? 'CSV' : 'Chart'}`} <Download />
     </button>
   );
 };

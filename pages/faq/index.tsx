@@ -1,13 +1,13 @@
-import { GetServerSideProps } from "next";
-import React, { useEffect } from "react";
+import { GetServerSideProps } from 'next';
+import React, { useEffect } from 'react';
 // import Banner from "components/_shared/Banner";
-import { Converter } from "showdown";
-import fs from "fs";
-import Seo from "components/_shared/seo";
+import { Converter } from 'showdown';
+import fs from 'fs';
+import Seo from 'components/_shared/seo';
 
 function collapseHeader() {
   // Get all the <h2> headings
-  const headings = document.querySelectorAll(".faq__content h3");
+  const headings = document.querySelectorAll('.faq__content h3');
 
   Array.prototype.forEach.call(headings, (heading) => {
     // Give each <h2> a toggle button child
@@ -28,7 +28,7 @@ function collapseHeader() {
       const elems = [];
       while (
         elem.nextElementSibling &&
-        elem.nextElementSibling.tagName !== "H3"
+        elem.nextElementSibling.tagName !== 'H3'
       ) {
         elems.push(elem.nextElementSibling);
         elem = elem.nextElementSibling;
@@ -46,7 +46,7 @@ function collapseHeader() {
     const contents = getContent(heading);
 
     // Create a wrapper element for `contents` and hide it
-    const wrapper = document.createElement("div");
+    const wrapper = document.createElement('div');
     wrapper.hidden = true;
 
     // Add each element of `contents` to `wrapper`
@@ -59,14 +59,14 @@ function collapseHeader() {
     heading.parentNode.insertBefore(wrapper, heading.nextElementSibling);
 
     // Assign the button
-    const btn = heading.querySelector("button");
+    const btn = heading.querySelector('button');
 
     btn.onclick = () => {
       // Cast the state as a boolean
-      const expanded = btn.getAttribute("aria-expanded") === "true" || false;
+      const expanded = btn.getAttribute('aria-expanded') === 'true' || false;
 
       // Switch the state
-      btn.setAttribute("aria-expanded", !expanded);
+      btn.setAttribute('aria-expanded', !expanded);
       // Switch the content's visibility
       wrapper.hidden = expanded;
     };
@@ -112,7 +112,7 @@ const Faq = ({ content }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  let content = fs.readFileSync(`data/faq.md`, "utf8");
+  let content = fs.readFileSync(`data/faq.md`, 'utf8');
   const converter = new Converter();
   content = converter.makeHtml(content);
   return { props: { content } };

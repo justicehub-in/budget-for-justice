@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import Toggle from "components/_shared/Toggle";
+import React, { useEffect } from 'react';
+import Toggle from 'components/_shared/Toggle';
 
 const Indicator = ({ data, newIndicator, meta }) => {
   useEffect(() => {
-    (document.getElementById("Budget Estimates") as HTMLInputElement).checked =
+    (document.getElementById('Budget Estimates') as HTMLInputElement).checked =
       true;
   }, [data]);
 

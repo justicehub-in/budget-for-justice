@@ -1,4 +1,4 @@
-import { allNews } from "data/placeholder";
+import { allNews } from 'data/placeholder';
 
 const Insights = () => {
   return (

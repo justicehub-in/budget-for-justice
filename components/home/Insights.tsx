@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { tabbedInterface } from "utils/index";
+import React, { useEffect } from 'react';
+import { tabbedInterface } from 'utils/index';
 
 const Insights = ({ insightList }) => {
   useEffect(() => {
     // create tabbed interface for schemes
-    const tablist = document.getElementById("schemeSelector");
+    const tablist = document.getElementById('schemeSelector');
     const panels = document.querySelectorAll(
       '.home-insights [role="tabpanel"]'
     );

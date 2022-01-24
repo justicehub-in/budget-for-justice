@@ -1,46 +1,46 @@
-import React, { useState, useEffect } from "react";
-import { GetServerSideProps } from "next";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import Search from "components/datasets/Search";
+import React, { useState, useEffect } from 'react';
+import { GetServerSideProps } from 'next';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Search from 'components/datasets/Search';
 import {
   LawJustice,
   WomenChild,
   Police,
   HomeAffairs,
   All,
-} from "components/icons/ListingIcons";
-import Toggle from "components/_shared/Toggle";
-import { categoryIcon, stripTitle, fetchDatasets } from "utils";
-import { useSearch } from "utils/search";
-import Seo from "components/_shared/seo";
+} from 'components/icons/ListingIcons';
+import Toggle from 'components/_shared/Toggle';
+import { categoryIcon, stripTitle, fetchDatasets } from 'utils';
+import { useSearch } from 'utils/search';
+import Seo from 'components/_shared/seo';
 
-import { ListingHeader } from "animation/listingHeader";
+import { ListingHeader } from 'animation/listingHeader';
 
 export const SectionTypeData = {
   Ministries:
-    "This section lists all the budget datasets that are curated at a ministry / department level.",
+    'This section lists all the budget datasets that are curated at a ministry / department level.',
   Categories:
-    "This section lists all the budget datasets for scheme categories. These categories represent a collection of schemes and are present within the budget documents.",
+    'This section lists all the budget datasets for scheme categories. These categories represent a collection of schemes and are present within the budget documents.',
   Schemes:
-    "This section lists all the budget datasets for various schemes that are present within a budget document.",
+    'This section lists all the budget datasets for various schemes that are present within a budget document.',
 };
 
 const Lisitng = ({ data }) => {
   const [filteredObj, setFilteredObj] = useState(data);
-  const [currentIndicator, setCurrentIndicator] = useState("all");
+  const [currentIndicator, setCurrentIndicator] = useState('all');
 
   const router = useRouter();
 
   useEffect(() => {
-    ListingHeader(".listing__header");
+    ListingHeader('.listing__header');
 
-    (document.getElementById("list-all") as HTMLInputElement).checked = true;
+    (document.getElementById('list-all') as HTMLInputElement).checked = true;
   }, []);
 
   function changeResult(val) {
-    (document.getElementById("list-all") as HTMLInputElement).checked = true;
-    setCurrentIndicator("all");
+    (document.getElementById('list-all') as HTMLInputElement).checked = true;
+    setCurrentIndicator('all');
 
     const newObj = useSearch(val, data);
     setFilteredObj(newObj);
@@ -48,14 +48,14 @@ const Lisitng = ({ data }) => {
 
   function useFilter(val) {
     if (val != currentIndicator) {
-      if (val.getAttribute("value") == "all") {
+      if (val.getAttribute('value') == 'all') {
         setFilteredObj(data);
       } else {
         const newFilteredObj = {};
 
         Object.keys(filteredObj).forEach((cat) => {
           newFilteredObj[cat] = data[cat].filter((item) =>
-            item.tags.includes(val.getAttribute("value"))
+            item.tags.includes(val.getAttribute('value'))
           );
         });
         setFilteredObj(newFilteredObj);
@@ -65,7 +65,7 @@ const Lisitng = ({ data }) => {
   }
 
   const seo = {
-    title: "Budgets for Justice | Datasets",
+    title: 'Budgets for Justice | Datasets',
   };
 
   return (

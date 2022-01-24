@@ -1,4 +1,4 @@
-import Papa from "papaparse";
+import Papa from 'papaparse';
 
 async function parseResources(resource: string, header: boolean) {
   const csvFile = await fetch(resource).then((res) => res.text());

@@ -1,11 +1,11 @@
-import { Share } from "components/icons/ListingIcons";
-import { useRouter } from "next/router";
+import { Share } from 'components/icons/ListingIcons';
+import { useRouter } from 'next/router';
 import {
   Facebook,
   Reddit,
   Linkedin,
   Twitter,
-} from "components/icons/ExplorerIcons";
+} from 'components/icons/ExplorerIcons';
 
 const ShareModal = ({ title }) => {
   const router = useRouter();
@@ -13,23 +13,23 @@ const ShareModal = ({ title }) => {
   // open / close sub-menu
   function shareButtonHandler(e: any) {
     function hideMenu() {
-      e.target.setAttribute("aria-expanded", "false");
+      e.target.setAttribute('aria-expanded', 'false');
       e.target.setAttribute(
-        "aria-label",
-        e.target.getAttribute("data-text-for-show")
+        'aria-label',
+        e.target.getAttribute('data-text-for-show')
       );
       if (e.target.nextElementSibling)
-        e.target.nextElementSibling.setAttribute("hidden", "true");
+        e.target.nextElementSibling.setAttribute('hidden', 'true');
     }
 
     function showMenu() {
-      e.target.setAttribute("aria-expanded", "true");
+      e.target.setAttribute('aria-expanded', 'true');
       e.target.setAttribute(
-        "aria-label",
-        e.target.getAttribute("data-text-for-hide")
+        'aria-label',
+        e.target.getAttribute('data-text-for-hide')
       );
       if (e.target.nextElementSibling)
-        e.target.nextElementSibling.removeAttribute("hidden");
+        e.target.nextElementSibling.removeAttribute('hidden');
     }
 
     // check if web share api is supported
@@ -40,7 +40,7 @@ const ShareModal = ({ title }) => {
       });
     } else {
       // if clicked on already opened menu, close
-      if (e.target.getAttribute("aria-expanded") == "true") {
+      if (e.target.getAttribute('aria-expanded') == 'true') {
         hideMenu();
       } else {
         // if not open, then open current clicked menu

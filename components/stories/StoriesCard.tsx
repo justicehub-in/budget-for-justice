@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import { getMediumBanner } from "utils/index";
-import { truncate } from "lodash";
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { getMediumBanner } from 'utils/index';
+import { truncate } from 'lodash';
 
 // return post time in required format
 function getDate(time: string) {
   // ordinal suffix for date
   const getOrdinal = function (d: number) {
     let type: string;
-    if (d > 3 && d < 21) type = "th";
+    if (d > 3 && d < 21) type = 'th';
     else
       switch (d % 10) {
         case 1:
-          type = "st";
+          type = 'st';
           break;
         case 2:
-          type = "nd";
+          type = 'nd';
           break;
         case 3:
-          type = "rd";
+          type = 'rd';
           break;
         default:
-          type = "th";
+          type = 'th';
           break;
       }
     return `${d}${type}`;
@@ -29,7 +29,7 @@ function getDate(time: string) {
 
   const dt = new Date(time);
   const date = getOrdinal(dt.getDate());
-  const month = dt.toLocaleString("default", { month: "short" });
+  const month = dt.toLocaleString('default', { month: 'short' });
   return `${date} ${month}, ${dt.getFullYear()}`;
 }
 
@@ -53,7 +53,7 @@ const StoriesCard: React.FC<{ data: any; length: number }> = ({
     <article className="stories-card">
       <Link href={data.link}>
         <a>
-          <img src={getMediumBanner(data["content:encoded"])} alt="" />
+          <img src={getMediumBanner(data['content:encoded'])} alt="" />
         </a>
       </Link>
 
@@ -63,7 +63,7 @@ const StoriesCard: React.FC<{ data: any; length: number }> = ({
             <h3>{data.title}</h3>
 
             <p>
-              {truncate(data["content:encodedSnippet"], {
+              {truncate(data['content:encodedSnippet'], {
                 length: paraLen,
               })}
             </p>
@@ -75,7 +75,7 @@ const StoriesCard: React.FC<{ data: any; length: number }> = ({
             <small className="stories-card__author">{data.creator}</small>
             <small>
               {`${getDate(data.isoDate)} . 
-                  ${getReadTime(data["content:encodedSnippet"])} mins read`}
+                  ${getReadTime(data['content:encodedSnippet'])} mins read`}
             </small>
           </div>
         </div>

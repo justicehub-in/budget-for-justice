@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import { truncate } from "lodash";
-import { getDate } from "utils/index";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { truncate } from 'lodash';
+import { getDate } from 'utils/index';
 
 const Card: React.FC<{ datapackage: any }> = ({ datapackage }) => {
   const router = useRouter();
@@ -42,7 +42,7 @@ const Card: React.FC<{ datapackage: any }> = ({ datapackage }) => {
                 {datapackage.tender_participationfees_0_value_amount &&
                   datapackage.tender_participationfees_0_value_amount.replace(
                     /\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g,
-                    ","
+                    ','
                   )}
               </h4>
               <small>Tender value</small>
