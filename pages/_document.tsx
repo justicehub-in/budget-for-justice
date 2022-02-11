@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-
+import Script from 'next/script';
 export default class CustomDocument extends Document {
   render() {
     return (
@@ -25,11 +25,12 @@ export default class CustomDocument extends Document {
           <link rel="alternate icon" href="/assets/favicon/favicon.ico" />
           <link rel="manifest" href="/assets/favicon/site.webmanifest"></link>
 
-          <script
-            async
+          <Script
+            strategy="afterInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}
           />
-          <script
+          <Script
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
               window.dataLayer = window.dataLayer || [];
