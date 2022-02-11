@@ -1,23 +1,23 @@
-import fs from "fs";
+import fs from 'fs';
 
 const Sitemap = () => {};
 
 export const getServerSideProps = async function ({ res }) {
   const dataRes = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=groups:budgets-for-justice&rows=200"
+    'https://justicehub.in/api/3/action/package_search?fq=groups:budgets-for-justice&rows=200'
   ).then((re) => re.json());
   const allData = dataRes.result.results;
 
   const staticPages = fs
-    .readdirSync("pages")
+    .readdirSync('pages')
     .filter((staticPage) => {
       return ![
-        "_app.tsx",
-        "_document.tsx",
-        "_error.tsx",
-        "sitemap.xml.js",
-        "explore",
-        "index.tsx",
+        '_app.tsx',
+        '_document.tsx',
+        '_error.tsx',
+        'sitemap.xml.js',
+        'explore',
+        'index.tsx',
       ].includes(staticPage);
     })
     .map((staticPagePath) => {
@@ -42,11 +42,11 @@ export const getServerSideProps = async function ({ res }) {
             </url>
           `;
         })
-        .join("")}
+        .join('')}
     </urlset>
   `;
 
-  res.setHeader("Content-Type", "text/xml");
+  res.setHeader('Content-Type', 'text/xml');
   res.write(sitemap);
   res.end();
 
