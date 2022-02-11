@@ -77,7 +77,7 @@ const Lisitng = ({ data }) => {
       <main className="listing">
         <section className="listing__header">
           <div className="container">
-            <h2 className="heading">Budget Datasets (2016-17 to 2021-23)</h2>
+            <h2 className="heading">Budget Datasets (2016-17 to 2022-23)</h2>
             <p>
               Select a data set from the list below to view the trends in
               budget estimates, revised estimates, actual expenditure and fund

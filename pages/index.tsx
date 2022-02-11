@@ -1,12 +1,10 @@
 import React from 'react';
-// import Carousel from "components/home/Carousel";
-// import Header from "components/home/Header";
+
 import Video from 'components/home/Video';
 import Latest from 'components/home/Latest';
 import Insights from 'components/home/Insights';
 import News from 'components/home/News';
 import Banner from 'components/_shared/Banner';
-// import Slider from "components/_shared/Slider";
 import Seo from 'components/_shared/seo';
 
 import * as data from 'data/home';
@@ -16,7 +14,6 @@ const Home: React.FC = () => {
     <>
       <Seo />
       <main className="home">
-        {/* <Header data={data.didYouKnow} /> */}
         <Video data={data.video} />
         <Latest />
 
@@ -38,9 +35,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-
-        {/* <Carousel data={data.carousel} /> */}
-
         <Insights insightList={data.Insights} />
 
         <div className="home__banner">
@@ -48,8 +42,6 @@ const Home: React.FC = () => {
         </div>
 
         <News />
-
-        {/* <Slider data={data.contributors} /> */}
       </main>
     </>
   );
