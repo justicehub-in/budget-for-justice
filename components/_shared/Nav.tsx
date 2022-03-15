@@ -218,6 +218,7 @@ const Nav: React.FC = () => {
             <li className="navbar__links">
               <Link href={'https://budgets.justicehub.in'}>
                 <a
+href={'https://budgets.justicehub.in'}
                   onClick={mobileNavHandler}
                   className={`navbar__item ${
                     router.pathname == '/' ? 'navbar__item--active' : ''
