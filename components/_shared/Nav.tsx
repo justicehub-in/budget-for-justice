@@ -134,11 +134,10 @@ const Nav: React.FC = () => {
                   ) : (
                     <Link href={navItem.link}>
                       <a
-                        className={`navbar__item ${
-                          router.pathname == navItem.link
-                            ? 'navbar__item--active'
-                            : ''
-                        }`}
+                        className={`navbar__item ${router.pathname == navItem.link
+                          ? 'navbar__item--active'
+                          : ''
+                          }`}
                       >
                         {navItem.name}
                       </a>
@@ -216,17 +215,14 @@ const Nav: React.FC = () => {
 
           <ul className="m-navbar__container">
             <li className="navbar__links">
-              <Link href={'https://budgets.justicehub.in'}>
-                <a
-href={'https://budgets.justicehub.in'}
-                  onClick={mobileNavHandler}
-                  className={`navbar__item ${
-                    router.pathname == '/' ? 'navbar__item--active' : ''
+              <a
+                href={'https://budgets.justicehub.in'}
+                onClick={mobileNavHandler}
+                className={`navbar__item ${router.pathname == '/' ? 'navbar__item--active' : ''
                   }`}
-                >
-                  Home
-                </a>
-              </Link>
+              >
+                Home
+              </a>
             </li>
             {navList.map((navItem: any, index) => (
               <li key={`navItemMobile-${index}`} className="navbar__links">
@@ -267,11 +263,10 @@ href={'https://budgets.justicehub.in'}
                     <a
                       href={navItem.link}
                       onClick={mobileNavHandler}
-                      className={`navbar__item ${
-                        router.pathname == navItem.link
-                          ? 'navbar__item--active'
-                          : ''
-                      }`}
+                      className={`navbar__item ${router.pathname == navItem.link
+                        ? 'navbar__item--active'
+                        : ''
+                        }`}
                     >
                       {navItem.name}
                     </a>
