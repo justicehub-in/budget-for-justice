@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import { GetServerSideProps } from 'next';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Search from 'components/datasets/Search';
+import {
+  LawJustice,
+  WomenChild,
+  Police,
+  HomeAffairs,
+  All,
+} from 'components/icons/ListingIcons';
+import Toggle from 'components/_shared/Toggle';
+import { categoryIcon, stripTitle, fetchDatasets, fetchStateDataset } from 'utils';
+import { useSearch } from 'utils/search';
+import Seo from 'components/_shared/seo';
 
-const assam = () => {
+import { ListingHeader } from 'animation/listingHeader';
+
+export const iconObj = {"Dataset - Administration of Justice":"/assets/icons/justice.svg", "Dataset - Jails":"/assets/icons/jail.svg", "Police":"/assets/icons/police.svg", "law":"/assets/icons/law.svg"};
+	
+
+const assam = ({data}) => {
+	console.log(data)
+	const router = useRouter();
+	
     return (
       <>
      
@@ -90,30 +113,16 @@ const assam = () => {
               </div>
               <div className="dis">
                   <div className="column1">
-                        <div className="card1">
-                        <div className="alignleft1">
-                              <img className="profitup1" src="/assets/icons/law.svg" alt="" />                        
-                                <h2>Law & Justice</h2> 
-                            </div>
+					  {data.resources.map((item, index) => (
+					     <div className="card1" key={`grant-${index}`}>
+                              <Link href={`${router.pathname}/${item.name}`}>
+							    <div className="alignleft1">
+									<img className="profitup1" src={iconObj[item.name]} alt="" />                        
+									<h2>{item.name}</h2> 
+								</div>
+							  </Link>
                          </div>
-                         <div className="card1">
-                          <div className="alignleft1">
-                            <img className="profitup1" src="/assets/icons/jail.svg" alt="" />                        
-                              <h2>Jail</h2> 
-                          </div>
-                         </div>
-                         <div className="card1">
-                          <div className="alignleft1">
-                              <img className="profitup1" src="/assets/icons/justice.svg" alt="" />                        
-                                <h2>Justice</h2> 
-                            </div>
-                         </div>
-                         <div className="card1">
-                           <div className="alignleft1">
-                              <img className="profitup1" src="/assets/icons/police.svg" alt="" />                        
-                                <h2>Police</h2> 
-                           </div>
-                         </div>
+				      ))}
                     </div>
                 <div className="space">
                   
@@ -261,6 +270,16 @@ const assam = () => {
 
      </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const data = await fetchStateDataset();
+
+  return {
+    props: {
+      data,
+    },
+  };
 };
 
 export default assam;

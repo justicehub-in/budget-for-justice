@@ -186,6 +186,16 @@ export function getDate(time) {
   } else return time;
 }
 
+// fetch state dataset for state budget
+// Required: type -> type of dataset; variables -> from url parameters.
+export async function fetchStateDataset() {
+  const statedata = await fetch(
+    "https://justicehub.in/api/3/action/package_search?q=%22assam%22&fq=(groups:state-budgets)&rows=200"
+  ).then((res) => res.json());
+  const data = statedata.result.results[0];
+  return data;
+}
+
 // fetch list of datasets.
 // Required: type -> type of dataset; variables -> from url parameters.
 export async function fetchDatasets() {
