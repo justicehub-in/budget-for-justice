@@ -21,7 +21,7 @@ export const iconObj = {"Dataset - Administration of Justice":"/assets/icons/jus
 	
 
 const assam = ({data}) => {
-	console.log(data)
+
 	const router = useRouter();
 	
     return (
