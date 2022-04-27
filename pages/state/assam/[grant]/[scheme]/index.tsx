@@ -20,9 +20,11 @@ import { Download, ExternalLink } from 'components/icons/ListingIcons';
 import Indicator from 'components/analytics/Indicator';
 import Modal from 'react-modal';
 import SimpleBarLineChartViz from 'components/viz/SimpleBarLineChart';
+import BarChartViz from 'components/viz/BarChart';
 import Banner from 'components/_shared/Banner';
 import { resourceGetter } from 'utils/resourceParser';
 import Dropdown from 'components/_shared/dropdown';
+import { stateLineTransformer } from 'transformers/StateLineTransformer';
 import { barLineTransformer } from 'transformers/BarLineTransformer';
 import Table from 'components/_shared/Table';
 import { downloadPackage } from 'utils/downloadPackage';
@@ -56,30 +58,8 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
   const [currentViz, setCurrentViz] = useState('#barGraph');
 
   // todo: make it dynamic lie scheme dashboard
-  const IndicatorDesc = [
-    meta['Indicator 1 - Description'],
-    meta['Indicator 2 - Description'],
-    meta['Indicator 3 - Description'],
-    meta['Indicator 4 - Description'],
-    meta['Indicator 5 - Description'],
-  ];
 
   const vizToggle = [
-    {
-      name: 'Bar Graph',
-      id: '#barGraph',
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
-          fill="none"
-          viewBox="0 0 18 18"
-        >
-          <path d="M16 0H2C.9 0 0 .9 0 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2ZM5 14c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1s1 .45 1 1v5c0 .55-.45 1-1 1Zm4 0c-.55 0-1-.45-1-1V5c0-.55.45-1 1-1s1 .45 1 1v8c0 .55-.45 1-1 1Zm4 0c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1Z" />
-        </svg>
-      ),
-    },
     {
       name: 'Line Chart',
       id: '#lineChart',
@@ -95,6 +75,21 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
         </svg>
       ),
     },
+    {
+      name: 'Bar Graph',
+      id: '#barGraph',
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          fill="none"
+          viewBox="0 0 18 18"
+        >
+          <path d="M16 0H2C.9 0 0 .9 0 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2ZM5 14c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1s1 .45 1 1v5c0 .55-.45 1-1 1Zm4 0c-.55 0-1-.45-1-1V5c0-.55.45-1 1-1s1 .45 1 1v8c0 .55-.45 1-1 1Zm4 0c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1Z" />
+        </svg>
+      ),
+    },	
     {
       name: 'Table View',
       id: '#tableView',
@@ -120,6 +115,21 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
 
   const vizItems = [
     {
+      id: 'lineChart',
+      graph: (
+        <BarChartViz
+          yAxisLabel="Value (in crores)"
+          xAxisLabel="Fiscal Year"
+          theme={['#4965B2', '#ED8686', '#69BC99']}
+          dataset={stateLineTransformer(fileData, selectedIndicator)}
+          stack={true}
+          Title=""
+          subTitle=""
+          left="8%"
+        />
+      ),
+    },
+    {
       id: 'barGraph',
       graph: (
         <SimpleBarLineChartViz
@@ -136,25 +146,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
           unit={crData.includes(selectedIndicator) ? 'Cr' : '%'}
         />
       ),
-    },
-    {
-      id: 'lineChart',
-      graph: (
-        <SimpleBarLineChartViz
-          color={'#00ABB7'}
-          dataset={barLineTransformer(finalFiltered, selectedIndicator)}
-          type="line"
-          smooth={true}
-          showSymbol={true}
-          Title={
-            selectedIndicator +
-            (budgetTypes.length > 1 ? ' - ' + selectedBudgetType : '')
-          }
-          subTitle={data.title}
-          unit={crData.includes(selectedIndicator) ? 'Cr' : '%'}
-        />
-      ),
-    },
+    },	
     {
       id: 'tableView',
       graph: (
@@ -303,40 +295,18 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
         <div className="explorer__header">
           <div className="explorer__buttons container">
             <div className="explorer__scheme-change">
-              <a href="/datasets" className="btn-secondary">
-                Select Another Scheme
-              </a>
-              <button
-                className="btn-secondary"
-                onClick={() => schemeModalHandler()}
-              >
-                Select Another Scheme
-              </button>
-              <SchemeModal
-                isOpen={schemeModalOpen}
-                handleModal={schemeModalHandler}
-                data={allData}
-              />
+
             </div>
             {<ShareModal title={data.title} />}
           </div>
 
           <section className="explorer__heading container">
             <div className="explorer__content">
-              <figure>{categoryIcon(data.tags)}</figure>
+             
               <div>
                 <h2>{data.title}</h2>
-                <ul>
-                  {data.tags.map((item, index) => (
-                    <li key={`explorer-${index}`}>{item}</li>
-                  ))}
-                </ul>
+
               </div>
-            </div>
-            <p>{data.notes}</p>
-            <div className="explorer__meta ">
-              {meta['Type of Scheme'] && <span>{meta['Type of Scheme']}</span>}
-              {<span>{categoryTag(data.tags)}</span>}
             </div>
           </section>
         </div>
@@ -364,19 +334,11 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
         </section> */}
 
         <div className="container">
-          <IndicatorAlter
-            indicators={data.indicators}
-            newIndicator={handleNewVizData}
-            meta={IndicatorDesc}
-          />
+
         </div>
 
         <section className="explorer__viz container">
-          <Indicator
-            data={data.indicators}
-            meta={IndicatorDesc}
-            newIndicator={handleNewVizData}
-          />
+
           <div className="viz">
             <div className="viz__header">
               {/* viz selector toggle */}
@@ -482,13 +444,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
                         <article>
                           <header>
                             <h3>{item.title}</h3>
-                            <ul>
-                              {item.tags.slice(0, 3).map((tag, list) => (
-                                <li key={`relevantTags-${index}-${list}`}>
-                                  {tag}
-                                </li>
-                              ))}
-                            </ul>
+
                           </header>
                           <p>{item.notes}</p>
                         </article>
@@ -526,7 +482,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   
   //filter data for scheme
   fileData = fileData.filter(obj => {return obj.display_title === scheme});
-  
+  console.log(fileData)
   return {
     props: {
       data,
