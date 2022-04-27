@@ -4211,6 +4211,7 @@ button {
   -moz-column-gap: 1rem;
        column-gap: 1rem;
   margin-top: 12px;
+  width: 100%;
 }
 @media screen and (max-width: 979px) {
   .listing__items ul {
@@ -4224,6 +4225,7 @@ button {
   border-radius: 4px;
   margin-bottom: 1rem;
   transition: box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+  min-width: 50%;
 }
 .listing__items li a {
   display: flex;
