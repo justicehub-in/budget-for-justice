@@ -4928,14 +4928,32 @@ background-clip: text;
 }
 
 .space{
-  width: 60%;
-  margin-right: 5%;
+  width: 58%;
+  margin-right: 6%;
   margin-bottom: 4%;
-  padding: 18%;
+  padding: 3%;
+  line-height: 1.3;
+  border-radius: 1%;
   margin-left: auto;
   background-color: white;
 }
 
+
+.space ul li{
+  display: flex;
+  padding: 2%;
+  gap: 10px;
+}
+.space ul li::before {
+  content:"\25A0";
+  font-size: 60%;
+   margin-top: 1%;
+  color: #D56433;
+  font-weight: bold;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em;
+}
 
 .bann{
   display: flex;
@@ -5006,14 +5024,20 @@ background-clip: text;
   width: 10%;
   background-color: #F0EFE6;
 }
+
 .subp{
-  
+
   line-height: 1.5;
   margin-left: 2%;
- 
-  text-align: justify;
 
+  text-align: justify;
+  
 }
+.subp a{
+  text-decoration: none;
+  color: #000;
+}
+
 .subh{
   font-weight: bold;
 }
@@ -5109,13 +5133,13 @@ background-clip: text;
   margin: auto;
     margin-top: 2%;
 }
-.space{
+.space {
   float: center;
-  margin: auto;
-   margin-top: 2%;
-   padding-inline: 38%;
-   padding-bottom: 34%;
+  margin: 5%;
+  margin-top: 2%;
+  width: fit-content;
 }
+
 .bann{
     display: grid;
     width: 95%;

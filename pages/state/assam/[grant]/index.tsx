@@ -38,7 +38,8 @@ const grant = ({data, fileData, grant}) => {
           <a className="utxt">Home</a></div>
           <div className="about__initiative container">
              <div>
-                <h2 className="heading">Police Budget</h2>
+               
+                <h2 className="heading">{grant} Budget</h2>
                 <h2 className="subtxt">Grant No. 14</h2>
               </div>
            </div> 

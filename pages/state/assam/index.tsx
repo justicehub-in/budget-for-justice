@@ -126,7 +126,26 @@ const assam = ({data}) => {
                     </div>
                 <div className="space">
                   
-                </div>
+                    <ul>    
+                       <li>
+                   The total share of the Law and Justice budget, in Assam, which includes the budget for Administration of Justice, Jails, and Police is 6.5%. 
+                  </li>
+                  <hr></hr>
+                    <li>
+                     The total share has seen an increase of 1% as compared to the previous budget where the total share was around 5.5%.
+                    </li>
+                    <hr></hr>
+                    <li>
+                     Within the Law and Justice category, Jails (Grant No. 15) received the maximum increase of 45.5% in terms of budget allocation as compared with the budget estimates for 2021-22. This is followed by Police (Grant No. 14) with an increase of 33.5%. The allocated budget for Administration of Justice (Grant No. 3) got increased by 19.18%.
+                    </li>
+                    <hr></hr>
+                    <li>
+                    The total share of the Law and Justice budget, in Assam, which includes the budget for Administration of Justice, Jails, and Police is 6.5%.
+                    </li>
+                    </ul>
+
+                
+                  </div>
               </div>
                <div className="bann">
                  <div className="bannc1">
@@ -155,11 +174,12 @@ const assam = ({data}) => {
 
                         <div className="card2">
                             <div className="subcd2">
-                              <div className="subim">
-                              </div>
+                              
+                                <img src="/assets/images/crd1.png" />
+                              
                               <div className="subp">
-                                  <h2 className="subh">Assam Budget Explorer 2019-20</h2>
-                                  <h2 className="ctext">Analyze anything and everything about Assam budget</h2>
+                              <a href="https://union.openbudgetsindia.org/en/"><h2 className="subh">Union Budget Explorer 2022-23</h2></a>
+                               <h2 className="ctext">Analyze everything about Union budget 2022-2023</h2>
                               </div>
                                 <img className="sarrow" src="/assets/icons/sidearrow.svg" alt="" />                        
                               </div>
@@ -167,22 +187,21 @@ const assam = ({data}) => {
 
                          <div className="card2">
                             <div className="subcd2">
-                                  <div className="subim">
-                                  </div>
+                            <img src="/assets/images/crd2.png" />
+                              
                                   <div className="subp">
-                                      <h2 className="subh">Assam Budget Explorer 2019-20</h2>
-                                      <h2 className="ctext">Analyze anything and everything about Assam budget</h2>
+                                  <a href="https://union2021.openbudgetsindia.org/en/"> <h2 className="subh">Union Budget Explorer 2021-22</h2></a>
+                               <h2 className="ctext">Analyze everything about Union budget 2021-2022</h2>
                                   </div>
                                     <img className="sarrow" src="/assets/icons/sidearrow.svg" alt="" />                        
                                   </div>
                          </div>
                          <div className="card2">
                          <div className="subcd2">
-                              <div className="subim">
-                              </div>
+                         <img src="/assets/images/crd3.png" />
                               <div className="subp">
-                                  <h2 className="subh">Assam Budget Explorer 2019-20</h2>
-                                  <h2 className="ctext">Analyze anything and everything about Assam budget</h2>
+                              <a href="https://union2020.openbudgetsindia.org/en/"> <h2 className="subh">Union Budget Explorer 2020-21</h2></a>
+                               <h2 className="ctext">Analyze everything about Union Budget 2020-21</h2>
                               </div>
                                 <img className="sarrow" src="/assets/icons/sidearrow.svg" alt="" />                        
                               </div>
@@ -191,33 +210,30 @@ const assam = ({data}) => {
                        <div className="column2">
                         <div className="card2">
                         <div className="subcd2">
-                              <div className="subim">
-                              </div>
+                        <img src="/assets/images/crd4.png" />
                               <div className="subp">
-                                  <h2 className="subh">Assam Budget Explorer 2019-20</h2>
-                                  <h2 className="ctext">Analyze anything and everything about Assam budget</h2>
+                              <a href="https://union2019.openbudgetsindia.org/en/"> <h2 className="subh">Union Budget Explorer 2019-20</h2></a>
+                               <h2 className="ctext">Analyze everything about Union Budget 2019-20</h2>
                               </div>
                                 <img className="sarrow" src="/assets/icons/sidearrow.svg" alt="" />                        
                               </div>
                          </div>
                          <div className="card2">
                          <div className="subcd2">
-                              <div className="subim">
-                              </div>
-                              <div className="subp">
-                                  <h2 className="subh">Assam Budget Explorer 2019-20</h2>
-                                  <h2 className="ctext">Analyze anything and everything about Assam budget</h2>
+                         <img src="/assets/images/crd5.png" />
+                             <div className="subp">
+                                  <a href='https://union2019i.openbudgetsindia.org/en/'><h2 className="subh">Union Budget Explorer 2019-20(I)</h2></a>
+                                  <h2 className="ctext">Analyze everything about Union Budget 2019-20(I)</h2>
                               </div>
                                 <img className="sarrow" src="/assets/icons/sidearrow.svg" alt="" />                        
                               </div>
                          </div>
                          <div className="card2">
                          <div className="subcd2">
-                              <div className="subim">
-                              </div>
-                              <div className="subp">
-                                  <h2 className="subh">Assam Budget Explorer 2019-20</h2>
-                                  <h2 className="ctext">Analyze anything and everything about Assam budget</h2>
+                         <img src="/assets/images/crd6.png" />
+                             <div className="subp">
+                              <a href='https://union2018.openbudgetsindia.org/en/'><h2 className="subh">Union Budget Explorer 2018-19</h2></a>
+                              <h2 className="ctext">Analyze everything about Union budget 2018-19</h2>
                               </div>
                                 <img className="sarrow" src="/assets/icons/sidearrow.svg" alt="" />                        
                               </div>
