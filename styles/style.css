@@ -4407,6 +4407,12 @@ button {
   grid-template-columns: 312px minmax(0, 1fr);
   margin-top: 2.5rem;
 }
+.explorer__viz1 {
+  display: block; 
+  gap: 2rem;
+  grid-template-columns: 312px minmax(0, 1fr);
+  margin-top: 2.5rem;
+}
 .explorer__viz h3 {
   font-weight: 800;
   font-size: 18px;
@@ -4416,6 +4422,11 @@ button {
 }
 @media screen and (max-width: 979px) {
   .explorer__viz {
+    grid-template-columns: 1fr;
+    display: block;
+    margin-top: 1.5rem;
+  }
+  .explorer__viz1 {
     grid-template-columns: 1fr;
     display: block;
     margin-top: 1.5rem;

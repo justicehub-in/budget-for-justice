@@ -337,7 +337,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
 
         </div>
 
-        <section className="explorer__viz container">
+        <section className="explorer__viz1 container">
 
           <div className="viz">
             <div className="viz__header">
