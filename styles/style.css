@@ -4792,7 +4792,7 @@ position: relative;
 height: 130px;
 width: 80%;
 margin: auto;
-background: #f0efe6;
+background: #cdc3ad;
 mix-blend-mode: multiply;
 border: 1px solid #CDD1CF;
 box-sizing: border-box;
@@ -5282,3 +5282,28 @@ background-clip: text;
   padding: 1%;
 }
 
+/*-----------------resource page  css---------*/
+
+
+.s2head1{
+  background: linear-gradient(162.85deg, #F1BD58 0%, #3F3A31 99.48%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 3%;
+  }
+  .s2txt1{
+    font-size: 25px;
+    padding: 1%; 
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+  }
+  .lasttxt1{
+    font-size: 20px;
+    margin-left: 12%;
+    padding: 2%;
+  }

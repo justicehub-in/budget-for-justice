@@ -59,7 +59,7 @@ const assam = ({data}) => {
                             </div>
                             <div id="textbox">
                               <p className="alignleft"><span className="ctext">02% of Total Budget</span></p>
-                                <a className="explore" href="">Explore</a>
+                                <a className="explore" href={"assam/Dataset%20-%20Jails"}>Explore</a>
                             </div>
                         </div>
                       </div>
@@ -77,7 +77,7 @@ const assam = ({data}) => {
                             </div>
                             <div id="textbox">
                               <p className="alignleft"><span className="ctext">02% of Total Budget</span></p>
-                               <a className="explore" href="">Explore</a>
+                               <a className="explore" href={"assam/Dataset%20-%20Administration%20of%20Justice"}>Explore</a>
                             </div>
                         </div>
                       </div>
@@ -95,7 +95,7 @@ const assam = ({data}) => {
                             </div>
                             <div id="textbox">
                               <p className="alignleft"><span className="ctext">02% of Total Budget</span></p>
-                              <a className="explore" href="">Explore</a>
+                              <a className="explore" href={"assam/Police"}>Explore</a>
                             </div>
                         </div>
                       </div>       
