@@ -4402,7 +4402,7 @@ button {
   color: rgba(0, 0, 0, 0.6);
 }
 .explorer__viz {
-  display: grid;
+  display: grid; 
   gap: 2rem;
   grid-template-columns: 312px minmax(0, 1fr);
   margin-top: 2.5rem;
@@ -4763,26 +4763,28 @@ button {
 
 
 
-.subhead{
+.screen1{
   background-color: white;
   padding-bottom: 10%;
 }
+.container1{
+  display: flex;
+  /* flex-wrap: wrap; */
+  list-style: none;
+}
 
-
-.screen{
+.cardbg{
   margin: 3%;
 }
-.cardd{
+.card{
 position: relative;
 height: 130px;
 width: 80%;
 margin: auto;
 background: #f0efe6;
 mix-blend-mode: multiply;
-/* Grey/05 */
 border: 1px solid #CDD1CF;
 box-sizing: border-box;
-/* el-(0,4,12,0.8) */
 box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
 border-radius: 8px;
 }
@@ -4830,10 +4832,15 @@ border-radius: 8px;
   opacity: 60%;
 }
 
-.container{
-  display: flex;
-  /* flex-wrap: wrap; */
-  list-style: none;
+.row {
+  margin: 0 -5px;
+  margin-left: 5px ;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .column {
@@ -4842,40 +4849,43 @@ border-radius: 8px;
   padding: 0 10px;
 }
 
-
-.row {
-  margin: 0 -5px;
-  margin-left: 5px ;
-}
-
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Style the counter cards */
-.card {
+.subcard {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
   background-color: white;
   border-radius: 2%;
 }
-.mid{
+
+
+.explore {
+  padding: 7px 14px;
+  line-height: 133%;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 200ms ease;
+  display: block;
+  background-color: #f65940;
+  color: #fdfcfc;
+  border: 1px solid #f65940;
+}
+
+.screen2{
     background-color: #E5E5E5;
 }
-.about__initiative.container{
+
+.about__initiative.container1{
   margin-left: 9%;
 }
-.midsp{
-  background: linear-gradient(162.85deg, #F1BD58 0%, #3F3A31 99.48%);
+
+.s2head{
+background: linear-gradient(162.85deg, #F1BD58 0%, #3F3A31 99.48%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 background-clip: text;
 }
-.midtx{
+.s2txt{
   font-size: 22px;
   padding-top: 5%;
   align-items: center;
@@ -4914,18 +4924,6 @@ background-clip: text;
   margin: 5%;
 }
 
-.explore {
-  padding: 7px 14px;
-  line-height: 133%;
-  border-radius: 4px;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 200ms ease;
-  display: block;
-  background-color: #f65940;
-  color: #fdfcfc;
-  border: 1px solid #f65940;
-}
 
 .space{
   width: 58%;
@@ -4955,24 +4953,24 @@ background-clip: text;
   margin-left: -1em;
 }
 
-.bann{
+.s2banner{
   display: flex;
   background-color: #F2DFBA;
   margin: auto;
   width: 80%;
   border-radius: 2%;
 }
-.bannc2{
+.s2bannerc2{
   float: left;
   margin-left: auto;
 }
-.bannc1{
+.s2bannerc1{
   display: block;
   margin: 2%;
   padding: 2%;
 }
 
-.banntxt{
+.s2bannerhead{
   font-weight: bold;
   font-size: 20px;
   width: 72%;
@@ -4980,10 +4978,10 @@ background-clip: text;
    line-height: 1.2;
 }
 
-.bannp{
+.s2bannertxt{
   margin-top: 2%;
 }
-.bannbut{
+.s2bannerbut{
   padding: 7px 14px;
   text-align: center;
   border-radius: 4px;
@@ -5026,12 +5024,9 @@ background-clip: text;
 }
 
 .subp{
-
   line-height: 1.5;
   margin-left: 2%;
-
-  text-align: justify;
-  
+  text-align: justify; 
 }
 .subp a{
   text-decoration: none;
@@ -5115,7 +5110,7 @@ background-clip: text;
     display:block;
     padding-bottom: 20px;
   }
-  .subhead {
+  .screen1 {
     background-color: white;
     padding-bottom: 80%;
 }
@@ -5140,20 +5135,20 @@ background-clip: text;
   width: fit-content;
 }
 
-.bann{
+.s2banner{
     display: grid;
     width: 95%;
     border-radius: 2%;
 }
-.banntxt{
+.s2bannerhead{
   font-size: 15px;
     width: 88%;
 }
-.bannp {
+.s2bannertxt {
   margin-top: 2%;
   font-size: 12px;
 }
-.bannbut {
+.s2bannerbut {
     padding: 7px 14px;
     text-align: center;
     border-radius: 4px;
@@ -5170,10 +5165,10 @@ background-clip: text;
 }
 
 @media screen and (max-width: 555px) {
-.container {
+.container1 {
   display: block;
 }
-.midtx {
+.s2txt {
    padding-top: 0;
 }
 }
@@ -5189,7 +5184,7 @@ background-clip: text;
 /*-------css for grant----------*/
 
 
-.subhead1{
+.screen{
   background-color: #F0EEEB;
 }
 .utxt{
