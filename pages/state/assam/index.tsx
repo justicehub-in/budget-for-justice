@@ -167,7 +167,7 @@ const assam = ({data}) => {
                   <div className="column2">
                       <div className="card2">
                             <div className="subcd2">
-                                <img src="/assets/images/crd1.png" />
+                                <img src="/assets/images/crd1.png" alt=""/>
                                  <div className="subp">
                                     <a href="https://union.openbudgetsindia.org/en/"><h2 className="subh">Union Budget Explorer 2022-23</h2></a>
                                     <h2 className="ctext">Analyze everything about Union budget 2022-2023</h2>
@@ -177,7 +177,7 @@ const assam = ({data}) => {
                            </div>
                           <div className="card2">
                              <div className="subcd2">
-                                <img src="/assets/images/crd2.png" />
+                                <img src="/assets/images/crd2.png" alt=""/>
                                   <div className="subp">
                                        <a href="https://union2021.openbudgetsindia.org/en/"> <h2 className="subh">Union Budget Explorer 2021-22</h2></a>
                                         <h2 className="ctext">Analyze everything about Union budget 2021-2022</h2>
@@ -187,7 +187,7 @@ const assam = ({data}) => {
                           </div>
                          <div className="card2">
                              <div className="subcd2">
-                                <img src="/assets/images/crd3.png" />
+                                <img src="/assets/images/crd3.png" alt=""/>
                                 <div className="subp">
                                   <a href="https://union2020.openbudgetsindia.org/en/"> <h2 className="subh">Union Budget Explorer 2020-21</h2></a>
                                   <h2 className="ctext">Analyze everything about Union Budget 2020-21</h2>
@@ -199,7 +199,7 @@ const assam = ({data}) => {
                        <div className="column2">
                            <div className="card2">
                               <div className="subcd2">
-                                   <img src="/assets/images/crd4.png" />
+                                   <img src="/assets/images/crd4.png" alt=""/>
                                     <div className="subp">
                                       <a href="https://union2019.openbudgetsindia.org/en/"> <h2 className="subh">Union Budget Explorer 2019-20</h2></a>
                                       <h2 className="ctext">Analyze everything about Union Budget 2019-20</h2>
@@ -209,7 +209,7 @@ const assam = ({data}) => {
                             </div>
                             <div className="card2">
                             <div className="subcd2">
-                            <img src="/assets/images/crd5.png" />
+                            <img src="/assets/images/crd5.png" alt=""/>
                                 <div className="subp">
                                       <a href='https://union2019i.openbudgetsindia.org/en/'><h2 className="subh">Union Budget Explorer 2019-20(I)</h2></a>
                                       <h2 className="ctext">Analyze everything about Union Budget 2019-20(I)</h2>
@@ -219,7 +219,7 @@ const assam = ({data}) => {
                             </div>
                             <div className="card2">
                               <div className="subcd2">
-                                <img src="/assets/images/crd6.png" />
+                                <img src="/assets/images/crd6.png" alt=""/>
                                 <div className="subp">
                                     <a href='https://union2018.openbudgetsindia.org/en/'><h2 className="subh">Union Budget Explorer 2018-19</h2></a>
                                     <h2 className="ctext">Analyze everything about Union budget 2018-19</h2>

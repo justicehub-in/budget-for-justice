@@ -42,6 +42,8 @@ type Props = {
   meta: any;
   fileData: any;
   allData: any;
+  grant: any;
+  scheme: any;
 };
 
 const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
@@ -469,7 +471,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   console.log("aADA", scheme);
   
   // get the grant resource url
-  var resUrl = '';
+  let resUrl = '';
   for (const res of data.resources) { 
 	if (res.name == grant) {
 		resUrl = res.url
