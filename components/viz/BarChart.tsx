@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as echarts from 'echarts/core';
-import { BarChart } from 'echarts/charts';
+import { BarChart, LineChart } from 'echarts/charts';
 import { CanvasRenderer } from 'echarts/renderers';
 import {
   GridComponent,
@@ -34,6 +34,8 @@ const BarChartViz: React.FC<BarChartProps> = ({
   Title,
   subTitle,
   left,
+  type,
+  smooth
 }) => {
   const [series, setSeries] = useState([]);
   const [option, setOption] = useState({});
@@ -43,7 +45,7 @@ const BarChartViz: React.FC<BarChartProps> = ({
     const vizSeries = [];
 
     let stackTrue = '';
-    if (stack == 'True') {
+    if (stack == true) {
       stackTrue = 'x';
     }
 
@@ -53,11 +55,11 @@ const BarChartViz: React.FC<BarChartProps> = ({
       columnLength++
     ) {
       vizSeries.push({
-        type: 'line',
+        type: type,
         barMaxWidht: 16,
         itemStyle: { color: theme[columnLength] },
         stack: stackTrue,
-		smooth: true,
+		smooth: smooth,
         label: {
           normal: {
             show: true,
@@ -120,6 +122,7 @@ const BarChartViz: React.FC<BarChartProps> = ({
 
   echarts.use([
     BarChart,
+    LineChart,
     CanvasRenderer,
     GridComponent,
     TitleComponent,

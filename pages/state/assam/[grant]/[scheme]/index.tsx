@@ -19,13 +19,11 @@ import {
 import { Download, ExternalLink } from 'components/icons/ListingIcons';
 import Indicator from 'components/analytics/Indicator';
 import Modal from 'react-modal';
-import SimpleBarLineChartViz from 'components/viz/SimpleBarLineChart';
 import BarChartViz from 'components/viz/BarChart';
 import Banner from 'components/_shared/Banner';
 import { resourceGetter } from 'utils/resourceParser';
 import Dropdown from 'components/_shared/dropdown';
 import { stateLineTransformer } from 'transformers/StateLineTransformer';
-import { barLineTransformer } from 'transformers/BarLineTransformer';
 import Table from 'components/_shared/Table';
 import { downloadPackage } from 'utils/downloadPackage';
 import SchemeModal from 'components/explorer/SchemeModal';
@@ -122,28 +120,29 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
           xAxisLabel="Fiscal Year"
           theme={['#4965B2', '#ED8686', '#69BC99']}
           dataset={stateLineTransformer(fileData, selectedIndicator)}
-          stack={true}
-          Title=""
-          subTitle=""
+          stack={false}
+          Title= {`Budgets for ${scheme} `}
+          subTitle={`Union budget data for the Department of  ${scheme} (2016-17 to 2022-23) `}
           left="8%"
+          type='line'
+          smooth={true}
         />
       ),
     },
     {
       id: 'barGraph',
       graph: (
-        <SimpleBarLineChartViz
-          color={'#00ABB7'}
-          dataset={barLineTransformer(finalFiltered, selectedIndicator)}
-          type="bar"
+        <BarChartViz
+          yAxisLabel="Value (in crores)"
+          xAxisLabel="Fiscal Year"
+          theme={['#4965B2', '#ED8686', '#69BC99']}
+          dataset={stateLineTransformer(fileData, selectedIndicator)}
+          stack={false}
+          Title= {`Budgets for ${scheme} `}
+          subTitle={`Union budget data for the Department of  ${scheme} (2016-17 to 2022-23) `}
+          left="8%"
+          type='bar'
           smooth={true}
-          showSymbol={true}
-          Title={
-            selectedIndicator +
-            (budgetTypes.length > 1 ? ' - ' + selectedBudgetType : '')
-          }
-          subTitle={data.title}
-          unit={crData.includes(selectedIndicator) ? 'Cr' : '%'}
         />
       ),
     },	
@@ -152,11 +151,11 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
       graph: (
         <Table
           headers={
-            indicatorFiltered[0]
-              ? Object.keys(indicatorFiltered[0])
+            fileData[0]
+              ? Object.keys(fileData[0])
               : ['header1']
           }
-          rows={indicatorFiltered.map(Object.values)}
+          rows={fileData.map(Object.values)}
           caption="Table"
           sortable
         />
