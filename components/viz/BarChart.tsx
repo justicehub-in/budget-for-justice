@@ -19,10 +19,12 @@ interface BarChartProps {
   yAxisLabel: string;
   theme: string[];
   dataset: any;
-  stack: string;
+  stack: boolean;
   Title: string;
   subTitle: string;
   left: string,
+  type: string,
+  smooth: boolean
 }
 
 const BarChartViz: React.FC<BarChartProps> = ({
