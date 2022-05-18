@@ -30,6 +30,10 @@ const assam = ({data}) => {
 	const router = useRouter();
     const [selectedHighlight, setSelectedHighlight] = useState("Law and Justice");
     
+    const seo = {
+    title: 'Budgets for Justice | Assam',
+    };
+    
     function togglehighlight(item) {
         console.log(item)
         setSelectedHighlight(item);
@@ -37,7 +41,7 @@ const assam = ({data}) => {
 	
     return (
       <>
-     
+        <Seo seo={seo} />
         <div className="screen1">
             <div className="about__initiative container1">
                 <div>

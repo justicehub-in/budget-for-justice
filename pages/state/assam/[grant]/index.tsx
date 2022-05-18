@@ -30,9 +30,15 @@ const grant = ({data, fileData, grant}) => {
 	
 	let uniqueSchemes = fileData.filter(obj => {return obj.category === selectedCat});
 	uniqueSchemes = uniqueSchemes.filter((v,i,a)=>a.findIndex(t=>(t.display_title === v.display_title))===i)
+    
+    const seo = {
+    title: `${grant} | Assam | Budgets for Justice`,
+    description: `${grant} | Assam | Budgets for Justice`,
+  };
 	
     return (
       <>
+        <Seo seo={seo} />
         <div className="screen">
               <div><Link href={"/state/assam"}><a className="utxt">Home</a></Link></div>
               <div className="about__initiative container1">

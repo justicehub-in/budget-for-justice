@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { GetServerSideProps } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import {
   tabbedInterface,
   fetchAPI,
@@ -47,6 +48,7 @@ type Props = {
 };
 
 const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
+  const router = useRouter();  
   const [schemeModalOpen, setSchemeModalOpen] = useState(false);
   const [selectedIndicator, setSelectedIndicator] =
     useState('Budget Estimates');
@@ -284,9 +286,9 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
     setFinalFiltered(finalFiltered);
   }
 
-  const seo = {
-    title: `${stripTitle(data.title)} - Budgets for Justice`,
-    description: data.notes,
+    const seo = {
+    title: `${scheme} | Assam | Budgets for Justice`,
+    description: `${scheme} | Assam | Budgets for Justice`,
   };
 
   return (
@@ -305,7 +307,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
             <div className="explorer__content">
              
               <div>
-                <h2>{data.title}</h2>
+                <h2>{`${data.title} - ${scheme}`}</h2>
 
               </div>
             </div>
@@ -423,11 +425,11 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
 
         <section className="explorer__schemes">
           <div className="container">
-            <h3 className="heading">Explore other Budget Datasets</h3>
+            <h3 className="heading">Explore other Scheme Budget Datasets</h3>
             <p className="home__sub-head">
-              Search for other relevant dataset using the Select Another Scheme
-              button from above or view all datasets on the{' '}
-              <Link href={'/datasets'}>
+              Search for other relevant scheme using the Select Another Scheme
+              button from above or view all grants on the{' '}
+              <Link href={'/state/assam'}>
                 <a className="text-link">datasets listing</a>
               </Link>{' '}
               page.
@@ -439,15 +441,15 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
                   return (
                     <Link
                       key={`relavant-${index}`}
-                      href={`/datasets/${item.id}`}
+                      href={{pathname:`${router.pathname}`, query: { grant: grant, scheme: item}}}
                     >
                       <a>
                         <article>
                           <header>
-                            <h3>{item.title}</h3>
+                            <h3>{item}</h3>
 
                           </header>
-                          <p>{item.notes}</p>
+                          <p>{}</p>
                         </article>
                       </a>
                     </Link>
@@ -481,8 +483,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // fetch and parse grant csv
   let fileData = await resourceGetter(resUrl, true);
   
+   // fetch related schemes
+  const relatedSchemes = [...new Set(fileData.map(item => item.display_title || ''))].splice(0,2);  
+  data.relatedSchemes = relatedSchemes;
+  
   //filter data for scheme
   fileData = fileData.filter(obj => {return obj.display_title === scheme});
+  
   console.log(fileData)
   return {
     props: {
