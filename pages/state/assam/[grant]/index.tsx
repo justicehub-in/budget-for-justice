@@ -34,11 +34,11 @@ const grant = ({data, fileData, grant}) => {
     return (
       <>
         <div className="screen">
-              <div><a className="utxt">Home</a></div>
+              <div><Link href={"/state/assam"}><a className="utxt">Home</a></Link></div>
               <div className="about__initiative container1">
                 <div>
-                  <h2 className="heading">{grant} Budget</h2>
-                  <h2 className="subtxt">Grant No. 14</h2>
+                  <h2 className="heading">{grant.split("-")[1]} Budget</h2>
+                  <h2 className="subtxt">{grant.split("-")[0]}</h2>
                 </div>
               </div> 
               <div className="subscreen">
@@ -108,14 +108,14 @@ const grant = ({data, fileData, grant}) => {
                           ))}
                       </ul>
                   </section>
-                 <div className="subfoot">
+                  {/* <div className="subfoot">
                         <div className="alignleft1">
                         Showing 25 of 160 
                         </div>
                         <div className="alignright">
                         <a className="explore" href="">Load More</a>
                         </div>
-                </div>
+                  </div> */}
         </>
   );
 };

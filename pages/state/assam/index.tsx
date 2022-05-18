@@ -17,12 +17,23 @@ import Seo from 'components/_shared/seo';
 
 import { ListingHeader } from 'animation/listingHeader';
 
-export const iconObj = {"Dataset - Administration of Justice":"/assets/icons/justice.svg", "Dataset - Jails":"/assets/icons/jail.svg", "Police":"/assets/icons/police.svg", "law":"/assets/icons/law.svg"};
+export const iconObj = {"Justice":"/assets/icons/justice.svg", "Jails":"/assets/icons/jail.svg", "Police":"/assets/icons/police.svg", "Law and Justice":"/assets/icons/law.svg"};
 	
+export const highlights = {"Law and Justice":["In Assam, the total share of the Law and Justice budget, which includes the budget for Administration of Justice, Jails, and Police, is 6.5%.", "Though the total expenditure budget has increased by 11.1 % over the previous year, the law and justice budget saw an increase of only 1%", "Within the Law and Justice category, Jails (Grant No. 15) received the maximum increase of 45.5% in terms of budget allocation as compared with the budget estimates for 2021-22. This is followed by Police (Grant No. 14) with an increase of 33.5%. The allocated budget for the Administration of Justice (Grant No. 3) got increased by 19.18%."], 
+"Jails":["The share of budget allocated for Diet ranges between 12% to 13% of the entire budget for Jails.", "The share of budget allocated for diets in 2021-22 is 12.9 % which is lesser than the share in 2020-21 which was 13.68%", "In 2021-22, 38.6% of the entire estimated budget for Jails was allocated to the Salaries head under District Jails. This is the largest share among all heads present within the Jails grant.", "Share of the estimated budget allocated for Capital Outlay on Public Works ranges from 14% (in 2018-19) to 18% (in 2021-22)", "Share of the estimated budget under centrally sponsored schemes is between 1% to 2 %"],
+"Justice":["Share of the estimated budget allocated to Civil and Session Courts has increased from 23.9 % in 2018-19 to 28.64 % in 2021-22 whereas that of Criminal Courts has increased from 15.16 % in 2018-19 to 28.7 % in 2021-22", "Share of the estimated budget allocated to High Courts has increased from 9.53 % in 2018-19 to 13.81 % in 2021-22", "Share of the estimated budget allocated for Capital Outlay on Public Works has decreased from 18.18% (in 2018-19) to 9.32% (in 2021-22)", "Share of the estimated budget allocated for Legal aid to the poor has seen a marginal increase from 1.77% (in 2018-19) to 2.75% (in 2021-22)", "Share of the estimated budget allocated for Legal Advisers and Counsels which includes the budget for Public Prosecutors, government advocates, advocate generals, etc) decreased from 10.73% (in 2019-20) to 8.48% (in 2021-22)"], 
+"Police":["The share of budget allocated to District police which includes heads such as Salaries, Purchase of Motor vehicles, rent, Maintenance, etc has been the highest in the last 4 years. The share has increased from 27% in 2018-19 to 30% in 2021-22", "The share of the budget allocated for Armed Police Battalions ranges from 17% - to 18% of the entire budget", "The budget allocated for National Scheme for Modernisation of Police & Other Forces is 0.32% in 2021-22", "The share of budget allocated under Education and Training related heads has decreased from 1.01 % in 2018-19 to 0.77% in 2021-22", "The share of budget allocated under Welfare of Police Personnel related heads has decreased from 0.17 % in 2018-19 to 0.14% in 2021-22"]};
+
 
 const assam = ({data}) => {
 
 	const router = useRouter();
+    const [selectedHighlight, setSelectedHighlight] = useState("Law and Justice");
+    
+    function togglehighlight(item) {
+        console.log(item)
+        setSelectedHighlight(item);
+     }
 	
     return (
       <>
@@ -40,7 +51,7 @@ const assam = ({data}) => {
                <div id="textbox">
                   <p className="alignleft">Total Budget - Assam</p>
                   <p className="alignright">
-                    ₹ 1,07,556 Cr.&nbsp;|&nbsp;<span className="special">02% &nbsp;
+                    ₹ 1,19,551.06 Cr.&nbsp;|&nbsp;<span className="special">11.1% &nbsp;
                     <img className="profitup" src="/assets/icons/profit.svg" alt="" /></span>
                   </p>
                </div>
@@ -49,17 +60,17 @@ const assam = ({data}) => {
                         <div className="subcard">
                             <div id="textbox">
                               <p className="alignleft">Jails</p>
-                              <p className="alignright"><span className="ctext">Grant No. 023</span></p>
+                              <p className="alignright"><span className="ctext">Grant No. 15</span></p>
                             </div>
                             <hr></hr>
                             <div id="textbox">
-                              <p className="alignleft">₹ 16,966 Cr</p>
-                              <p className="alignright"><span className="special1">05% &nbsp;
-                              <img className="profitdn" src="/assets/icons/loss.svg" alt="" /></span></p>
+                              <p className="alignleft">₹ 159.78 Cr</p>
+                              <p className="alignright"><span className="special">45.4% &nbsp;
+                              <img className="profitup" src="/assets/icons/profit.svg" alt="" /></span></p>
                             </div>
                             <div id="textbox">
-                              <p className="alignleft"><span className="ctext">02% of Total Budget</span></p>
-                                <a className="explore" href={"assam/Dataset%20-%20Jails"}>Explore</a>
+                              <p className="alignleft"><span className="ctext">0.0013% of Total Budget</span></p>
+                                <a className="explore" href={"assam/Grant No 15 - Jails"}>Explore</a>
                             </div>
                         </div>
                       </div>
@@ -67,17 +78,17 @@ const assam = ({data}) => {
                         <div className="subcard">
                         <div id="textbox">
                               <p className="alignleft">Justice</p>
-                              <p className="alignright"><span className="ctext">Grant No. 023</span></p>
+                              <p className="alignright"><span className="ctext">Grant No. 3</span></p>
                             </div>
                             <hr></hr>
                             <div id="textbox">
-                              <p className="alignleft">₹ 61,255 Cr</p>
-                              <p className="alignright"><span className="special">02% &nbsp;
+                              <p className="alignleft">₹ 728.51 Cr</p>
+                              <p className="alignright"><span className="special">19.18% &nbsp;
                               <img className="profitup" src="/assets/icons/profit.svg" alt="" /></span></p>
                             </div>
                             <div id="textbox">
-                              <p className="alignleft"><span className="ctext">02% of Total Budget</span></p>
-                               <a className="explore" href={"assam/Dataset%20-%20Administration%20of%20Justice"}>Explore</a>
+                              <p className="alignleft"><span className="ctext">0.006% of Total Budget</span></p>
+                               <a className="explore" href={"assam/Grant No 3 - Administration of Justice"}>Explore</a>
                             </div>
                         </div>
                       </div>
@@ -85,17 +96,17 @@ const assam = ({data}) => {
                         <div className="subcard">
                         <div id="textbox">
                               <p className="alignleft">Police</p>
-                              <p className="alignright"><span className="ctext">Grant No. 023</span></p>
+                              <p className="alignright"><span className="ctext">Grant No. 14</span></p>
                             </div>
                             <hr></hr>
                             <div id="textbox">
-                              <p className="alignleft">₹ 16,966 Cr</p>
-                              <p className="alignright"><span className="special">03% &nbsp;
+                              <p className="alignleft">₹ 6920.6 Cr</p>
+                              <p className="alignright"><span className="special">33.5% &nbsp;
                               <img className="profitup" src="/assets/icons/profit.svg" alt="" /></span></p>
                             </div>
                             <div id="textbox">
-                              <p className="alignleft"><span className="ctext">02% of Total Budget</span></p>
-                              <a className="explore" href={"assam/Police"}>Explore</a>
+                              <p className="alignleft"><span className="ctext">0.058% of Total Budget</span></p>
+                              <a className="explore" href={"assam/Grant No 14 - Police"}>Explore</a>
                             </div>
                         </div>
                       </div>       
@@ -112,7 +123,7 @@ const assam = ({data}) => {
             </div>
             <div className="dis">
                 <div className="column1">
-                  {data.resources.map((item, index) => (
+                {/*                   {data.resources.map((item, index) => (
                     <div className="card1" key={`grant-${index}`}>
                         <Link href={`${router.pathname}/${item.name}`}>
                         <div className="alignleft1">
@@ -121,25 +132,23 @@ const assam = ({data}) => {
                         </div>
                       </Link>
                     </div>
-                  ))}
+))} */}
+                {Object.keys(highlights).map((item, index) => (
+                    <div className="card1" style={{cursor:"pointer"}} key={`grant-${index}`} onClick={() => togglehighlight(item)}>
+                        <div className="alignleft1">
+                          <img className="profitup1" src={iconObj[item]} alt="" />                        
+                          <h2>{item}</h2> 
+                        </div>
+                    </div>
+                ))}
                 </div>
                 <div className="space">
-                   <ul>    
+                   <ul> 
+                    {highlights[selectedHighlight].map((item, index) => (
                           <li>
-                          The total share of the Law and Justice budget, in Assam, which includes the budget for Administration of Justice, Jails, and Police is 6.5%. 
+                            {item}
                           </li>
-                          <hr></hr>
-                          <li>
-                          The total share has seen an increase of 1% as compared to the previous budget where the total share was around 5.5%.
-                          </li>
-                          <hr></hr>
-                          <li>
-                          Within the Law and Justice category, Jails (Grant No. 15) received the maximum increase of 45.5% in terms of budget allocation as compared with the budget estimates for 2021-22. This is followed by Police (Grant No. 14) with an increase of 33.5%. The allocated budget for Administration of Justice (Grant No. 3) got increased by 19.18%.
-                          </li>
-                          <hr></hr>
-                          <li>
-                          The total share of the Law and Justice budget, in Assam, which includes the budget for Administration of Justice, Jails, and Police is 6.5%.
-                          </li>
+                    ))}                   
                     </ul>
                  </div>
            </div>
@@ -159,7 +168,7 @@ const assam = ({data}) => {
                </div>
                <div className="about__initiative container1">
                   <div>                  
-                      <h3 className="s2head">Explore Others</h3>
+                      <h3 className="s2head">Explore Other</h3>
                       <h2 className="s2txt">Relevant Platforms & Guidebooks</h2>
                   </div>
               </div>
@@ -268,6 +277,13 @@ const assam = ({data}) => {
                             <p className="sp8"></p>
                             <p>Sadad adnnd akdmafl aldmavdv ewnbyj dgeg fherhe</p>
                          </div>
+                         <a
+                          rel="noreferrer noopener"
+                          href="/state/assam/resources"
+                          className="btn-primary footer__substack"
+                        >
+                          Explore More
+                        </a>
                      </div>
 
 
