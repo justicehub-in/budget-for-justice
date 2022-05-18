@@ -175,7 +175,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
         <div>
           <a
             className="btn-primary-invert"
-            href={`https://justicehub.in/dataset/${data.id}`}
+            href={`https://justicehub.in/dataset/${data.name}`}
             rel="noreferrer"
             target="_blank"
           >
@@ -408,13 +408,9 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
                 </a>
                 <DownloadViz
                   viz={currentViz}
-                  type={selectedBudgetType}
-                  indicator={
-                    indicatorFiltered[0]
-                      ? indicatorFiltered[0]['indicators']
-                      : 'Budget Estimates'
-                  }
-                  name={data.title}
+                  type={''}
+                  indicator={''}
+                  name={`data for the ${scheme}`}
                 />
               </div>
             </div>
@@ -472,13 +468,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   
   console.log("aADA", scheme);
   
-  // get the grant resource url
+  // get the grant resource url 
+  let allresUrls = [];
   let resUrl = '';
   for (const res of data.resources) { 
 	if (res.name == grant) {
 		resUrl = res.url
 	}
+    allresUrls.push(res.url)
   }
+  // get all res url for download
+  data.resUrls = allresUrls
   
   // fetch and parse grant csv
   let fileData = await resourceGetter(resUrl, true);
