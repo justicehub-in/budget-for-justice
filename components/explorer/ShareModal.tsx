@@ -7,9 +7,10 @@ import {
   Twitter,
 } from 'components/icons/ExplorerIcons';
 
-const ShareModal = ({ title }) => {
+const ShareModal = ({ title, path }) => {
   const router = useRouter();
 
+  
   // open / close sub-menu
   function shareButtonHandler(e: any) {
     function hideMenu() {
@@ -33,10 +34,10 @@ const ShareModal = ({ title }) => {
     }
 
     // check if web share api is supported
-    if (navigator.share) {
+    if (navigator.share) { 
       navigator.share({
         text: title,
-        url: `https://budgets.justicehub.in/datasets/${router.query.explorer}`,
+        url: path,
       });
     } else {
       // if clicked on already opened menu, close
@@ -68,7 +69,7 @@ const ShareModal = ({ title }) => {
           <a
             target="_blank"
             rel="noreferrer"
-            href={`https://www.facebook.com/sharer.php?u=https://budgets.justicehub.in/datasets/${router.query.explorer}`}
+            href={`https://www.facebook.com/sharer.php?u=${path}`}
           >
             <Facebook />
             <span>Facebook</span>
@@ -79,7 +80,7 @@ const ShareModal = ({ title }) => {
           <a
             target="_blank"
             rel="noreferrer"
-            href={`https://twitter.com/intent/tweet?url=https://budgets.justicehub.in/datasets/${router.query.explorer}`}
+            href={`https://twitter.com/intent/tweet?url=${path}`}
           >
             <Twitter />
             <span>Twitter</span>
@@ -90,7 +91,7 @@ const ShareModal = ({ title }) => {
           <a
             target="_blank"
             rel="noreferrer"
-            href={`https://www.linkedin.com/shareArticle?url=https://budgets.justicehub.in/datasets/${router.query.explorer}`}
+            href={`https://www.linkedin.com/shareArticle?url=${path}`}
           >
             <Linkedin />
             <span>LinkedIn</span>
@@ -101,7 +102,7 @@ const ShareModal = ({ title }) => {
           <a
             target="_blank"
             rel="noreferrer"
-            href={`https://www.reddit.com/submit?url=https://budgets.justicehub.in/datasets/${router.query.explorer}`}
+            href={`https://www.reddit.com/submit?url=${path}`}
           >
             <Reddit />
             <span>Reddit</span>

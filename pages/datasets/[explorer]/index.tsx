@@ -29,6 +29,7 @@ import SchemeModal from 'components/explorer/SchemeModal';
 import ShareModal from 'components/explorer/ShareModal';
 import IndicatorAlter from 'components/explorer/IndicatorAlter';
 import Seo from 'components/_shared/seo';
+import { useRouter } from 'next/router';
 
 const DownloadViz = dynamic(() => import('components/explorer/DownloadViz'), {
   ssr: false,
@@ -53,6 +54,8 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   const [selectedBudgetType, setSelectedBudgetType] = useState('');
   const [isTable, setIsTable] = useState(false);
   const [currentViz, setCurrentViz] = useState('#barGraph');
+  
+  const router = useRouter(); 
 
   // todo: make it dynamic lie scheme dashboard
   const IndicatorDesc = [
@@ -317,7 +320,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
                 data={allData}
               />
             </div>
-            {<ShareModal title={data.title} />}
+            {<ShareModal title={data.title} path={`https://budgets.justicehub.in/datasets/${router.query.explorer}`} />}
           </div>
 
           <section className="explorer__heading container">
@@ -486,6 +489,7 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
                                 <li key={`relevantTags-${index}-${list}`}>
                                   {tag}
                                 </li>
+                              ))}
                               ))}
                             </ul>
                           </header>

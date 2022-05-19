@@ -290,6 +290,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
     title: `${scheme} | Assam | Budgets for Justice`,
     description: `${scheme} | Assam | Budgets for Justice`,
   };
+  
 
   return (
     <>
@@ -300,7 +301,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
             <div className="explorer__scheme-change">
 
             </div>
-            {<ShareModal title={data.title} />}
+            {<ShareModal title={data.title} path={`/state/assam/${grant}/${scheme}`} />}
           </div>
 
           <section className="explorer__heading container">
