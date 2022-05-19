@@ -4803,6 +4803,11 @@ button {
   /* flex-wrap: wrap; */
   list-style: none;
 }
+.subheading{
+  font-weight: 700;
+  color: #00000052;
+  font-size: 1.4rem;
+}
 
 .cardbg {
   margin: 3%;
@@ -4866,6 +4871,7 @@ button {
 }
 
 .row {
+  display: flex;
   margin: 0 -5px;
   margin-left: 5px;
 }
@@ -4877,7 +4883,6 @@ button {
 }
 
 .column {
-  float: left;
   width: 33%;
   padding: 0 10px;
 }
@@ -4991,8 +4996,8 @@ button {
   border-radius: 2%;
 }
 .s2bannerc2 {
-  float: left;
-  margin-left: auto;
+  margin: auto;
+  width: 25%;
 }
 .s2bannerc1 {
   display: block;
@@ -5015,10 +5020,10 @@ button {
   padding: 7px 14px;
   text-align: center;
   border-radius: 4px;
-  width: 30%;
+  width: auto;
+  display: inline-block;
   text-decoration: none;
   margin-top: 2%;
-  display: block;
   background-color: #83611e;
   color: #fdfcfc;
   border: 1px solid #83611e;
@@ -5054,7 +5059,7 @@ button {
 .subp {
   line-height: 1.5;
   margin-left: 2%;
-  text-align: justify;
+  text-align: initial;
 }
 .subp a {
   text-decoration: none;
@@ -5084,50 +5089,67 @@ button {
 }
 
 .sp1 {
-  width: 1%;
+  width: 13px;
+  height: 14px;
+  margin: 2px;
   margin-right: 1%;
   background-color: #4abebe;
 }
 .sp2 {
-  width: 1%;
+  width: 13px;
+  height: 14px;
+  margin: 2px;
   margin-right: 1%;
   background-color: #f1bd58;
 }
 
 .sp3 {
-  width: 1%;
+  width: 13px;
+  height: 14px;
+  margin: 2px;
   margin-right: 1%;
   background-color: #de7992;
 }
 .sp4 {
-  width: 1%;
+  width: 13px;
+  height: 14px;
+  margin: 2px;
   margin-right: 1%;
   background-color: #bcac8e;
 }
 
 .sp5 {
-  width: 1%;
+  width: 13px;
+  height: 14px;
+  margin: 2px;
   margin-right: 1%;
   background-color: #7e7360;
 }
 .sp6 {
-  width: 1%;
+  width: 13px;
+  height: 14px;
+  margin: 2px;
   margin-right: 1%;
   background-color: #a37c2f;
 }
 
 .sp7 {
-  width: 1%;
+  width: 13px;
+  height: 14px;
+  margin: 2px;
   margin-right: 1%;
   background-color: #286767;
 }
 .sp8 {
-  width: 1%;
+  width: 13px;
+  height: 14px;
+  margin: 2px;
   margin-right: 1%;
   background-color: #b831da;
 }
 
 /* Responsive columns */
+
 @media screen and (max-width: 820px) {
   .column {
     width: 100%;
@@ -5136,11 +5158,17 @@ button {
   }
   .screen1 {
     background-color: #ded8d3;
-    padding-bottom: 80%;
+    min-height: 123vh;
   }
+
   .dis {
     display: block;
     margin-bottom: 3%;
+  }
+
+  .row {
+    display: block;
+    margin: auto;
   }
   .column1 {
     display: contents;
@@ -5158,11 +5186,6 @@ button {
     width: fit-content;
   }
 
-  .s2banner {
-    display: grid;
-    width: 95%;
-    border-radius: 2%;
-  }
   .s2bannerhead {
     font-size: 15px;
     width: 88%;
@@ -5170,12 +5193,6 @@ button {
   .s2bannertxt {
     margin-top: 2%;
     font-size: 12px;
-  }
-  .s2bannerbut {
-    padding: 7px 14px;
-    text-align: center;
-    border-radius: 4px;
-    width: 33%;
   }
   .grpcard {
     display: block;
@@ -5197,17 +5214,20 @@ button {
   .grpcard {
     width: 90%;
   }
-}
-@media screen and (max-width: 515px) {
   .screen1 {
     background-color: #ded8d3;
-    padding-bottom: 110%;
+    min-height: 113vh;
   }
 }
-
-@media (min-width: 420px) and (max-width: 515px) {
-  .screen2 {
-    margin-top: -15%;
+@media screen and (max-width: 500px) {
+  .card {
+    width: auto;
+  }
+  .lasttxt {
+    margin: 4%;
+  }
+  .subheading{
+    margin-bottom: 3%;
   }
 }
 
@@ -5262,6 +5282,7 @@ button {
   margin: 2%;
   background-color: white;
 }
+
 .midtx1 {
   font-size: 22px;
   align-items: center;
@@ -5297,7 +5318,7 @@ button {
   padding: 1%;
 }
 
-@media screen and (max-width: 870px) {
+@media screen and (max-width: 820px) {
   .subscreen {
     display: block;
   }
@@ -5319,6 +5340,20 @@ button {
   }
 }
 
+@media screen and (max-width: 520px) {
+  .alig {
+    display: flex;
+    justify-content: space-evenly;
+    margin: inherit;
+  }
+  .headfoot {
+    display: block;
+    margin: 2%;
+  }
+  .headfoot input[type='text'] {
+    margin-left: 0%;
+  }
+}
 /*-----------------resource page  css---------*/
 
 .s2head1 {
@@ -5342,4 +5377,10 @@ button {
   font-size: 20px;
   margin-left: 12%;
   padding: 2%;
+}
+
+@media screen and (max-width: 600px) {
+  .lasttxt1 {
+    margin: 4%;
+  }
 }
