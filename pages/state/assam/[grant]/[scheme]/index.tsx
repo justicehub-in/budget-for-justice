@@ -470,7 +470,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   console.log("aADA", scheme);
   
   // get the grant resource url 
-  let allresUrls = [];
+  const allresUrls = [];
   let resUrl = '';
   for (const res of data.resources) { 
 	if (res.name == grant) {

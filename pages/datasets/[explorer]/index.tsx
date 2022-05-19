@@ -490,7 +490,6 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
                                   {tag}
                                 </li>
                               ))}
-                              ))}
                             </ul>
                           </header>
                           <p>{item.notes}</p>

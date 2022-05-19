@@ -138,7 +138,7 @@ const assam = ({data}) => {
                     </div>
 ))} */}
                 {Object.keys(highlights).map((item, index) => (
-                    <div className="card1" style={{cursor:"pointer"}} key={`grant-${index}`} onClick={() => togglehighlight(item)}>
+                    <div className="card1" style={{cursor:"pointer"}} key={`grant-${index}`} role = "button" tabIndex={0} onClick={() => togglehighlight(item)} onKeyDown={() => togglehighlight(item)}>
                         <div className="alignleft1">
                           <img className="profitup1" src={iconObj[item]} alt="" />                        
                           <h2>{item}</h2> 
@@ -149,7 +149,7 @@ const assam = ({data}) => {
                 <div className="space">
                    <ul> 
                     {highlights[selectedHighlight].map((item, index) => (
-                          <li>
+                          <li key={`highlight-${index}`}>
                             {item}
                           </li>
                     ))}                   
