@@ -101,8 +101,26 @@ const grant = ({data, fileData, grant}) => {
                             </div>
                           </div>
                      </div>
-                        <div className="spac"> </div>
-            </div>
+                        <div className="space">
+                        <ul>    
+                          <li>
+                          The total share of the Law and Justice budget, in Assam, which includes the budget for Administration of Justice, Jails, and Police is 6.5%. 
+                          </li>
+                          <hr></hr>
+                          <li>
+                          The total share has seen an increase of 1% as compared to the previous budget where the total share was around 5.5%.
+                          </li>
+                          <hr></hr>
+                          <li>
+                          Within the Law and Justice category, Jails (Grant No. 15) received the maximum increase of 45.5% in terms of budget allocation as compared with the budget estimates for 2021-22. This is followed by Police (Grant No. 14) with an increase of 33.5%. The allocated budget for Administration of Justice (Grant No. 3) got increased by 19.18%.
+                          </li>
+                          <hr></hr>
+                          <li>
+                          The total share of the Law and Justice budget, in Assam, which includes the budget for Administration of Justice, Jails, and Police is 6.5%.
+                          </li>
+                        </ul>
+                     </div>
+                     </div>
 
                   <div className="headfoot">
                       <h3 className="midtx1">Schemes</h3>
