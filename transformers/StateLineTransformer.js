@@ -15,11 +15,11 @@ export function stateLineTransformer(data, indicator) {
       
   }   
 
-   for (var i = 0; i < data.length; i++) {
+  {/* for (var i = 0; i < data.length; i++) {
         final_data1.push([data[i]["year"], (parseFloat(data[i]["total_actuals"])), (parseFloat(data[i]["total_estimate_py"])), (parseFloat(data[i]["total_revised_py"])), (parseFloat(data[i]["total_estimate_cy"]))]);
       }    
       
 
-  console.log("fnd", final_data1, final_data);
+  console.log("fnd", final_data1, final_data); */}
   return final_data;
 }

@@ -27,7 +27,7 @@ import Dropdown from 'components/_shared/dropdown';
 import { stateLineTransformer } from 'transformers/StateLineTransformer';
 import Table from 'components/_shared/Table';
 import { downloadPackage } from 'utils/downloadPackage';
-import SchemeModal from 'components/explorer/SchemeModal';
+import StateSchemeModal from 'components/explorer/StateSchemeModal';
 import ShareModal from 'components/explorer/ShareModal';
 import IndicatorAlter from 'components/explorer/IndicatorAlter';
 import Seo from 'components/_shared/seo';
@@ -47,7 +47,7 @@ type Props = {
   scheme: any;
 };
 
-const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
+const Analysis: React.FC<Props> = ({ data, fileData, searchData, grant, scheme }) => {
   const router = useRouter();  
   const [schemeModalOpen, setSchemeModalOpen] = useState(false);
   const [selectedIndicator, setSelectedIndicator] =
@@ -60,7 +60,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
   const [currentViz, setCurrentViz] = useState('#barGraph');
 
   // todo: make it dynamic lie scheme dashboard
-
+  
   const vizToggle = [
     {
       name: 'Line Chart',
@@ -299,6 +299,20 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
         <div className="explorer__header">
           <div className="explorer__buttons container">
             <div className="explorer__scheme-change">
+              <a href="/datasets" className="btn-secondary">
+                Select Another Scheme
+              </a>
+              <button
+                className="btn-secondary"
+                onClick={() => schemeModalHandler()}
+              >
+                Select Another Scheme
+              </button>
+              <StateSchemeModal
+                isOpen={schemeModalOpen}
+                handleModal={schemeModalHandler}
+                data={searchData}
+              />
 
             </div>
             {<ShareModal title={data.title} path={`/state/assam/${grant}/${scheme}`} />}
@@ -315,7 +329,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
           </section>
         </div>
 
-        {/* <section className="explorer__summary container">
+        <section className="explorer__summary container">
           <h3 className="sr-only">Scheme Summary</h3>
           <ul>
             <li>
@@ -335,7 +349,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, grant, scheme }) => {
               <span>of Dev. Budget</span>
             </li>
           </ul>
-        </section> */}
+        </section> 
 
         <div className="container">
 
@@ -467,7 +481,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const grant = context.query.grant;
   const scheme = context.query.scheme;
   
-  console.log("aADA", scheme);
+  // console.log("aADA", scheme);
   
   // get the grant resource url 
   const allresUrls = [];
@@ -491,11 +505,23 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   //filter data for scheme
   fileData = fileData.filter(obj => {return obj.display_title === scheme});
   
-  console.log(fileData)
+  
+  // create search Array
+  const searchData = {};
+  for (const res of data.resources) { 
+	if (res.name.includes("Grant No")) {
+        let resData = await resourceGetter(res.url, true);
+        let unique_scheme = [...new Set(resData.map(item => item.display_title || ''))]; 
+		searchData[res.name] = unique_scheme
+	}
+  }  
+  
+  // console.log('filedata', fileData)
   return {
     props: {
       data,
 	  fileData,
+      searchData,
 	  grant,
 	  scheme
     },
