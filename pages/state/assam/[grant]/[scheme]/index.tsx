@@ -42,6 +42,7 @@ type Props = {
   data: any;
   meta: any;
   fileData: any;
+  searchData: any;
   allData: any;
   grant: any;
   scheme: any;
@@ -510,9 +511,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const searchData = {};
   for (const res of data.resources) { 
 	if (res.name.includes("Grant No")) {
-        let resData = await resourceGetter(res.url, true);
-        let unique_scheme = [...new Set(resData.map(item => item.display_title || ''))]; 
-		searchData[res.name] = unique_scheme
+        const resData = await resourceGetter(res.url, true);
+        const unique_scheme = [...new Set(resData.map(item => item.display_title || ''))]; 
+	searchData[res.name] = unique_scheme
 	}
   }  
   
@@ -521,7 +522,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       data,
 	  fileData,
-      searchData,
+          searchData,
 	  grant,
 	  scheme
     },
