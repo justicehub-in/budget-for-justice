@@ -4965,11 +4965,18 @@ button {
   width: 58%;
   margin-right: 6%;
   margin-bottom: 4%;
-  padding: 3%;
+  /*padding: 3%;*/
   line-height: 1.3;
   border-radius: 1%;
   margin-left: auto;
   background-color: white;
+}
+
+.vizspace {
+  width: 58%;
+  margin-right: 6%;
+  margin-bottom: 4%;
+  margin-left: auto;
 }
 
 .space ul li {
@@ -5185,6 +5192,13 @@ button {
     margin-top: 2%;
     width: fit-content;
   }
+  
+  .vizspace {
+    float: center;
+    margin: 5%;
+    margin-top: 2%;
+    width: fit-content;
+  }  
 
   .s2bannerhead {
     font-size: 15px;

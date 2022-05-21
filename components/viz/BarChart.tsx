@@ -140,7 +140,7 @@ const BarChartViz: React.FC<BarChartProps> = ({
       notMerge={true}
       lazyUpdate={true}
       style={{
-        height: '550px',
+        height: '100%',
       }}
     />
   );

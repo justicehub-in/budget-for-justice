@@ -64,21 +64,6 @@ const Analysis: React.FC<Props> = ({ data, fileData, searchData, grant, scheme }
   
   const vizToggle = [
     {
-      name: 'Line Chart',
-      id: '#lineChart',
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
-          fill="none"
-          viewBox="0 0 18 18"
-        >
-          <path d="M16 18c.5304 0 1.0391-.2107 1.4142-.5858S18 16.5304 18 16V2C18 .895431 17.1046 2e-7 16 4.4e-7l-1 2.2e-7L14 0s-.7976.0001147-1.328.00000143H2C1.46957.00000143.960859.210715.585786.585788.210714.960861 0 1.46957 0 2v14c0 .5304.210714 1.0391.585786 1.4142C.960859 17.7893 1.46957 18 2 18h14Zm-1.5-5c0 .1989-.079.3897-.2197.5303-.1406.1407-.3314.2197-.5303.2197H4c-.19891 0-.38968-.079-.53033-.2197C3.32902 13.3897 3.25 13.1989 3.25 13c0-.1989.07902-.3897.21967-.5303.14065-.1407.33142-.2197.53033-.2197h9.75c.1989 0 .3897.079.5303.2197.1407.1406.2197.3314.2197.5303ZM3.527 8.81l3.266-3.266c.15765-.15789.36357-.25851.585-.28588.22144-.02736.44566.02012.637.13488l1.663 1c.04734.02714.10223.03811.15636.03125.05414-.00686.10456-.03117.14364-.06925l2.5-2.5c.1876-.18857.4425-.29487.7085-.29553.266-.00066.5214.10439.71.29203.1886.18764.2949.44251.2955.70853.0007.26602-.1044.5214-.292.70997l-3.188 3.187c-.1577.15749-.3635.25779-.5847.28497-.22122.02717-.44517-.02033-.6363-.13497l-1.664-1c-.04719-.02742-.10206-.03866-.15623-.03197-.05416.00668-.10466.0309-.14377.06897l-2.586 2.58c-.1886.1822-.4412.283-.7034.2807-.2622-.0023-.51301-.1075-.69842-.2929-.18541-.1854-.29058-.4362-.29285-.6984-.00228-.26219.09851-.5148.28067-.7034Z" />
-        </svg>
-      ),
-    },
-    {
       name: 'Bar Graph',
       id: '#barGraph',
       icon: (
@@ -90,6 +75,21 @@ const Analysis: React.FC<Props> = ({ data, fileData, searchData, grant, scheme }
           viewBox="0 0 18 18"
         >
           <path d="M16 0H2C.9 0 0 .9 0 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2ZM5 14c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1s1 .45 1 1v5c0 .55-.45 1-1 1Zm4 0c-.55 0-1-.45-1-1V5c0-.55.45-1 1-1s1 .45 1 1v8c0 .55-.45 1-1 1Zm4 0c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1Z" />
+        </svg>
+      ),
+    },  
+    {
+      name: 'Line Chart',
+      id: '#lineChart',
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          fill="none"
+          viewBox="0 0 18 18"
+        >
+          <path d="M16 18c.5304 0 1.0391-.2107 1.4142-.5858S18 16.5304 18 16V2C18 .895431 17.1046 2e-7 16 4.4e-7l-1 2.2e-7L14 0s-.7976.0001147-1.328.00000143H2C1.46957.00000143.960859.210715.585786.585788.210714.960861 0 1.46957 0 2v14c0 .5304.210714 1.0391.585786 1.4142C.960859 17.7893 1.46957 18 2 18h14Zm-1.5-5c0 .1989-.079.3897-.2197.5303-.1406.1407-.3314.2197-.5303.2197H4c-.19891 0-.38968-.079-.53033-.2197C3.32902 13.3897 3.25 13.1989 3.25 13c0-.1989.07902-.3897.21967-.5303.14065-.1407.33142-.2197.53033-.2197h9.75c.1989 0 .3897.079.5303.2197.1407.1406.2197.3314.2197.5303ZM3.527 8.81l3.266-3.266c.15765-.15789.36357-.25851.585-.28588.22144-.02736.44566.02012.637.13488l1.663 1c.04734.02714.10223.03811.15636.03125.05414-.00686.10456-.03117.14364-.06925l2.5-2.5c.1876-.18857.4425-.29487.7085-.29553.266-.00066.5214.10439.71.29203.1886.18764.2949.44251.2955.70853.0007.26602-.1044.5214-.292.70997l-3.188 3.187c-.1577.15749-.3635.25779-.5847.28497-.22122.02717-.44517-.02033-.6363-.13497l-1.664-1c-.04719-.02742-.10206-.03866-.15623-.03197-.05416.00668-.10466.0309-.14377.06897l-2.586 2.58c-.1886.1822-.4412.283-.7034.2807-.2622-.0023-.51301-.1075-.69842-.2929-.18541-.1854-.29058-.4362-.29285-.6984-.00228-.26219.09851-.5148.28067-.7034Z" />
         </svg>
       ),
     },	
@@ -118,23 +118,6 @@ const Analysis: React.FC<Props> = ({ data, fileData, searchData, grant, scheme }
 
   const vizItems = [
     {
-      id: 'lineChart',
-      graph: (
-        <BarChartViz
-          yAxisLabel="Value (in crores)"
-          xAxisLabel="Fiscal Year"
-          theme={['#4965B2', '#ED8686', '#69BC99']}
-          dataset={stateLineTransformer(fileData, selectedIndicator)}
-          stack={false}
-          Title= {`Budgets for ${scheme} `}
-          subTitle={`State budget data for the Department of  ${scheme} (2016-17 to 2022-23) `}
-          left="8%"
-          type='line'
-          smooth={true}
-        />
-      ),
-    },
-    {
       id: 'barGraph',
       graph: (
         <BarChartViz
@@ -144,9 +127,26 @@ const Analysis: React.FC<Props> = ({ data, fileData, searchData, grant, scheme }
           dataset={stateLineTransformer(fileData, selectedIndicator)}
           stack={false}
           Title= {`Budgets for ${scheme} `}
-          subTitle={`State budget data for the Department of  ${scheme} (2016-17 to 2022-23) `}
+          subTitle={`State budget data for the Department of  ${scheme} (2017-18 to 2021-22) `}
           left="8%"
           type='bar'
+          smooth={true}
+        />
+      ),
+    },  
+    {
+      id: 'lineChart',
+      graph: (
+        <BarChartViz
+          yAxisLabel="Value (in crores)"
+          xAxisLabel="Fiscal Year"
+          theme={['#4965B2', '#ED8686', '#69BC99']}
+          dataset={stateLineTransformer(fileData, selectedIndicator)}
+          stack={false}
+          Title= {`Budgets for ${scheme} `}
+          subTitle={`State budget data for the Department of  ${scheme} (2017-18 to 2021-22) `}
+          left="8%"
+          type='line'
           smooth={true}
         />
       ),
@@ -330,7 +330,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, searchData, grant, scheme }
           </section>
         </div>
 
-        <section className="explorer__summary container">
+        {/* <section className="explorer__summary container">
           <h3 className="sr-only">Scheme Summary</h3>
           <ul>
             <li>
@@ -350,7 +350,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, searchData, grant, scheme }
               <span>of Dev. Budget</span>
             </li>
           </ul>
-        </section> 
+        </section> */}
 
         <div className="container">
 
@@ -400,7 +400,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, searchData, grant, scheme }
               <div className="explorer__source--text">
                 <strong>Data Source: </strong>
                 <p>
-                  Union Budget documents (2016-17 to 2021-22) sourced from{' '}
+                  Union Budget documents (2017-18 to 2021-22) sourced from{' '}
                   <a
                     href="https://openbudgetsindia.org/"
                     rel="noreferrer"
