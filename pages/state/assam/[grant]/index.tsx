@@ -54,8 +54,8 @@ const grant = ({data, fileData, sumData, grant}) => {
     };
     
   function showDropdown(e) {
-    setCurrentViz(e.target.getAttribute('href'));
-    if (e.target.getAttribute('href') == '#tableView') setIsTable(true);
+    setCurrentViz(e.target.getAttribute('id'));
+    if (e.target.getAttribute('id') == '#tableView') setIsTable(true);
     else setIsTable(false);
   }    
     const [isTable, setIsTable] = useState(false);
@@ -190,7 +190,7 @@ const grant = ({data, fileData, sumData, grant}) => {
                                       <ul className="viz__tabs">
                                         {vizToggle.map((item, index) => (
                                           <li key={`toggleItem-${index}`}>
-                                            <a href={item.id} onClick={(e) => showDropdown(e)}>
+                                            <a id={item.id} href="#" onClick={(e) => showDropdown(e)}>
                                               {item.icon}
                                               {item.name}
                                             </a>
