@@ -15,13 +15,16 @@ import { categoryIcon, stripTitle, fetchDatasets, fetchStateDataset } from 'util
 import { resourceGetter } from 'utils/resourceParser';
 import { useSearch } from 'utils/search';
 import Seo from 'components/_shared/seo';
+import BarChartViz from 'components/viz/BarChart';
+import { grantLineTransformer } from 'transformers/GrantLineTransformer';
 
 import { ListingHeader } from 'animation/listingHeader';
 
-const grant = ({data, fileData, grant}) => {
+const grant = ({data, fileData, sumData, grant}) => {
 	const router = useRouter();
 	const unique_cat = [...new Set(fileData.map(item => item.category))]; 
 	const [selectedCat, setSelectedCat] = useState(unique_cat[0]);
+    const [selectedIndicator, setSelectedIndicator] = useState('Budget Estimates');
     
     // page load set schemes
 	let uniqueSchemes = fileData.filter(obj => {return obj.category === selectedCat});
@@ -64,31 +67,31 @@ const grant = ({data, fileData, grant}) => {
                      <div className="subcl">
                           <div className="subcrd">
                             <div className="subcrdtxt">
-                              <p>Budget 2019-20</p>
+                              <p>Budget Estimates 2019-20</p>
                             </div>
                             <hr></hr>
                             <div id="textbox">
-                                      <p className="alignleft">₹ 16,966 Cr</p>
-                                      <p className="alignright"><span className="special1">10% &nbsp;
-                                      <img className="profitdn" src="/assets/icons/loss.svg" alt="" /></span></p>
+                                      <p className="alignleft">{`₹  ${sumData['2019-20']['Budget Estimates ']}  Cr`}</p>
+                                      {/*<p className="alignright"><span className="special1">10% &nbsp;
+                                      <img className="profitdn" src="/assets/icons/loss.svg" alt="" /> </span></p> */}
                             </div>
                           </div>
                           <div className="subcrd2">
                             <div className="subcrdtxt">
-                              <p>Revised Budget 2018-19</p>
+                              <p>Revised Estimate 2018-19</p>
                             </div>
                             <hr></hr>
                             <div id="textbox">
-                              <p className="alignleft">₹ 556.69 Cr</p> 
+                              <p className="alignleft">{`₹  ${sumData['2018-19']['Revised Estimates ']}  Cr`}</p> 
                             </div>
                           </div>
                           <div className="subcrd2">
                             <div className="subcrdtxt">
-                              <p>Budget 2018-19</p>
+                              <p>Budget Estimate 2018-19</p>
                             </div>
                             <hr></hr>
                             <div id="textbox">
-                              <p className="alignleft">₹ 896.21 Cr</p>       
+                              <p className="alignleft">{`₹  ${sumData['2018-19']['Budget Estimates ']}  Cr`}</p>       
                             </div>
                           </div>
                           <div className="subcrd2">
@@ -97,28 +100,30 @@ const grant = ({data, fileData, grant}) => {
                             </div>
                             <hr></hr>
                             <div id="textbox">
-                              <p className="alignleft">₹ 753.98 Cr</p>
+                              <p className="alignleft">{`₹  ${sumData['2018-19']['Actuals ']}  Cr`}</p>
                             </div>
                           </div>
                      </div>
                         <div className="space">
-                        <ul>    
-                          <li>
-                          The total share of the Law and Justice budget, in Assam, which includes the budget for Administration of Justice, Jails, and Police is 6.5%. 
-                          </li>
-                          <hr></hr>
-                          <li>
-                          The total share has seen an increase of 1% as compared to the previous budget where the total share was around 5.5%.
-                          </li>
-                          <hr></hr>
-                          <li>
-                          Within the Law and Justice category, Jails (Grant No. 15) received the maximum increase of 45.5% in terms of budget allocation as compared with the budget estimates for 2021-22. This is followed by Police (Grant No. 14) with an increase of 33.5%. The allocated budget for Administration of Justice (Grant No. 3) got increased by 19.18%.
-                          </li>
-                          <hr></hr>
-                          <li>
-                          The total share of the Law and Justice budget, in Assam, which includes the budget for Administration of Justice, Jails, and Police is 6.5%.
-                          </li>
-                        </ul>
+                        <figure
+                          className="viz__bar"
+                        >
+                              <BarChartViz
+                              yAxisLabel="Value (in crores)"
+                              xAxisLabel="Fiscal Year"
+                              theme={['#4965B2', '#ED8686', '#69BC99']}
+                              dataset={grantLineTransformer(sumData, selectedIndicator)}
+                              stack={false}
+                              Title= {`Budgets for ${grant} `}
+                              subTitle={`State budget data for ${grant} (2016-17 to 2022-23) `}
+                              left="8%"
+                              type='line'
+                              smooth={true}
+                            />
+                        </figure>
+
+
+
                      </div>
                      </div>
 
@@ -163,22 +168,45 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await fetchStateDataset();
   const grant = context.query.grant;
   
-  // get the grant resource url
+  // get the grant resource url and grant summary url
   let resUrl = '';
+  let sumUrl = ''
   for (const res of data.resources) { 
 	if (res.name == grant) {
 		resUrl = res.url
 	}
+    if (res.name == 'Grant Summary') {
+         sumUrl = res.url 
+    }
   }
+  
   
   // fetch and parse grant csv
   const fileData = await resourceGetter(resUrl, true);
   
+  // fetch and parse summary csv
+  let summaryData = await resourceGetter(sumUrl, true);
 
+  
+  // split and check grant name since there is difference in grant whole name in summary file and grant res file
+  summaryData = summaryData.filter(obj => {return (obj.GrantNumber.split('-')[1] || '').toLowerCase() === grant.split('-')[1].toLowerCase()});
+  
+  // convert summarydata  into dataobj
+  let dataobj = {}
+  summaryData.forEach((elm) => {
+        if (dataobj[elm['Year']]) {
+           dataobj[elm['Year']][elm['Indicator']] = parseFloat(elm['Value'])
+        }
+        else {
+         dataobj[elm['Year']] = {[elm['Indicator']] : parseFloat(elm['Value']) }   
+        }
+   });   
+    
   return {
     props: {
       data,
 	  fileData,
+      sumData : dataobj,
 	  grant
     },
   };
