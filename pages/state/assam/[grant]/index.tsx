@@ -189,10 +189,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   
   // split and check grant name since there is difference in grant whole name in summary file and grant res file
-  summaryData = summaryData.filter(obj => {return (obj.GrantNumber.split('-')[1] || '').toLowerCase() === grant.split('-')[1].toLowerCase()});
+  summaryData = summaryData.filter(obj => {return (obj.GrantNumber.split('-')[1] || '').toLowerCase() === String(grant).split('-')[1].toLowerCase()});
   
   // convert summarydata  into dataobj
-  let dataobj = {}
+  const dataobj = {}
   summaryData.forEach((elm) => {
         if (dataobj[elm['Year']]) {
            dataobj[elm['Year']][elm['Indicator']] = parseFloat(elm['Value'])

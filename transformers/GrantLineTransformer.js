@@ -24,7 +24,7 @@ export function grantLineTransformer(data, indicator) {
         if (dataobj[item][headerData[j]]) {
           temp_array.push(dataobj[item][headerData[j]]);
         } else {
-          temp_array.push(0);
+          temp_array.push("");
         }
       }
 
