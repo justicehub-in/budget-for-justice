@@ -4803,7 +4803,7 @@ button {
   /* flex-wrap: wrap; */
   list-style: none;
 }
-.subheading {
+.subheading{
   font-weight: 700;
   color: #00000052;
   font-size: 1.4rem;
@@ -5192,13 +5192,13 @@ button {
     margin-top: 2%;
     width: fit-content;
   }
-
+  
   .vizspace {
     float: center;
     margin: 5%;
     margin-top: 2%;
     width: fit-content;
-  }
+  }  
 
   .s2bannerhead {
     font-size: 15px;
@@ -5240,7 +5240,7 @@ button {
   .lasttxt {
     margin: 4%;
   }
-  .subheading {
+  .subheading{
     margin-bottom: 3%;
   }
 }
@@ -5299,21 +5299,26 @@ button {
 
 .midtx1 {
   font-size: 22px;
+  align-items: center;
   width: 10%;
+  margin-right: 26%;
   font-weight: bold;
 }
 .headfoot {
   display: flex;
-  padding: 5px;
   justify-content: space-around;
 }
 .headfoot input[type='text'] {
   padding: 6px;
   border: none;
   font-size: 17px;
+  margin-left: -10%;
 }
 
-
+.alig {
+  display: flex;
+  justify-content: space-between;
+}
 .subfoot {
   display: flex;
   margin: 69px;
@@ -5325,10 +5330,6 @@ button {
   flex: 1 1;
   text-align: left;
   padding: 1%;
-}
-.alig {
-  display: contents;
-  justify-content: space-between;
 }
 
 @media screen and (max-width: 820px) {
@@ -5351,10 +5352,9 @@ button {
     margin: auto;
     margin-top: 2%;
   }
- 
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 520px) {
   .alig {
     display: flex;
     justify-content: space-evenly;
@@ -5369,7 +5369,7 @@ button {
   }
 }
 
-.lastcon a {
+.lastcon a{
   text-decoration: none;
   color: #000;
 }
