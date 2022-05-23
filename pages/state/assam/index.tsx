@@ -257,7 +257,7 @@ const assam = ({ data }) => {
               EA Guide to Make State Budgets Data Open, Accessible and Citizen
               Friendly
             </p>
-            <a className="s2bannerbut" href="https://bit.ly/cdlguideobi" target="_blank">
+            <a className="s2bannerbut" href="https://bit.ly/cdlguideobi" target="_blank" rel="noreferrer noopener">
               Open Guide Book
             </a>
           </div>
@@ -396,27 +396,27 @@ const assam = ({ data }) => {
         <div className="lasttxt">
           <div className="lastcon">
             <p className="sp1"></p>
-            <a href="https://finassam.in/budget_documents/" target="_blank"><p>Assam Budget - Official Documents</p></a>
+            <a href="https://finassam.in/budget_documents/" target="_blank" rel="noreferrer noopener"><p>Assam Budget - Official Documents</p></a>
           </div>
           <div className="lastcon">
             <p className="sp2"></p>
-            <a href="https://openbudgetsindia.org/organization/about/assam" target="_blank"><p>Assam Budget Data on Open Budgets India</p></a>
+            <a href="https://openbudgetsindia.org/organization/about/assam" target="_blank" rel="noreferrer noopener"><p>Assam Budget Data on Open Budgets India</p></a>
           </div>
           <div className="lastcon">
             <p className="sp3"></p>
-            <a href="https://medium.com/civicdatalab/budgets-for-justice-making-law-and-justice-budgets-accessible-and-actionable-28eb56a0d348" target="_blank"><p>{"Budgets for Justice: Making Law and Justice budgets Accessible and Actionable"}</p></a>
+            <a href="https://medium.com/civicdatalab/budgets-for-justice-making-law-and-justice-budgets-accessible-and-actionable-28eb56a0d348" target="_blank" rel="noreferrer noopener"><p>{"Budgets for Justice: Making Law and Justice budgets Accessible and Actionable"}</p></a>
           </div>
           <div className="lastcon">
             <p className="sp4"></p>
-            <a href="https://rbi.org.in/Scripts/AnnualPublications.aspx?head=State%20Finances%20:%20A%20Study%20of%20Budgets" target="_blank"><p>{"RBI - State Finances : A Study Of Budgets"}</p></a>
+            <a href="https://rbi.org.in/Scripts/AnnualPublications.aspx?head=State%20Finances%20:%20A%20Study%20of%20Budgets" target="_blank" rel="noreferrer noopener"><p>{"RBI - State Finances : A Study Of Budgets"}</p></a>
           </div>
           <div className="lastcon">
             <p className="sp5"></p>
-            <a href="https://budgetbasics.openbudgetsindia.org/" target="_blank"><p>Budget Basics</p></a>
+            <a href="https://budgetbasics.openbudgetsindia.org/" target="_blank" rel="noreferrer noopener"><p>Budget Basics</p></a>
           </div>
           <div className="lastcon">
             <p className="sp6"></p>
-            <a href="https://prsindia.org/budgets/states/assam-budget-analysis-2022-23" target="_blank"><p>Assam Budget Analysis - 2022/23 by PRS</p></a>
+            <a href="https://prsindia.org/budgets/states/assam-budget-analysis-2022-23" target="_blank" rel="noreferrer noopener"><p>Assam Budget Analysis - 2022/23 by PRS</p></a>
           </div>
           <a
             rel="noreferrer noopener"
