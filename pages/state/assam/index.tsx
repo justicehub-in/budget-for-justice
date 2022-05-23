@@ -257,7 +257,7 @@ const assam = ({ data }) => {
               EA Guide to Make State Budgets Data Open, Accessible and Citizen
               Friendly
             </p>
-            <a className="s2bannerbut" href="">
+            <a className="s2bannerbut" href="https://bit.ly/cdlguideobi" target="_blank">
               Open Guide Book
             </a>
           </div>
@@ -396,37 +396,27 @@ const assam = ({ data }) => {
         <div className="lasttxt">
           <div className="lastcon">
             <p className="sp1"></p>
-            <p>Eu egestas facilisis a, platea posuere massa eu.</p>
+            <a href="https://finassam.in/budget_documents/" target="_blank"><p>Assam Budget - Official Documents</p></a>
           </div>
           <div className="lastcon">
             <p className="sp2"></p>
-            <p>Tempor, nulla vestibulum enim mattis neque.</p>
+            <a href="https://openbudgetsindia.org/organization/about/assam" target="_blank"><p>Assam Budget Data on Open Budgets India</p></a>
           </div>
           <div className="lastcon">
             <p className="sp3"></p>
-            <p>Auctor commodo lectus consectetur urna urna id.</p>
+            <a href="https://medium.com/civicdatalab/budgets-for-justice-making-law-and-justice-budgets-accessible-and-actionable-28eb56a0d348" target="_blank"><p>{"Budgets for Justice: Making Law and Justice budgets Accessible and Actionable"}</p></a>
           </div>
           <div className="lastcon">
             <p className="sp4"></p>
-            <p>Lacus placerat nisi, pharetra volutpat id id et, massa.</p>
+            <a href="https://rbi.org.in/Scripts/AnnualPublications.aspx?head=State%20Finances%20:%20A%20Study%20of%20Budgets" target="_blank"><p>{"RBI - State Finances : A Study Of Budgets"}</p></a>
           </div>
           <div className="lastcon">
             <p className="sp5"></p>
-            <p>Mauris ipsum justo tellus facilisi.</p>
+            <a href="https://budgetbasics.openbudgetsindia.org/" target="_blank"><p>Budget Basics</p></a>
           </div>
           <div className="lastcon">
             <p className="sp6"></p>
-            <p>
-              In vulputate feugiat ultricies ante volutpat, non hendrerit in.
-            </p>
-          </div>
-          <div className="lastcon">
-            <p className="sp7"></p>
-            <p>Vel tellus sed dui hac dui egestas cras morbi.</p>
-          </div>
-          <div className="lastcon">
-            <p className="sp8"></p>
-            <p>Sadad adnnd akdmafl aldmavdv ewnbyj dgeg fherhe</p>
+            <a href="https://prsindia.org/budgets/states/assam-budget-analysis-2022-23" target="_blank"><p>Assam Budget Analysis - 2022/23 by PRS</p></a>
           </div>
           <a
             rel="noreferrer noopener"
