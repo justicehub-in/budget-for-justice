@@ -124,7 +124,7 @@ const assam = ({ data }) => {
                   </div>
                   <div id="textbox">
                     <p className="alignleft">
-                      <span className="ctext">0.0013% of Total Budget</span>
+                      <span className="ctext">0.13% of Total Budget</span>
                     </p>
                     <a className="explore" href={'assam/Grant No 15 - Jails'}>
                       Explore
@@ -156,7 +156,7 @@ const assam = ({ data }) => {
                   </div>
                   <div id="textbox">
                     <p className="alignleft">
-                      <span className="ctext">0.006% of Total Budget</span>
+                      <span className="ctext">0.61% of Total Budget</span>
                     </p>
                     <a
                       className="explore"
@@ -191,7 +191,7 @@ const assam = ({ data }) => {
                   </div>
                   <div id="textbox">
                     <p className="alignleft">
-                      <span className="ctext">0.058% of Total Budget</span>
+                      <span className="ctext">5.79% of Total Budget</span>
                     </p>
                     <a className="explore" href={'assam/Grant No 14 - Police'}>
                       Explore

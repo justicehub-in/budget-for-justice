@@ -24,13 +24,15 @@ import { ListingHeader } from 'animation/listingHeader';
 const grant = ({data, fileData, sumData, grant}) => {
 	const router = useRouter();
 	const unique_cat = [...new Set(fileData.map(item => item.category))]; 
-	const [selectedCat, setSelectedCat] = useState(unique_cat[0]);
+	const [selectedCat, setSelectedCat] = useState("");
     const [selectedIndicator, setSelectedIndicator] = useState('Budget Estimates');
     
     // page load set schemes
 	let uniqueSchemes = fileData.filter(obj => {return obj.category === selectedCat});
 	uniqueSchemes = uniqueSchemes.filter((v,i,a)=>a.findIndex(t=>(t.display_title === v.display_title))===i)
-    const [filteredSchemes, setFilteredSchemes] = useState(uniqueSchemes);
+    
+    // set filteredscheme with selected cats unique schemes but at first page load set it with any 10 schemes
+    const [filteredSchemes, setFilteredSchemes] = useState(selectedCat == "" ? fileData.splice(0,10):uniqueSchemes);
 	    
 	const handleCatChange = (event) => {
        setSelectedCat(event.target.value);
@@ -149,7 +151,7 @@ const grant = ({data, fileData, sumData, grant}) => {
                             </div>
                             <hr></hr>
                             <div id="textbox">
-                                      <p className="alignleft">{`₹  ${sumData['2021-22']['Budget Estimates ']}  Cr`}</p>
+                                      <p className="alignleft">{`₹  ${sumData['2021-22']['Budget Estimates '].toFixed(2)}  Cr`}</p>
                                       {/*<p className="alignright"><span className="special1">10% &nbsp;
                                       <img className="profitdn" src="/assets/icons/loss.svg" alt="" /> </span></p> */}
                             </div>
@@ -160,7 +162,7 @@ const grant = ({data, fileData, sumData, grant}) => {
                             </div>
                             <hr></hr>
                             <div id="textbox">
-                              <p className="alignleft">{`₹  ${sumData['2020-21']['Revised Estimates ']}  Cr`}</p> 
+                              <p className="alignleft">{`₹  ${sumData['2020-21']['Revised Estimates '].toFixed(2)}  Cr`}</p> 
                             </div>
                           </div>
                           <div className="subcrd2">
@@ -169,7 +171,7 @@ const grant = ({data, fileData, sumData, grant}) => {
                             </div>
                             <hr></hr>
                             <div id="textbox">
-                              <p className="alignleft">{`₹  ${sumData['2019-20']['Actuals ']}  Cr`}</p>       
+                              <p className="alignleft">{`₹  ${sumData['2019-20']['Actuals '].toFixed(2)}  Cr`}</p>       
                             </div>
                           </div>
                           {/*<div className="subcrd2">

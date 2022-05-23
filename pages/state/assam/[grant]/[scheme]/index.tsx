@@ -400,7 +400,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, searchData, grant, scheme }
               <div className="explorer__source--text">
                 <strong>Data Source: </strong>
                 <p>
-                  Union Budget documents (2017-18 to 2021-22) sourced from{' '}
+                  Assam State Budget documents (2017-18 to 2021-22) sourced from{' '}
                   <a
                     href="https://openbudgetsindia.org/"
                     rel="noreferrer"
@@ -413,7 +413,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, searchData, grant, scheme }
               </div>
 
               <div className="explorer__source--buttons">
-                <a
+              {/* <a
                   href="https://docs.google.com/document/d/1PlnurMmjyzKdIZ5ktHbQZxYmI0XWKdd0NAW1OHtvhe8/preview"
                   rel="noreferrer"
                   target="_blank"
@@ -421,7 +421,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, searchData, grant, scheme }
                 >
                   Data Guidebook <ExternalLink fill="#00abb7" />
                   <span className="sr-only"> :opens in new window</span>
-                </a>
+              </a> */}
                 <DownloadViz
                   viz={currentViz}
                   type={''}
@@ -436,7 +436,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, searchData, grant, scheme }
         <Banner details={bannerDetails} />
 
         <section className="explorer__schemes">
-          <div className="container">
+        {/* <div className="container">
             <h3 className="heading">Explore other Scheme Budget Datasets</h3>
             <p className="home__sub-head">
               Search for other relevant scheme using the Select Another Scheme
@@ -468,7 +468,7 @@ const Analysis: React.FC<Props> = ({ data, fileData, searchData, grant, scheme }
                   );
                 })}
             </div>
-          </div>
+        </div> */}
         </section>
       </main>
     </>
