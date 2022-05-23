@@ -4934,7 +4934,6 @@ button {
 }
 
 .column1 {
-  float: left;
   width: 25%;
   margin: 2%;
   margin-left: 8%;
@@ -4966,6 +4965,7 @@ button {
   margin-right: 6%;
   margin-bottom: 4%;
   padding: 3%;
+  min-height: 470px;
   line-height: 1.3;
   border-radius: 1%;
   margin-left: auto;
@@ -5194,10 +5194,10 @@ button {
   }
   
   .vizspace {
-    float: center;
-    margin: 5%;
-    margin-top: 2%;
-    width: fit-content;
+    margin: auto;
+    width: 68%;
+    display: block;
+    padding: 2%;
   }  
 
   .s2bannerhead {
@@ -5243,6 +5243,13 @@ button {
   .subheading{
     margin-bottom: 3%;
   }
+  .vizspace {
+    margin: 2%;
+    width: auto;
+    display: block;
+    margin-top: 2%;
+  }  
+  
 }
 
 /*-------css for grant----------*/
