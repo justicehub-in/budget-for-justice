@@ -288,7 +288,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 	if (res.name == grant) {
 		resUrl = res.url
 	}
-    if (res.name == 'Grant Summary') {
+    if (res.name.includes('Grant Summary')) {
          sumUrl = res.url 
     }
   }
