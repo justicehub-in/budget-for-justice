@@ -11,7 +11,7 @@ import {
   All,
 } from 'components/icons/ListingIcons';
 import Toggle from 'components/_shared/Toggle';
-import { categoryIcon, stripTitle, fetchDatasets, fetchStateDataset } from 'utils';
+import { categoryIcon, stripTitle, fetchDatasets, fetchStateDataset, tabbedInterface } from 'utils';
 import { resourceGetter } from 'utils/resourceParser';
 import { useSearch } from 'utils/search';
 import Seo from 'components/_shared/seo';
@@ -54,6 +54,14 @@ const grant = ({data, fileData, sumData, grant}) => {
     title: `${grant} | Assam | Budgets for Justice`,
     description: `${grant} | Assam | Budgets for Justice`,
     };
+    
+  
+   useEffect(() => {
+    // ceating tabbed interface for viz selector
+    const tablist = document.querySelector('.viz__tabs');
+    const panels = document.querySelectorAll('.viz figure');
+    tabbedInterface(tablist, panels);
+  }, [fileData]);     
     
   function showDropdown(e) {
     setCurrentViz(e.target.getAttribute('id'));
@@ -204,13 +212,13 @@ const grant = ({data, fileData, sumData, grant}) => {
                                     <div>
                                       {/* viz graphs */}
                                       {vizItems.map((item, index) => (
-                                        "#" + item.id  == currentViz ? <figure
+                                        <figure
                                           key={`vizItem-${index}`}
                                           className="viz__bar"
                                           id={item.id}
                                         >
                                           {item.graph}
-                                        </figure> : ""
+                                        </figure> 
                                       ))}
                                     </div>   
                              </div>  
