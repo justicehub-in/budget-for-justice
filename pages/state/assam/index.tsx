@@ -100,7 +100,7 @@ const assam = ({ data }) => {
               </p>
             </div>
             <div className="row">
-              <div className="column">
+              <div className="columnf">
                 <div className="subcard">
                   <div id="textbox">
                     <p className="alignleft">Jails</p>
@@ -113,7 +113,7 @@ const assam = ({ data }) => {
                     <p className="alignleft">₹ 159.78 Cr</p>
                     <p className="alignright">
                       <span className="special">
-                        45.4% &nbsp;
+                        45.40% &nbsp;
                         <img
                           className="profitup"
                           src="/assets/icons/profit.svg"
@@ -180,7 +180,7 @@ const assam = ({ data }) => {
                     <p className="alignleft">₹ 6920.6 Cr</p>
                     <p className="alignright">
                       <span className="special">
-                        33.5% &nbsp;
+                        33.50% &nbsp;
                         <img
                           className="profitup"
                           src="/assets/icons/profit.svg"
@@ -274,7 +274,7 @@ const assam = ({ data }) => {
           <div className="column2">
             <div className="card2">
               <div className="subcd2">
-                <img src="/assets/images/crd1.png" alt="" />
+                <img className="obilogo" src="/assets/images/obilogo.png" alt="" />
                 <div className="subp">
                   <a href="https://union.openbudgetsindia.org/en/">
                     <h2 className="subh">Union Budget Explorer 2022-23</h2>
@@ -292,7 +292,7 @@ const assam = ({ data }) => {
             </div>
             <div className="card2">
               <div className="subcd2">
-                <img src="/assets/images/crd2.png" alt="" />
+                <img className="obilogo" src="/assets/images/obilogo.png" alt="" />
                 <div className="subp">
                   <a href="https://union2021.openbudgetsindia.org/en/">
                     {' '}
@@ -311,7 +311,7 @@ const assam = ({ data }) => {
             </div>
             <div className="card2">
               <div className="subcd2">
-                <img src="/assets/images/crd3.png" alt="" />
+                <img className="obilogo" src="/assets/images/obilogo.png" alt="" />
                 <div className="subp">
                   <a href="https://union2020.openbudgetsindia.org/en/">
                     {' '}
@@ -332,7 +332,7 @@ const assam = ({ data }) => {
           <div className="column2">
             <div className="card2">
               <div className="subcd2">
-                <img src="/assets/images/crd4.png" alt="" />
+                <img className="obilogo" src="/assets/images/obilogo.png" alt="" />
                 <div className="subp">
                   <a href="https://union2019.openbudgetsindia.org/en/">
                     {' '}
@@ -351,7 +351,7 @@ const assam = ({ data }) => {
             </div>
             <div className="card2">
               <div className="subcd2">
-                <img src="/assets/images/crd5.png" alt="" />
+                <img className="obilogo" src="/assets/images/obilogo.png" alt="" />
                 <div className="subp">
                   <a href="https://union2019i.openbudgetsindia.org/en/">
                     <h2 className="subh">Union Budget Explorer 2019-20(I)</h2>
@@ -369,7 +369,7 @@ const assam = ({ data }) => {
             </div>
             <div className="card2">
               <div className="subcd2">
-                <img src="/assets/images/crd6.png" alt="" />
+                <img className="obilogo" src="/assets/images/obilogo.png" alt="" />
                 <div className="subp">
                   <a href="https://union2018.openbudgetsindia.org/en/">
                     <h2 className="subh">Union Budget Explorer 2018-19</h2>
@@ -396,27 +396,27 @@ const assam = ({ data }) => {
         <div className="lasttxt">
           <div className="lastcon">
             <p className="sp1"></p>
-            <a href="https://finassam.in/budget_documents/" target="_blank" rel="noreferrer noopener"><p>Assam Budget - Official Documents</p></a>
+            <a className="sptext" href="https://finassam.in/budget_documents/" target="_blank" rel="noreferrer noopener"><p>Assam Budget - Official Documents</p></a>
           </div>
           <div className="lastcon">
             <p className="sp2"></p>
-            <a href="https://openbudgetsindia.org/organization/about/assam" target="_blank" rel="noreferrer noopener"><p>Assam Budget Data on Open Budgets India</p></a>
+            <a className="sptext" href="https://openbudgetsindia.org/organization/about/assam" target="_blank" rel="noreferrer noopener"><p>Assam Budget Data on Open Budgets India</p></a>
           </div>
           <div className="lastcon">
             <p className="sp3"></p>
-            <a href="https://medium.com/civicdatalab/budgets-for-justice-making-law-and-justice-budgets-accessible-and-actionable-28eb56a0d348" target="_blank" rel="noreferrer noopener"><p>{"Budgets for Justice: Making Law and Justice budgets Accessible and Actionable"}</p></a>
+            <a className="sptext" href="https://medium.com/civicdatalab/budgets-for-justice-making-law-and-justice-budgets-accessible-and-actionable-28eb56a0d348" target="_blank" rel="noreferrer noopener"><p>{"Budgets for Justice: Making Law and Justice budgets Accessible and Actionable"}</p></a>
           </div>
           <div className="lastcon">
             <p className="sp4"></p>
-            <a href="https://rbi.org.in/Scripts/AnnualPublications.aspx?head=State%20Finances%20:%20A%20Study%20of%20Budgets" target="_blank" rel="noreferrer noopener"><p>{"RBI - State Finances : A Study Of Budgets"}</p></a>
+            <a className="sptext" href="https://rbi.org.in/Scripts/AnnualPublications.aspx?head=State%20Finances%20:%20A%20Study%20of%20Budgets" target="_blank" rel="noreferrer noopener"><p>{"RBI - State Finances : A Study Of Budgets"}</p></a>
           </div>
           <div className="lastcon">
             <p className="sp5"></p>
-            <a href="https://budgetbasics.openbudgetsindia.org/" target="_blank" rel="noreferrer noopener"><p>Budget Basics</p></a>
+            <a className="sptext" href="https://budgetbasics.openbudgetsindia.org/" target="_blank" rel="noreferrer noopener"><p>Budget Basics</p></a>
           </div>
           <div className="lastcon">
             <p className="sp6"></p>
-            <a href="https://prsindia.org/budgets/states/assam-budget-analysis-2022-23" target="_blank" rel="noreferrer noopener"><p>Assam Budget Analysis - 2022/23 by PRS</p></a>
+            <a className="sptext" href="https://prsindia.org/budgets/states/assam-budget-analysis-2022-23" target="_blank" rel="noreferrer noopener"><p>Assam Budget Analysis - 2022/23 by PRS</p></a>
           </div>
           <a
             rel="noreferrer noopener"
