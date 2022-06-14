@@ -8,7 +8,7 @@ pipeline {
     }*/
     environment {
         CI = 'true'
-        HOME = '.'
+        /*HOME = '.'*/
     }
     stages {
         /* stage('Build') {
