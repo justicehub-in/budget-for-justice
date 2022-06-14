@@ -6,6 +6,6 @@ ssh ubuntu@3.111.39.117 << EOF
  git pull origin data_integration
  pwd
  echo $PATH
- /home/ubuntu/.nvm/versions/node/v16.13.0/bin/npm run start & 
+ /home/ubuntu/.nvm/versions/node/v16.13.0/bin/npm run start 
  exit      
  EOF
