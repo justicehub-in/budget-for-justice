@@ -4,7 +4,8 @@ ssh ubuntu@3.111.39.117 << EOF
  fuser -k 3000/tcp 
  cd /home/ubuntu/budget-for-justice 
  git pull origin data_integration
- ls
+ pwd
+ echo $PATH
  npm run start 
  exit      
  EOF
