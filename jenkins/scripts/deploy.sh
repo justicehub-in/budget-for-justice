@@ -1,18 +1,7 @@
-#!/usr/bin/env sh
-
-echo 'The following command ssh into main server and pulls and deploys'
-echo 'the build'
-set -x
+-#!/bin/sh     
 ssh ubuntu@3.111.39.117 <  cd /home/ubuntu/budget-for-justice 
  kill $(lsof -t -i:3000)
- git pull origin data_integration     
- npm run build
- npm run start &
- sleep 1
+ git pull origin data_integration      
+ npm run start &   
  exit      
-set +x
-
-
-echo 'The build is done and website is up'
-echo 'Visit http://localhost:3000 to see your Node.js/React application in action.'
-
+EOF
