@@ -5,6 +5,7 @@ ssh ubuntu@3.111.39.117 << EOF
  git pull origin data_integration
  ls
  fuser -k 3000/tcp   
- npm run start &   
+ npm start &  
+ ls
  exit      
  EOF
