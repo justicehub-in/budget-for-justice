@@ -152,6 +152,7 @@ const home = ({ content }) => {
                 <a
                   className="cardbut1"
                   target="_blank"
+                  rel="noreferrer noopener"
                   href="https://dataforjustice.substack.com/p/understanding-budgets-for-law-and"
                 >
                   <img
@@ -164,6 +165,7 @@ const home = ({ content }) => {
                 <a
                   className="cardbut2"
                   target="_blank"
+                  rel="noreferrer noopener"
                   href="https://open.spotify.com/episode/6vUst4BfrBgEbl8r8Njb95?si=TMNwsyN7RtC4WPVZ_Cnt0w"
                 >
                   <img
@@ -188,6 +190,7 @@ const home = ({ content }) => {
                 <a
                   className="cardbut1"
                   target="_blank"
+                  rel="noreferrer noopener"
                   href="https://dataforjustice.substack.com/p/understanding-police-budgets-in-india"
                 >
                   <img
@@ -200,6 +203,7 @@ const home = ({ content }) => {
                 <a
                   className="cardbut2"
                   target="_blank"
+                  rel="noreferrer noopener"
                   href="https://open.spotify.com/episode/2RReAAOp0SvTBjgJQdkPP4?si=cD6omUslTw-YMYh1f43htQ"
                 >
                   <img
@@ -224,6 +228,7 @@ const home = ({ content }) => {
                 <a
                   className="cardbut1"
                   target="_blank"
+                  rel="noreferrer noopener"
                   href="https://dataforjustice.substack.com/p/understanding-legal-aid-budgets-in"
                 >
                   <img
@@ -236,6 +241,7 @@ const home = ({ content }) => {
                 <a
                   className="cardbut2"
                   target="_blank"
+                  rel="noreferrer noopener"
                   href="https://open.spotify.com/episode/6TKvn8M8LBVuc1ttAMt6K9?si=9f574ae4bd224aee"
                 >
                   <img
@@ -264,6 +270,7 @@ const home = ({ content }) => {
                 <a
                   className="cardbut1"
                   target="_blank"
+                  rel="noreferrer noopener"
                   href="https://dataforjustice.substack.com/p/understanding-budgets-on-e-courts"
                 >
                   <img
@@ -276,6 +283,7 @@ const home = ({ content }) => {
                 <a
                   className="cardbut2"
                   target="_blank"
+                  rel="noreferrer noopener"
                   href="https://open.spotify.com/episode/0sZZbar5rXjehoRQrECKsV?si=fe303360e5e94a09"
                 >
                   <img
@@ -302,6 +310,7 @@ const home = ({ content }) => {
                 <a
                   className="cardbut1"
                   target="_blank"
+                  rel="noreferrer noopener"
                   href="https://dataforjustice.substack.com/p/a-conversation-with-india-justice"
                 >
                   <img
@@ -314,6 +323,7 @@ const home = ({ content }) => {
                 <a
                   className="cardbut2"
                   target="_blank"
+                  rel="noreferrer noopener"
                   href="https://open.spotify.com/episode/0EPrflC8z96dsLLY0Vsc2l?si=a4d5ee07d15c4f70"
                 >
                   <img
@@ -340,6 +350,7 @@ const home = ({ content }) => {
                 <a
                   className="cardbut1"
                   target="_blank"
+                  rel="noreferrer noopener"
                   href="https://dataforjustice.substack.com/p/understanding-budgets-for-correctional"
                 >
                   <img
@@ -371,7 +382,7 @@ const home = ({ content }) => {
               <div className="story1">
                 <h2 className="cardh1">Union Budget</h2>
                 <Link href="https://www.indiaspend.com/explainers/how-the-union-budget-funds-indias-justice-system-804821">
-                  <a target="_blank" className="cardh2">
+                  <a target="_blank" rel="noreferrer noopener" className="cardh2">
                     How The Union Budget Funds India's Justice System
                   </a>
                 </Link>
@@ -394,7 +405,7 @@ const home = ({ content }) => {
               <div className="story1">
                 <h2 className="cardh1">Budgets for Justice</h2>
                 <Link href="https://medium.com/civicdatalab/budgets-for-justice-making-law-and-justice-budgets-accessible-and-actionable-28eb56a0d348">
-                  <a target="_blank" className="cardh2">
+                  <a target="_blank"  rel="noreferrer noopener" className="cardh2">
                     Making Law and Justice budgets Accessible and Actionable{' '}
                   </a>
                 </Link>
@@ -417,17 +428,17 @@ const home = ({ content }) => {
         <h2 className="partnersh1">Our Partners</h2>
         <div className="partnersinfo">
           <div className="clients1">
-            <a target="_blank" href="https://agami.in/">
+            <a target="_blank" rel="noreferrer noopener" href="https://agami.in/">
               <img className="agami" src="/assets/images/agami.png" alt="" />
             </a>
           </div>
           <div className="clients2">
-            <a  target="_blank" href="https://civicdatalab.in/">
+            <a  target="_blank" rel="noreferrer noopener" href="https://civicdatalab.in/">
               <img className="cdl" src="/assets/images/cdl_logo.png" alt="" />
             </a>
           </div>
           <div className="clients3">
-            <a  target="_blank" href='https://www.civis.vote/'>
+            <a  target="_blank" rel="noreferrer noopener" href='https://www.civis.vote/'>
               <img className="civis" src="/assets/images/civis.png" alt="" />
             </a>
           </div>
