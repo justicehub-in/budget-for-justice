@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Video from 'components/home/Video';
 import Latest from 'components/home/Latest';
 import Insights from 'components/home/Insights';

@@ -300,34 +300,35 @@ const Analysis: React.FC<Props> = ({
 
       <main className="explorer">
         <div className="explorer__header">
-          <div>
-            <h2 className='schemehead'>{grant}</h2>
-          </div>
           <div className="explorer__buttons container">
-            <div className="explorer__scheme-change">
-              <a href="/datasets" className="btn-secondary">
-                Select Another Scheme
-              </a>
-              <button
-                className="btn-secondary"
-                onClick={() => schemeModalHandler()}
-              >
-                Select Another Scheme
-              </button>
-              <StateSchemeModal
-                isOpen={schemeModalOpen}
-                handleModal={schemeModalHandler}
-                data={searchData}
-              />
+            <Link href={'./'}>
+              <a className="schemehead">{grant}</a>
+            </Link>
+            <div className="explorer__buttons container">
+              <div className="explorer__scheme-change">
+                <a href="/datasets" className="btn-secondary">
+                  Select Another Scheme
+                </a>
+                <button
+                  className="btn-secondary"
+                  onClick={() => schemeModalHandler()}
+                >
+                  Select Another Scheme
+                </button>
+                <StateSchemeModal
+                  isOpen={schemeModalOpen}
+                  handleModal={schemeModalHandler}
+                  data={searchData}
+                />
+              </div>
+              {
+                <ShareModal
+                  title={data.title}
+                  path={`/state/assam/${grant}/${scheme}`}
+                />
+              }
             </div>
-            {
-              <ShareModal
-                title={data.title}
-                path={`/state/assam/${grant}/${scheme}`}
-              />
-            }
           </div>
-
           <section className="explorer__heading container">
             <div className="explorer__content">
               <div>

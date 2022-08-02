@@ -15,8 +15,8 @@ export const didYouKnow = [
 
 export const video = {
   link: "/",
-  heading: "Explore Budgets for Justice",
-  text: " Explore the Union Budget Datasets from last 5 years for selected schemes related to Law and Justice",
+  heading: "Dissecting India's spend on delivering Justice",
+  text: "Budgets for Justice is an open-source data analytics tool designed  to enable citizens to better understand how much government funds are being allocated and utilized for Law & Justice in India.",
 };
 
 export const carousel = {
