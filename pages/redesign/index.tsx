@@ -429,7 +429,7 @@ const home = ({ content }) => {
         <div className="partnersinfo">
           <div className="clients1">
             <a target="_blank" rel="noreferrer noopener" href="https://agami.in/">
-              <img className="agami" src="/assets/images/agami.png" alt="" />
+              <img className="agami" src="/assets/images/agami_dark.png" alt="" />
             </a>
           </div>
           <div className="clients2">
