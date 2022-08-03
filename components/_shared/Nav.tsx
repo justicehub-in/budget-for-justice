@@ -22,12 +22,7 @@ const navList = [
         name: 'FAQs',
       },
     ],
-  },
-  {
-    link: '/datasets',
-    name: 'Explore Budgets',
-    isButton: true,
-  },
+  }
 ];
 
 const Nav: React.FC = () => {
@@ -145,6 +140,13 @@ const Nav: React.FC = () => {
                   )}
                 </li>
               ))}
+              <div className="dropdown">
+              <button className="dropbtn">Explore Budgets</button>
+              <div className="dropdown-content">
+                <a href='/datasets'>Union Budget</a>
+                <a href='/state/assam'>Assam State Budget</a>
+              </div>
+            </div>
             </ul>
           </nav>
         </div>
