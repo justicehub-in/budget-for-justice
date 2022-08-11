@@ -13,7 +13,7 @@ import {
 
 const StateSchemeModal = ({ isOpen, handleModal, data }) => {
   const [filteredObj, setFilteredObj] = useState(data);
-  
+
   useEffect(() => {
     // ceating tabbed interface for viz selector
     if (isOpen) {
@@ -46,7 +46,6 @@ const StateSchemeModal = ({ isOpen, handleModal, data }) => {
     {
       id: 'Grant No 3 - Administration of Justice',
       content: filteredObj['Grant No 3 - Administration of Justice'],
-      
     },
     {
       id: 'Grant No 15 - Jails',
@@ -146,7 +145,7 @@ const StateSchemeModal = ({ isOpen, handleModal, data }) => {
               {item.content.map((val, index2) => (
                 <li key={`modalItemInner-${index}-${index2}`}>
                   <a href={`/state/assam/${item.id}/${val}`}>
-                      {/* {categoryIcon(val.tags)} */}
+                    {/* {categoryIcon(val.tags)} */}
                     <span>{val}</span>
                   </a>
                 </li>

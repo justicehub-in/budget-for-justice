@@ -1,5 +1,5 @@
-@use "../settings/theme" as *;
-@use "../tools/mixins/media" as media;
+@use '../settings/theme' as *;
+@use '../tools/mixins/media' as media;
 
 @mixin button {
   padding: 12px 24px;
@@ -12,7 +12,7 @@
   width: max-content;
   font-weight: bold;
 
-  @include media.narrowerThan("sprout") {
+  @include media.narrowerThan('sprout') {
     font-size: 0.9rem;
   }
 

@@ -1,5 +1,5 @@
-@use "../settings/variables" as *;
-@use "../tools/mixins/media" as media;
+@use '../settings/variables' as *;
+@use '../tools/mixins/media' as media;
 
 .listing {
   &__header {
@@ -115,7 +115,7 @@
       column-gap: 1rem;
       margin-top: 12px;
 
-      @include media.narrowerThan("sprout") {
+      @include media.narrowerThan('sprout') {
         column-count: 1;
       }
     }

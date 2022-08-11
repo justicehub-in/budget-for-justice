@@ -382,7 +382,11 @@ const home = ({ content }) => {
               <div className="story1">
                 <h2 className="cardh1">Union Budget</h2>
                 <Link href="https://www.indiaspend.com/explainers/how-the-union-budget-funds-indias-justice-system-804821">
-                  <a target="_blank" rel="noreferrer noopener" className="cardh2">
+                  <a
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="cardh2"
+                  >
                     How The Union Budget Funds India&#39;s Justice System
                   </a>
                 </Link>
@@ -395,7 +399,7 @@ const home = ({ content }) => {
                   />
                   <h2 className="articlename">Times of India</h2>
                 </div>*/}
-              </div> 
+              </div>
             </div>
           </div>
         </div>
@@ -405,7 +409,11 @@ const home = ({ content }) => {
               <div className="story1">
                 <h2 className="cardh1">Budgets for Justice</h2>
                 <Link href="https://medium.com/civicdatalab/budgets-for-justice-making-law-and-justice-budgets-accessible-and-actionable-28eb56a0d348">
-                  <a target="_blank"  rel="noreferrer noopener" className="cardh2">
+                  <a
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="cardh2"
+                  >
                     Making Law and Justice budgets Accessible and Actionable{' '}
                   </a>
                 </Link>
@@ -428,17 +436,33 @@ const home = ({ content }) => {
         <h2 className="partnersh1">Our Partners</h2>
         <div className="partnersinfo">
           <div className="clients1">
-            <a target="_blank" rel="noreferrer noopener" href="https://agami.in/">
-              <img className="agami" src="/assets/images/agami_dark.png" alt="" />
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://agami.in/"
+            >
+              <img
+                className="agami"
+                src="/assets/images/agami_dark.png"
+                alt=""
+              />
             </a>
           </div>
           <div className="clients2">
-            <a  target="_blank" rel="noreferrer noopener" href="https://civicdatalab.in/">
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://civicdatalab.in/"
+            >
               <img className="cdl" src="/assets/images/cdl_logo.png" alt="" />
             </a>
           </div>
           <div className="clients3">
-            <a  target="_blank" rel="noreferrer noopener" href='https://www.civis.vote/'>
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://www.civis.vote/"
+            >
               <img className="civis" src="/assets/images/civis.png" alt="" />
             </a>
           </div>

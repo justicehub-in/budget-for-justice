@@ -13,4 +13,3 @@ Budgetary allocation for the scheme 'Infrastructure Facilities for Judiciary' re
 ### What is the amount allocated for The National Legal Services Authority (NALSA)?
 
 Among the autonomous bodies funded by the Centre, the National Legal Services Authority (NALSA) budget grew by 17% to Rs 170 crore.
-

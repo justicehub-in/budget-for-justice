@@ -1,5 +1,5 @@
-@use "../../settings/variables" as *;
-@use "../../tools/mixins/media" as media;
+@use '../../settings/variables' as *;
+@use '../../tools/mixins/media' as media;
 
 .home-insights {
   background-color: $bg-lightest;
@@ -34,7 +34,7 @@
       color: $text-light-light;
       font-weight: 600;
 
-      &[aria-selected="true"] {
+      &[aria-selected='true'] {
         color: $color-primary;
         font-weight: 500;
         font-size: 2.5rem;
@@ -48,7 +48,7 @@
       }
 
       &:before {
-        content: "\00a0";
+        content: '\00a0';
         border-radius: 4px;
         height: 4px;
         width: 64px;
@@ -63,7 +63,7 @@
     flex-grow: 999;
     min-width: 80%;
     background-color: $color-primary;
-    background: url("/assets/images/insight-bg-1.jpg") no-repeat;
+    background: url('/assets/images/insight-bg-1.jpg') no-repeat;
     background-size: cover;
     border-radius: 16px 0px 0px 16px;
     padding: 4.5rem 2rem 4.5rem 4.5rem;
@@ -139,7 +139,7 @@
     }
   }
 
-  @include media.narrowerThan("sprout") {
+  @include media.narrowerThan('sprout') {
     img {
       display: none;
     }

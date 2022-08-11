@@ -58,7 +58,7 @@ const SimpleBarLineChartViz: React.FC<SimpleBarLineChartProps> = ({
   subTitle,
   unit,
 }) => {
-  console.log(dataset)
+  console.log(dataset);
   const series = seriesMaker(color, dataset, type, smooth, showSymbol, unit);
   const options = {
     tooltip: {

@@ -54,8 +54,8 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
   const [selectedBudgetType, setSelectedBudgetType] = useState('');
   const [isTable, setIsTable] = useState(false);
   const [currentViz, setCurrentViz] = useState('#barGraph');
-  
-  const router = useRouter(); 
+
+  const router = useRouter();
 
   // todo: make it dynamic lie scheme dashboard
   const IndicatorDesc = [
@@ -320,7 +320,12 @@ const Analysis: React.FC<Props> = ({ data, meta, fileData, allData }) => {
                 data={allData}
               />
             </div>
-            {<ShareModal title={data.title} path={`https://budgets.justicehub.in/datasets/${router.query.explorer}`} />}
+            {
+              <ShareModal
+                title={data.title}
+                path={`https://budgets.justicehub.in/datasets/${router.query.explorer}`}
+              />
+            }
           </div>
 
           <section className="explorer__heading container">

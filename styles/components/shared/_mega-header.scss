@@ -1,6 +1,6 @@
-@use "../../settings/variables" as *;
-@use "../../tools/mixins/media" as media;
-@use "../../settings/theme" as *;
+@use '../../settings/variables' as *;
+@use '../../tools/mixins/media' as media;
+@use '../../settings/theme' as *;
 
 .mega-header {
   background-color: $bg-header;
@@ -10,7 +10,7 @@
     padding-top: 3rem;
     display: block;
 
-    @include media.narrowerThan("plant") {
+    @include media.narrowerThan('plant') {
       padding-top: 1.5rem;
     }
   }
@@ -21,7 +21,7 @@
     grid-template-rows: max-content 1fr;
     margin-top: 2.5rem;
 
-    @include media.narrowerThan("seed") {
+    @include media.narrowerThan('seed') {
       display: flex;
       flex-wrap: wrap;
       margin-top: 0;
@@ -48,11 +48,11 @@
       width: 72%;
     }
 
-    @include media.narrowerThan("sprout") {
+    @include media.narrowerThan('sprout') {
       width: 168px;
       height: 168px;
     }
-    @include media.narrowerThan("seed") {
+    @include media.narrowerThan('seed') {
       width: 88px;
       height: 88px;
       grid-row: 1/2;
@@ -99,7 +99,7 @@
       padding-bottom: 2.5rem;
     }
 
-    @include media.narrowerThan("seed") {
+    @include media.narrowerThan('seed') {
       grid-column: 1/3;
     }
   }

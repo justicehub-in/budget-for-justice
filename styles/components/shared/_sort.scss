@@ -1,5 +1,5 @@
-@use "../../settings/variables" as *;
-@use "../../tools/mixins/media" as media;
+@use '../../settings/variables' as *;
+@use '../../tools/mixins/media' as media;
 
 .sort {
   display: flex;
@@ -18,7 +18,7 @@
     border: 1px solid $bg-dark;
     color: $bg-dark;
   }
-  @include media.narrowerThan("sprout") {
+  @include media.narrowerThan('sprout') {
     display: none;
   }
 }

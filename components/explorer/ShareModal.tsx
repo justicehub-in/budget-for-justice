@@ -10,7 +10,6 @@ import {
 const ShareModal = ({ title, path }) => {
   const router = useRouter();
 
-  
   // open / close sub-menu
   function shareButtonHandler(e: any) {
     function hideMenu() {
@@ -34,7 +33,7 @@ const ShareModal = ({ title, path }) => {
     }
 
     // check if web share api is supported
-    if (navigator.share) { 
+    if (navigator.share) {
       navigator.share({
         text: title,
         url: path,

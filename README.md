@@ -57,8 +57,8 @@ We use REST API to fetch data from CKAN. Some of the data comes as metadata and 
 When visiting a dataset lisitng page, you may want to fetch the particular type of datasets. To do so, you can use `getServerSideProps` function from NextJS:
 
 ```javascript
-import { GetServerSideProps } from "next";
-import { fetchDatasets } from "utils/index";
+import { GetServerSideProps } from 'next';
+import { fetchDatasets } from 'utils/index';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const data = await fetchDatasets();
@@ -80,13 +80,13 @@ Learn more about them [here](utils/README.md).
 Depending on dataset, they may return metadata in the form of `JSON` or a combination of `JSON` and `CSV` file. We can use `fetchAPI` in this case:
 
 ```javascript
-import { GetServerSideProps } from "next";
-import { fetchAPI } from "utils/index";
-import { resourceGetter } from "utils/resourceParser";
+import { GetServerSideProps } from 'next';
+import { fetchAPI } from 'utils/index';
+import { resourceGetter } from 'utils/resourceParser';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await fetchAPI(context.query.tender);
-  const csv = await resourceGetter(data.result.resources, "CSV");
+  const csv = await resourceGetter(data.result.resources, 'CSV');
 
   return {
     props: {

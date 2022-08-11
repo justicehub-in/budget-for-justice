@@ -22,9 +22,9 @@ interface BarChartProps {
   stack: boolean;
   Title: string;
   subTitle: string;
-  left: string,
-  type: string,
-  smooth: boolean
+  left: string;
+  type: string;
+  smooth: boolean;
 }
 
 const BarChartViz: React.FC<BarChartProps> = ({
@@ -37,7 +37,7 @@ const BarChartViz: React.FC<BarChartProps> = ({
   subTitle,
   left,
   type,
-  smooth
+  smooth,
 }) => {
   const [series, setSeries] = useState([]);
   const [option, setOption] = useState({});
@@ -61,7 +61,7 @@ const BarChartViz: React.FC<BarChartProps> = ({
         barMaxWidht: 16,
         itemStyle: { color: theme[columnLength] },
         stack: stackTrue,
-		smooth: smooth,
+        smooth: smooth,
         label: {
           normal: {
             show: true,

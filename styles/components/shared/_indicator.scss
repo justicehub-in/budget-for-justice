@@ -1,5 +1,5 @@
-@use "../../settings/variables" as *;
-@use "../../tools/mixins/media" as media;
+@use '../../settings/variables' as *;
+@use '../../tools/mixins/media' as media;
 
 .indicator {
   scrollbar-width: thin;
@@ -40,7 +40,7 @@
     }
   }
 
-  @include media.narrowerThan("sprout") {
+  @include media.narrowerThan('sprout') {
     display: none;
   }
 }
