@@ -22,7 +22,12 @@ const navList = [
         name: 'FAQs',
       },
     ],
-  }
+  },
+  // {
+  //   link: '/datasets',
+  //   name: 'Explore Budgets',
+  //   isButton: true,
+  // },
 ];
 
 const Nav: React.FC = () => {
