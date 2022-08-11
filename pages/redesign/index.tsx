@@ -383,7 +383,7 @@ const home = ({ content }) => {
                 <h2 className="cardh1">Union Budget</h2>
                 <Link href="https://www.indiaspend.com/explainers/how-the-union-budget-funds-indias-justice-system-804821">
                   <a target="_blank" rel="noreferrer noopener" className="cardh2">
-                    How The Union Budget Funds India's Justice System
+                    How The Union Budget Funds India&#39;s Justice System
                   </a>
                 </Link>
                 {/* <hr></hr>
