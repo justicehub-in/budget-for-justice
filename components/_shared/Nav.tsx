@@ -146,9 +146,9 @@ const Nav: React.FC = () => {
                   )}
                 </li>
               ))}
-              <div className="dropdown">
+              <div className="navdropdown">
                 <button className="dropbtn">Explore Budgets</button>
-                <div className="dropdown-content">
+                <div className="navdropdown-content">
                   <a href="/datasets">Union Budget</a>
                   <a href="/state/assam">Assam State Budget</a>
                 </div>

@@ -6706,7 +6706,7 @@ button {
   border: none;
 }
 
-.dropdown {
+.navdropdown {
   position: relative;
   margin-left: 10px;
   border-radius: 4px;
@@ -6714,7 +6714,7 @@ button {
   border: 1px solid #f65940;
 }
 
-.dropdown-content {
+.navdropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -6723,7 +6723,7 @@ button {
   z-index: 11;
 }
 
-.dropdown-content a {
+.navdropdown-content a {
   text-decoration: underline;
   padding: 0.7rem 1rem 0.7rem 1rem;
   display: block;
@@ -6731,14 +6731,14 @@ button {
   line-height: 24px;
 }
 
-.dropdown-content a:hover {
+.navdropdown-content a:hover {
   background-color: #ddd;
 }
 
-.dropdown:hover .dropdown-content {
+.navdropdown:hover .navdropdown-content {
   display: block;
 }
 
-.dropdown:hover .dropbtn {
+.navdropdown:hover .dropbtn {
   background-color: #f65940;
 }
