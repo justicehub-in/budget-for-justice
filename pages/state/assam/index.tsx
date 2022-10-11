@@ -125,7 +125,7 @@ const assam = () => {
                         Explore how to make State Budgets Data Open, Accessible and Citizen Friendly
                         </h2>
                         <p className="bannp">
-                         EA Guide to Make State Budgets Data Open, Accessible and Citizen Friendly
+                         A Guide to Make State Budgets Data Open, Accessible and Citizen Friendly
                         </p>
                         <a className="bannbut" href="">Open Guide Book</a>
                         
