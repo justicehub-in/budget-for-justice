@@ -153,7 +153,7 @@ const home = ({ content }) => {
                   className="cardbut1"
                   target="_blank"
                   rel="noreferrer noopener"
-                  href="https://dataforjustice.substack.com/p/understanding-budgets-for-law-and"
+                  href="https://dataforjustice.substack.com/p/understanding-budgets-for-law-and-justice-1393947"
                 >
                   <img
                     className="cardlogos"
@@ -186,12 +186,12 @@ const home = ({ content }) => {
                 alt=""
               />
               <div className="cardh1">
-                <h2 className="pctxt">Law enforcement budgets in India</h2>
+                <h2 className="pctxt">Understanding budgeting for Police in India</h2>
                 <a
                   className="cardbut1"
                   target="_blank"
                   rel="noreferrer noopener"
-                  href="https://dataforjustice.substack.com/p/understanding-police-budgets-in-india"
+                  href="https://dataforjustice.substack.com/p/understanding-police-budgets-in-india-1393948"
                 >
                   <img
                     className="cardlogos"
@@ -224,12 +224,12 @@ const home = ({ content }) => {
                 alt=""
               />
               <div className="cardh1">
-                <h2 className="pctxt">Legal Aid Budgets with Project 39A</h2>
+                <h2 className="pctxt">Budgets for Legal Aid with Project 39A</h2>
                 <a
                   className="cardbut1"
                   target="_blank"
                   rel="noreferrer noopener"
-                  href="https://dataforjustice.substack.com/p/understanding-legal-aid-budgets-in"
+                  href="https://dataforjustice.substack.com/p/understanding-legal-aid-budgets-in-india-1393946"
                 >
                   <img
                     className="cardlogos"
@@ -265,13 +265,13 @@ const home = ({ content }) => {
               />
               <div className="cardh1">
                 <h2 className="pctxt">
-                  Law and Justice Budget on E-Courts and Judicial Infra
+                  Budgets for e-Courts and Judicial Infra
                 </h2>
                 <a
                   className="cardbut1"
                   target="_blank"
                   rel="noreferrer noopener"
-                  href="https://dataforjustice.substack.com/p/understanding-budgets-on-e-courts"
+                  href="https://dataforjustice.substack.com/p/understanding-budgets-on-e-courts-and-judicial-infrastructure-1393944"
                 >
                   <img
                     className="cardlogos"
@@ -311,7 +311,7 @@ const home = ({ content }) => {
                   className="cardbut1"
                   target="_blank"
                   rel="noreferrer noopener"
-                  href="https://dataforjustice.substack.com/p/a-conversation-with-india-justice"
+                  href="https://dataforjustice.substack.com/p/a-conversation-with-india-justice-report-1393942"
                 >
                   <img
                     className="cardlogos"
@@ -351,7 +351,7 @@ const home = ({ content }) => {
                   className="cardbut1"
                   target="_blank"
                   rel="noreferrer noopener"
-                  href="https://dataforjustice.substack.com/p/understanding-budgets-for-correctional"
+                  href="https://dataforjustice.substack.com/p/understanding-budgets-for-correctional-facilities-1393943"
                 >
                   <img
                     className="cardlogos"
