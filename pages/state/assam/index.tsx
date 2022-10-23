@@ -68,7 +68,6 @@ const assam = ({ data }) => {
   };
 
   function togglehighlight(item) {
-    console.log(item);
     setSelectedHighlight(item);
   }
 
