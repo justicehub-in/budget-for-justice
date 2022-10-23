@@ -253,7 +253,7 @@ const assam = ({ data }) => {
               Citizen Friendly
             </h2>
             <p className="s2bannertxt">
-              EA Guide to Make State Budgets Data Open, Accessible and Citizen
+              A Guide to Make State Budgets Data Open, Accessible and Citizen
               Friendly
             </p>
             <a
