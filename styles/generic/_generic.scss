@@ -1,5 +1,5 @@
-@use "../tools/mixins/media" as media;
-@use "../settings/theme" as *;
+@use '../tools/mixins/media' as media;
+@use '../settings/theme' as *;
 
 * {
   box-sizing: border-box;
@@ -46,19 +46,19 @@
   margin-right: auto;
   margin-left: auto;
 
-  @include media.widerThan("seedling") {
+  @include media.widerThan('seedling') {
     width: 700px;
   }
 
-  @include media.widerThan("sprout") {
+  @include media.widerThan('sprout') {
     width: 960px;
   }
 
-  @include media.widerThan("plant") {
+  @include media.widerThan('plant') {
     width: 1180px;
   }
 
-  @include media.widerThan("tree") {
+  @include media.widerThan('tree') {
     width: 1216px;
   }
 }

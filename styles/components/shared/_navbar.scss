@@ -1,5 +1,5 @@
-@use "../../settings/theme" as *;
-@use "../../tools/mixins/narrowerThan" as *;
+@use '../../settings/theme' as *;
+@use '../../tools/mixins/narrowerThan' as *;
 
 .header {
   background-color: $nav-bg;
@@ -37,7 +37,7 @@
     height: 2rem;
   }
 
-  @include narrowerThan("sprout") {
+  @include narrowerThan('sprout') {
     display: none;
     padding-top: 0;
   }
@@ -72,7 +72,7 @@
       box-shadow: inset 0 -2px 0 0 $nav-text;
       font-weight: 500;
 
-      @include narrowerThan("sprout") {
+      @include narrowerThan('sprout') {
         box-shadow: inset 3px 0 0 0 $nav-text;
       }
     }
@@ -148,7 +148,7 @@
   }
 
   &__item {
-    &[type="button"] {
+    &[type='button'] {
       border-radius: 4px;
       background-color: lighten($nav-bg, 5);
       font-weight: bold;
@@ -170,7 +170,7 @@
   min-height: 4rem;
   padding: 0;
 
-  @include narrowerThan("sprout") {
+  @include narrowerThan('sprout') {
     display: block;
     align-items: center;
   }
@@ -190,7 +190,7 @@
   &__link {
     justify-self: flex-end;
 
-    @include narrowerThan("seed") {
+    @include narrowerThan('seed') {
       display: none;
     }
   }
@@ -202,7 +202,7 @@
 
   a {
     text-decoration: none;
-    color: $nav-text;;
+    color: $nav-text;
   }
 
   &__header {
@@ -239,13 +239,13 @@
     //   font-weight: 800;
     // }
 
-    &[type="button"] {
+    &[type='button'] {
       &::after {
         border-bottom: 2px solid $nav-text;
         border-bottom-color: $nav-text;
         border-right: 2px solid $nav-text;
         border-right-color: $nav-text;
-        content: " ";
+        content: ' ';
         display: inline-block;
         height: 8px;
         margin: 0 2px 0 0.5rem;
@@ -257,7 +257,7 @@
       }
     }
 
-    &[aria-expanded="true"] {
+    &[aria-expanded='true'] {
       background-color: $nav-bg-2;
 
       &::after {
@@ -290,7 +290,7 @@
     }
   }
 
-  @include narrowerThan("seed") {
+  @include narrowerThan('seed') {
     min-width: 248px;
   }
 }

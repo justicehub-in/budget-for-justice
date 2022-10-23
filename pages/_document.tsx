@@ -25,12 +25,11 @@ export default class CustomDocument extends Document {
           <link rel="alternate icon" href="/assets/favicon/favicon.ico" />
           <link rel="manifest" href="/assets/favicon/site.webmanifest"></link>
 
-          <Script
-            strategy="afterInteractive"
+          <script
+            async
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}
           />
-          <Script
-            strategy="afterInteractive"
+          <script
             dangerouslySetInnerHTML={{
               __html: `
               window.dataLayer = window.dataLayer || [];

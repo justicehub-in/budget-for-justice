@@ -1,4 +1,4 @@
-@use "../../settings/breakpoints" as *;
+@use '../../settings/breakpoints' as *;
 
 @function breakpoint($_breakpointName) {
   @if (map-has-key($map: $breakpoints, $key: $_breakpointName)) {

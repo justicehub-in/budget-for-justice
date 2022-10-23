@@ -23,11 +23,11 @@ const navList = [
       },
     ],
   },
-  {
-    link: '/datasets',
-    name: 'Explore Budgets',
-    isButton: true,
-  },
+  // {
+  //   link: '/datasets',
+  //   name: 'Explore Budgets',
+  //   isButton: true,
+  // },
 ];
 
 const Nav: React.FC = () => {
@@ -134,10 +134,11 @@ const Nav: React.FC = () => {
                   ) : (
                     <Link href={navItem.link}>
                       <a
-                        className={`navbar__item ${router.pathname == navItem.link
-                          ? 'navbar__item--active'
-                          : ''
-                          }`}
+                        className={`navbar__item ${
+                          router.pathname == navItem.link
+                            ? 'navbar__item--active'
+                            : ''
+                        }`}
                       >
                         {navItem.name}
                       </a>
@@ -145,6 +146,13 @@ const Nav: React.FC = () => {
                   )}
                 </li>
               ))}
+              <div className="navdropdown">
+                <button className="dropbtn">Explore Budgets</button>
+                <div className="navdropdown-content">
+                  <a href="/datasets">Union Budget</a>
+                  <a href="/state/assam">Assam State Budget</a>
+                </div>
+              </div>
             </ul>
           </nav>
         </div>
@@ -218,8 +226,9 @@ const Nav: React.FC = () => {
               <a
                 href={'https://budgets.justicehub.in'}
                 onClick={mobileNavHandler}
-                className={`navbar__item ${router.pathname == '/' ? 'navbar__item--active' : ''
-                  }`}
+                className={`navbar__item ${
+                  router.pathname == '/' ? 'navbar__item--active' : ''
+                }`}
               >
                 Home
               </a>
@@ -263,10 +272,11 @@ const Nav: React.FC = () => {
                     <a
                       href={navItem.link}
                       onClick={mobileNavHandler}
-                      className={`navbar__item ${router.pathname == navItem.link
-                        ? 'navbar__item--active'
-                        : ''
-                        }`}
+                      className={`navbar__item ${
+                        router.pathname == navItem.link
+                          ? 'navbar__item--active'
+                          : ''
+                      }`}
                     >
                       {navItem.name}
                     </a>

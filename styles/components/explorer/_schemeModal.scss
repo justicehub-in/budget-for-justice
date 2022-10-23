@@ -1,4 +1,4 @@
-@use "../../settings/variables" as *;
+@use '../../settings/variables' as *;
 
 .schemeModal {
   max-width: 1216px;
@@ -110,7 +110,7 @@
         text-align: end;
       }
 
-      &[aria-selected="true"] {
+      &[aria-selected='true'] {
         color: $text-light-high;
         background-color: $bg-light;
 
@@ -118,7 +118,7 @@
           position: relative;
 
           &::before {
-            content: "\00a0";
+            content: '\00a0';
             background-color: $color-teal-3;
             width: 8px;
             height: 8px;

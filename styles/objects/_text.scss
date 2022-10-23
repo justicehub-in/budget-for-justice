@@ -1,5 +1,5 @@
-@use "../settings/variables" as *;
-@use "../tools/mixins/media" as media;
+@use '../settings/variables' as *;
+@use '../tools/mixins/media' as media;
 
 @mixin heading {
   font-weight: 900;

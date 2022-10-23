@@ -1,5 +1,5 @@
-@use "../../tools/mixins/media" as media;
-@use "../../objects/sr-only" as *;
+@use '../../tools/mixins/media' as media;
+@use '../../objects/sr-only' as *;
 
 .skip-to-content {
   $p: &;

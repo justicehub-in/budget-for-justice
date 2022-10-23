@@ -9,13 +9,13 @@ $bg-violet-light: hsl(256, 51%, 93%);
 $bg-gold-light: hsl(0, 0%, 95%);
 $bg-pink-light: hsl(338, 35%, 91%);
 
-$color-error: #C6250C;
+$color-error: #c6250c;
 $color-warning: hsl(36, 75%, 49%);
 $color-success: hsl(135, 47%, 37%);
 $color-info: hsl(220, 60%, 43%);
 
 $color-primary: #f65940;
-$color-dusk: #DE4B33;
+$color-dusk: #de4b33;
 $color-black: #000000;
 $color-light-grey: rgba(0, 0, 0, 0.12);
 
@@ -26,13 +26,13 @@ $color-violet: hsl(256, 50%, 51%);
 $color-gold: hsl(47, 100%, 32%);
 $color-pink: hsl(338, 53%, 39%);
 $color-carrot: #f17777;
-$color-teal-0: #EBFEFF;
+$color-teal-0: #ebfeff;
 $color-teal: #00abb7;
 $color-teal-1: #cceef1;
-$color-teal-2: #02838B;
-$color-teal-3: #046E76;
+$color-teal-2: #02838b;
+$color-teal-3: #046e76;
 $color-green: #06464a;
-$color-dawn: #FED349;
+$color-dawn: #fed349;
 
 $text-dark-high: hsl(0, 33%, 99%);
 $text-dark-medium: hsla(0, 0%, 100%, 0.72);
@@ -45,10 +45,10 @@ $text-light-light: hsla(0, 0%, 0%, 0.32);
 $text-light-disabled: hsla(0, 0%, 0%, 0.08);
 
 $grey-1: #0a0a0a;
-$grey-2: #666D6E;
-$grey-3: #888F8F;
+$grey-2: #666d6e;
+$grey-3: #888f8f;
 $grey-4: #cdd1d1;
-$grey-5: #EFF2F2;
+$grey-5: #eff2f2;
 $grey-6: #f1eef1;
 
 $border-1: 1px solid $grey-4;
@@ -56,5 +56,6 @@ $border-2: 1px solid $bg-light;
 $box-shadow-1: 0px 1px 4px rgba(0, 0, 0, 0.14);
 $box-shadow-2: 0px 4px 12px rgba(0, 0, 0, 0.08);
 $box-shadow-inset: inset 0px 0px 4px rgba(0, 0, 0, 0.08);
-$box-shadow-inset-2:  inset 0px -4px 12px rgba(0, 0, 0, 0.04), inset 0px 4px 12px rgba(0, 0, 0, 0.04);
+$box-shadow-inset-2: inset 0px -4px 12px rgba(0, 0, 0, 0.04),
+  inset 0px 4px 12px rgba(0, 0, 0, 0.04);
 $drop-shadow: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.08));

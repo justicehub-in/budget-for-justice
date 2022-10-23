@@ -1,4 +1,4 @@
-@use "../../settings/variables" as *;
+@use '../../settings/variables' as *;
 
 .shareModal {
   position: relative;
@@ -8,7 +8,7 @@
     font-weight: bold;
     border-width: 2px;
 
-    &[aria-expanded="true"] {
+    &[aria-expanded='true'] {
       background-color: $color-teal-0;
     }
   }

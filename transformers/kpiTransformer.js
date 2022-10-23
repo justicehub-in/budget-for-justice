@@ -21,54 +21,54 @@ export function kpiTransformer(mainData, indicatorsData) {
   const data_perc = {};
 
   for (var i = 0; i < data.length; i++) {
-    if (data_perc[data[i]["tender/mainProcurementCategory"]]) {
+    if (data_perc[data[i]['tender/mainProcurementCategory']]) {
       if (
-        data_perc[data[i]["tender/mainProcurementCategory"]][
-          data[i]["tender/procurementMethod"]
+        data_perc[data[i]['tender/mainProcurementCategory']][
+          data[i]['tender/procurementMethod']
         ]
       ) {
-        data_perc[data[i]["tender/mainProcurementCategory"]][
-          data[i]["tender/procurementMethod"]
+        data_perc[data[i]['tender/mainProcurementCategory']][
+          data[i]['tender/procurementMethod']
         ] =
-          data_perc[data[i]["tender/mainProcurementCategory"]][
-            data[i]["tender/procurementMethod"]
-          ] + Number(data[i]["tender_count"]);
-        data_perc[data[i]["tender/mainProcurementCategory"]]["sum"] =
-          data_perc[data[i]["tender/mainProcurementCategory"]]["sum"] +
-          Number(data[i]["tender_count"]);
+          data_perc[data[i]['tender/mainProcurementCategory']][
+            data[i]['tender/procurementMethod']
+          ] + Number(data[i]['tender_count']);
+        data_perc[data[i]['tender/mainProcurementCategory']]['sum'] =
+          data_perc[data[i]['tender/mainProcurementCategory']]['sum'] +
+          Number(data[i]['tender_count']);
       } else {
-        data_perc[data[i]["tender/mainProcurementCategory"]][
-          data[i]["tender/procurementMethod"]
-        ] = Number(data[i]["tender_count"]);
-        data_perc[data[i]["tender/mainProcurementCategory"]]["sum"] =
-          data_perc[data[i]["tender/mainProcurementCategory"]]["sum"] +
-          Number(data[i]["tender_count"]);
+        data_perc[data[i]['tender/mainProcurementCategory']][
+          data[i]['tender/procurementMethod']
+        ] = Number(data[i]['tender_count']);
+        data_perc[data[i]['tender/mainProcurementCategory']]['sum'] =
+          data_perc[data[i]['tender/mainProcurementCategory']]['sum'] +
+          Number(data[i]['tender_count']);
       }
     } else {
       const temp_obj = {};
-      temp_obj[data[i]["tender/procurementMethod"]] = Number(
-        data[i]["tender_count"]
+      temp_obj[data[i]['tender/procurementMethod']] = Number(
+        data[i]['tender_count']
       );
-      temp_obj["sum"] = Number(data[i]["tender_count"]);
-      if (data[i]["tender/mainProcurementCategory"])
-        data_perc[data[i]["tender/mainProcurementCategory"]] = temp_obj;
+      temp_obj['sum'] = Number(data[i]['tender_count']);
+      if (data[i]['tender/mainProcurementCategory'])
+        data_perc[data[i]['tender/mainProcurementCategory']] = temp_obj;
     }
   }
 
   // convert the nested array values to percentage and
   // Format the data in required shape
-  const first_array = ["tender/mainProcurementCategory"];
+  const first_array = ['tender/mainProcurementCategory'];
 
   for (var key in data_perc) {
     if (Object.prototype.hasOwnProperty.call(data_perc, key)) {
       for (const prop in data_perc[key]) {
         if (Object.prototype.hasOwnProperty.call(data_perc[key], prop)) {
-          if (prop != "sum") {
+          if (prop != 'sum') {
             // creating the header array for req format
             first_array.push(prop);
             //change value to %
             const percentValue =
-              (data_perc[key][prop] * 100) / data_perc[key]["sum"];
+              (data_perc[key][prop] * 100) / data_perc[key]['sum'];
             data_perc[key][prop] =
               Math.round((percentValue + Number.EPSILON) * 100) / 100;
           }

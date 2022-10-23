@@ -1,5 +1,5 @@
-@use "../settings/variables" as *;
-@use "../tools/mixins/media" as media;
+@use '../settings/variables' as *;
+@use '../tools/mixins/media' as media;
 .about {
   background-color: $bg-lightest;
 
@@ -47,7 +47,7 @@
       list-style: none;
 
       &::before {
-        content: "(" counter(list, lower-alpha) "). ";
+        content: '(' counter(list, lower-alpha) '). ';
         counter-increment: list;
         font-weight: bold;
       }

@@ -1,5 +1,5 @@
-@use "../../settings/variables" as *;
-@use "../../tools/mixins/media" as media;
+@use '../../settings/variables' as *;
+@use '../../tools/mixins/media' as media;
 
 .filters {
   scrollbar-width: thin;
@@ -16,7 +16,7 @@
     width: 5px;
   }
 
-  @include media.narrowerThan("sprout") {
+  @include media.narrowerThan('sprout') {
     display: none;
   }
 
@@ -44,7 +44,7 @@
       transition: transform 150ms ease;
     }
 
-    [aria-expanded="true"] svg {
+    [aria-expanded='true'] svg {
       transform: rotate(-180deg);
     }
 
@@ -73,7 +73,7 @@
     }
   }
 
-  [aria-pressed="true"] {
+  [aria-pressed='true'] {
     background-color: darken($color-sapphire-0, 10);
 
     &:hover {

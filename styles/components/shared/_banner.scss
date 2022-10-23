@@ -1,5 +1,5 @@
-@use "../../settings/variables" as *;
-@use "../../tools/mixins/media" as media;
+@use '../../settings/variables' as *;
+@use '../../tools/mixins/media' as media;
 
 .banner {
   margin-top: 7rem;
@@ -29,7 +29,7 @@
     transform: translateY(-50%);
     z-index: -1;
 
-    @include media.narrowerThan("seedling") {
+    @include media.narrowerThan('seedling') {
       display: none;
     }
   }

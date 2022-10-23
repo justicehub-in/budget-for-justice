@@ -3,27 +3,27 @@ import {
   WomenChild,
   Police,
   HomeAffairs,
-} from "components/icons/ListingIcons";
+} from 'components/icons/ListingIcons';
 
 export function categoryIcon(tags) {
-  if (tags.includes("law")) return <LawJustice />;
-  else if (tags.includes("wcd")) return <WomenChild />;
-  else if (tags.includes("police")) return <Police />;
+  if (tags.includes('law')) return <LawJustice />;
+  else if (tags.includes('wcd')) return <WomenChild />;
+  else if (tags.includes('police')) return <Police />;
   else return <HomeAffairs />;
 }
 
 export function categoryTag(tags) {
-  if (tags.includes("law")) return "Ministry of Law & Justice";
-  else if (tags.includes("wcd"))
-    return "Ministry of Women & Child Development";
-  else if (tags.includes("police")) return "Department of Police";
-  else return "Ministry of Home Affairs";
+  if (tags.includes('law')) return 'Ministry of Law & Justice';
+  else if (tags.includes('wcd'))
+    return 'Ministry of Women & Child Development';
+  else if (tags.includes('police')) return 'Department of Police';
+  else return 'Ministry of Home Affairs';
 }
 
 export function stripTitle(name) {
-  const shortName = name.includes("data for the")
-    ? name.split("data for the ")[1]
-    : name.split("data for ")[1];
+  const shortName = name.includes('data for the')
+    ? name.split('data for the ')[1]
+    : name.split('data for ')[1];
 
   return shortName;
 }
@@ -36,17 +36,17 @@ export function explorerPopulation(obj) {
   obj.resources &&
     obj.resources.forEach((res) => {
       resUrls.push(res.url);
-      if (res.name == "Datasheet") resources.dataUrl = res.url;
-      if (res.name == "Metadata") resources.metaUrl = res.url;
+      if (res.name == 'Datasheet') resources.dataUrl = res.url;
+      if (res.name == 'Metadata') resources.metaUrl = res.url;
     });
 
   newObj = {
     id: obj.name,
     title: obj.title,
-    notes: obj.notes || "",
+    notes: obj.notes || '',
     tags: obj.tags.map((item) => item.display_name),
-    dataUrl: resources.dataUrl || "",
-    metaUrl: resources.metaUrl || "",
+    dataUrl: resources.dataUrl || '',
+    metaUrl: resources.metaUrl || '',
     resUrls,
   };
 
@@ -60,16 +60,16 @@ export function datasetPopulation(obj) {
     const resources = {};
     item.resources &&
       item.resources.forEach((res) => {
-        if (res.name == "Datasheet") resources.dataUrl = res.url;
-        if (res.name == "Metadata") resources.metaUrl = res.url;
+        if (res.name == 'Datasheet') resources.dataUrl = res.url;
+        if (res.name == 'Metadata') resources.metaUrl = res.url;
       });
 
     populated.push({
       id: item.name,
       title: item.title,
       tags: item.tags.map((item) => item.display_name),
-      dataUrl: resources.dataUrl || "",
-      metaUrl: resources.metaUrl || "",
+      dataUrl: resources.dataUrl || '',
+      metaUrl: resources.metaUrl || '',
     });
   });
 
@@ -80,7 +80,7 @@ export function filter_data_indicator(mainData, indicatorName) {
   let data = mainData;
   if (indicatorName) {
     if (data.length > 0) {
-      data = data.filter((item) => item["indicators"] == indicatorName);
+      data = data.filter((item) => item['indicators'] == indicatorName);
     }
   }
   return data;
@@ -90,7 +90,7 @@ export function filter_data_budgettype(mainData, budgetType) {
   let data = mainData;
   if (budgetType) {
     if (data.length > 0) {
-      data = data.filter((item) => item["budgetType"] == budgetType);
+      data = data.filter((item) => item['budgetType'] == budgetType);
     }
   }
 
@@ -99,7 +99,7 @@ export function filter_data_budgettype(mainData, budgetType) {
 
 // fetch based on tags
 export async function fetchFromTags(tags, id) {
-  const tagsString = tags.map((i) => `"${i}"`).join(" OR ");
+  const tagsString = tags.map((i) => `"${i}"`).join(' OR ');
   const response = await fetch(
     `https://justicehub.in/api/3/action/package_search?fq=tags:(${tagsString}) AND groups:budgets-for-justice`
   ).then((res) => res.json());
@@ -118,7 +118,7 @@ export function filterObjToString(filterObj) {
     if (filterObj[val].length > 0) {
       filterObj[val].forEach((item) => final.push(`${val}:"${item}"`));
 
-      filter = final.join(" AND ");
+      filter = final.join(' AND ');
     }
   });
   return filter;
@@ -131,15 +131,15 @@ export function filterStringToObject(fq, data) {
     obj[val] = [];
   });
   if (fq) {
-    const removeEscape = fq.replaceAll(/"/g, "");
-    const splitFilters = removeEscape.split(" AND ");
+    const removeEscape = fq.replaceAll(/"/g, '');
+    const splitFilters = removeEscape.split(' AND ');
 
     splitFilters.forEach((query) => {
-      const id = query.split(":")[0];
-      const value = query.split(":")[1];
+      const id = query.split(':')[0];
+      const value = query.split(':')[1];
       obj[id].push(value);
       if (document.getElementById(value))
-        document.getElementById(value).setAttribute("aria-pressed", "true");
+        document.getElementById(value).setAttribute('aria-pressed', 'true');
     });
   }
 
@@ -148,7 +148,7 @@ export function filterStringToObject(fq, data) {
 
 // fetch medium post banner URL
 export function getMediumBanner(postContent) {
-  const srcIndex = postContent.indexOf("src=");
+  const srcIndex = postContent.indexOf('src=');
   const srcStart = srcIndex + 5;
   const srcEnd = postContent.substring(srcStart).indexOf('"') + srcStart;
   const src = postContent.substring(srcStart, srcEnd);
@@ -160,19 +160,19 @@ export function getDate(time) {
   // ordinal suffix for date
   const getOrdinal = function (d) {
     let type;
-    if (d > 3 && d < 21) type = "th";
+    if (d > 3 && d < 21) type = 'th';
     switch (d % 10) {
       case 1:
-        type = "st";
+        type = 'st';
         break;
       case 2:
-        type = "nd";
+        type = 'nd';
         break;
       case 3:
-        type = "rd";
+        type = 'rd';
         break;
       default:
-        type = "th";
+        type = 'th';
         break;
     }
     return `${d}${type}`;
@@ -181,22 +181,32 @@ export function getDate(time) {
   const dt = new Date(time);
   if (dt instanceof Date && !isNaN(dt.valueOf())) {
     const date = getOrdinal(dt.getDate());
-    const month = dt.toLocaleString("default", { month: "short" });
+    const month = dt.toLocaleString('default', { month: 'short' });
     return `${date} ${month}, ${dt.getFullYear()}`;
   } else return time;
+}
+
+// fetch state dataset for state budget
+// Required: type -> type of dataset; variables -> from url parameters.
+export async function fetchStateDataset() {
+  const statedata = await fetch(
+    'https://justicehub.in/api/3/action/package_search?q=%22assam%22&fq=(groups:state-budgets)&rows=200'
+  ).then((res) => res.json());
+  const data = statedata.result.results[0];
+  return data;
 }
 
 // fetch list of datasets.
 // Required: type -> type of dataset; variables -> from url parameters.
 export async function fetchDatasets() {
   const ministry = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:ministry AND groups:budgets-for-justice)&rows=200"
+    'https://justicehub.in/api/3/action/package_search?fq=(tags:ministry AND groups:budgets-for-justice)&rows=200'
   ).then((res) => res.json());
   const scheme = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme AND groups:budgets-for-justice)&rows=200"
+    'https://justicehub.in/api/3/action/package_search?fq=(tags:scheme AND groups:budgets-for-justice)&rows=200'
   ).then((res) => res.json());
   const category = await fetch(
-    "https://justicehub.in/api/3/action/package_search?fq=(tags:scheme-category AND groups:budgets-for-justice)&rows=200"
+    'https://justicehub.in/api/3/action/package_search?fq=(tags:scheme-category AND groups:budgets-for-justice)&rows=200'
   ).then((res) => res.json());
   const data = {
     ministry: datasetPopulation(ministry.result.results),
@@ -220,7 +230,7 @@ export async function getFilters(list, variable, page) {
     // if filters and searc found in url, also use those
     const queryVars = `fq=${
       variable.fq ? `${variable.fq} AND type:${page}` : `type:${page}`
-    }&q=${variable.q ? variable.q : ""}`;
+    }&q=${variable.q ? variable.q : ''}`;
 
     const fetchData = await fetch(
       `http://13.126.46.107/api/3/action/package_search?facet.field=[${list}]&facet.limit=6&${queryVars}`
@@ -234,17 +244,17 @@ export async function getFilters(list, variable, page) {
 // function to create tabbed interface
 export function tabbedInterface(tablist, panels) {
   // Get relevant elements and collections
-  const tabs = tablist.querySelectorAll("a");
+  const tabs = tablist.querySelectorAll('a');
 
   // The tab switching function
   const switchTab = (oldTab, newTab) => {
     newTab.focus();
     // Make the active tab focusable by the user (Tab key)
-    newTab.removeAttribute("tabindex");
+    newTab.removeAttribute('tabindex');
     // Set the selected state
-    newTab.setAttribute("aria-selected", "true");
-    oldTab.removeAttribute("aria-selected");
-    oldTab.setAttribute("tabindex", "-1");
+    newTab.setAttribute('aria-selected', 'true');
+    oldTab.removeAttribute('aria-selected');
+    oldTab.setAttribute('tabindex', '-1');
     // Get the indices of the new and old tabs to find the correct
     // tab panels to show and hide
     let index = Array.prototype.indexOf.call(tabs, newTab);
@@ -254,26 +264,26 @@ export function tabbedInterface(tablist, panels) {
   };
 
   // Add the tablist role to the first <ul> in the .tabbed container
-  tablist.setAttribute("role", "tablist");
+  tablist.setAttribute('role', 'tablist');
 
   // Add semantics are remove user focusability for each tab
   Array.prototype.forEach.call(tabs, (tab, i) => {
-    tab.setAttribute("role", "tab");
-    tab.setAttribute("id", "tab" + (i + 1));
-    tab.setAttribute("tabindex", "-1");
-    tab.parentNode.setAttribute("role", "presentation");
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('id', 'tab' + (i + 1));
+    tab.setAttribute('tabindex', '-1');
+    tab.parentNode.setAttribute('role', 'presentation');
 
     // Handle clicking of tabs for mouse users
-    tab.addEventListener("click", (e) => {
+    tab.addEventListener('click', (e) => {
       e.preventDefault();
-      let currentTab = tablist.querySelector("[aria-selected]");
+      let currentTab = tablist.querySelector('[aria-selected]');
       if (e.currentTarget !== currentTab) {
         switchTab(currentTab, e.currentTarget);
       }
     });
 
     // Handle keydown events for keyboard users
-    tab.addEventListener("keydown", (e) => {
+    tab.addEventListener('keydown', (e) => {
       // Get the index of the current tab in the tabs node list
       let index = Array.prototype.indexOf.call(tabs, e.currentTarget);
       // Work out which key the user is pressing and
@@ -284,13 +294,13 @@ export function tabbedInterface(tablist, panels) {
           : e.which === 39
           ? index + 1
           : e.which === 40
-          ? "down"
+          ? 'down'
           : null;
       if (dir !== null) {
         e.preventDefault();
         // If the down key is pressed, move focus to the open panel,
         // otherwise switch to the adjacent tab
-        dir === "down"
+        dir === 'down'
           ? panels[i].focus()
           : tabs[dir]
           ? switchTab(e.currentTarget, tabs[dir])
@@ -301,14 +311,14 @@ export function tabbedInterface(tablist, panels) {
 
   // Add tab panel semantics and hide them all
   Array.prototype.forEach.call(panels, (panel, i) => {
-    panel.setAttribute("role", "tabpanel");
-    panel.setAttribute("tabindex", "-1");
-    panel.setAttribute("aria-labelledby", tabs[i].id);
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('tabindex', '-1');
+    panel.setAttribute('aria-labelledby', tabs[i].id);
     panel.hidden = true;
   });
 
   // Initially activate the first tab and reveal the first tab panel
-  tabs[0].removeAttribute("tabindex");
-  tabs[0].setAttribute("aria-selected", "true");
+  tabs[0].removeAttribute('tabindex');
+  tabs[0].setAttribute('aria-selected', 'true');
   panels[0].hidden = false;
 }

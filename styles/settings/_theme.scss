@@ -1,4 +1,4 @@
-@use "./variables" as *;
+@use './variables' as *;
 
 // header
 $bg-header: $bg-light;
@@ -11,7 +11,7 @@ $nav-bg-2: $color-teal;
 $nav-text: $text-dark-high;
 $submenu-text: $color-teal;
 $bg-submenu: $bg-lightest;
-$nav-border: 1px solid #ABB0B0;
+$nav-border: 1px solid #abb0b0;
 
 // footer
 $bg-footer: $color-black;

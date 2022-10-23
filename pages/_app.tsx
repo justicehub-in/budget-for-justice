@@ -32,9 +32,11 @@ const MyApp: React.FC<Props> = ({ Component, pageProps }) => {
 
   useEffect(() => {
     const handleRouteChange = (url) => {
-      window.gtag('config', process.env.NEXT_PUBLIC_ANALYTICS_ID, {
-        page_path: url,
-      });
+      if (typeof window.gtag !== 'undefined') {
+        window.gtag('config', process.env.NEXT_PUBLIC_ANALYTICS_ID, {
+          page_path: url,
+        });
+      }
     };
 
     const handleRouteComplete = () => {

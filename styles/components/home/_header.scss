@@ -1,4 +1,4 @@
-@use "../../settings/variables" as *;
+@use '../../settings/variables' as *;
 
 .home-header {
   .wrapper {
@@ -31,7 +31,7 @@
       margin-top: 0.5rem;
 
       &:empty:before {
-        content: "\00a0";
+        content: '\00a0';
       }
     }
   }

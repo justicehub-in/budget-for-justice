@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as echarts from 'echarts/core';
-import { BarChart } from 'echarts/charts';
-import { SVGRenderer } from 'echarts/renderers';
+import { BarChart, LineChart } from 'echarts/charts';
+import { CanvasRenderer } from 'echarts/renderers';
 import {
   GridComponent,
   DatasetComponent,
@@ -19,7 +19,12 @@ interface BarChartProps {
   yAxisLabel: string;
   theme: string[];
   dataset: any;
-  stack: string;
+  stack: boolean;
+  Title: string;
+  subTitle: string;
+  left: string;
+  type: string;
+  smooth: boolean;
 }
 
 const BarChartViz: React.FC<BarChartProps> = ({
@@ -28,6 +33,11 @@ const BarChartViz: React.FC<BarChartProps> = ({
   theme,
   dataset,
   stack,
+  Title,
+  subTitle,
+  left,
+  type,
+  smooth,
 }) => {
   const [series, setSeries] = useState([]);
   const [option, setOption] = useState({});
@@ -37,7 +47,7 @@ const BarChartViz: React.FC<BarChartProps> = ({
     const vizSeries = [];
 
     let stackTrue = '';
-    if (stack == 'True') {
+    if (stack == true) {
       stackTrue = 'x';
     }
 
@@ -47,10 +57,20 @@ const BarChartViz: React.FC<BarChartProps> = ({
       columnLength++
     ) {
       vizSeries.push({
-        type: 'bar',
+        type: type,
         barMaxWidht: 16,
         itemStyle: { color: theme[columnLength] },
         stack: stackTrue,
+        smooth: smooth,
+        label: {
+          normal: {
+            show: true,
+            position: 'top',
+            formatter: function () {
+              return ''; //d.data;
+            },
+          },
+        },
         // animation: false,
       });
     }
@@ -61,16 +81,24 @@ const BarChartViz: React.FC<BarChartProps> = ({
   // setting option
   useEffect(() => {
     const vizOptions = {
-      legend: {},
+      legend: {
+        top: '17%',
+      },
       tooltip: {},
       dataset: { source: dataset },
-      grid: {},
+      grid: {
+        show: false,
+        top: '30%',
+        left: left,
+      },
       xAxis: {
         type: 'category',
         name: xAxisLabel,
         axisLine: {
           symbol: ['none', 'arrow'],
         },
+        nameLocation: 'middle',
+        nameGap: 30,
         axisTick: {
           show: false,
         },
@@ -79,7 +107,14 @@ const BarChartViz: React.FC<BarChartProps> = ({
         type: 'value',
         name: yAxisLabel,
         axisLine: { onZero: false, show: true, symbol: ['none', 'arrow'] },
+        nameLocation: 'middle',
+        nameGap: 50,
         nameRotate: 90,
+      },
+      title: {
+        text: Title,
+        left: 'center',
+        subtext: subTitle,
       },
       series: series,
     };
@@ -89,7 +124,8 @@ const BarChartViz: React.FC<BarChartProps> = ({
 
   echarts.use([
     BarChart,
-    SVGRenderer,
+    LineChart,
+    CanvasRenderer,
     GridComponent,
     TitleComponent,
     DatasetComponent,
@@ -103,6 +139,9 @@ const BarChartViz: React.FC<BarChartProps> = ({
       option={option}
       notMerge={true}
       lazyUpdate={true}
+      style={{
+        height: '100%',
+      }}
     />
   );
 

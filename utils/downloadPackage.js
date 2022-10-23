@@ -1,6 +1,6 @@
-import * as JSZip from "jszip";
-import JSZipUtils from "jszip-utils";
-import { saveAs } from "file-saver";
+import * as JSZip from 'jszip';
+import JSZipUtils from 'jszip-utils';
+import { saveAs } from 'file-saver';
 
 export function downloadPackage(urls, fileName) {
   var zip = new JSZip();
@@ -8,7 +8,7 @@ export function downloadPackage(urls, fileName) {
   var zipFilename = `${fileName}.zip`;
 
   urls.forEach(function (url) {
-    var filename = url.split("/")[url.split("/").length - 1];
+    var filename = url.split('/')[url.split('/').length - 1];
     // loading a file and add it in a zip file
     JSZipUtils.getBinaryContent(url, function (err, data) {
       if (err) {
@@ -17,7 +17,7 @@ export function downloadPackage(urls, fileName) {
       zip.file(filename, data, { binary: true });
       count++;
       if (count == urls.length) {
-        zip.generateAsync({ type: "blob" }).then(function (content) {
+        zip.generateAsync({ type: 'blob' }).then(function (content) {
           saveAs(content, zipFilename);
         });
       }
