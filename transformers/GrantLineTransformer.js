@@ -2,9 +2,9 @@ export function grantLineTransformer(data, indicator) {
   var final_data = [];
   let headerData = [
     'Year',
-    'Actuals ',
-    'Revised Estimates ',
     'Budget Estimates ',
+    'Revised Estimates ',
+    'Actuals ',
   ];
   final_data.push(headerData);
 
@@ -21,6 +21,9 @@ export function grantLineTransformer(data, indicator) {
   const dataobj = data;
   for (var item in dataobj) {
     if (Object.prototype.hasOwnProperty.call(dataobj, item)) {
+      if (item == "2017-18") {
+        continue
+      }
       let temp_array = [item];
 
       for (var j = 1; j < headerData.length; j++) {

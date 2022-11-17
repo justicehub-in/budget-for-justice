@@ -36,7 +36,11 @@ const grant = ({ data, fileData, sumData, grant }) => {
 
   // page load set schemes
   let uniqueSchemes = fileData.filter((obj) => {
-    return obj.category === selectedCat;
+    if (selectedCat != '') { return obj.category === selectedCat; }
+    else {
+      return true
+    }
+
   });
   uniqueSchemes = uniqueSchemes.filter(
     (v, i, a) => a.findIndex((t) => t.display_title === v.display_title) === i
@@ -44,12 +48,12 @@ const grant = ({ data, fileData, sumData, grant }) => {
 
   // set filteredscheme with selected cats unique schemes but at first page load set it with any 10 schemes
   const [filteredSchemes, setFilteredSchemes] = useState(
-    selectedCat == '' ? fileData.splice(0, 10) : uniqueSchemes
+    selectedCat == '' ? uniqueSchemes.splice(0, 10) : uniqueSchemes
   );
 
   const handleCatChange = (event) => {
     setSelectedCat(event.target.value);
-
+    console.log(fileData)
     uniqueSchemes = fileData.filter((obj) => {
       return obj.category === event.target.value;
     });
@@ -63,10 +67,12 @@ const grant = ({ data, fileData, sumData, grant }) => {
 
   const handleSearchChange = (value) => {
     console.log('i', uniqueSchemes.length);
-    console.log(value);
+    console.log(uniqueSchemes);
     setFilteredSchemes(
       uniqueSchemes.filter((obj) => {
-        return obj.display_title.toLowerCase().includes(value.toLowerCase());
+        if ('display_title' in obj) { return obj.display_title.toLowerCase().includes(value.toLowerCase()); }
+        else { false }
+
       })
     );
     console.log(filteredSchemes.length);
