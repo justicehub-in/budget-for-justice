@@ -5808,8 +5808,8 @@ button {
 }
 
 .column2 {
-  width: 50%;
-  margin: auto;
+  
+  flex: 1 0 33.33%;
 }
 
 .card2 {
@@ -6343,16 +6343,17 @@ button {
 
 .budge {
   display: flex;
-  width: 80%;
-  margin: auto;
+    max-width: 1216px;
+    margin: auto;
+    padding: 0 15px;
 }
 
 .h1banner {
   background-color: #00abb7;
-  /* margin-left: auto; */
-  /* margin-right: auto; */
+  margin-left: auto;
+  margin-right: auto;
   margin-top: -100px;
-  width: 55%;
+  width: 50%;
   padding: 28px;
   border-radius: 20px;
 }
@@ -6360,9 +6361,9 @@ button {
 .h2banner {
   background-color: #00abb7;
   margin-left: 10px;
-  /* margin-right: auto; */
+  margin-right: auto;
   margin-top: -100px;
-  width: 55%;
+  width: 50%;
   padding: 28px;
   border-radius: 20px;
 }
@@ -6371,6 +6372,7 @@ button {
   display: block;
   margin: 2%;
   padding: 2%;
+  
 }
 
 .h1bannerhead {
@@ -6516,7 +6518,7 @@ button {
   line-height: 1.5;
   margin-left: 10px;
   padding-top: 10px;
-  font-size: 20px;
+  font-size: 22px;
   text-decoration: none;
   color: black;
   display: inline-block;
@@ -6531,9 +6533,8 @@ button {
 }
 
 .column3 {
-  width: 55%;
   margin: auto;
-  padding-bottom: 10px;
+  width: 50%;
 }
 
 .subcd3 {
@@ -6577,6 +6578,8 @@ button {
 .partnersinfo {
   display: flex;
   padding: 30px;
+  margin: auto;
+  max-width: 1218px;
 }
 
 .clients1 {
@@ -6612,9 +6615,9 @@ button {
     margin-left: auto;
     margin-right: auto;
     margin-top: -165px;
-    width: 55%;
+    width: 60%;
     padding: 28px;
-    border-radius: 20px;
+
   }
 
   .h2banner {
@@ -6622,7 +6625,7 @@ button {
     margin-left: auto;
     margin-right: auto;
     margin-top: 12px;
-    width: 55%;
+    width: 60%;
     padding: 28px;
     border-radius: 20px;
   }
@@ -6640,13 +6643,20 @@ button {
     margin: 10px;
   }
 
+  
+
+
+}
+@media screen and (max-width: 700px) {
+
   .h1banner {
     width: auto;
   }
-
   .h2banner {
     width: auto;
   }
+
+
 }
 
 @media screen and (max-width: 800px) {
@@ -6658,6 +6668,8 @@ button {
   .grpcard1 {
     display: block;
   }
+
+ 
 
   .partnersinfo {
     display: block;
