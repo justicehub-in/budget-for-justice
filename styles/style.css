@@ -5530,6 +5530,7 @@ button {
   display: flex;
   /* flex-wrap: wrap; */
   list-style: none;
+  margin: auto;
 }
 
 .subheading {
@@ -5539,15 +5540,21 @@ button {
 }
 
 .cardbg {
-  margin: 3%;
+  margin: auto;
+  margin: auto;
   position: relative;
   z-index: 1;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 72px;
+  max-width: 1216px;
+  padding-bottom: 112px;
 }
 
 .card {
   position: relative;
   height: 130px;
-  width: 80%;
+ 
   margin: auto;
   background: #cdc3ad;
   mix-blend-mode: multiply;
@@ -5560,6 +5567,13 @@ button {
 #textbox {
   display: flex;
   padding: 2%;
+  font-weight: bold;
+  align-items: center;
+}
+
+#maintextbox{
+  display: flex;
+  padding: 20px;
   font-weight: bold;
   align-items: center;
 }
@@ -5743,10 +5757,12 @@ button {
 
 .s2banner {
   display: flex;
-  background-color: #f2dfba;
-  margin: auto;
-  width: 80%;
-  border-radius: 2%;
+    background-color: #f2dfba;
+    margin: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: 1216px;
+    border-radius: 2%;
 }
 
 .s2bannerc2 {
@@ -5787,12 +5803,12 @@ button {
 
 .grpcard {
   display: flex;
-  width: 80%;
+  max-width: 1218px;
   margin: auto;
 }
 
 .column2 {
-  width: 55%;
+  width: 50%;
   margin: auto;
 }
 
@@ -5837,10 +5853,10 @@ button {
 }
 
 .lasttxt {
-  margin-left: 10%;
-  margin-top: 2%;
+  max-width: 1216px;
+  margin: auto;
   line-height: 1.5;
-  padding-bottom: 4%;
+  padding-bottom: 15px;
 }
 
 .lastcon {
@@ -5911,11 +5927,11 @@ button {
 
 /* Responsive columns */
 
-@media screen and (max-width: 1020px) {
+/* @media screen and (max-width: 1020px) {
   .grpcard {
     width: fit-content;
   }
-}
+} */
 
 @media screen and (max-width: 820px) {
   .column {
@@ -5943,7 +5959,7 @@ button {
   }*/
   .card {
     position: relative;
-    width: 80%;
+    max-width:1218px;
     height: auto;
     margin: auto;
     background: #cdc3ad;
@@ -6036,13 +6052,11 @@ button {
 }
 
 @media screen and (max-width: 500px) {
-  .card {
+  /* .card {
     width: auto;
-  }
+  } */
 
-  .lasttxt {
-    margin: 4%;
-  }
+ 
 
   .subheading {
     margin-bottom: 3%;
@@ -6512,7 +6526,6 @@ button {
 
 .grpcard1 {
   display: flex;
-  width: fit-content;
   padding: 20px;
   margin: auto;
 }
@@ -6741,4 +6754,96 @@ button {
 
 .navdropdown:hover .dropbtn {
   background-color: #f65940;
+}
+
+
+
+/* case studies */
+.caseStudies{
+padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto;
+max-width: 1218px;
+
+
+}
+
+.caseStudiesul{
+  display: grid;
+  gap: 24px;
+  margin-block: 32px;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+}
+
+.caseStudiessec{
+  text-decoration: none;
+    padding: 24px;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 200ms ease 0s;
+    height: 100%;
+    border-radius: 4px;
+    background-color: white;
+    position: relative;
+    filter: var(--box-shadow);
+}
+
+.caseStudiesart{
+  height: 100%;
+}
+
+.caseStudiesimg{
+  width: fit-content;
+    padding: 33px;
+    background-color: var(--color-primary-06);
+    margin: auto;
+    border-radius: 2px;
+    border: 1px solid var(--color-gray-01);
+}
+
+
+
+.caseStudiescontent{
+  margin-top: 24px;
+    /* gap: 16px; */
+    text-align: center;
+}
+.caseStudiescontenth2{
+ font-weight: bold;
+}
+.caseStudiescontentp{
+  margin-top: 10px;
+ }
+
+ .casestudiesbutton{
+  padding: 7px 14px;
+    line-height: 133%;
+    border-radius: 4px;
+    margin: auto;
+    text-decoration: none;
+   width: 50%;
+   text-align: center;
+    transition: background-color 200ms ease;
+    display: block;
+    background-color: #f65940;
+    color: #fdfcfc;
+    border: 1px solid #f65940;
+ }
+
+ /* .caseStudiesli{
+  width: fit-content;
+ } */
+
+.resourcebutton{
+  padding: 0 15px;
+}
+ .about__initiative1 {
+  padding-top: 72px;
+  max-width: 1216px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
