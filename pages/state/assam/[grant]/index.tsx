@@ -36,11 +36,11 @@ const grant = ({ data, fileData, sumData, grant }) => {
 
   // page load set schemes
   let uniqueSchemes = fileData.filter((obj) => {
-    if (selectedCat != '') { return obj.category === selectedCat; }
-    else {
-      return true
+    if (selectedCat != '') {
+      return obj.category === selectedCat;
+    } else {
+      return true;
     }
-
   });
   uniqueSchemes = uniqueSchemes.filter(
     (v, i, a) => a.findIndex((t) => t.display_title === v.display_title) === i
@@ -53,7 +53,7 @@ const grant = ({ data, fileData, sumData, grant }) => {
 
   const handleCatChange = (event) => {
     setSelectedCat(event.target.value);
-    console.log(fileData)
+    console.log(fileData);
     uniqueSchemes = fileData.filter((obj) => {
       return obj.category === event.target.value;
     });
@@ -70,9 +70,11 @@ const grant = ({ data, fileData, sumData, grant }) => {
     console.log(uniqueSchemes);
     setFilteredSchemes(
       uniqueSchemes.filter((obj) => {
-        if ('display_title' in obj) { return obj.display_title.toLowerCase().includes(value.toLowerCase()); }
-        else { false }
-
+        if ('display_title' in obj) {
+          return obj.display_title.toLowerCase().includes(value.toLowerCase());
+        } else {
+          false;
+        }
       })
     );
     console.log(filteredSchemes.length);
@@ -171,65 +173,19 @@ const grant = ({ data, fileData, sumData, grant }) => {
     <>
       <Seo seo={seo} />
       <div className="screen">
-        <div>
+        <div className="about__initiative1 container1">
           <Link href={'/state/assam'}>
             <a className="utxt">Home</a>
           </Link>
         </div>
-        <div className="about__initiative container1">
+        <div className="about__initiative1 container1">
           <div>
             <h2 className="heading">{grant.split('-')[1]} Budget</h2>
             <h2 className="subtxt">{grant.split('-')[0]}</h2>
           </div>
         </div>
-        <div className="subscreen">
-          <div className="subcl">
-            <div className="subcrd">
-              <div className="subcrdtxt">
-                <p>Budget Estimates 2021-22</p>
-              </div>
-              <hr></hr>
-              <div id="textbox">
-                <p className="alignleft">{`₹  ${sumData['2021-22'][
-                  'Budget Estimates '
-                ].toFixed(2)}  Cr`}</p>
-                {/*<p className="alignright"><span className="special1">10% &nbsp;
-                                      <img className="profitdn" src="/assets/icons/loss.svg" alt="" /> </span></p> */}
-              </div>
-            </div>
-            <div className="subcrd2">
-              <div className="subcrdtxt">
-                <p>Revised Estimate 2020-21</p>
-              </div>
-              <hr></hr>
-              <div id="textbox">
-                <p className="alignleft">{`₹  ${sumData['2020-21'][
-                  'Revised Estimates '
-                ].toFixed(2)}  Cr`}</p>
-              </div>
-            </div>
-            <div className="subcrd2">
-              <div className="subcrdtxt">
-                <p>Actuals 2019-20</p>
-              </div>
-              <hr></hr>
-              <div id="textbox">
-                <p className="alignleft">{`₹  ${sumData['2019-20'][
-                  'Actuals '
-                ].toFixed(2)}  Cr`}</p>
-              </div>
-            </div>
-            {/*<div className="subcrd2">
-                            <div className="subcrdtxt">
-                              <p>Actuals 2018-19</p>
-                            </div>
-                            <hr></hr>
-                            <div id="textbox">
-                              <p className="alignleft">{`₹  ${sumData['2018-19']['Actuals ']}  Cr`}</p>
-                            </div>
-                          </div> */}
-          </div>
-          <div className="explorer vizspace">
+        <main className="explorer">
+          <section className="explorer__viz1 container">
             <div className="viz">
               <div className="viz__header">
                 {/* viz selector toggle */}
@@ -279,11 +235,14 @@ const grant = ({ data, fileData, sumData, grant }) => {
                               smooth={true}
                             />
                         </figure>*/}
-          </div>
-        </div>
+          </section>
+        </main>
 
-        <div className="headfoot">
+        <div className="about__initiative1 container1">
+          {' '}
           <h3 className="midtx1">Schemes</h3>
+        </div>
+        <div className="headfoot">
           <div className="alig">
             <input
               type="text"

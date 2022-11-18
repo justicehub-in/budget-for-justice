@@ -6083,14 +6083,15 @@ button {
 -------css for grant----------*/
 
 .screen {
-  background-color: #f0eeeb;
+  background-color: #F0EEEB;
 }
-
+.screen .about__initiative1.container1{
+padding-top: 40px;
+}
 .utxt {
   color: #8f8d88;
   display: inline-flex;
-  margin-left: 10.5%;
-  margin-top: 5%;
+ 
 }
 
 .subtxt {
@@ -6148,20 +6149,26 @@ button {
 }
 
 .headfoot {
-  display: flex;
-  justify-content: space-evenly;
+  max-width: 1216px;
+    padding: 15px 30px;
+    margin: auto;
 }
 
 .headfoot input[type='text'] {
   padding: 6px;
-  border: none;
-  font-size: 17px;
-  width: 300px;
-  margin-left: -13%;
+    border: none;
+    font-size: 17px;
+    border: 1px solid lightgrey;
+    width: 50%;
+    height: 48px;
+}
+.headfoot .select-comp {
+  max-width: 30%;
 }
 
 .alig {
-  display: contents;
+  display: flex;
+  gap: 20px;
   justify-content: space-between;
 }
 
@@ -6182,7 +6189,9 @@ button {
   .subscreen {
     display: block;
   }
-
+  .headfoot .select-comp {
+    max-width: 50%;
+}
   .subcl {
     display: contents;
     margin: auto;
@@ -6203,19 +6212,15 @@ button {
 
 @media screen and (max-width: 520px) {
   .alig {
-    display: flex;
-    justify-content: space-evenly;
-    margin: inherit;
+    display: block;
+    width: 100%;
   }
 
-  .headfoot {
-    display: block;
-    margin: 2%;
-  }
+
 
   .headfoot input[type='text'] {
-    margin-left: 0%;
-    width: 155px;
+    margin-bottom: 10px;
+    width: 100%;
   }
 }
 
