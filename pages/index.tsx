@@ -128,7 +128,7 @@ const home = ({ content }) => {
           </div>
         </div>
       </div>
-      <div className="container2">
+      <div className="about__initiative1 container1">
         <div>
           <h2 className="heading1">Understanding Budgets</h2>
           {/* <h2 className="subheading1">
@@ -186,7 +186,9 @@ const home = ({ content }) => {
                 alt=""
               />
               <div className="cardh1">
-                <h2 className="pctxt">Understanding budgeting for Police in India</h2>
+                <h2 className="pctxt">
+                  Understanding budgeting for Police in India
+                </h2>
                 <a
                   className="cardbut1"
                   target="_blank"
@@ -224,7 +226,9 @@ const home = ({ content }) => {
                 alt=""
               />
               <div className="cardh1">
-                <h2 className="pctxt">Budgets for Legal Aid with Project 39A</h2>
+                <h2 className="pctxt">
+                  Budgets for Legal Aid with Project 39A
+                </h2>
                 <a
                   className="cardbut1"
                   target="_blank"
@@ -367,7 +371,7 @@ const home = ({ content }) => {
           </div>
         </div>
       </div>
-      <div className="container2">
+      <div className="about__initiative1 container1">
         <div>
           <h2 className="heading1">Featured News & Stories</h2>
           {/* <h2 className="subheading1">
@@ -414,7 +418,7 @@ const home = ({ content }) => {
                     rel="noreferrer noopener"
                     className="cardh2"
                   >
-                    Making Law and Justice budgets Accessible and Actionable{' '}
+                    Making Law and Justice budgets Accessible and Actionable
                   </a>
                 </Link>
                 {/* <hr></hr>
