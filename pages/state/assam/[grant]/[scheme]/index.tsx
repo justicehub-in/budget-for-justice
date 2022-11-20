@@ -495,7 +495,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const allresUrls = [];
   let resUrl = '';
   for (const res of data.resources) {
-    if (res.name == grant) {
+    if (res.name.includes(grant)) {
       resUrl = res.url;
     }
     allresUrls.push(res.url);

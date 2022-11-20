@@ -133,7 +133,7 @@ const assam = ({ data }) => {
                       </p>
                       <a
                         className="explore"
-                        href={'assam/Grant No 15 - Jails'}
+                        href={'assam/Jails'}
                       >
                         Explore
                       </a>
@@ -168,7 +168,7 @@ const assam = ({ data }) => {
                       </p>
                       <a
                         className="explore"
-                        href={'assam/Grant No 3 - Administration of Justice'}
+                        href={'assam/Justice'}
                       >
                         Explore
                       </a>
@@ -203,7 +203,7 @@ const assam = ({ data }) => {
                       </p>
                       <a
                         className="explore"
-                        href={'assam/Grant No 14 - Police'}
+                        href={'assam/Police'}
                       >
                         Explore
                       </a>

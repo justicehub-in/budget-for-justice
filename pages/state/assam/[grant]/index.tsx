@@ -28,6 +28,9 @@ import Table from 'components/_shared/Table';
 import { ListingHeader } from 'animation/listingHeader';
 
 const grant = ({ data, fileData, sumData, grant }) => {
+
+  console.log('abcd', fileData, '----', sumData, '---', grant)
+
   const router = useRouter();
   const unique_cat = [...new Set(fileData.map((item) => item.category))];
   const [selectedCat, setSelectedCat] = useState('');
@@ -316,7 +319,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   let resUrl = '';
   let sumUrl = '';
   for (const res of data.resources) {
-    if (res.name == grant) {
+    if (res.name.includes(grant)) {
       resUrl = res.url;
     }
     if (res.name.includes('Grant Summary')) {
@@ -333,8 +336,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // split and check grant name since there is difference in grant whole name in summary file and grant res file
   summaryData = summaryData.filter((obj) => {
     return (
-      (obj.GrantNumber.split('-')[1] || '').toLowerCase() ===
-      String(grant).split('-')[1].toLowerCase()
+      (obj.GrantNumber.split('-')[1] || '').trim().toLowerCase().includes(
+        String(grant).toLowerCase())
     );
   });
 
