@@ -137,6 +137,7 @@ const Analysis: React.FC<Props> = ({
           left="8%"
           type="bar"
           smooth={true}
+          unit="Crores"
         />
       ),
     },
@@ -154,6 +155,7 @@ const Analysis: React.FC<Props> = ({
           left="8%"
           type="line"
           smooth={true}
+          unit="Crores"
         />
       ),
     },

@@ -25,6 +25,7 @@ interface BarChartProps {
   left: string;
   type: string;
   smooth: boolean;
+  unit: string;
 }
 
 const BarChartViz: React.FC<BarChartProps> = ({
@@ -38,6 +39,7 @@ const BarChartViz: React.FC<BarChartProps> = ({
   left,
   type,
   smooth,
+  unit,
 }) => {
   const [series, setSeries] = useState([]);
   const [option, setOption] = useState({});
@@ -84,7 +86,13 @@ const BarChartViz: React.FC<BarChartProps> = ({
       legend: {
         top: '17%',
       },
-      tooltip: {},
+      tooltip: {
+        trigger: 'item',
+        formatter: function (params) {
+          return `${params['seriesName']} - <br />
+          ${params['name']} :  ${parseFloat(params['value'][params['componentIndex'] + 1]).toFixed(2)} ${unit}<br />`;
+        },
+      },
       dataset: { source: dataset },
       grid: {
         show: false,
