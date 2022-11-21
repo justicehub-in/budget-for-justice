@@ -217,7 +217,7 @@ const assam = ({ data }) => {
         <div className="screen2">
           <div className="about__initiative1 container1">
             <div>
-              <h3 className="s2head">CaseStudies</h3>
+              {/* <h3 className="s2head">CaseStudies</h3> */}
               <h2 className="s2txt">Budget Highlights</h2>
             </div>
           </div>
@@ -274,7 +274,7 @@ const assam = ({ data }) => {
           </div>
           <div className="about__initiative1 container1">
             <div>
-              <h3 className="s2head">Explore Other</h3>
+              {/* <h3 className="s2head">Explore Other</h3> */}
               <h2 className="s2txt">Relevant Platforms & Guidebooks</h2>
             </div>
           </div>
@@ -288,11 +288,11 @@ const assam = ({ data }) => {
                     alt=""
                   />
                   <div className="subp">
-                    <a href="https://union.openbudgetsindia.org/en/">
-                      <h2 className="subh">Union Budget Explorer 2022-23</h2>
+                    <a href="https://assam2022.openbudgetsindia.org/en/">
+                      <h2 className="subh">Assam Budget Explorer 2022-23</h2>
                     </a>
                     <h2 className="ctext">
-                      Analyze everything about Union budget 2022-2023
+                      Analyze everything about Assam budget 2022-2023
                     </h2>
                   </div>
                   <img
@@ -310,35 +310,12 @@ const assam = ({ data }) => {
                     alt=""
                   />
                   <div className="subp">
-                    <a href="https://union2021.openbudgetsindia.org/en/">
+                    <a href="https://assam2021.openbudgetsindia.org/en/">
                       {' '}
-                      <h2 className="subh">Union Budget Explorer 2021-22</h2>
+                      <h2 className="subh">Assam Budget Explorer 2021-22</h2>
                     </a>
                     <h2 className="ctext">
-                      Analyze everything about Union budget 2021-2022
-                    </h2>
-                  </div>
-                  <img
-                    className="sarrow"
-                    src="/assets/icons/sidearrow.svg"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div className="card2">
-                <div className="subcd2">
-                  <img
-                    className="obilogo"
-                    src="/assets/images/obilogo.png"
-                    alt=""
-                  />
-                  <div className="subp">
-                    <a href="https://union2020.openbudgetsindia.org/en/">
-                      {' '}
-                      <h2 className="subh">Union Budget Explorer 2020-21</h2>
-                    </a>
-                    <h2 className="ctext">
-                      Analyze everything about Union Budget 2020-21
+                      Analyze everything about Assam budget 2021-2022
                     </h2>
                   </div>
                   <img
@@ -358,12 +335,12 @@ const assam = ({ data }) => {
                     alt=""
                   />
                   <div className="subp">
-                    <a href="https://union2019.openbudgetsindia.org/en/">
+                    <a href="https://assam2020.openbudgetsindia.org/en/">
                       {' '}
-                      <h2 className="subh">Union Budget Explorer 2019-20</h2>
+                      <h2 className="subh">Assam Budget Explorer 2020-21</h2>
                     </a>
                     <h2 className="ctext">
-                      Analyze everything about Union Budget 2019-20
+                      Analyze everything about Assam Budget 2020-21
                     </h2>
                   </div>
                   <img
@@ -381,13 +358,12 @@ const assam = ({ data }) => {
                     alt=""
                   />
                   <div className="subp">
-                    <a href="https://union2019i.openbudgetsindia.org/en/">
-                      <h2 className="subh">
-                        Union Budget Explorer 2019-20(I)
-                      </h2>
+                    <a href="https://assam2019.openbudgetsindia.org/en/">
+                      {' '}
+                      <h2 className="subh">Assam Budget Explorer 2019-20</h2>
                     </a>
                     <h2 className="ctext">
-                      Analyze everything about Union Budget 2019-20(I)
+                      Analyze everything about Assam Budget 2019-20
                     </h2>
                   </div>
                   <img
@@ -397,33 +373,12 @@ const assam = ({ data }) => {
                   />
                 </div>
               </div>
-              <div className="card2">
-                <div className="subcd2">
-                  <img
-                    className="obilogo"
-                    src="/assets/images/obilogo.png"
-                    alt=""
-                  />
-                  <div className="subp">
-                    <a href="https://union2018.openbudgetsindia.org/en/">
-                      <h2 className="subh">Union Budget Explorer 2018-19</h2>
-                    </a>
-                    <h2 className="ctext">
-                      Analyze everything about Union budget 2018-19
-                    </h2>
-                  </div>
-                  <img
-                    className="sarrow"
-                    src="/assets/icons/sidearrow.svg"
-                    alt=""
-                  />
-                </div>
-              </div>
+
             </div>
           </div>
           <div className="about__initiative1 container1">
             <div>
-              <h3 className="s2head">RESOURCES</h3>
+              {/* <h3 className="s2head">RESOURCES</h3> */}
               <h2 className="s2txt">Know more about the Assam - L&J Data</h2>
             </div>
           </div>

@@ -261,7 +261,7 @@ const grant = ({ data, fileData, sumData, grant }) => {
             >
               <option hidden>Category</option>
               {unique_cat.map((item, index) => (
-                <option key={`option-${index}`}>{item}</option>
+                item ? <option key={`option-${index}`}>{item}</option> : ""
               ))}
             </select>
           </div>
