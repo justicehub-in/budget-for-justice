@@ -46,31 +46,31 @@ const assam = ({ data }) => {
 
   const caseStudies = [
     {
-      title: 'CaseStudie 1',
-      desc: 'A sample desc about case studies',
+      title: 'Budgeting for Open Air Prisons',
+      desc: 'The budget for Open Air Jails is allocated as part of Grant No. 15 in the state budget of Assam.',
       link: '#',
       image: {
-        url: '/assets/images/ban.PNG',
+        url: '/assets/images/case1.png',
         width: 324,
         height: 235,
       },
     },
     {
-      title: 'CaseStudie 2',
-      desc: 'A sample desc about case studies',
+      title: 'Police budgeting in Assam',
+      desc: 'In 2022-23, Assam allocated 6% of its total expenditure on police, which is higher than the average expenditure on police by states (4.3%).',
       link: '#',
       image: {
-        url: '/assets/images/ban.PNG',
+        url: '/assets/images/case2.png',
         width: 324,
         height: 235,
       },
     },
     {
-      title: 'CaseStudie 3',
-      desc: 'A sample desc about case studies',
+      title: 'Budgets for Legal Aid',
+      desc: 'The budget for Legal Aid is allocated as part of Grant No. 3 (Administration of Justice) in the state budget of Assam.',
       link: '#',
       image: {
-        url: '/assets/images/ban.PNG',
+        url: '/assets/images/case3.png',
         width: 324,
         height: 235,
       },
@@ -83,15 +83,15 @@ const assam = ({ data }) => {
         <div className="screen1">
           <div className="about__initiative1 container1">
             <div>
-              <h2 className="heading">Assam</h2>
-              <h2 className="subheading">Law & Justice Data</h2>
+              <h2 className="heading">Budgets for Justice | Assam</h2>
+              <h3 className="subheading">Explore and analyse the patterns of budget allocation and expenditure under Administration of Justice, Prison and Police related budget heads in Assam.</h3>
             </div>
           </div>
 
           <div className="cardbg">
             <div className="card">
               <div id="maintextbox">
-                <p className="alignleft">Total Budget - Assam</p>
+                <p className="alignleft">Total Budget - Assam - 2022-23</p>
                 <p className="alignright">
                   ₹ 1,19,551.06 Cr.&nbsp;|&nbsp;
                   <span className="special">
@@ -216,9 +216,13 @@ const assam = ({ data }) => {
         </div>
         <div className="screen2">
           <div className="about__initiative1 container1">
+            {/* <div>
+              <h2 className="heading">Budgets for Justice | Assam</h2>
+              <h3 className="subheading">Explore and analyse the patterns of budget allocation and expenditure under Administration of Justice, Prison and Police related budget heads in Assam.</h3>
+            </div> */}
             <div>
-              {/* <h3 className="s2head">CaseStudies</h3> */}
-              <h2 className="s2txt">Budget Highlights</h2>
+              <h3 className="s2head">Case Studies</h3>
+              <h2 className="s2txt">The case studies highlight the current state of law and justice-related budgeting in Assam. Check these links to know more.</h2>
             </div>
           </div>
           <div className="caseStudies">
@@ -257,12 +261,12 @@ const assam = ({ data }) => {
                 Citizen Friendly
               </h2>
               <p className="s2bannertxt">
-                A Guide to Make State Budgets Data Open, Accessible and Citizen
-                Friendly
+                A guidebook for state finance departments to make State Budgets data open,
+                accessible and citizen-friendly
               </p>
               <a
                 className="s2bannerbut"
-                href="https://bit.ly/cdlguideobi"
+                href="https://civicdatalab.in/resources/state-budget-data-guidebook.pdf"
                 target="_blank"
                 rel="noreferrer noopener"
               >
@@ -274,8 +278,8 @@ const assam = ({ data }) => {
           </div>
           <div className="about__initiative1 container1">
             <div>
-              {/* <h3 className="s2head">Explore Other</h3> */}
-              <h2 className="s2txt">Relevant Platforms & Guidebooks</h2>
+              <h3 className="s2head">Platforms to analyse budget data</h3>
+              <h2 className="s2txt">Use these platforms to explore and understand the state budget of Assam in much more detail</h2>
             </div>
           </div>
           <div className="grpcard">
@@ -378,8 +382,8 @@ const assam = ({ data }) => {
           </div>
           <div className="about__initiative1 container1">
             <div>
-              {/* <h3 className="s2head">RESOURCES</h3> */}
-              <h2 className="s2txt">Know more about the Assam - L&J Data</h2>
+              <h3 className="s2head">Other Resources</h3>
+              {/* <h2 className="s2txt">Know more about the Assam - L&J Data</h2> */}
             </div>
           </div>
           <div className="lasttxt">
@@ -453,7 +457,7 @@ const assam = ({ data }) => {
                 <p>Assam Budget Analysis - 2022/23 by PRS</p>
               </a>
             </div>
-            <div className="resourcebutton">
+            {/* <div className="resourcebutton">
               <a
                 rel="noreferrer noopener"
                 href="/state/assam/resources"
@@ -461,7 +465,7 @@ const assam = ({ data }) => {
               >
                 Explore More
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

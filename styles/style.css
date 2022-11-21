@@ -5533,7 +5533,8 @@ button {
 .subheading {
   font-weight: 700;
   color: #00000052;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  padding-top: 2%;
 }
 
 .cardbg {
@@ -5677,8 +5678,8 @@ button {
 }
 
 .s2txt {
-  font-size: 22px;
-  padding-top: 5%;
+  font-size: 15px;
+  padding-top: 2%;
   align-items: center;
   width: 100%;
   font-weight: bold;

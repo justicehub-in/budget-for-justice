@@ -192,7 +192,7 @@ const Analysis: React.FC<Props> = ({
             type="button"
             onClick={() => downloadPackage(data.resUrls, data.title)}
           >
-            Download Data Package <Download />
+            Download Datasets <Download />
           </button>
         </div>
         <p className="banner__notice">
