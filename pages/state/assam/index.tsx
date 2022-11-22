@@ -48,7 +48,7 @@ const assam = ({ data }) => {
     {
       title: 'Budgeting for Open Air Prisons',
       desc: 'The budget for Open Air Jails is allocated as part of Grant No. 15 in the state budget of Assam.',
-      link: '#',
+      link: 'https://justicehub-in.github.io/jh-guidebook/page/datasets/budgets/case-studies/prison.html',
       image: {
         url: '/assets/images/case1.png',
         width: 324,
@@ -58,7 +58,7 @@ const assam = ({ data }) => {
     {
       title: 'Police budgeting in Assam',
       desc: 'In 2022-23, Assam allocated 6% of its total expenditure on police, which is higher than the average expenditure on police by states (4.3%).',
-      link: '#',
+      link: 'https://justicehub-in.github.io/jh-guidebook/page/datasets/budgets/case-studies/police.html',
       image: {
         url: '/assets/images/case2.png',
         width: 324,
@@ -68,7 +68,7 @@ const assam = ({ data }) => {
     {
       title: 'Budgets for Legal Aid',
       desc: 'The budget for Legal Aid is allocated as part of Grant No. 3 (Administration of Justice) in the state budget of Assam.',
-      link: '#',
+      link: 'https://justicehub-in.github.io/jh-guidebook/page/datasets/budgets/case-studies/justice.html',
       image: {
         url: '/assets/images/case3.png',
         width: 324,
