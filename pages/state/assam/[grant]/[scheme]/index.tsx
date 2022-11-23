@@ -303,7 +303,10 @@ const Analysis: React.FC<Props> = ({
       <main className="explorer">
         <div className="explorer__header">
           <div className="explorer__buttons container">
-            <Link href={'./'}>
+            <Link href={{
+              pathname: "./",
+              query: { grant: grant },
+            }}>
               <a className="schemehead">{grant}</a>
             </Link>
             <div className="explorer__buttons container">
