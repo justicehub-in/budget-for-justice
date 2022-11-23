@@ -5671,10 +5671,9 @@ button {
 }
 
 .s2head {
-  background: linear-gradient(162.85deg, #f1bd58 0%, #3f3a31 99.48%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+color: #000;
+font-size: 1.5rem;
+font-weight: bold;
 }
 
 .s2txt {

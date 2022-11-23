@@ -84,7 +84,11 @@ const assam = ({ data }) => {
           <div className="about__initiative1 container1">
             <div>
               <h2 className="heading">Budgets for Justice | Assam</h2>
-              <h3 className="subheading">Explore and analyse the patterns of budget allocation and expenditure under Administration of Justice, Prison and Police related budget heads in Assam.</h3>
+              <h3 className="subheading">
+                Explore and analyse the patterns of budget allocation and
+                expenditure under Administration of Justice, Prison and Police
+                related budget heads in Assam.
+              </h3>
             </div>
           </div>
 
@@ -131,10 +135,7 @@ const assam = ({ data }) => {
                       <p className="alignleft">
                         <span className="ctext">0.13% of Total Budget</span>
                       </p>
-                      <a
-                        className="explore"
-                        href={'assam/Jails'}
-                      >
+                      <a className="explore" href={'assam/Jails'}>
                         Explore
                       </a>
                     </div>
@@ -166,10 +167,7 @@ const assam = ({ data }) => {
                       <p className="alignleft">
                         <span className="ctext">0.61% of Total Budget</span>
                       </p>
-                      <a
-                        className="explore"
-                        href={'assam/Justice'}
-                      >
+                      <a className="explore" href={'assam/Justice'}>
                         Explore
                       </a>
                     </div>
@@ -201,10 +199,7 @@ const assam = ({ data }) => {
                       <p className="alignleft">
                         <span className="ctext">5.79% of Total Budget</span>
                       </p>
-                      <a
-                        className="explore"
-                        href={'assam/Police'}
-                      >
+                      <a className="explore" href={'assam/Police'}>
                         Explore
                       </a>
                     </div>
@@ -222,7 +217,11 @@ const assam = ({ data }) => {
             </div> */}
             <div>
               <h3 className="s2head">Case Studies</h3>
-              <h2 className="s2txt">The case studies highlight the current state of law and justice-related budgeting in Assam. Check these links to know more.</h2>
+              <h2 className="subheading">
+                The case studies highlight the current state of law and
+                justice-related budgeting in Assam. Check these links to know
+                more.
+              </h2>
             </div>
           </div>
           <div className="caseStudies">
@@ -261,8 +260,8 @@ const assam = ({ data }) => {
                 Citizen Friendly
               </h2>
               <p className="s2bannertxt">
-                A guidebook for state finance departments to make State Budgets data open,
-                accessible and citizen-friendly
+                A guidebook for state finance departments to make State Budgets
+                data open, accessible and citizen-friendly
               </p>
               <a
                 className="s2bannerbut"
@@ -279,7 +278,10 @@ const assam = ({ data }) => {
           <div className="about__initiative1 container1">
             <div>
               <h3 className="s2head">Platforms to analyse budget data</h3>
-              <h2 className="s2txt">Use these platforms to explore and understand the state budget of Assam in much more detail</h2>
+              <h2 className="subheading">
+                Use these platforms to explore and understand the state budget
+                of Assam in much more detail
+              </h2>
             </div>
           </div>
           <div className="grpcard">
@@ -377,7 +379,6 @@ const assam = ({ data }) => {
                   />
                 </div>
               </div>
-
             </div>
           </div>
           <div className="about__initiative1 container1">
