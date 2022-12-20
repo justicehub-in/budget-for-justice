@@ -380,8 +380,8 @@ const home = ({ content }) => {
           </h2> */}
         </div>
       </div>
-      <div className="grpcard">
-          <div className="card2">
+      <div className="grpcard" style={{gap: '20px', marginBottom: '24px', marginTop: '20px'}}>
+          <div className="card2" style={{margin: 0}}>
             <div className="subcd3">
               <div className="story1">
                 <h2 className="cardh1">Union Budget</h2>
@@ -397,7 +397,7 @@ const home = ({ content }) => {
               </div>
             </div>
           </div>
-          <div className="card2">
+          <div className="card2" style={{margin: 0}}>
             <div className="subcd3">
               <div className="story1">
                 <h2 className="cardh1">Budgets for Justice</h2>
@@ -413,7 +413,7 @@ const home = ({ content }) => {
               </div>
             </div>
           </div>
-          <div className="card2">
+          <div className="card2" style={{margin: 0}}>
             <div className="subcd3">
               <div className="story1">
                 <h2 className="cardh1">Budgets for Justice</h2>
