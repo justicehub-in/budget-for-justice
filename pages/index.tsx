@@ -80,6 +80,7 @@ const home = ({ content }) => {
   }, []);
   return (
     <>
+    <Seo />
       <section className="home">
         <Video data={data.video} />
       </section>
@@ -380,7 +381,6 @@ const home = ({ content }) => {
         </div>
       </div>
       <div className="grpcard">
-        <div className="column3">
           <div className="card2">
             <div className="subcd3">
               <div className="story1">
@@ -397,8 +397,6 @@ const home = ({ content }) => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="column3">
           <div className="card2">
             <div className="subcd3">
               <div className="story1">
@@ -415,8 +413,6 @@ const home = ({ content }) => {
               </div>
             </div>
           </div>
-        </div> 
-        <div className="column3">
           <div className="card2">
             <div className="subcd3">
               <div className="story1">
@@ -433,7 +429,6 @@ const home = ({ content }) => {
               </div>
             </div>
           </div>
-        </div>
       </div>
 
       <div className="partners">
