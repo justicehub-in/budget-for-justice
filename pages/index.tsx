@@ -373,7 +373,7 @@ const home = ({ content }) => {
       </div>
       <div className="about__initiative1 container1">
         <div>
-          <h2 className="heading1">Featured News & Stories</h2>
+          <h2 className="heading1">Articles</h2>
           {/* <h2 className="subheading1">
             Lorem ipsum is simply dummy text for printing and typewriting
           </h2> */}
@@ -394,15 +394,6 @@ const home = ({ content }) => {
                     How The Union Budget Funds India&#39;s Justice System
                   </a>
                 </Link>
-                {/* <hr></hr>
-                <div className="articles">
-                  <img
-                    className="articleslogo"
-                    src="/assets/images/Icon.png"
-                    alt=""
-                  />
-                  <h2 className="articlename">Times of India</h2>
-                </div>*/}
               </div>
             </div>
           </div>
@@ -421,15 +412,24 @@ const home = ({ content }) => {
                     Making Law and Justice budgets Accessible and Actionable
                   </a>
                 </Link>
-                {/* <hr></hr>
-                <div className="articles">
-                  <img
-                    className="articleslogo"
-                    src="/assets/images/Icon.png"
-                    alt=""
-                  />
-                  <h2 className="articlename">Times of India</h2>
-                </div> */}
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div className="column3">
+          <div className="card2">
+            <div className="subcd3">
+              <div className="story1">
+                <h2 className="cardh1">Budgets for Justice</h2>
+                <Link href="https://medium.com/civicdatalab/a-data-dialogue-around-budgets-for-justice-in-assam-858420bb0e9e">
+                  <a
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="cardh2"
+                  >
+                    A data dialogue around budgets-for-justice in Assam
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
