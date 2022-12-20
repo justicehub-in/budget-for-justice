@@ -6535,8 +6535,10 @@ font-weight: bold;
 
 .grpcard1 {
   display: flex;
-  padding: 20px;
-  margin: auto;
+  max-width: 1218px;
+  margin-inline: auto;
+  margin-top: 24px;
+  margin-bottom: 20px;
 }
 
 .column3 {
@@ -6675,7 +6677,7 @@ font-weight: bold;
   }
 
   .grpcard1 {
-    display: block;
+    flex-direction: column;
   }
 
 

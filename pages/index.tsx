@@ -380,7 +380,7 @@ const home = ({ content }) => {
           </h2> */}
         </div>
       </div>
-      <div className="grpcard" style={{gap: '20px', marginBottom: '24px', marginTop: '20px'}}>
+      <div className="grpcard1">
           <div className="card2" style={{margin: 0}}>
             <div className="subcd3">
               <div className="story1">
